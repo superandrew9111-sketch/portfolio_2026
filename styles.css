@@ -1,0 +1,5629 @@
+/* ==========================================================================
+   1. СБРОС СТИЛЕЙ И БАЗОВЫЕ НАСТРОЙКИ ОБЫЧНОГО ЛЕНДИНГА
+   ========================================================================== */
+*, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html, body {
+    width: 100%; 
+    height: auto; /* Естественная высота для обычного скролла */
+}
+
+body {
+    overflow-x: hidden;
+    overflow-y: auto;
+    background-color: #EEF7FD; /* Цвет по умолчанию */
+    
+    /* Включаем чистое субпиксельное сглаживание для всего сайта */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+/* ==========================================================================
+   2. ЕДИНАЯ СИСТЕМА ФИКСИРОВАННЫХ ПО ВЫСОТЕ БЛОКОВ
+   ========================================================================== */
+.screen-frame {
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center; /* Центрируем контентную область строго по вертикали */
+    position: relative;
+    overflow: hidden;
+    flex-shrink: 0;
+}
+
+/* Кастомные фиксированные высоты блоков по ТЗ */
+.screen-frame.h-1080 { height: 1080px; min-height: 1080px; }
+.screen-frame.h-934  { height: 934px;  min-height: 934px;  }
+.screen-frame.h-840  { height: 840px;  min-height: 840px;  }
+.screen-frame.h-2130 { height: 2130px; min-height: 2130px; }
+.screen-frame.h-1110 { height: 1110px; min-height: 1110px; }
+.screen-frame.h-240  { height: 240px;  min-height: 240px;  }
+
+/* Универсальная контентная область (ширина всегда 1680px) */
+.content-container {
+    width: 1680px;
+    position: relative; 
+    flex-shrink: 0;
+    transform-origin: center center;
+    transition: transform 0.1s ease-out;
+}
+
+/* Высоты контентных областей строго по ТЗ */
+.h-1080 .content-container { height: 840px;  } /* 1, 2, 3, 4, 6 блоки */
+.h-934  .content-container { height: 694px;  } /* 5 блок */
+.h-840  .content-container { height: 600px;  } /* 7 блок */
+.h-2130 .content-container { height: 1890px; } /* 8 блок */
+.h-1110 .content-container { height: 870px;  } /* 9 блок */
+.h-240  .content-container { height: 1px;    } /* 10 блок */
+
+.content-container * {
+    font-family: 'AKT', 'Arial Black', sans-serif;
+    -webkit-font-smoothing: antialiased;
+}
+
+/* ==========================================================================
+   СТРАНИЦА ABOUT: БЛОК 13 — ГЕРОЙ-ЭКРАН (ИСТИННЫЙ СКЕЙЛИНГ / КОНТЕНТ 840px)
+   ========================================================================== */
+
+.about-section-hero {
+    width: 100vw !important;
+    height: 0 !important;
+    /* Полная высота с паддингами: 840 + 120 + 120 = 1080px. Пропорция к 1920px = 56.25% */
+    padding-top: 56.25% !important; 
+    position: relative !important;
+    background-color: #FFD600 !important; /* Насыщенный желтый фон */
+    overflow: hidden !important;
+    box-sizing: border-box !important;
+    z-index: 10 !important;
+}
+
+/* Центрированный абсолютный wrapper под рабочую высоту 1080px */
+.about-wrapper-fluid {
+    position: absolute !important;
+    top: 0 !important;
+    left: 50% !important;
+    transform: translateX(-50%) !important;
+    width: 100vw !important;
+    max-width: 1920px !important;
+    height: 100% !important;
+    box-sizing: border-box !important;
+    padding: 6.25vw !important; /* Отступы по 120px со всех сторон */
+}
+
+/* Координатная сетка 1680x840 */
+.about-row {
+    position: relative !important;
+    width: 100% !important;
+    height: 100% !important;
+}
+
+/* ЛЕВАЯ КОЛОНКА: КВАДРАТНАЯ ИЛЛЮСТРАЦИЯ HERO (600x600) */
+.about-hero-ill-block {
+    position: absolute !important;
+    top: 3.125vw !important;          /* Ровно 60px */
+    left: 0 !important;
+    width: 31.25vw !important;         /* Ровно 600px */
+    height: 31.25vw !important;        /* Ровно 600px */
+}
+
+.about-hero-img {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important;
+    display: block !important;
+}
+
+/* ЦЕНТРАЛЬНАЯ КОЛОНКА: ИНФО-БЛОК (810x599) */
+.about-hero-text-block {
+    position: absolute !important;
+    top: 3.125vw !important;          /* Ровно 60px */
+    left: 35.9375vw !important;       /* Ровно 690px */
+    width: 42.1875vw !important;       /* Ровно 810px */
+    height: 31.1979vw !important;      /* Ровно 599px */
+    display: flex !important;
+    flex-direction: column !important;
+}
+
+/* Главный заголовок (80px, Regular, 120%) */
+.about-hero-title {
+    font-family: 'AKT', sans-serif !important;
+    font-size: 4.166vw !important;   /* 80px */
+    font-weight: 400 !important;
+    color: #111111 !important;
+    line-height: 1.20 !important;
+    text-align: left !important;
+    margin: 0 !important;
+    margin-bottom: 5vw !important;   /* ТЗ отступ 96px от заголовка до подзаголовка */
+}
+
+/* Подзаголовок (32px, Regular, 120%) */
+.about-hero-subtitle {
+    font-family: 'AKT', sans-serif !important;
+    font-size: 1.666vw !important;   /* 32px */
+    font-weight: 400 !important;
+    color: #111111 !important;
+    line-height: 1.20 !important;
+    text-align: left !important;
+    margin: 0 !important;
+    margin-bottom: 2.5vw !important; /* Умеренный воздух до основного текста */
+}
+
+/* Основное описание (20px, Regular, 125%, 5%) */
+.about-hero-description {
+    font-family: 'AKT', sans-serif !important;
+    font-size: 1.0416vw !important;  /* 20px */
+    font-weight: 400 !important;
+    color: #111111 !important;
+    line-height: 1.25 !important;
+    letter-spacing: 0.05em !important; /* 5% */
+    text-align: left !important;
+    margin: 0 !important;
+}
+
+/* ПРАВАЯ НИЖНЯЯ КОЛОНКА: КОНТАКТЫ (Сверху 720px, Слева 1538px, Выравнивание по правому краю) */
+.about-contacts-block {
+    position: absolute !important;
+    top: 37.5vw !important;          /* Ровно 720px */
+    left: 80.1041vw !important;       /* Ровно 1538px */
+    width: 7.3958vw !important;        /* Оставшиеся 142px ширины */
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 1.5625vw !important;         /* Шаг между строчками ровно 30px */
+    align-items: flex-end !important;
+}
+
+.about-contact-link {
+    font-family: 'AKT', sans-serif !important;
+    font-size: 0.833vw !important;   /* 16px */
+    font-weight: 300 !important;     /* Light */
+    color: #555555 !important;
+    line-height: 1.25 !important;
+    text-decoration: none !important;
+    white-space: nowrap !important;
+    text-align: right !important;
+}
+
+/* ==========================================================================
+   СТИЛИ НАВИГАЦИИ И ССЫЛОК ДЛЯ СТРАНИЦЫ ABOUT (ЖЕЛТЫЙ ФОН)
+   ========================================================================== */
+
+/* Навигационный контейнер строго на координатах (Top: 810px, Left: 0) */
+.about-nav {
+    position: absolute !important;
+    top: 42.1875vw !important;       /* Ровно 810px при 1920px */
+    left: 0 !important;
+    width: 54.6875vw !important;     /* 1050px под ширину контента */
+    height: 1.5625vw !important;     /* 30px */
+    display: flex !important;
+    flex-direction: row !important;
+    gap: 3.125vw !important;         /* Шаг между ссылками ровно 60px */
+    align-items: center !important;
+    z-index: 15 !important;
+}
+
+/* Базовые стили для элементов навигации (16px, цвет 555555, Light) */
+.about-nav-item {
+    font-family: 'AKT', sans-serif !important;
+    font-size: 0.833vw !important;   /* Ровно 16px */
+    line-height: 1.25 !important;
+    text-decoration: none !important;
+    white-space: nowrap !important;
+    text-align: left !important;
+    transition: color 0.2s ease !important;
+}
+
+/* Неактивные вкладки — серые и Light */
+.about-nav-item:not(.active) {
+    font-weight: 300 !important;     /* Light */
+    color: #555555 !important;
+}
+
+/* Активная вкладка (About) — глубокий темный цвет и Bold */
+.about-nav-item.active {
+    font-weight: 700 !important;     /* Bold */
+    color: #111111 !important;
+}
+
+/* Ховер для интерактивности */
+.about-nav-item:hover {
+    color: #111111 !important;
+}
+
+/* ==========================================================================
+   СТРАНИЦА ABOUT: БЛОК 2 — ЧТО Я УМЕЮ (ВЫСОТА КОНТЕНТА 840px)
+   ========================================================================== */
+
+.about-section-skills {
+    width: 100vw !important;
+    height: 0 !important;
+    /* Полная высота с паддингами: 840 + 120 + 120 = 1080px. Пропорция = 56.25% */
+    padding-top: 56.25% !important; 
+    position: relative !important;
+    background-color: #FFFFFF !important; /* Белый фон */
+    overflow: hidden !important;
+    box-sizing: border-box !important;
+    z-index: 11 !important;
+}
+
+/* Заголовок «Что я умею?» (80px, цвет 111111, Regular, 120%) */
+.about-skills-title {
+    position: absolute !important;
+    top: 0 !important;
+    left: 0 !important;
+    width: 24.1145vw !important;     /* Ровно 463px ширины по ТЗ */
+    font-family: 'AKT', sans-serif !important;
+    font-size: 4.166vw !important;   /* 80px */
+    font-weight: 400 !important;
+    color: #111111 !important;
+    line-height: 1.20 !important;
+    text-align: left !important;
+    margin: 0 !important;
+}
+
+/* КОНТЕЙНЕР ДЛЯ 4-Х КОЛОНОК (1680x282, сверху 192px) */
+.about-skills-grid {
+    position: absolute !important;
+    top: 10vw !important;            /* Ровно 192px */
+    left: 0 !important;
+    width: 87.5vw !important;        /* 1680px */
+    height: 14.6875vw !important;    /* 282px */
+    display: flex !important;
+    flex-direction: row !important;
+    gap: 2.5vw !important;           /* Расстояние между общими блоками ровно 48px */
+}
+
+/* Каждая колонка имеет ширину 384px (20vw от 1920px) */
+.about-skill-column {
+    width: 20vw !important;          /* Ровно 384px */
+    height: 100% !important;
+    display: flex !important;
+    flex-direction: column !important;
+}
+
+/* Подзаголовок внутри блока (32px, цвет 111111, Regular, 120%) */
+.about-column-subtitle {
+    font-family: 'AKT', sans-serif !important;
+    font-size: 1.666vw !important;   /* 32px */
+    font-weight: 400 !important;
+    color: #111111 !important;
+    line-height: 1.20 !important;
+    text-align: left !important;
+    margin: 0 !important;
+    margin-bottom: 2.5vw !important; /* Отступ до списка ровно 48px */
+}
+
+/* Контейнер списка буллитов */
+.about-column-list {
+    display: flex !important;
+    flex-direction: column !important;
+}
+
+/* Строчки текста внутри колонок (20px, цвет 111111, Regular, шаг 32px между базовыми линиями) */
+.about-column-item {
+    position: relative !important;
+    font-family: 'AKT', sans-serif !important;
+    font-size: 1.0416vw !important;  /* 20px */
+    font-weight: 400 !important;
+    color: #111111 !important;
+    line-height: 1.25 !important;
+    letter-spacing: 0.05em !important; /* 5% */
+    text-align: left !important;
+    
+    /* Шаг между строчками: 32px от верха до верха */
+    margin-bottom: 1.666vw !important; 
+    padding-left: 1.25vw !important;   /* Отступ под точку-маркер */
+}
+
+/* Точка-маркер перед каждым элементом */
+.about-column-item::before {
+    content: "•" !important;
+    position: absolute !important;
+    top: 0 !important;
+    left: 0 !important;
+    color: #111111 !important;
+    font-size: 1.25vw !important;
+    line-height: 1.1 !important;
+}
+
+.about-column-item:last-child {
+    margin-bottom: 0 !important;
+}
+
+/* ТЕКСТ СКЛИЛЛСЕТА В 2 СТРОЧКИ (20px, цвет 555555, Light, Сверху 564px) */
+.about-skillset-raw-text {
+    position: absolute !important;
+    top: 29.375vw !important;        /* Ровно 564px */
+    left: 0 !important;
+    width: 87.5vw !important;        /* 1680px на всю ширину контента */
+    font-family: 'AKT', sans-serif !important;
+    font-size: 1.0416vw !important;  /* 20px */
+    font-weight: 300 !important;     /* Light */
+    color: #555555 !important;
+    line-height: 1.25 !important;
+    letter-spacing: 0.05em !important; /* 5% */
+    text-align: left !important;
+}
+
+/* НАВИГАЦИЯ НА ДНЕ БЕЛОГО ЭКРАНА (Сверху 810px) */
+.about-nav-white {
+    position: absolute !important;
+    top: 42.1875vw !important;       /* Ровно 810px */
+    left: 0 !important;
+    width: 54.6875vw !important;     /* 1050px */
+    height: 1.5625vw !important;     /* 30px */
+    display: flex !important;
+    flex-direction: row !important;
+    gap: 3.125vw !important;         /* Расстояние между словами 60px */
+    align-items: center !important;
+    z-index: 15 !important;
+}
+
+.about-nav-item-white {
+    font-family: 'AKT', sans-serif !important;
+    font-size: 0.833vw !important;   /* 16px */
+    line-height: 1.25 !important;
+    text-decoration: none !important;
+    white-space: nowrap !important;
+    text-align: left !important;
+    transition: color 0.2s ease !important;
+}
+
+/* Неактивные вкладки на белом фоне */
+.about-nav-item-white:not(.active) {
+    font-weight: 300 !important;     /* Light */
+    color: #555555 !important;
+}
+
+/* Активная вкладка (About) */
+.about-nav-item-white.active {
+    font-weight: 700 !important;     /* Bold */
+    color: #111111 !important;
+}
+
+.about-nav-item-white:hover {
+    color: #111111 !important;
+}
+
+/* ==========================================================================
+   СТРАНИЦА ABOUT: БЛОК 3 — ЛИНИЯ-ФУТЕР (ВЫСОТА КОНТЕНТА 1px)
+   ========================================================================= */
+
+.about-section-footer-line {
+    width: 100vw !important;
+    height: 0 !important;
+    /* Полная высота с паддингами: 1 + 120 + 120 = 241px. Пропорция к 1920px = 12.552% */
+    padding-top: 12.552% !important; 
+    position: relative !important;
+    background-color: #FFFFFF !important; /* Удерживаем белый фон экрана умений */
+    overflow: hidden !important;
+    box-sizing: border-box !important;
+    z-index: 12 !important;
+}
+
+/* Центрированный абсолютный wrapper под рабочую высоту 241px */
+.about-wrapper-fluid-line {
+    position: absolute !important;
+    top: 0 !important;
+    left: 50% !important;
+    transform: translateX(-50%) !important;
+    width: 100vw !important;
+    max-width: 1920px !important;
+    height: 100% !important;
+    box-sizing: border-box !important;
+    padding: 6.25vw !important; /* Отступы по 120px со всех сторон */
+}
+
+/* Координатная сетка 1680x1 */
+.about-row-line {
+    position: relative !important;
+    width: 100% !important;
+    height: 100% !important;
+}
+
+/* Линия в 1 пиксель глубокого серого цвета */
+.about-divider-line {
+    position: absolute !important;
+    top: 0 !important;
+    left: 0 !important;
+    width: 87.5vw !important;        /* На всю ширину контента 1680px */
+    height: 1px !important;          /* Толщина строго 1px */
+    background-color: #555555 !important; 
+}
+
+/* ==========================================================================
+   КЕЙС А-ДЕНГИ: БЛОК 1 — ОБЛОЖКА (ИСТИННЫЙ СКЕЙЛИНГ 16:9)
+   ========================================================================== */
+
+.adengi-cover-section {
+    width: 100vw !important;
+    height: 0 !important; /* Обнуляем высоту, она будет строиться от padding */
+    padding-top: 56.25% !important; /* ЖЕСТКИЙ ЗАМОК 16:9. Высота всегда идеально пропорциональна ширине */
+    position: relative !important;
+    background-color: #192130 !important;
+    
+    /* Твой фоновый кастомный PNG */
+    background-image: url('../images/bg-a-dengi-1.png') !important;
+    background-position: center center !important;
+    background-repeat: no-repeat !important;
+    background-size: cover !important;
+    overflow: hidden !important;
+}
+
+/* Абсолютно позиционируем wrapper внутри сквозного замка 16:9, чтобы центрировать логотип */
+.adengi-cover-wrapper {
+    position: absolute !important;
+    top: 0 !important;
+    left: 0 !important;
+    width: 100% !important;
+    height: 100% !important;
+    box-sizing: border-box !important;
+    
+    /* Флекс держит логотип строго по центру при любом масштабе */
+    display: flex !important;
+    justify-content: center !important; 
+    align-items: center !important; 
+    
+    /* Чистые поля по 120px (6.25vw), которые сжимаются вместе с экраном */
+    padding: 6.25vw !important; 
+}
+
+/* Контейнер логотипа (960x178.93) плавно уменьшается вслед за окном */
+.adengi-logo-container {
+    width: 50vw !important;      /* 960px при ширине экрана 1920 */
+    height: 9.319vw !important;  /* 178.93px при ширине экрана 1920 */
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+}
+
+.adengi-main-logo {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: contain !important;
+    display: block !important;
+}
+
+/* ==========================================================================
+   КЕЙС А-ДЕНГИ: БЛОК 2 — ЦЕЛИ ПРОДУКТА (ИСТИННЫЙ СКЕЙЛИНГ 16:9)
+   ========================================================================== */
+
+.adengi-section-fluid {
+    width: 100vw !important;
+    height: 0 !important;
+    padding-top: 56.25% !important; /* Жёсткий замок пропорций 16:9 */
+    position: relative !important;
+    background-color: #192130 !important;
+    
+    /* Твой фоновый кастомный PNG для Блока 2 */
+    background-image: url('../images/bg-a-dengi-2.png') !important;
+    background-position: center center !important;
+    background-repeat: no-repeat !important;
+    background-size: cover !important;
+    overflow: hidden !important;
+}
+
+/* Абсолютный wrapper внутри замка 16:9 — теперь паддинги отмеряются один раз */
+.adengi-wrapper-fluid {
+    position: absolute !important;
+    top: 0 !important;
+    left: 0 !important;
+    width: 100% !important;
+    height: 100% !important;
+    box-sizing: border-box !important;
+    display: flex !important;
+    flex-direction: column !important;
+    
+    /* Ровно по 120px (6.25vw) со всех четырёх сторон */
+    padding: 6.25vw !important;
+}
+
+/* Рабочий ряд для контента */
+.adengi-row-2 {
+    display: flex !important;
+    justify-content: space-between !important;
+    align-items: flex-start !important;
+    width: 100% !important;
+    height: auto !important;
+}
+
+/* ЛЕВАЯ КОЛОНКА: ТЕКСТОВЫЙ БЛОК (840x392) */
+.adengi-text-block-2 {
+    width: 43.75vw !important;  /* Ровно 840px */
+    height: 20.41vw !important; /* Ровно 392px */
+    box-sizing: border-box !important;
+    display: flex !important;
+    flex-direction: column !important;
+}
+
+.adengi-text-block-2 h2,
+.adengi-text-block-2 p {
+    margin-top: 0 !important;
+    padding-top: 0 !important;
+}
+
+/* Текст 1: Заголовок (80px, Regular) */
+.adengi-title-2 {
+    font-family: 'AKT', sans-serif !important;
+    font-size: 4.16vw !important; 
+    font-weight: 400 !important;
+    color: #FFFFFF !important;
+    line-height: 1.20 !important;
+    text-align: left !important;
+    margin-bottom: 5vw !important; /* Отступ ровно 96px */
+    -webkit-font-smoothing: antialiased !important;
+    -moz-osx-font-smoothing: grayscale !important;
+}
+
+/* Текст 2: Описание (32px, Regular, 125% интерлиньяж, 5% трекинг) */
+.adengi-lead-2 {
+    font-family: 'AKT', sans-serif !important;
+    font-size: 1.66vw !important; 
+    font-weight: 400 !important;
+    color: #FFFFFF !important;
+    line-height: 1.25 !important; /* Твои 125% интерлиньяжа */
+    letter-spacing: 0.05em !important; /* Твои 5% межбуквенного */
+    text-align: left !important;
+    margin-bottom: 0 !important;
+    -webkit-font-smoothing: antialiased !important;
+    -moz-osx-font-smoothing: grayscale !important;
+}
+
+/* ПРАВАЯ КОЛОНКА: ИЛЛЮСТРАЦИЯ (720x660) */
+.adengi-ill-block-2 {
+    width: 37.5vw !important;     /* Ровно 720px */
+    height: 34.375vw !important;  /* Ровно 660px */
+    flex-shrink: 0 !important;
+    /* Положение: снизу 180px до навигации */
+    margin-bottom: 9.375vw !important; 
+}
+
+.adengi-img-2 {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: contain !important;
+    display: block !important;
+}
+
+/* НАВИГАЦИОННЫЙ БЛОК (1050x30) */
+.adengi-nav-2 {
+    width: 54.68vw !important; /* 1050px */
+    height: 1.56vw !important; /* 30px */
+    display: flex !important;
+    flex-direction: row !important;
+    gap: 3.125vw !important; /* Шаг 60px */
+    align-items: center !important;
+    margin-top: auto !important; /* Прижимается к дну контентной области */
+}
+
+.adengi-nav-item {
+    font-family: 'AKT', sans-serif !important;
+    font-size: 0.83vw !important; /* 16px */
+    line-height: 1.20 !important;
+    letter-spacing: 0.05em !important; /* 5% */
+    text-decoration: none !important;
+    white-space: nowrap !important;
+    text-align: left !important;
+    -webkit-font-smoothing: antialiased !important;
+    -moz-osx-font-smoothing: grayscale !important;
+}
+
+/* Неактивные ссылки — Light, 75% прозрачности */
+.adengi-nav-item:not(.active) {
+    font-weight: 300 !important; /* Light */
+    color: rgba(255, 255, 255, 0.75) !important;
+}
+
+/* Активная ссылка — Bold, 100% белый */
+.adengi-nav-item.active {
+    font-weight: 700 !important; /* Bold */
+    color: #FFFFFF !important;
+}
+
+/* ==========================================================================
+   КЕЙС А-ДЕНГИ: БЛОК 3 — ЗАДАЧА (ФИНАЛЬНАЯ АРХИТЕКТУРА 16:9)
+   ========================================================================== */
+
+.adengi-section-white {
+    width: 100vw !important;
+    height: 0 !important;
+    padding-top: 56.25% !important; /* Замок 16:9 */
+    position: relative !important;
+    background-color: #FFFFFF !important; /* Чистый белый фон */
+    overflow: hidden !important;
+    box-sizing: border-box !important;
+}
+
+/* Абсолютный wrapper (внутри паддингов по 120px) */
+.adengi-wrapper-fluid {
+    position: absolute !important;
+    top: 0 !important;
+    left: 0 !important;
+    width: 100% !important;
+    height: 100% !important;
+    box-sizing: border-box !important;
+    padding: 6.25vw !important; /* Отступы по 120px со всех сторон */
+}
+
+/* Заголовок «Задача» (Сверху 0, Слева 0) */
+.adengi-title-3 {
+    position: absolute !important;
+    top: 6.25vw !important;      /* Встает ровно в угол паддинга (0px от контентной области) */
+    left: 6.25vw !important;     /* 0px от контентной области */
+    font-family: 'AKT', sans-serif !important;
+    font-size: 4.166vw !important; /* 80px */
+    font-weight: 400 !important;
+    color: #111111 !important;
+    line-height: 1.20 !important;
+    text-align: left !important;
+    margin: 0 !important;
+}
+
+/* ИЛЛЮСТРАЦИЯ (690x490, сверху 192px, слева 0 от контентной области) */
+.adengi-ill-block-3 {
+    position: absolute !important;
+    top: 16.25vw !important;     /* 120px паддинга + 192px отступа = 312px (16.25vw) от края экрана */
+    left: 6.25vw !important;     /* 0px от контентной области */
+    width: 35.937vw !important;  /* Ровно 690px */
+    height: 25.52vw !important;  /* Ровно 490px */
+}
+
+.adengi-img-3 {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: contain !important;
+    display: block !important;
+}
+
+/* ТЕКСТОВЫЙ БЛОК (720x360, сверху 192px, слева 780px от контентной области) */
+.adengi-text-block-3 {
+    position: absolute !important;
+    top: 16.25vw !important;     /* 120px паддинга + 192px отступа = 312px (16.25vw) от края экрана */
+    left: 46.875vw !important;   /* 120px паддинга + 780px отступа = 900px (46.875vw) от края экрана */
+    width: 37.5vw !important;    /* Ровно 720px */
+    height: 18.75vw !important;  /* Ровно 360px */
+    box-sizing: border-box !important;
+}
+
+/* Текст описания (32px, regular, 125%, 5%) */
+.adengi-lead-3 {
+    font-family: 'AKT', sans-serif !important;
+    font-size: 1.666vw !important; 
+    font-weight: 400 !important;
+    color: #555555 !important;
+    line-height: 1.25 !important;
+    letter-spacing: 0.05em !important;
+    text-align: left !important;
+    margin: 0 !important;
+    -webkit-font-smoothing: antialiased !important;
+    -moz-osx-font-smoothing: grayscale !important;
+}
+
+/* НАВИГАЦИОННЫЙ БЛОК (1050x30, сверху 810px, слева 0 от контентной области) */
+.adengi-nav-3 {
+    position: absolute !important;
+    top: 48.437vw !important;    /* 120px паддинга + 810px отступа = 930px (48.437vw) от края экрана */
+    left: 6.25vw !important;     /* 0px от контентной области */
+    width: 54.687vw !important;  /* Ровно 1050px */
+    height: 1.562vw !important;  /* Ровно 30px */
+    display: flex !important;
+    flex-direction: row !important;
+    gap: 3.125vw !important;     /* Шаг между ссылками 60px */
+    align-items: center !important;
+    z-index: 10 !important;
+}
+
+.adengi-nav-item-3 {
+    font-family: 'AKT', sans-serif !important;
+    font-size: 0.833vw !important; /* 16px */
+    line-height: 1.20 !important;
+    letter-spacing: 0.05em !important;
+    text-decoration: none !important;
+    white-space: nowrap !important;
+    text-align: left !important;
+    -webkit-font-smoothing: antialiased !important;
+    -moz-osx-font-smoothing: grayscale !important;
+}
+
+/* Ссылки сделаны ТЕМНЫМИ, чтобы их было видно на белом фоне */
+.adengi-nav-item-3:not(.active) {
+    font-weight: 300 !important;
+    color: rgba(17, 17, 17, 0.75) !important; /* Темно-серый 75% */
+}
+
+.adengi-nav-item-3.active {
+    font-weight: 700 !important;
+    color: #111111 !important; /* Плотный черный */
+}
+
+/* ==========================================================================
+   КЕЙС А-ДЕНГИ: БЛОК 4 — ТИПОГРАФИКА (ЦЕНТРИРОВАННАЯ КОНТЕНТНАЯ ОБЛАСТЬ)
+   ========================================================================== */
+
+.adengi-section-dark {
+    width: 100vw !important;
+    height: 0 !important;
+    padding-top: 56.25% !important; /* Наш точный замок 16:9 */
+    position: relative !important;
+    background-color: #192130 !important;
+    overflow: hidden !important;
+    box-sizing: border-box !important;
+}
+
+/* Абсолютный wrapper теперь жёстко центрируется по центру экрана */
+.adengi-wrapper-fluid {
+    position: absolute !important;
+    top: 0 !important;
+    left: 50% !important;
+    transform: translateX(-50%) !important; /* Идеальное центрирование на любом мониторе */
+    width: 100vw !important;
+    max-width: 1920px !important; /* Замок для ультрашироких мониторов */
+    height: 100% !important;
+    box-sizing: border-box !important;
+    padding: 6.25vw !important; /* По 120px со всех сторон */
+}
+
+/* Единая координатная сетка 1680x840 */
+.adengi-row-4 {
+    position: relative !important;
+    width: 100% !important;
+    height: 100% !important;
+}
+
+/* Заголовок «Inter» (Сверху 0, Слева 0, 80px) */
+.adengi-title-4 {
+    position: absolute !important;
+    top: 0 !important; /* Отсчёт строго от нуля контентной области */
+    left: 0 !important;
+    font-family: 'AKT', sans-serif !important;
+    font-size: 4.166vw !important; 
+    font-weight: 400 !important;
+    color: #FFFFFF !important;
+    line-height: 1.20 !important;
+    text-align: left !important;
+    margin: 0 !important;
+}
+
+/* Горизонтальная линия (Сверху 196px, Слева 0, Длина 990px) */
+.adengi-hr-4 {
+    position: absolute !important;
+    top: 10.208vw !important;    /* Ровно 196px от нуля контентной области */
+    left: 0 !important;
+    width: 51.562vw !important;  /* 990px */
+    height: 1px !important;
+    background-color: #FFFFFF !important;
+}
+
+/* Блок с описанием (450x200, Сверху 292px, Слева 0) */
+.adengi-desc-block-4 {
+    position: absolute !important;
+    top: 15.208vw !important;    /* Ровно 292px от нуля контентной области */
+    left: 0 !important;
+    width: 23.437vw !important;  /* 450px */
+    height: 10.416vw !important; /* 200px */
+    box-sizing: border-box !important;
+}
+
+.adengi-desc-text-4 {
+    font-family: 'AKT', sans-serif !important;
+    font-size: 1.041vw !important; /* 20px */
+    font-weight: 400 !important;
+    color: #FFFFFF !important;
+    line-height: 1.25 !important;
+    letter-spacing: 0.05em !important; 
+    text-align: left !important;
+    margin: 0 !important;
+}
+
+/* Вертикальная линия (Сверху 270px, Слева 510px, Длина 390px) */
+.adengi-vr-4 {
+    position: absolute !important;
+    top: 14.062vw !important;    /* Ровно 270px от нуля контентной области */
+    left: 26.562vw !important;   /* Ровно 510px от нуля контентной области */
+    width: 1px !important;
+    height: 20.312vw !important; /* 390px */
+    background-color: #FFFFFF !important;
+}
+
+/* Блок примера алфавита Inter (420x348, Сверху 292px, Слева 570px) */
+.adengi-alphabet-4 {
+    position: absolute !important;
+    top: 15.208vw !important;    /* Ровно 292px от нуля контентной области */
+    left: 29.687vw !important;   /* Ровно 570px от нуля контентной области */
+    width: 21.875vw !important;  /* 420px */
+    height: 18.125vw !important; /* 348px */
+    display: flex !important;
+    flex-direction: column !important;
+}
+
+.adengi-alpha-line {
+    font-family: 'Inter', sans-serif !important;
+    font-size: 1.666vw !important; /* 32px */
+    font-weight: 400 !important;
+    color: #FFFFFF !important;
+    line-height: 1.25 !important;
+    letter-spacing: 0.05em !important; 
+    margin-bottom: 1.875vw !important; /* Шаг 36px */
+    text-align: left !important;
+}
+.adengi-alpha-line:last-child { margin-bottom: 0 !important; }
+
+/* ==========================================================================
+   КЕЙС А-ДЕНГИ: БЛОК 4 — АБСОЛЮТНАЯ ФИКСАЦИЯ ГЛИФОВ «Аа» С ТОЧНЫМ СРЕЗОМ
+   ========================================================================== */
+
+/* КОЛОНКА ГЛИФОВ «Аа» (Размер 258x840, Сверху 0, Слева 1152px от нуля контентной области) */
+.adengi-glyphs-column-4 {
+    position: absolute !important;
+    top: 0 !important;
+    left: 60vw !important;       /* Ровно 1152px от левого края контентной области */
+    width: 13.437vw !important;  /* Ширина 258px */
+    height: 43.75vw !important;  /* Высота 840px */
+    display: flex !important;
+    flex-direction: column !important;
+}
+
+/* Контейнеры подблоков (258x120, шаг между ними 60px) */
+.adengi-glyph-item {
+    position: relative !important; 
+    width: 100% !important;
+    height: 6.25vw !important;   /* Жёсткая высота контейнера ровно 120px */
+    box-sizing: border-box !important;
+    margin-bottom: 3.125vw !important; /* Межблочный шаг ровно 60px */
+    
+    /* ЖЁСТКИЙ СРЕЗ: маскируем всё, что выходит за рамки 120px по высоте */
+    overflow: hidden !important; 
+    
+    /* Линия в положении 0 строго по нижней границе контейнера */
+    border-bottom: 1px solid #FFFFFF !important; 
+}
+
+/* У последнего 5-го блока убираем нижний маргин */
+.adengi-glyph-item:last-child { 
+    margin-bottom: 0 !important; 
+}
+
+/* КАСАНИЕ ВПРИТЫК К ВЕРХНЕЙ ГРАНИЦЕ */
+.adengi-glyph-text {
+    position: absolute !important;
+    left: 0 !important;
+    right: 0 !important;
+    
+    /* Уменьшили сдвиг до -20px, чтобы макушки встали ровно по верхней линии контейнера */
+    top: -1.041vw !important;    
+    bottom: auto !important; 
+    
+    font-family: 'Inter', sans-serif !important;
+    font-size: 10.416vw !important; /* Наш размер 200px */
+    color: #FFFFFF !important;
+    line-height: 1 !important;
+    white-space: nowrap !important;
+    text-align: left !important;
+}
+
+/* Управление начертаниями */
+.w-thin .adengi-glyph-text { font-weight: 100 !important; }
+.w-extralight .adengi-glyph-text { font-weight: 200 !important; }
+.w-light .adengi-glyph-text { font-weight: 300 !important; }
+.w-regular .adengi-glyph-text { font-weight: 400 !important; }
+.w-medium .adengi-glyph-text { font-weight: 500 !important; }
+
+/* КОЛОНКА НАЧЕРТАНИЙ (198x840, Сверху 0, Слева 1470px) */
+.adengi-weights-column-4 {
+    position: absolute !important;
+    top: 0 !important;           /* 0px от верха контентной области */
+    left: 76.562vw !important;   /* Строго 1470px от левого края контентной области */
+    width: 10.312vw !important;  /* Ширина блока 198px */
+    height: 43.75vw !important;  /* Высота блока 840px */
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 2.083vw !important;     /* Шаг 40px между строчками */
+    justify-content: flex-start !important;
+    box-sizing: border-box !important;
+}
+
+/* ==========================================================================
+   ИСПРАВЛЕНИЕ НАЧЕРТАНИЙ ДЛЯ ПРАВОЙ КОЛОНКИ БЛОКА 4 (9 СТРОК)
+   ========================================================================== */
+
+/* Уточняем веса шрифтов строго для текстовых элементов правой колонки */
+.adengi-weights-column-4 .w-thin { 
+    font-weight: 100 !important; 
+}
+.adengi-weights-column-4 .w-extralight { 
+    font-weight: 200 !important; 
+}
+.adengi-weights-column-4 .w-light { 
+    font-weight: 300 !important; 
+}
+.adengi-weights-column-4 .w-regular { 
+    font-weight: 400 !important; 
+}
+.adengi-weights-column-4 .w-medium { 
+    font-weight: 500 !important; 
+}
+.adengi-weights-column-4 .w-semibold { 
+    font-weight: 600 !important; 
+}
+.adengi-weights-column-4 .w-bold { 
+    font-weight: 700 !important; 
+}
+.adengi-weights-column-4 .w-extrabold { 
+    font-weight: 800 !important; 
+}
+.adengi-weights-column-4 .w-black { 
+    font-weight: 900 !important; 
+}
+
+.adengi-weight-item {
+    font-family: 'Inter', sans-serif !important;
+    font-size: 2.083vw !important; /* 40px */
+    color: #FFFFFF !important;
+    line-height: 1.445 !important;
+    text-align: left !important;
+}
+
+/* НАВИГАЦИОННЫЙ БЛОК (1050x30, сверху 810px, слева 0) */
+.adengi-nav-4 {
+    position: absolute !important;
+    top: 42.187vw !important;    /* Ровно 810px от нуля контентной области */
+    left: 0 !important;
+    width: 54.687vw !important;  /* 1050px */
+    height: 1.562vw !important;  /* 30px */
+    display: flex !important;
+    flex-direction: row !important;
+    gap: 3.125vw !important;     /* Шаг 60px */
+    align-items: center !important;
+    z-index: 10 !important;
+}
+
+.adengi-nav-item-4 {
+    font-family: 'AKT', sans-serif !important;
+    font-size: 0.833vw !important; /* 16px */
+    line-height: 1.25 !important;
+    text-decoration: none !important;
+    white-space: nowrap !important;
+    text-align: left !important;
+    -webkit-font-smoothing: antialiased !important;
+    -moz-osx-font-smoothing: grayscale !important;
+}
+
+.adengi-nav-item-4:not(.active) {
+    font-weight: 300 !important;
+    color: rgba(255, 255, 255, 0.75) !important;
+}
+
+.adengi-nav-item-4.active {
+    font-weight: 700 !important;
+    color: #FFFFFF !important;
+}
+
+/* ==========================================================================
+   КЕЙС А-ДЕНГИ: БЛОК 5 — ГАЛЕРЕЯ (ИСТИННЫЙ СКЕЙЛИНГ 16:9 / ВЫСОТА 694px)
+   ========================================================================== */
+
+.adengi-section-gray {
+    width: 100vw !important;
+    height: 0 !important;
+    /* Полная высота с паддингами: 694 + 120 + 120 = 934px. Пропорция к 1920px = 48.645% */
+    padding-top: 48.645% !important; 
+    position: relative !important;
+    background-color: #F2F5FA !important; /* Светлый серо-голубой фон */
+    overflow: hidden !important;
+    box-sizing: border-box !important;
+}
+
+/* Центрированный абсолютный wrapper под высоту 934px */
+.adengi-wrapper-fluid-5 {
+    position: absolute !important;
+    top: 0 !important;
+    left: 50% !important;
+    transform: translateX(-50%) !important;
+    width: 100vw !important;
+    max-width: 1920px !important;
+    height: 100% !important;
+    box-sizing: border-box !important;
+    padding: 6.25vw !important; /* По 120px со всех сторон */
+}
+
+/* Координатная сетка 1680x694 */
+.adengi-row-5 {
+    position: relative !important;
+    width: 100% !important;
+    height: 100% !important;
+}
+
+/* Базовый класс для всех блоков с картинками */
+.adengi-media-box {
+    position: absolute !important;
+    overflow: hidden !important;
+}
+
+.adengi-media-img {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important; /* Картинки плотно заполняют свои блоки */
+    display: block !important;
+}
+
+/* ПОЗИЦИОНИРОВАНИЕ ИЛЛЮСТРАЦИЙ СТРОГО ПО ТЗ */
+
+/* 1й блок (600x270, сверху 0, слева 0) */
+.m-box-1 {
+    top: 0 !important;
+    left: 0 !important;
+    width: 31.25vw !important;    /* 600px */
+    height: 14.062vw !important;  /* 270px */
+}
+
+/* 2й блок (600x270, сверху 300px, слева 0) */
+.m-box-2 {
+    top: 15.625vw !important;   /* 300px */
+    left: 0 !important;
+    width: 31.25vw !important;    /* 600px */
+    height: 14.062vw !important;  /* 270px */
+}
+
+/* 3й блок (300x650, сверху 0, слева 720px) */
+.m-box-3 {
+    top: 0 !important;
+    left: 37.5vw !important;     /* 720px */
+    width: 15.625vw !important;   /* 300px */
+    height: 33.854vw !important;  /* 650px */
+}
+
+/* 4й блок (300x650, сверху 0, слева 1050px) */
+.m-box-4 {
+    top: 0 !important;
+    left: 54.687vw !important;   /* 1050px */
+    width: 15.625vw !important;   /* 300px */
+    height: 33.854vw !important;  /* 650px */
+}
+
+/* 5й блок (300x650, сверху 0, слева 1380px) */
+.m-box-5 {
+    top: 0 !important;
+    left: 71.875vw !important;   /* 1380px */
+    width: 15.625vw !important;   /* 300px */
+    height: 33.854vw !important;  /* 650px */
+}
+
+/* СТИЛИ И ПОЛОЖЕНИЕ ПОДПИСЕЙ К ЭКРАНУ */
+
+.adengi-media-caption {
+    position: absolute !important;
+    font-family: 'AKT', sans-serif !important;
+    font-size: 0.625vw !important; /* 12px */
+    font-weight: 300 !important;   /* Light */
+    color: #555555 !important;
+    line-height: 1.20 !important;
+    text-align: left !important;
+    margin: 0 !important;
+    -webkit-font-smoothing: antialiased !important;
+    -moz-osx-font-smoothing: grayscale !important;
+}
+
+/* Подпись 1 (Сверху 600px, Слева 0) */
+.caption-mail {
+    top: 31.25vw !important;    /* 600px */
+    left: 0 !important;
+}
+
+/* Подпись 2 (Сверху 680px, Слева 720px) */
+.caption-onboard {
+    top: 35.416vw !important;   /* 680px */
+    left: 37.5vw !important;     /* 720px */
+}
+
+/* ==========================================================================
+   КЕЙС А-ДЕНГИ: БЛОК 6 — СКРИНШОТЫ СТОРА (ИСТИННЫЙ СКЕЙЛИНГ 16:9)
+   ========================================================================== */
+
+.adengi-section-gray-840 {
+    width: 100vw !important;
+    height: 0 !important;
+    padding-top: 56.25% !important; /* Наш стандартный замок 16:9 под высоту 840px */
+    position: relative !important;
+    background-color: #F2F5FA !important; /* Тот же светлый серо-голубой фон */
+    overflow: hidden !important;
+    box-sizing: border-box !important;
+}
+
+/* Координатная сетка Блока 6 внутри wrapper */
+.adengi-row-6 {
+    position: relative !important;
+    width: 100% !important;
+    height: 100% !important;
+}
+
+/* Базовый класс для контейнеров скриншотов */
+.adengi-store-box {
+    position: absolute !important;
+    top: 0 !important;           /* Все скриншоты выровнены по верхнему краю контентной области */
+    width: 16.25vw !important;    /* Ровно 312px */
+    height: 35.416vw !important;  /* Ровно 680px */
+    overflow: hidden !important;
+}
+
+.adengi-store-img {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important;
+    display: block !important;
+}
+
+/* ТОЧНОЕ ПОЗИЦИОНИРОВАНИЕ КАЖДОГО СКРИНШОТА ПО ТЗ */
+.store-box-1 { left: 0 !important; }
+.store-box-2 { left: 17.812vw !important; } /* Ровно 342px */
+.store-box-3 { left: 35.625vw !important; } /* Ровно 684px */
+.store-box-4 { left: 53.437vw !important; } /* Ровно 1026px */
+.store-box-5 { left: 71.25vw !important; }  /* Ровно 1368px */
+
+/* Подпись под скриншотами (Сверху 710px, Слева 0) */
+.adengi-store-caption {
+    position: absolute !important;
+    top: 36.979vw !important;    /* Ровно 710px от нуля контентной области */
+    left: 0 !important;
+    font-family: 'AKT', sans-serif !important;
+    font-size: 0.625vw !important; /* 12px */
+    font-weight: 300 !important;   /* Light */
+    color: #555555 !important;
+    line-height: 1.20 !important;
+    text-align: left !important;
+    margin: 0 !important;
+    -webkit-font-smoothing: antialiased !important;
+    -moz-osx-font-smoothing: grayscale !important;
+}
+
+/* НАВИГАЦИОННЫЙ БЛОК НА СВЕТЛОМ ФОНЕ (1050x30, сверху 810px, слева 0) */
+.adengi-nav-6 {
+    position: absolute !important;
+    top: 42.187vw !important;    /* Ровно 810px от нуля контентной области */
+    left: 0 !important;
+    width: 54.687vw !important;  /* Ровно 1050px */
+    height: 1.562vw !important;  /* Ровно 30px */
+    display: flex !important;
+    flex-direction: row !important;
+    gap: 3.125vw !important;     /* Шаг 60px между ссылками */
+    align-items: center !important;
+    z-index: 10 !important;
+}
+
+.adengi-nav-item-6 {
+    font-family: 'AKT', sans-serif !important;
+    font-size: 0.833vw !important; /* 16px */
+    line-height: 1.25 !important;
+    text-decoration: none !important;
+    white-space: nowrap !important;
+    text-align: left !important;
+    -webkit-font-smoothing: antialiased !important;
+    -moz-osx-font-smoothing: grayscale !important;
+}
+
+/* Неактивные вкладки — цвет 555555, Light */
+.adengi-nav-item-6:not(.active) {
+    font-weight: 300 !important;
+    color: #555555 !important;
+}
+
+/* Активная вкладка — цвет 111111, Bold */
+.adengi-nav-item-6.active {
+    font-weight: 700 !important;
+    color: #111111 !important;
+}
+
+/* ==========================================================================
+   КЕЙС А-ДЕНГИ: БЛОК 7 — 3D-PACK (ИСТИННЫЙ СКЕЙЛИНГ 16:9 / ВЫСОТА 600px)
+   ========================================================================== */
+
+.adengi-section-white-600 {
+    width: 100vw !important;
+    height: 0 !important;
+    /* Полная высота с паддингами: 600 + 120 + 120 = 840px. Пропорция к 1920px = 43.75% */
+    padding-top: 43.75% !important; 
+    position: relative !important;
+    background-color: #FFFFFF !important; /* Чистый белый фон */
+    overflow: hidden !important;
+    box-sizing: border-box !important;
+}
+
+/* Центрированный абсолютный wrapper под рабочую высоту 840px */
+.adengi-wrapper-fluid-7 {
+    position: absolute !important;
+    top: 0 !important;
+    left: 50% !important;
+    transform: translateX(-50%) !important;
+    width: 100vw !important;
+    max-width: 1920px !important;
+    height: 100% !important;
+    box-sizing: border-box !important;
+    padding: 6.25vw !important; /* Отступы по 120px со всех сторон */
+}
+
+/* Координатная сетка 1680x600 */
+.adengi-row-7 {
+    position: relative !important;
+    width: 100% !important;
+    height: 100% !important;
+}
+
+/* ЛЕВЫЙ ТЕКСТОВЫЙ БЛОК (Координаты: слева 0, сверху 0, размер 690x352) */
+.adengi-info-block-7 {
+    position: absolute !important;
+    top: 0 !important;
+    left: 0 !important;
+    width: 35.937vw !important;  /* Ровно 690px */
+    height: 18.333vw !important; /* Ровно 352px */
+    box-sizing: border-box !important;
+}
+
+/* Текст 1: Заголовок (80px, цвет 111111, regular) */
+.adengi-title-7 {
+    font-family: 'AKT', sans-serif !important;
+    font-size: 4.166vw !important; /* 80px */
+    font-weight: 400 !important;
+    color: #111111 !important;
+    line-height: 1.20 !important;
+    text-align: left !important;
+    margin-top: 0 !important;
+    margin-bottom: 5vw !important; /* Наш чистый шаг в 96px до следующего текста (192px от нуля) */
+    -webkit-font-smoothing: antialiased !important;
+    -moz-osx-font-smoothing: grayscale !important;
+}
+
+/* Текст 2: Описание (32px, цвет 555555, regular, интерлиньяж 125%, трекинг 5%) */
+.adengi-lead-7 {
+    font-family: 'AKT', sans-serif !important;
+    font-size: 1.666vw !important; /* 32px */
+    font-weight: 400 !important;
+    color: #555555 !important;
+    line-height: 1.25 !important;
+    letter-spacing: 0.05em !important; /* 5% */
+    text-align: left !important;
+    margin: 0 !important;
+    -webkit-font-smoothing: antialiased !important;
+    -moz-osx-font-smoothing: grayscale !important;
+}
+
+/* ПРАВЫЙ БЛОК С ИЛЛЮСТРАЦИЕЙ (Размер 810x600, сверху 0, слева 870px) */
+.adengi-ill-block-7 {
+    position: absolute !important;
+    top: 0 !important;
+    left: 45.312vw !important;   /* Ровно 870px от нуля контентной области */
+    width: 42.187vw !important;  /* Ровно 810px */
+    height: 31.25vw !important;   /* Ровно 600px */
+}
+
+.adengi-img-7 {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: contain !important; /* Сохраняем пропорции 3D-графики */
+    display: block !important;
+}
+
+/* ==========================================================================
+   КЕЙС А-ДЕНГИ: БЛОК 8 — МЕГА-ПЛИТКА 3D (ИСТИННЫЙ СКЕЙЛИНГ / ВЫСОТА 1890px)
+   ========================================================================== */
+
+.adengi-section-mega {
+    width: 100vw !important;
+    height: 0 !important;
+    /* Полная высота с паддингами: 1890 + 120 + 120 = 2130px. Пропорция к 1920px = 110.9375% */
+    padding-top: 110.9375% !important; 
+    position: relative !important;
+    background-color: #FFFFFF !important; /* Белый фон */
+    overflow: hidden !important;
+    box-sizing: border-box !important;
+}
+
+/* Центрированный абсолютный wrapper под рабочую высоту 2130px */
+.adengi-wrapper-fluid-8 {
+    position: absolute !important;
+    top: 0 !important;
+    left: 50% !important;
+    transform: translateX(-50%) !important;
+    width: 100vw !important;
+    max-width: 1920px !important;
+    height: 100% !important;
+    box-sizing: border-box !important;
+    padding: 6.25vw !important; /* Отступы по 120px со всех сторон */
+}
+
+/* Координатная сетка 1680x1890 */
+.adengi-row-8 {
+    position: relative !important;
+    width: 100% !important;
+    height: 100% !important;
+}
+
+/* Базовый класс для мега-контейнеров */
+.adengi-mega-box {
+    position: absolute !important;
+    overflow: hidden !important;
+    background-color: transparent !important;
+}
+
+.adengi-mega-img {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important; /* Плотно заполняем боксы без деформаций */
+    display: block !important;
+}
+
+/* ПОЗИЦИОНИРОВАНИЕ ИЛЛЮСТРАЦИЙ СТРОГО ПО КООРДИНАТАМ FIGMA */
+
+/* Левая вертикаль (Слева 0) */
+.mega-box-1 {
+    top: 0 !important;
+    left: 0 !important;
+    width: 42.968vw !important;  /* Ровно 825px */
+    height: 48.437vw !important; /* Ровно 930px */
+}
+
+.mega-box-2 {
+    top: 50vw !important;        /* Ровно 960px */
+    left: 0 !important;
+    width: 42.968vw !important;  /* Ровно 825px */
+    height: 48.437vw !important; /* Ровно 930px */
+}
+
+/* Правая вертикаль (Слева 855px) */
+.mega-box-3 {
+    top: 0 !important;
+    left: 44.531vw !important;   /* Ровно 855px */
+    width: 42.968vw !important;  /* Ровно 825px */
+    height: 23.437vw !important; /* Ровно 450px */
+}
+
+.mega-box-4 {
+    top: 25vw !important;        /* Ровно 480px */
+    left: 44.531vw !important;   /* Ровно 855px */
+    width: 42.968vw !important;  /* Ровно 825px */
+    height: 48.437vw !important; /* Ровно 930px */
+}
+
+.mega-box-5 {
+    top: 75vw !important;        /* Ровно 1440px (1140px по ТЗ отсчет, проверяем: 1440 - это 1140 от нуля контента, всё верно!) */
+    left: 44.531vw !important;   /* Ровно 855px */
+    width: 42.968vw !important;  /* Ровно 825px */
+    height: 23.437vw !important; /* Ровно 450px */
+}
+
+/* ==========================================================================
+   КЕЙС А-ДЕНГИ: БЛОК 9 — РЕЗУЛЬТАТ (ИСТИННЫЙ СКЕЙЛИНГ / ВЫСОТА 870px)
+   ========================================================================== */
+
+.adengi-section-gray-870 {
+    width: 100vw !important;
+    height: 0 !important;
+    /* Полная высота с паддингами: 870 + 120 + 120 = 1110px. Пропорция к 1920px = 57.8125% */
+    padding-top: 57.8125% !important; 
+    position: relative !important;
+    background-color: #F2F5FA !important; /* Светлый серо-голубой фон */
+    overflow: hidden !important;
+    box-sizing: border-box !important;
+}
+
+/* Центрированный абсолютный wrapper под рабочую высоту 1110px */
+.adengi-wrapper-fluid-9 {
+    position: absolute !important;
+    top: 0 !important;
+    left: 50% !important;
+    transform: translateX(-50%) !important;
+    width: 100vw !important;
+    max-width: 1920px !important;
+    height: 100% !important;
+    box-sizing: border-box !important;
+    padding: 6.25vw !important; /* Отступы по 120px со всех сторон */
+}
+
+/* Координатная сетка 1680x870 */
+.adengi-row-9 {
+    position: relative !important;
+    width: 100% !important;
+    height: 100% !important;
+}
+
+/* Заголовок «Результат» (80px, цвет 111111, regular) */
+.adengi-title-9 {
+    position: absolute !important;
+    top: 0 !important;
+    left: 0 !important;
+    font-family: 'AKT', sans-serif !important;
+    font-size: 4.166vw !important; /* 80px */
+    font-weight: 400 !important;
+    color: #111111 !important;
+    line-height: 1.20 !important;
+    text-align: left !important;
+    margin: 0 !important;
+}
+
+/* ИЛЛЮСТРАЦИЯ РЕЗУЛЬТАТА (690x528, сверху 192px, слева 0) */
+.adengi-result-ill-block {
+    position: absolute !important;
+    top: 10vw !important;        /* Ровно 192px от нуля контентной области */
+    left: 0 !important;
+    width: 35.937vw !important;  /* Ровно 690px */
+    height: 27.5vw !important;    /* Ровно 528px */
+}
+
+.adengi-result-img {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: contain !important;
+    display: block !important;
+}
+
+/* ТЕКСТОВЫЙ БЛОК (750x200, сверху 192px, слева 780px) */
+.adengi-result-text-block {
+    position: absolute !important;
+    top: 10vw !important;        /* Ровно 192px от нуля контентной области */
+    left: 40.625vw !important;   /* Ровно 780px от нуля контентной области */
+    width: 39.062vw !important;  /* Ровно 750px */
+    height: 10.416vw !important; /* Ровно 200px */
+    box-sizing: border-box !important;
+}
+
+/* Текст описания (32px, цвет 555555, regular, 125%, 5%) */
+.adengi-result-lead {
+    font-family: 'AKT', sans-serif !important;
+    font-size: 1.666vw !important; /* 32px */
+    font-weight: 400 !important;
+    color: #555555 !important;
+    line-height: 1.25 !important;
+    letter-spacing: 0.05em !important; /* 5% */
+    text-align: left !important;
+    margin: 0 !important;
+    -webkit-font-smoothing: antialiased !important;
+    -moz-osx-font-smoothing: grayscale !important;
+}
+
+/* НАВИГАЦИОННЫЙ БЛОК НА СВЕТЛОМ ФОНЕ (1050x30, сверху 840px, слева 0) */
+.adengi-nav-9 {
+    position: absolute !important;
+    top: 43.75vw !important;     /* Ровно 840px от нуля контентной области */
+    left: 0 !important;
+    width: 54.687vw !important;  /* Ровно 1050px */
+    height: 1.562vw !important;  /* Ровно 30px */
+    display: flex !important;
+    flex-direction: row !important;
+    gap: 3.125vw !important;     /* Шаг 60px между ссылками */
+    align-items: center !important;
+    z-index: 10 !important;
+}
+
+.adengi-nav-item-9 {
+    font-family: 'AKT', sans-serif !important;
+    font-size: 0.833vw !important; /* 16px */
+    line-height: 1.25 !important;
+    text-decoration: none !important;
+    white-space: nowrap !important;
+    text-align: left !important;
+    -webkit-font-smoothing: antialiased !important;
+    -moz-osx-font-smoothing: grayscale !important;
+}
+
+/* Неактивные вкладки — цвет 555555, Light */
+.adengi-nav-item-9:not(.active) {
+    font-weight: 300 !important;
+    color: #555555 !important;
+}
+
+/* Активная вкладка — цвет 111111, Bold */
+.adengi-nav-item-9.active {
+    font-weight: 700 !important;
+    color: #111111 !important;
+}
+
+/* ==========================================================================
+   КЕЙС А-ДЕНГИ: БЛОК 10 — ФИНАЛЬНАЯ ЛИНИЯ (ВЫСОТА 1px + ПАДДИНГИ)
+   ========================================================================== */
+
+.adengi-section-footer {
+    width: 100vw !important;
+    height: 0 !important;
+    /* Полная высота с паддингами: 1 + 120 + 120 = 241px. Пропорция к 1920px = 12.552% */
+    padding-top: 12.552% !important; 
+    position: relative !important;
+    background-color: #F2F5FA !important; /* Удерживаем тот же фон, что и у 9-го экрана */
+    overflow: hidden !important;
+    box-sizing: border-box !important;
+}
+
+/* Центрированный абсолютный wrapper под рабочую высоту 241px */
+.adengi-wrapper-fluid-10 {
+    position: absolute !important;
+    top: 0 !important;
+    left: 50% !important;
+    transform: translateX(-50%) !important;
+    width: 100vw !important;
+    max-width: 1920px !important;
+    height: 100% !important;
+    box-sizing: border-box !important;
+    padding: 6.25vw !important; /* Отступы по 120px слева и справа, линия встанет ровно на top: 120px */
+}
+
+/* Финальная линия шириной 1680px (100% от внутренней области wrapper) и высотой 1px */
+.adengi-footer-line {
+    width: 100% !important;
+    height: 1px !important;
+    background-color: #555555 !important; /* Серый цвет линии по ТЗ */
+    opacity: 1 !important;
+}
+
+/* ==========================================================================
+   13. СТРАНИЦА КЕЙСА: Т-БАНК x ZAYMER (ПОТОЧНЫЙ АДАПТИВ)
+   ========================================================================== */
+
+.main-cover {
+    display: flex;
+    width: 100vw;
+    /* Высота блока строго равна пропорции 16:9 от ширины экрана. Никаких фиксированных 1080px! */
+    height: 56.25vw; 
+    overflow: hidden;
+    position: relative;
+    background-color: #111111;
+}
+
+/* Каждая половина занимает ровно 50% ширины и 100% высоты */
+.cover-side {
+    width: 50vw;
+    height: 100%;
+    box-sizing: border-box;
+    position: relative;
+}
+
+/* --- ЛЕВАЯ ПОЛОВИНА (Т-БАНК) --- */
+.cover-left {
+    background-color: #FFDD2D;
+    display: flex;
+    flex-direction: column;
+    /* Паддинги скейлятся от ширины экрана (120px / 1920px = 6.25vw) */
+    padding: 6.25vw 0 0 6.25vw;
+}
+
+.logo-t-bank {
+    width: 37.5vw; /* 720px */
+    height: auto;
+    margin-bottom: 6.25vw; /* Отступ 120px */
+}
+
+.ill-t-bank-1 {
+    width: 43.75vw; /* 840px */
+    height: auto;
+}
+
+/* --- ПРАВАЯ ПОЛОВИНА (ЗАЙМЕР) --- */
+.cover-right {
+    background-color: #339900;
+}
+
+/* Позиционируем элементы Займера абсолютно, но ТОЛЬКО внутри их зеленой половины в процентах */
+.cover-right img {
+    display: block;
+    position: absolute;
+}
+
+/* Иллюстрация 2 (Правая) — 720x499 */
+.cover-right .ill-zaymer-2 {
+    top: 0;
+    right: 125vw; /* 120px от правого края экрана (120 / 960 для половины = 12.5%) */
+    /* В контексте всего экрана 1920px отступ равен 6.25vw */
+    right: 6.25vw; 
+    width: 37.5vw; /* 720px */
+    height: 25.98vw; /* 499px */
+    object-fit: cover;
+}
+
+/* Логотип Займер — 720x282.63 */
+.cover-right .logo-zaymer {
+    /* Считаем top от высоты экрана (677.37px / 1080px = 62.72% от высоты обложки) */
+    top: 62.72%; 
+    right: 6.25vw; /* 120px от правого края экрана */
+    width: 37.5vw; /* 720px */
+    height: 14.72vw; /* 282.63px */
+    object-fit: contain;
+}
+
+/* ==========================================================================
+   14. СТРАНИЦА КЕЙСА: Т-БАНК x ZAYMER (БЛОК 2 — СБОРКА С НАВИГАЦИЕЙ LIGHT)
+   ========================================================================== */
+
+/* Внешний экран: жесткие 16:9, сжимается по высоте сам */
+.collab-section-fluid {
+    width: 100vw !important;
+    aspect-ratio: 1920 / 1080 !important;
+    background-color: #EEF7FD !important;
+    position: relative !important;
+    box-sizing: border-box !important;
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    padding: 0 !important; 
+    overflow: hidden !important;
+}
+
+/* НАША КОНТЕНТНАЯ ОБЛАСТЬ (1680x840 при 1920px) */
+.collab-wrapper-fluid {
+    width: 87.5vw !important; /* 1680px */
+    aspect-ratio: 1680 / 840 !important; 
+    box-sizing: border-box !important;
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: center !important; 
+    
+    /* Жесткие отступы от краев экрана: 120px со всех сторон */
+    padding-top: 6.25vw !important;
+    padding-bottom: 6.25vw !important;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+}
+
+/* Ряд для текста и иллюстрации */
+.collab-row {
+    display: flex !important;
+    justify-content: space-between !important;
+    align-items: flex-start !important;
+    width: 100% !important;
+    margin-top: 0 !important;
+    margin-bottom: 10.93vw !important; /* ЖЕСТКИЙ ОТСТУП ДО НАВИГАЦИИ: 210px */
+}
+
+/* ЖЕСТКИЙ КОНТЕЙНЕР ДЛЯ ТЕКСТА (840x488) */
+.collab-col-text {
+    width: 43.75vw !important;  /* Ровно 840px */
+    height: 25.41vw !important; /* Ровно 488px */
+    box-sizing: border-box !important;
+    display: flex !important;
+    flex-direction: column !important;
+}
+
+/* Сброс дефолтных верхних маргинов браузера */
+.collab-col-text h2,
+.collab-col-text p,
+.collab-col-text ul {
+    margin-top: 0 !important;
+    padding-top: 0 !important;
+}
+
+/* Заголовок "Цель коллаборации" (80px, Regular) */
+.collab-fluid-title {
+    font-family: 'AKT', 'Inter', sans-serif !important;
+    font-size: 4.16vw !important; 
+    font-weight: 400 !important; /* Regular */
+    color: #111111 !important;
+    line-height: 1.20 !important;
+    /* ОТСТУП МЕЖДУ ЗАГОЛОВКОМ И ТЕКСТОМ: ровно 96px */
+    margin-bottom: 5vw !important; 
+}
+
+/* Вводный текст (32px, Regular) */
+.collab-fluid-lead {
+    font-family: 'AKT', 'Inter', sans-serif !important;
+    font-size: 1.66vw !important; 
+    font-weight: 400 !important; /* Regular */
+    color: #555555 !important;
+    line-height: 1.25 !important;
+    letter-spacing: 0.05em !important;
+    /* ОТСТУП МЕЖДУ СТРОКАМИ/БЛОКАМИ: ровно 48px */
+    margin-bottom: 2.5vw !important; 
+}
+
+/* Буллиты (32px, Regular) */
+.collab-fluid-list {
+    list-style-type: disc !important;
+    padding-left: 2vw !important;
+    margin-bottom: 0 !important;
+}
+
+.collab-fluid-list li {
+    font-family: 'AKT', 'Inter', sans-serif !important;
+    font-size: 1.66vw !important; 
+    font-weight: 400 !important; /* Regular */
+    color: #555555 !important;
+    line-height: 1.25 !important;
+    letter-spacing: 0.05em !important;
+    /* ОТСТУП МЕЖДУ СТРОКАМИ СПИСКА: ровно 48px */
+    margin-bottom: 2.5vw !important; 
+}
+
+.collab-fluid-list li:last-child {
+    margin-bottom: 0 !important;
+}
+
+/* Правая иллюстрация (570x600) */
+.collab-col-ill {
+    width: 29.68vw !important; 
+    height: 31.25vw !important; 
+    flex-shrink: 0 !important;
+}
+
+.collab-fluid-img {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important;
+    display: block !important;
+}
+
+/* НАВИГАЦИОННЫЙ БЛОК (1050x30) */
+.collab-fluid-nav {
+    width: 54.68vw !important;
+    height: 1.56vw !important;
+    display: flex !important;
+    flex-direction: row !important;
+    gap: 3.125vw !important; /* Шаг 60px */
+    align-items: center !important;
+    margin-top: auto !important; /* Прижимается к нижнему паддингу */
+}
+
+.fluid-nav-item {
+    font-family: 'AKT', 'Inter', sans-serif !important;
+    font-size: 0.83vw !important; /* 16px */
+    text-decoration: none !important;
+    white-space: nowrap !important;
+    color: #555555 !important;
+    line-height: 1.25 !important;
+}
+
+/* Активная вкладка — Regular */
+.fluid-nav-item.active {
+    color: #111111 !important;
+    font-weight: 400 !important; /* Regular */
+}
+
+/* Неактивные вкладки — Light */
+.fluid-nav-item:not(.active) {
+    font-weight: 300 !important; /* Light */
+}
+
+/* ==========================================================================
+   КЕЙС Т-БАНК: БЛОК 3 — ЗАДАЧА (ИСТИННЫЙ СКЕЙЛИНГ / ВЫСОТА 612px)
+   ========================================================================== */
+
+.tbank-section-white-612 {
+    width: 100vw !important;
+    height: 0 !important;
+    /* Полная высота с паддингами: 612 + 120 + 120 = 852px. Пропорция к 1920px = 44.375% */
+    padding-top: 44.375% !important; 
+    position: relative !important;
+    
+    /* МЕНЯЕМ НА ФОН ИЗ FIGMA: нежный голубой оттенок */
+    background-color: #FFFFFF !important; 
+    
+    overflow: hidden !important;
+    box-sizing: border-box !important;
+    
+    /* Адаптивное скругление верхних углов (96px) */
+    border-top-left-radius: 5vw !important;
+    border-top-right-radius: 5vw !important;
+}
+
+/* Центрированный абсолютный wrapper под рабочую высоту 852px */
+.tbank-wrapper-fluid-3 {
+    position: absolute !important;
+    top: 0 !important;
+    left: 50% !important;
+    transform: translateX(-50%) !important;
+    width: 100vw !important;
+    max-width: 1920px !important;
+    height: 100% !important;
+    box-sizing: border-box !important;
+    padding: 6.25vw !important; /* Отступы по 120px со всех сторон */
+}
+
+/* Координатная сетка 1680x612 */
+.tbank-row-3 {
+    position: relative !important;
+    width: 100% !important;
+    height: 100% !important;
+}
+
+/* Заголовок «Задача» (80px, цвет 111111, regular) */
+.tbank-title-3 {
+    position: absolute !important;
+    top: 0 !important;
+    left: 0 !important;
+    font-family: 'AKT', sans-serif !important;
+    font-size: 4.166vw !important; /* 80px */
+    font-weight: 400 !important;
+    color: #111111 !important;
+    line-height: 1.20 !important;
+    text-align: left !important;
+    margin: 0 !important;
+}
+
+/* ИЛЛЮСТРАЦИЯ ЗАДАЧИ (690x420, сверху 192px, слева 0) */
+.tbank-task-ill-block {
+    position: absolute !important;
+    top: 10vw !important;        /* Ровно 192px от нуля контентной области */
+    left: 0 !important;
+    width: 35.937vw !important;  /* Ровно 690px */
+    height: 21.875vw !important; /* Ровно 420px */
+}
+
+.tbank-task-img {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: contain !important;
+    display: block !important;
+}
+
+/* ТЕКСТОВЫЙ БЛОК ЗАДАЧИ (743x336, сверху 192px, слева 780px) */
+.tbank-task-text-block {
+    position: absolute !important;
+    top: 10vw !important;        /* Ровно 192px от нуля контентной области */
+    left: 40.625vw !important;   /* Ровно 780px от нуля контентной области */
+    width: 38.697vw !important;  /* Ровно 743px */
+    height: 17.5vw !important;    /* Ровно 336px */
+    display: flex !important;
+    flex-direction: column !important;
+    box-sizing: border-box !important;
+}
+
+/* Базовый стиль абзацев (32px, цвет 555555, 125%, 5%) */
+.tbank-task-text {
+    font-family: 'AKT', sans-serif !important;
+    font-size: 1.666vw !important; /* 32px */
+    font-weight: 400 !important;
+    color: #555555 !important;
+    line-height: 1.25 !important;
+    letter-spacing: 0.05em !important; /* 5% */
+    text-align: left !important;
+    margin: 0 !important;
+    margin-bottom: 2.5vw !important; /* Шаг ровно 48px между строчками текста */
+    position: relative !important;
+    -webkit-font-smoothing: antialiased !important;
+    -moz-osx-font-smoothing: grayscale !important;
+}
+
+/* У последнего элемента убираем нижний маргин */
+.tbank-task-text:last-child {
+    margin-bottom: 0 !important;
+}
+
+/* Стилизация буллитов через псевдоэлемент, чтобы не ломать отступы */
+.tbank-bullet {
+    padding-left: 2vw !important; /* Отступ текста от точки */
+}
+
+.tbank-bullet::before {
+    content: "•" !important;
+    position: absolute !important;
+    left: 0 !important;
+    top: 0 !important;
+    color: #555555 !important;
+}
+
+/* ==========================================================================
+   КЕЙС Т-БАНК: БЛОК 4 — ВИ ТРИНА KEY VISUALS (ИСТИННЫЙ СКЕЙЛИНГ / ВЫСОТА 3134px)
+   ========================================================================== */
+
+.tbank-section-gallery {
+    width: 100vw !important;
+    height: 0 !important;
+    /* Полная высота с паддингами: 3134 + 120 + 120 = 3374px. Пропорция к 1920px = 175.729% */
+    padding-top: 175.729% !important; 
+    position: relative !important;
+    background-color: #FFFFFF !important;
+    overflow: visible !important;
+    box-sizing: border-box !important;
+}
+
+/* Центрированный абсолютный wrapper под рабочую высоту 3374px */
+.tbank-wrapper-fluid-4 {
+    position: absolute !important;
+    top: 0 !important;
+    left: 50% !important;
+    transform: translateX(-50%) !important;
+    width: 100vw !important;
+    max-width: 1920px !important;
+    height: 100% !important;
+    box-sizing: border-box !important;
+    padding: 6.25vw !important; /* Отступы по 120px со всех сторон */
+    z-index: 2 !important;       /* Контент лежит выше фонового градиента */
+}
+
+/* Координатная сетка 1680x3134 */
+.tbank-row-4 {
+    position: relative !important;
+    width: 100% !important;
+    height: 100% !important;
+}
+
+/* Базовый класс для всех боксов с Key Visuals */
+.tbank-kv-box {
+    position: absolute !important;
+    overflow: hidden !important;
+}
+
+.tbank-kv-img {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important;
+    display: block !important;
+}
+
+/* ПОЗИЦИОНИРОВАНИЕ ИЛЛЮСТРАЦИЙ СТРОГО ПО КООРДИНАТАМ FIGMA */
+
+/* Первый ряд: Две квадратные картинки 810x750 */
+.kv-box-1 {
+    top: 0 !important;
+    left: 0 !important;
+    width: 42.187vw !important;  /* 810px */
+    height: 39.062vw !important; /* 750px */
+}
+
+.kv-box-2 {
+    top: 0 !important;
+    left: 45.312vw !important;   /* 870px */
+    width: 42.187vw !important;  /* 810px */
+    height: 39.062vw !important; /* 750px */
+}
+
+/* Второй ряд: Широкий горизонтальный KV 1680x698 */
+.kv-box-3 {
+    top: 40.208vw !important;    /* 772px */
+    left: 0 !important;
+    width: 87.5vw !important;     /* 1680px */
+    height: 36.354vw !important;  /* 698px */
+}
+
+/* Третий ряд: Три плашки 530x284 */
+.kv-box-4 {
+    top: 79.687vw !important;    /* 1530px */
+    left: 0 !important;
+    width: 27.604vw !important;  /* 530px */
+    height: 14.791vw !important; /* 284px */
+}
+
+.kv-box-5 {
+    top: 79.687vw !important;    /* 1530px */
+    left: 29.687vw !important;   /* 570px */
+    width: 27.604vw !important;  /* 530px */
+    height: 14.791vw !important; /* 284px */
+}
+
+.kv-box-6 {
+    top: 79.687vw !important;    /* 1530px */
+    left: 59.375vw !important;   /* 1140px */
+    width: 27.604vw !important;  /* 530px */
+    height: 14.791vw !important; /* 284px */
+}
+
+/* Четвёртый ряд: Центрированный мега-квадрат 1200x1200 */
+.kv-box-7 {
+    top: 100.729vw !important;   /* 1934px */
+    left: 12.5vw !important;     /* 240px */
+    width: 62.5vw !important;     /* 1200px */
+    height: 62.5vw !important;    /* 1200px */
+}
+
+/* Текст описание (12px, цвет 555555, light, сверху 1844px, слева 0) */
+.tbank-kv-caption {
+    position: absolute !important;
+    top: 96.041vw !important;    /* Ровно 1844px от нуля контента */
+    left: 0 !important;
+    font-family: 'AKT', sans-serif !important;
+    font-size: 0.625vw !important; /* 12px */
+    font-weight: 300 !important;   /* Light */
+    color: #555555 !important;
+    line-height: 1.20 !important;
+    text-align: left !important;
+    margin: 0 !important;
+    -webkit-font-smoothing: antialiased !important;
+    -moz-osx-font-smoothing: grayscale !important;
+}
+
+/* КАСТОМНЫЙ ФОНОВЫЙ ГРАДИЕНТ (Железобетонное центрирование по оси макета) */
+.tbank-bg-gradient-wrap {
+    position: absolute !important;
+    z-index: 1 !important;       /* Лежит под контентом */
+    
+    /* Смещение top: 2081px + 120px верхнего паддинга секции = 2201px */
+    top: 114.635vw !important;   
+    
+    /* ЦЕНТРИРОВАНИЕ ПО ОСИ Х */
+    left: 50% !important;
+    transform: translateX(-50%) !important;
+    
+    width: 106.666vw !important; /* Ширина картинки градиента 2048px */
+    height: 89.635vw !important; /* Высота картинки градиента 1721px */
+    overflow: hidden !important;
+}
+
+.tbank-gradient-img {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: fill !important; /* Растягивается строго по размерам градиентного png */
+    display: block !important;
+}
+
+/* ==========================================================================
+   КЕЙС Т-БАНК: БЛОК 5 — РЕЗУЛЬТАТ (ИСТИННЫЙ СКЕЙЛИНГ / ВЫСОТА 942px)
+   ========================================================================== */
+
+.tbank-section-white-942 {
+    width: 100vw !important;
+    height: 0 !important;
+    padding-top: 61.5625% !important; 
+    position: relative !important;
+    background-color: #FFFFFF !important; 
+    overflow: hidden !important;
+    box-sizing: border-box !important;
+    
+    /* Слоёный пирог: приподнимаем блок над фоном предыдущего экрана */
+    z-index: 3 !important; 
+    
+    /* Скругление верхних углов */
+    border-top-left-radius: 5vw !important;
+    border-top-right-radius: 5vw !important;
+    border-bottom-left-radius: 0 !important;
+    border-bottom-right-radius: 0 !important;
+}
+
+/* Центрированный абсолютный wrapper под рабочую высоту 1182px */
+.tbank-wrapper-fluid-5 {
+    position: absolute !important;
+    top: 0 !important;
+    left: 50% !important;
+    transform: translateX(-50%) !important;
+    width: 100vw !important;
+    max-width: 1920px !important;
+    height: 100% !important;
+    box-sizing: border-box !important;
+    padding: 6.25vw !important; /* Отступы по 120px со всех сторон */
+}
+
+/* Координатная сетка 1680x942 */
+.tbank-row-5 {
+    position: relative !important;
+    width: 100% !important;
+    height: 100% !important;
+}
+
+/* Заголовок «Результат» (80px, цвет 111111, regular) */
+.tbank-title-5 {
+    position: absolute !important;
+    top: 0 !important;
+    left: 0 !important;
+    font-family: 'AKT', sans-serif !important;
+    font-size: 4.166vw !important; /* 80px */
+    font-weight: 400 !important;
+    color: #111111 !important;
+    line-height: 1.20 !important;
+    text-align: left !important;
+    margin: 0 !important;
+}
+
+/* ИЛЛЮСТРАЦИЯ РЕЗУЛЬТАТА (690x600, сверху 192px, слева 0) */
+.tbank-result-ill-block {
+    position: absolute !important;
+    top: 10vw !important;        /* Ровно 192px от нуля контентной области */
+    left: 0 !important;
+    width: 35.937vw !important;  /* Ровно 690px */
+    height: 31.25vw !important;   /* Ровно 600px */
+}
+
+.tbank-result-img {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: contain !important;
+    display: block !important;
+}
+
+/* ТЕКСТОВЫЙ БЛОК РЕЗУЛЬТАТА (743x416, сверху 192px, слева 780px) */
+.tbank-result-text-block {
+    position: absolute !important;
+    top: 10vw !important;        /* Ровно 192px от нуля контентной области */
+    left: 40.625vw !important;   /* Ровно 780px от нуля контентной области */
+    width: 38.697vw !important;  /* Ровно 743px */
+    height: 21.666vw !important; /* Ровно 416px */
+    display: flex !important;
+    flex-direction: column !important;
+    box-sizing: border-box !important;
+}
+
+/* Стили абзацев (32px, цвет 555555, 125%, 5%) */
+.tbank-result-text {
+    font-family: 'AKT', sans-serif !important;
+    font-size: 1.666vw !important; /* 32px */
+    font-weight: 400 !important;
+    color: #555555 !important;
+    line-height: 1.25 !important;
+    letter-spacing: 0.05em !important; /* 5% */
+    text-align: left !important;
+    margin: 0 !important;
+    margin-bottom: 2.5vw !important; /* Расстояние 48px между абзацами */
+    position: relative !important;
+    -webkit-font-smoothing: antialiased !important;
+    -moz-osx-font-smoothing: grayscale !important;
+}
+
+/* У последнего элемента убираем нижний маргин */
+.tbank-result-text:last-child {
+    margin-bottom: 0 !important;
+}
+
+/* Адаптивные буллиты */
+.tbank-result-bullet {
+    padding-left: 2vw !important; /* Отступ текста от точки */
+}
+
+.tbank-result-bullet::before {
+    content: "•" !important;
+    position: absolute !important;
+    left: 0 !important;
+    top: 0 !important;
+    color: #555555 !important;
+}
+
+/* НАВИГАЦИОННЫЙ БЛОК (1050x30, сверху 840px, слева 0) */
+.tbank-nav-5 {
+    position: absolute !important;
+    top: 43.75vw !important;     /* Ровно 840px от нуля контентной области */
+    left: 0 !important;
+    width: 54.687vw !important;  /* Ровно 1050px */
+    height: 1.562vw !important;  /* Ровно 30px */
+    display: flex !important;
+    flex-direction: row !important;
+    gap: 3.125vw !important;     /* Шаг 60px между ссылками */
+    align-items: center !important;
+    z-index: 10 !important;
+}
+
+.tbank-nav-5 {
+    position: absolute !important;
+    top: 47.5vw !important;      /* Ровно 912px от нуля контентной области */
+    left: 0 !important;
+    width: 54.687vw !important;  /* Ровно 1050px */
+    height: 1.562vw !important;  /* Ровно 30px */
+    display: flex !important;
+    flex-direction: row !important;
+    gap: 3.125vw !important;     /* Шаг 60px между ссылками */
+    align-items: center !important;
+    z-index: 10 !important;
+}
+
+/* ЭЛЕМЕНТЫ НАВИГАЦИИ БЛОКА 5 (Фикс шрифта AKT и начертаний) */
+.tbank-nav-item-5 {
+    font-family: 'AKT', sans-serif !important;
+    font-size: 0.833vw !important; /* 16px */
+    line-height: 1.25 !important;
+    text-decoration: none !important;
+    white-space: nowrap !important;
+    text-align: left !important;
+    -webkit-font-smoothing: antialiased !important;
+    -moz-osx-font-smoothing: grayscale !important;
+}
+
+/* Неактивные вкладки — цвет 555555, Light (font-weight: 300) */
+.tbank-nav-item-5:not(.active) {
+    font-family: 'AKT', sans-serif !important;
+    font-weight: 300 !important;
+    color: #555555 !important;
+}
+
+/* Активная вкладка — цвет 111111, Bold (font-weight: 700) */
+.tbank-nav-item-5.active {
+    font-family: 'AKT', sans-serif !important;
+    font-weight: 700 !important;
+    color: #111111 !important;
+}
+
+/* ==========================================================================
+   КЕЙС Т-БАНК: БЛОК 6 — ФИНАЛЬНАЯ ЛИНИЯ (ВЫСОТА 1px + ПАДДИНГИ)
+   ========================================================================== */
+
+.tbank-section-footer {
+    width: 100vw !important;
+    height: 0 !important;
+    /* Полная высота с паддингами: 1 + 120 + 120 = 241px. Пропорция к 1920px = 12.552% */
+    padding-top: 12.552% !important; 
+    position: relative !important;
+    background-color: #FFFFFF !important; /* Удерживаем белый фон предыдущего экрана */
+    overflow: hidden !important;
+    box-sizing: border-box !important;
+}
+
+/* Центрированный абсолютный wrapper под рабочую высоту 241px */
+.tbank-wrapper-fluid-6 {
+    position: absolute !important;
+    top: 0 !important;
+    left: 50% !important;
+    transform: translateX(-50%) !important;
+    width: 100vw !important;
+    max-width: 1920px !important;
+    height: 100% !important;
+    box-sizing: border-box !important;
+    padding: 6.25vw !important; /* Отступы по 120px по бокам */
+}
+
+/* Финальная линия шириной 1680px и высотой 1px */
+.tbank-footer-line {
+    width: 100% !important;
+    height: 1px !important;
+    background-color: #555555 !important;
+    opacity: 1 !important;
+}
+
+/* ==========================================================================
+   КЕЙС ZAYMER RUSSIA: БЛОК 1 — ИНТРО (ИСТИННЫЙ СКЕЙЛИНГ / ВЫСОТА 840px)
+   ========================================================================== */
+
+.zaymer-section-intro {
+    width: 100vw !important;
+    height: 0 !important;
+    /* Полная высота с паддингами: 840 + 120 + 120 = 1080px. Пропорция к 1920px = 56.25% */
+    padding-top: 56.25% !important; 
+    position: relative !important;
+    background-color: #339900 !important; /* Фирменный зеленый фон */
+    overflow: hidden !important;
+    box-sizing: border-box !important;
+}
+
+/* Центрированный абсолютный wrapper под рабочую высоту 1080px */
+.zaymer-wrapper-fluid-1 {
+    position: absolute !important;
+    top: 0 !important;
+    left: 50% !important;
+    transform: translateX(-50%) !important;
+    width: 100vw !important;
+    max-width: 1920px !important;
+    height: 100% !important;
+    box-sizing: border-box !important;
+    padding: 6.25vw !important; /* Отступы по 120px со всех сторон */
+}
+
+/* Координатная сетка 1680x840 */
+.zaymer-row-1 {
+    position: relative !important;
+    width: 100% !important;
+    height: 100% !important;
+}
+
+/* БЛОК ЛОГОТИПА (Абсолютное центрирование 960x398 по центру сетки) */
+.zaymer-intro-logo-block {
+    position: absolute !important;
+    top: 50% !important;
+    left: 50% !important;
+    transform: translate(-50%, -50%) !important; /* Идеальный центр */
+    width: 50vw !important;        /* Ровно 960px при 1920 макета */
+    height: 20.729vw !important;   /* Ровно 398px при 1920 макета */
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+}
+
+.zaymer-intro-logo {
+    width: 100% !important;
+    height: auto !important; /* Даем высоте подстроиться пропорционально */
+    object-fit: contain !important;
+    display: block !important;
+}
+
+/* ==========================================================================
+   КЕЙС ZAYMER RUSSIA: БЛОК 2 — О ПРОДУКТЕ (ИСТИННЫЙ СКЕЙЛИНГ / ВЫСОТА 840px)
+   ========================================================================= */
+
+.zaymer-section-about {
+    width: 100vw !important;
+    height: 0 !important;
+    /* Полная высота с паддингами: 840 + 120 + 120 = 1080px. Пропорция к 1920px = 56.25% */
+    padding-top: 56.25% !important; 
+    position: relative !important;
+    background-color: #339900 !important; /* Зелёный фон */
+    /* overflow: visible позволяет графике с отрицательными отступами вылетать за края, если нужно */
+    overflow: hidden !important; 
+    box-sizing: border-box !important;
+}
+
+/* Центрированный абсолютный wrapper под рабочую высоту 1080px */
+.zaymer-wrapper-fluid-2 {
+    position: absolute !important;
+    top: 0 !important;
+    left: 50% !important;
+    transform: translateX(-50%) !important;
+    width: 100vw !important;
+    max-width: 1920px !important;
+    height: 100% !important;
+    box-sizing: border-box !important;
+    padding: 6.25vw !important; /* Отступы по 120px со всех сторон */
+}
+
+/* Координатная сетка 1680x840 */
+.zaymer-row-2 {
+    position: relative !important;
+    width: 100% !important;
+    height: 100% !important;
+}
+
+/* ТЕКСТОВЫЙ БЛОК (840x640, сверху 0, слева 0) */
+.zaymer-about-text-block {
+    position: absolute !important;
+    top: 0 !important;
+    left: 0 !important;
+    width: 43.75vw !important;     /* Ровно 840px */
+    height: 33.333vw !important;   /* Ровно 640px */
+    display: flex !important;
+    flex-direction: column !important;
+    z-index: 3 !important;         /* Текст строго поверх всей графики */
+}
+
+/* Заголовок «О продукте» (80px, белый, regular) */
+.zaymer-about-title {
+    font-family: 'AKT', sans-serif !important;
+    font-size: 4.166vw !important; /* 80px */
+    font-weight: 400 !important;
+    color: #FFFFFF !important;
+    line-height: 1.20 !important;
+    text-align: left !important;
+    margin: 0 !important;
+    margin-bottom: 5vw !important; /* Ровно 96px отступа до Текста 1 */
+}
+
+/* Общие стили для Текста 1 и Текста 2 (32px, 125%, 5%, opacity 75%) */
+.zaymer-about-p1, .zaymer-about-p2 {
+    font-family: 'AKT', sans-serif !important;
+    font-size: 1.666vw !important; /* 32px */
+    font-weight: 400 !important;
+    color: #FFFFFF !important;
+    opacity: 0.75 !important;      /* Прозрачность 75% по ТЗ */
+    line-height: 1.25 !important;
+    letter-spacing: 0.05em !important; /* 5% */
+    text-align: left !important;
+    margin: 0 !important;
+    -webkit-font-smoothing: antialiased !important;
+    -moz-osx-font-smoothing: grayscale !important;
+}
+
+/* Отступ между текстами 48px */
+.zaymer-about-p1 {
+    margin-bottom: 2.5vw !important; /* Ровно 48px */
+}
+
+/* ГРАФИКА НА ЗАДНЕМ ПЛАНЕ */
+
+/* Иллюстрация (1255x1014, сверху -54px, слева 545px) */
+.zaymer-about-ill-block {
+    position: absolute !important;
+    top: -2.812vw !important;      /* -54px */
+    left: 28.385vw !important;     /* 545px */
+    width: 65.364vw !important;    /* 1255px */
+    height: 52.812vw !important;   /* 1014px */
+    z-index: 2 !important;
+}
+
+.zaymer-about-img {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: contain !important;
+    display: block !important;
+}
+
+/* SVG Прямоугольник (672x1020, сверху -60px, слева 1128px) */
+.zaymer-about-svg-rect {
+    position: absolute !important;
+    top: -3.125vw !important;      /* -60px */
+    left: 58.75vw !important;      /* 1128px */
+    width: 35vw !important;         /* 672px */
+    height: 53.125vw !important;   /* 1020px */
+    z-index: 1 !important;         /* Самый нижний слой под картинкой */
+}
+
+.zaymer-svg-img {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: contain !important;
+    display: block !important;
+}
+
+/* НАВИГАЦИОННЫЙ БЛОК (Сверху 820px, Слева 0) */
+.zaymer-nav-2 {
+    position: absolute !important;
+    top: 42.708vw !important;     /* Ровно 820px от нуля контентной области */
+    left: 0 !important;
+    width: 54.687vw !important;  /* 1050px */
+    height: 1.562vw !important;  /* 30px */
+    display: flex !important;
+    flex-direction: row !important;
+    gap: 3.125vw !important;     /* Шаг 60px между ссылками */
+    align-items: center !important;
+    z-index: 10 !important;
+}
+
+.zaymer-nav-item-2 {
+    font-family: 'AKT', sans-serif !important;
+    font-size: 0.833vw !important; /* 16px */
+    line-height: 1.25 !important;
+    text-decoration: none !important;
+    white-space: nowrap !important;
+    text-align: left !important;
+    -webkit-font-smoothing: antialiased !important;
+    -moz-osx-font-smoothing: grayscale !important;
+}
+
+/* Неактивные пункты — Белые, Light, 75% прозрачности */
+.zaymer-nav-item-2:not(.active) {
+    font-weight: 300 !important;
+    color: #FFFFFF !important;
+    opacity: 0.75 !important;
+}
+
+/* Активный пункт Zaymer Russia — Белый, Bold, 100% непрозрачности */
+.zaymer-nav-item-2.active {
+    font-weight: 700 !important;
+    color: #FFFFFF !important;
+    opacity: 1 !important;
+}
+
+/* ==========================================================================
+   КЕЙС ZAYMER RUSSIA: БЛОК 3 — ГРАДИЕНТНЫЙ ШОУКЕЙС (ВЫСОТА 570px / OVERFLOW VISIBLE)
+   ========================================================================== */
+
+.zaymer-section-gradient-570 {
+    width: 100vw !important;
+    height: 0 !important;
+    /* Полная высота с паддингами: 570 + 120 + 120 = 810px. Пропорция к 1920px = 42.1875% */
+    padding-top: 42.1875% !important; 
+    position: relative !important;
+    
+    /* Вертикальный градиент по ТЗ */
+    background: linear-gradient(to bottom, #D9DFE3 0%, #CDD2D6 100%) !important; 
+    
+    /* КРИТИЧЕСКИЕ СВОЙСТВА: выпускаем графику наружу и поднимаем блок выше предыдущего */
+    overflow: visible !important; 
+    z-index: 4 !important; 
+    box-sizing: border-box !important;
+}
+
+/* Центрированный абсолютный wrapper под рабочую высоту 810px */
+.zaymer-wrapper-fluid-3 {
+    position: absolute !important;
+    top: 0 !important;
+    left: 50% !important;
+    transform: translateX(-50%) !important;
+    width: 100vw !important;
+    max-width: 1920px !important;
+    height: 100% !important;
+    box-sizing: border-box !important;
+    padding: 6.25vw !important; /* Отступы по 120px со всех сторон */
+    overflow: visible !important; /* Дублируем visible для ворпера */
+}
+
+/* Координатная сетка 1680x570 */
+.zaymer-row-3 {
+    position: relative !important;
+    width: 100% !important;
+    height: 100% !important;
+    overflow: visible !important; /* Дублируем visible для строки */
+}
+
+/* ИЛЛЮСТРАЦИЯ С ВЫЛЕТАМИ (1502x870, сверху -180px, слева 132px) */
+.zaymer-showcase-ill-block {
+    position: absolute !important;
+    top: -9.375vw !important;     /* Ровно -180px от нуля контентной области */
+    left: 6.875vw !important;     /* Ровно 132px от нуля контентной области */
+    width: 78.229vw !important;    /* Ровно 1502px */
+    height: 45.312vw !important;   /* Ровно 870px */
+    z-index: 5 !important;
+}
+
+.zaymer-showcase-img {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: contain !important; /* Сохраняем пропорции картинки без обрезки */
+    display: block !important;
+}
+
+/* ==========================================================================
+   КЕЙС ZAYMER RUSSIA: БЛОК 4 — ЗАДАЧИ (ИСТИННЫЙ СКЕЙЛИНГ / ВЫСОТА 784px)
+   ========================================================================== */
+
+.zaymer-section-white-784 {
+    width: 100vw !important;
+    height: 0 !important;
+    /* Полная высота с паддингами: 784 + 120 + 120 = 1024px. Пропорция к 1920px = 53.333% */
+    padding-top: 53.333% !important; 
+    position: relative !important;
+    background-color: #FFFFFF !important; /* Чистый белый фон */
+    overflow: hidden !important;
+    box-sizing: border-box !important;
+    z-index: 5 !important; /* Перекрываем возможные нижние вылеты предыдущего шоукейса */
+}
+
+/* Центрированный абсолютный wrapper под рабочую высоту 1024px */
+.zaymer-wrapper-fluid-4 {
+    position: absolute !important;
+    top: 0 !important;
+    left: 50% !important;
+    transform: translateX(-50%) !important;
+    width: 100vw !important;
+    max-width: 1920px !important;
+    height: 100% !important;
+    box-sizing: border-box !important;
+    padding: 6.25vw !important; /* Отступы по 120px со всех сторон */
+}
+
+/* Координатная сетка 1680x784 */
+.zaymer-row-4 {
+    position: relative !important;
+    width: 100% !important;
+    height: 100% !important;
+}
+
+/* Заголовок «Задачи» (80px, цвет 111111, regular) */
+.zaymer-tasks-title {
+    position: absolute !important;
+    top: 0 !important;
+    left: 0 !important;
+    font-family: 'AKT', sans-serif !important;
+    font-size: 4.166vw !important; /* 80px */
+    font-weight: 400 !important;
+    color: #111111 !important;
+    line-height: 1.20 !important;
+    text-align: left !important;
+    margin: 0 !important;
+}
+
+/* ИЛЛЮСТРАЦИЯ ЗАДАЧ (690x592, сверху 192px, слева 0) */
+.zaymer-tasks-ill-block {
+    position: absolute !important;
+    top: 10vw !important;        /* Ровно 192px от нуля контентной области */
+    left: 0 !important;
+    width: 35.937vw !important;  /* Ровно 690px */
+    height: 30.833vw !important;  /* Ровно 592px */
+    bottom: 0 !important;
+}
+
+.zaymer-tasks-img {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: contain !important;
+    display: block !important;
+}
+
+/* ТЕКСТОВЫЙ БЛОК БУЛЛИТОВ (811x592, сверху 192px, слева 780px) */
+.zaymer-tasks-text-block {
+    position: absolute !important;
+    top: 10vw !important;        /* Ровно 192px от нуля контентной области */
+    left: 40.625vw !important;   /* Ровно 780px */
+    width: 42.239vw !important;  /* Ровно 811px */
+    height: 30.833vw !important;  /* Ровно 592px */
+    bottom: 0 !important;
+    display: flex !important;
+    flex-direction: column !important;
+    box-sizing: border-box !important;
+}
+
+/* Стили буллитов (32px, цвет 555555, 125%, 5%) */
+.zaymer-tasks-bullet {
+    font-family: 'AKT', sans-serif !important;
+    font-size: 1.666vw !important; /* 32px */
+    font-weight: 400 !important;
+    color: #555555 !important;
+    line-height: 1.25 !important;
+    letter-spacing: 0.05em !important; /* 5% */
+    text-align: left !important;
+    margin: 0 !important;
+    margin-bottom: 2.5vw !important; /* Шаг 48px между пунктами */
+    padding-left: 2vw !important;    /* Отступ под точку */
+    position: relative !important;
+    -webkit-font-smoothing: antialiased !important;
+    -moz-osx-font-smoothing: grayscale !important;
+}
+
+/* Кастомная точка */
+.zaymer-tasks-bullet::before {
+    content: "•" !important;
+    position: absolute !important;
+    left: 0 !important;
+    top: 0 !important;
+    color: #555555 !important;
+}
+
+/* У последнего буллита убираем отступ */
+.zaymer-tasks-bullet:last-child {
+    margin-bottom: 0 !important;
+}
+
+/* ==========================================================================
+   КЕЙС ZAYMER RUSSIA: БЛОК 5 — ГАЛЕРЕЯ KV (ИСТИННЫЙ СКЕЙЛИНГ / ВЫСОТА 884px)
+   ========================================================================== */
+
+.zaymer-section-gallery-884 {
+    width: 100vw !important;
+    height: 0 !important;
+    /* Полная высота с паддингами: 884 + 120 + 120 = 1124px. Пропорция к 1920px = 58.541% */
+    padding-top: 58.541% !important; 
+    position: relative !important;
+    background-color: #FFFFFF !important; /* Белый фон */
+    overflow: hidden !important;
+    box-sizing: border-box !important;
+    z-index: 5 !important;
+}
+
+/* Центрированный абсолютный wrapper под рабочую высоту 1124px */
+.zaymer-wrapper-fluid-5 {
+    position: absolute !important;
+    top: 0 !important;
+    left: 50% !important;
+    transform: translateX(-50%) !important;
+    width: 100vw !important;
+    max-width: 1920px !important;
+    height: 100% !important;
+    box-sizing: border-box !important;
+    padding: 6.25vw !important; /* Отступы по 120px со всех сторон */
+}
+
+/* Координатная сетка 1680x884 */
+.zaymer-row-5 {
+    position: relative !important;
+    width: 100% !important;
+    height: 100% !important;
+}
+
+/* ОБЩИЙ КЛАСС ДЛЯ БЛОКОВ КАРТИНОК (Размер 810x390) */
+.zaymer-kv-block {
+    position: absolute !important;
+    width: 42.187vw !important;  /* Ровно 810px */
+    height: 20.312vw !important; /* Ровно 390px */
+}
+
+.zaymer-kv-img {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important; /* Заполняем прямоугольник без искажений */
+    display: block !important;
+}
+
+/* ТОЧНОЕ ПОЗИЦИОНИРОВАНИЕ КАЖДОЙ КАРТИНКИ */
+.zaymer-kv-block.kv-1 {
+    top: 0 !important;
+    left: 0 !important;
+}
+
+.zaymer-kv-block.kv-2 {
+    top: 0 !important;
+    left: 45.312vw !important; /* Ровно 870px */
+}
+
+.zaymer-kv-block.kv-3 {
+    top: 23.437vw !important;  /* Ровно 450px */
+    left: 0 !important;
+}
+
+.zaymer-kv-block.kv-4 {
+    top: 23.437vw !important;  /* Ровно 450px */
+    left: 45.312vw !important; /* Ровно 870px */
+}
+
+/* ТЕКСТОВАЯ ПОДПИСЬ (12px, цвет 555555, light, сверху 870px, слева 0) */
+.zaymer-kv-caption {
+    position: absolute !important;
+    top: 45.312vw !important;    /* Ровно 870px от нуля контентной области */
+    left: 0 !important;
+    font-family: 'AKT', sans-serif !important;
+    font-size: 0.625vw !important; /* Ровно 12px */
+    font-weight: 300 !important;   /* Light */
+    color: #555555 !important;
+    line-height: 1.20 !important;
+    text-align: left !important;
+    white-space: nowrap !important;
+    -webkit-font-smoothing: antialiased !important;
+    -moz-osx-font-smoothing: grayscale !important;
+}
+
+/* ==========================================================================
+   КЕЙС ZAYMER RUSSIA: БЛОК 6 — ВИТРИНА APP STORE (СКЕЙЛИНГ / ВЫСОТА 1980px)
+   ========================================================================== */
+
+.zaymer-section-store-1980 {
+    width: 100vw !important;
+    height: 0 !important;
+    /* Полная высота с паддингами: 1980 + 120 + 120 = 2220px. Пропорция к 1920px = 115.625% */
+    padding-top: 115.625% !important; 
+    position: relative !important;
+    background-color: #FFFFFF !important; /* Чистый белый фон */
+    overflow: hidden !important;
+    box-sizing: border-box !important;
+    z-index: 5 !important;
+}
+
+/* Центрированный абсолютный wrapper под рабочую высоту 2220px */
+.zaymer-wrapper-fluid-6 {
+    position: absolute !important;
+    top: 0 !important;
+    left: 50% !important;
+    transform: translateX(-50%) !important;
+    width: 100vw !important;
+    max-width: 1920px !important;
+    height: 100% !important;
+    box-sizing: border-box !important;
+    padding: 6.25vw !important; /* Отступы по 120px со всех сторон */
+}
+
+/* Координатная сетка 1680x1980 */
+.zaymer-row-6 {
+    position: relative !important;
+    width: 100% !important;
+    height: 100% !important;
+}
+
+/* Базовый класс для всех блоков иллюстраций витрины */
+.zaymer-app-block {
+    position: absolute !important;
+}
+
+.zaymer-app-img {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: contain !important;
+    display: block !important;
+}
+
+/* РЯД 1: КООРДИНАТЫ И РАЗМЕРЫ */
+.zaymer-app-block.app-1 {
+    top: 0 !important;
+    left: 0 !important;
+    width: 22.916vw !important;  /* 440px */
+    height: 46.875vw !important; /* 900px */
+}
+
+.zaymer-app-block.app-2 {
+    top: 0 !important;
+    left: 26.562vw !important;  /* 510px */
+    width: 60.937vw !important;  /* 1170px */
+    height: 43.75vw !important;   /* 840px */
+}
+
+/* Техническая подпись (12px, цвет 555555, light, top: 870px, left: 510px) */
+.zaymer-app-caption {
+    position: absolute !important;
+    top: 45.312vw !important;     /* Ровно 870px */
+    left: 26.562vw !important;    /* Ровно 510px */
+    font-family: 'AKT', sans-serif !important;
+    font-size: 0.625vw !important; /* 12px */
+    font-weight: 300 !important;   /* Light */
+    color: #555555 !important;
+    line-height: 1.20 !important;
+    text-align: left !important;
+    white-space: nowrap !important;
+    -webkit-font-smoothing: antialiased !important;
+    -moz-osx-font-smoothing: grayscale !important;
+}
+
+/* РЯД 2: КООРДИНАТЫ И РАЗМЕРЫ */
+.zaymer-app-block.app-3 {
+    top: 50vw !important;         /* Ровно 960px */
+    left: 0 !important;
+    width: 40.625vw !important;  /* 780px */
+    height: 23.437vw !important;  /* 450px */
+}
+
+.zaymer-app-block.app-4 {
+    top: 48.281vw !important;    /* Ровно 927px */
+    left: 43.75vw !important;     /* Ровно 840px */
+    width: 43.75vw !important;     /* 840px */
+    height: 25.156vw !important;  /* 483px */
+}
+
+/* РЯД 3: ТРИПЛЕТ (Каждый блок 540x360, top: 1470px) */
+.zaymer-app-block.app-5 {
+    top: 76.562vw !important;    /* Ровно 1470px */
+    left: 0 !important;
+    width: 28.125vw !important;  /* 540px */
+    height: 18.75vw !important;   /* 360px */
+}
+
+.zaymer-app-block.app-6 {
+    top: 76.562vw !important;    /* Ровно 1470px */
+    left: 29.687vw !important;  /* Ровно 570px */
+    width: 28.125vw !important;  /* 540px */
+    height: 18.75vw !important;   /* 360px */
+}
+
+.zaymer-app-block.app-7 {
+    top: 76.562vw !important;    /* Ровно 1470px */
+    left: 59.375vw !important;  /* Ровно 1140px */
+    width: 28.125vw !important;  /* 540px */
+    height: 18.75vw !important;   /* 360px */
+}
+
+/* НАВИГАЦИОННЫЙ БЛОК НА ДНЕ (Сверху 1950px, Тёмные цвета) */
+.zaymer-nav-6 {
+    position: absolute !important;
+    top: 101.562vw !important;   /* Ровно 1950px от нуля контентной области */
+    left: 0 !important;
+    width: 54.687vw !important;  /* 1050px */
+    height: 1.562vw !important;  /* 30px */
+    display: flex !important;
+    flex-direction: row !important;
+    gap: 3.125vw !important;     /* Шаг 60px между ссылками */
+    align-items: center !important;
+    z-index: 10 !important;
+}
+
+.zaymer-nav-item-6 {
+    font-family: 'AKT', sans-serif !important;
+    font-size: 0.833vw !important; /* 16px */
+    line-height: 1.25 !important;
+    text-decoration: none !important;
+    white-space: nowrap !important;
+    text-align: left !important;
+    -webkit-font-smoothing: antialiased !important;
+    -moz-osx-font-smoothing: grayscale !important;
+}
+
+/* Неактивные пункты — Серые, Light */
+.zaymer-nav-item-6:not(.active) {
+    font-weight: 300 !important;
+    color: #555555 !important;
+}
+
+/* Активный пункт Zaymer Russia — Темный, Bold */
+.zaymer-nav-item-6.active {
+    font-weight: 700 !important;
+    color: #111111 !important;
+}
+
+/* ==========================================================================
+   КЕЙС ZAYMER RUSSIA: БЛОК 7 — 3D-АССЕТЫ (ИСТИННЫЙ СКЕЙЛИНГ / ВЫСОТА 600px)
+   ========================================================================== */
+
+.zaymer-section-white-600 {
+    width: 100vw !important;
+    height: 0 !important;
+    /* Полная высота с паддингами: 600 + 120 + 120 = 840px. Пропорция к 1920px = 43.75% */
+    padding-top: 43.75% !important; 
+    position: relative !important;
+    background-color: #FFFFFF !important; /* Белый фон */
+    overflow: hidden !important;
+    box-sizing: border-box !important;
+    z-index: 5 !important;
+}
+
+/* Центрированный абсолютный wrapper под рабочую высоту 840px */
+.zaymer-wrapper-fluid-7 {
+    position: absolute !important;
+    top: 0 !important;
+    left: 50% !important;
+    transform: translateX(-50%) !important;
+    width: 100vw !important;
+    max-width: 1920px !important;
+    height: 100% !important;
+    box-sizing: border-box !important;
+    padding: 6.25vw !important; /* Отступы по 120px со всех сторон */
+}
+
+/* Координатная сетка 1680x600 */
+.zaymer-row-7 {
+    position: relative !important;
+    width: 100% !important;
+    height: 100% !important;
+}
+
+/* ЛЕВАЯ КОЛОНКА: ТЕКСТОВЫЙ БЛОК (690x560, сверху 0, слева 0) */
+.zaymer-assets-text-block {
+    position: absolute !important;
+    top: 0 !important;
+    left: 0 !important;
+    width: 35.937vw !important;   /* Ровно 690px */
+    height: 29.166vw !important;  /* Ровно 560px */
+    display: flex !important;
+    flex-direction: column !important;
+}
+
+/* Заголовок «Задачи» (80px, цвет 111111, regular) */
+.zaymer-assets-title {
+    font-family: 'AKT', sans-serif !important;
+    font-size: 4.166vw !important; /* 80px */
+    font-weight: 400 !important;
+    color: #111111 !important;
+    line-height: 1.20 !important;
+    text-align: left !important;
+    margin: 0 !important;
+    margin-bottom: 5vw !important; /* Ровно 96px отступа до Текста 1 */
+}
+
+/* Общие стили для Текста 1 и Текста 2 (32px, цвет 555555, 125%, 5%) */
+.zaymer-assets-p1, .zaymer-assets-p2 {
+    font-family: 'AKT', sans-serif !important;
+    font-size: 1.666vw !important; /* 32px */
+    font-weight: 400 !important;
+    color: #555555 !important;
+    line-height: 1.25 !important;
+    letter-spacing: 0.05em !important; /* 5% */
+    text-align: left !important;
+    margin: 0 !important;
+    -webkit-font-smoothing: antialiased !important;
+    -moz-osx-font-smoothing: grayscale !important;
+}
+
+/* Шаг между текстами 48px */
+.zaymer-assets-p1 {
+    margin-bottom: 2.5vw !important; /* Ровно 48px */
+}
+
+/* ПРАВАЯ КОЛОНКА: ИЛЛЮСТРАЦИЯ 3D (810x600, сверху 0, слева 870px) */
+.zaymer-assets-ill-block {
+    position: absolute !important;
+    top: 0 !important;
+    left: 45.312vw !important;   /* Ровно 870px */
+    width: 42.187vw !important;   /* Ровно 810px */
+    height: 31.25vw !important;   /* Ровно 600px */
+}
+
+.zaymer-assets-img {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: contain !important;
+    display: block !important;
+}
+
+/* ==========================================================================
+   КЕЙС ZAYMER RUSSIA: БЛОК 8 — ШОУКЕЙС ПАКА (ИСТИННЫЙ СКЕЙЛИНГ / ВЫСОТА 3790px)
+   ========================================================================== */
+
+.zaymer-section-pack-3790 {
+    width: 100vw !important;
+    height: 0 !important;
+    /* Полная высота с паддингами: 3790 + 120 + 120 = 4030px. Пропорция к 1920px = 209.895% */
+    padding-top: 209.895% !important; 
+    position: relative !important;
+    background-color: #FFFFFF !important; /* Белый фон */
+    overflow: hidden !important;
+    box-sizing: border-box !important;
+    z-index: 5 !important;
+}
+
+/* Центрированный абсолютный wrapper под рабочую высоту 4030px */
+.zaymer-wrapper-fluid-8 {
+    position: absolute !important;
+    top: 0 !important;
+    left: 50% !important;
+    transform: translateX(-50%) !important;
+    width: 100vw !important;
+    max-width: 1920px !important;
+    height: 100% !important;
+    box-sizing: border-box !important;
+    padding: 6.25vw !important; /* Отступы по 120px со всех сторон */
+}
+
+/* Координатная сетка 1680x3790 */
+.zaymer-row-8 {
+    position: relative !important;
+    width: 100% !important;
+    height: 100% !important;
+}
+
+/* Базовый класс для всех картинок пака */
+.zaymer-pack-block {
+    position: absolute !important;
+}
+
+.zaymer-pack-img {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: contain !important; /* Либо cover, если макет подразумевает жесткую обрезку рендеров */
+    display: block !important;
+}
+
+/* ТОЧНОЕ ПОЗИЦИОНИРОВАНИЕ ВСЕХ 13 ИЛЛЮСТРАЦИЙ */
+
+/* Группа 1 */
+.zaymer-pack-block.pack-1 {
+    top: 0 !important;
+    left: 0 !important;
+    width: 42.187vw !important;  /* 810px */
+    height: 23.437vw !important; /* 450px */
+}
+
+.zaymer-pack-block.pack-2 {
+    top: 25vw !important;         /* 480px */
+    left: 0 !important;
+    width: 20.312vw !important;  /* 390px */
+    height: 17.187vw !important; /* 330px */
+}
+
+.zaymer-pack-block.pack-3 {
+    top: 25vw !important;         /* 480px */
+    left: 21.875vw !important;   /* 420px */
+    width: 20.312vw !important;  /* 390px */
+    height: 17.187vw !important; /* 330px */
+}
+
+.zaymer-pack-block.pack-4 {
+    top: 0 !important;
+    left: 45.312vw !important;   /* 870px */
+    width: 42.187vw !important;   /* 810px */
+    height: 42.187vw !important;  /* 810px */
+}
+
+/* Группа 2 */
+.zaymer-pack-block.pack-5 {
+    top: 45.312vw !important;    /* 870px */
+    left: 0 !important;
+    width: 27.083vw !important;  /* 520px */
+    height: 32.812vw !important; /* 630px */
+}
+
+.zaymer-pack-block.pack-6 {
+    top: 45.312vw !important;    /* 870px */
+    left: 30.208vw !important;   /* 580px */
+    width: 27.083vw !important;  /* 520px */
+    height: 32.812vw !important; /* 630px */
+}
+
+.zaymer-pack-block.pack-7 {
+    top: 45.312vw !important;    /* 870px */
+    left: 60.416vw !important;   /* 1160px */
+    width: 27.083vw !important;  /* 520px */
+    height: 32.812vw !important; /* 630px */
+}
+
+/* Группа 3 */
+.zaymer-pack-block.pack-8 {
+    top: 81.25vw !important;     /* 1560px */
+    left: 0 !important;
+    width: 87.5vw !important;     /* 1680px (Всю ширину контента) */
+    height: 59.375vw !important;  /* 1140px */
+}
+
+/* Группа 4 */
+.zaymer-pack-block.pack-9 {
+    top: 143.75vw !important;    /* 2760px */
+    left: 0 !important;
+    width: 42.187vw !important;  /* 810px */
+    height: 23.437vw !important; /* 450px */
+}
+
+.zaymer-pack-block.pack-10 {
+    top: 143.75vw !important;    /* 2760px */
+    left: 45.312vw !important;   /* 870px */
+    width: 42.187vw !important;  /* 810px */
+    height: 23.437vw !important; /* 450px */
+}
+
+/* Группа 5 */
+.zaymer-pack-block.pack-11 {
+    top: 170.312vw !important;   /* 3270px */
+    left: 0 !important;
+    width: 27.083vw !important;  /* 520px */
+    height: 27.083vw !important; /* 520px */
+}
+
+.zaymer-pack-block.pack-12 {
+    top: 170.312vw !important;   /* 3270px */
+    left: 30.208vw !important;   /* 580px */
+    width: 27.083vw !important;  /* 520px */
+    height: 27.083vw !important; /* 520px */
+}
+
+.zaymer-pack-block.pack-13 {
+    top: 170.312vw !important;   /* 3270px */
+    left: 60.416vw !important;   /* 1160px */
+    width: 27.083vw !important;  /* 520px */
+    height: 27.083vw !important; /* 520px */
+}
+
+/* ==========================================================================
+   КЕЙС ZAYMER RUSSIA: БЛОК 9 — ИЛЛЮСТРАЦИЯ НА САЙТЕ (СКЕЙЛИНГ / ВЫСОТА 750px)
+   ========================================================================== */
+
+.zaymer-section-white-750 {
+    width: 100vw !important;
+    height: 0 !important;
+    /* Полная высота с паддингами: 750 + 120 + 120 = 990px. Пропорция к 1920px = 51.5625% */
+    padding-top: 51.5625% !important; 
+    position: relative !important;
+    background-color: #FFFFFF !important; /* Белый фон */
+    overflow: hidden !important;
+    box-sizing: border-box !important;
+    z-index: 5 !important;
+}
+
+/* Центрированный абсолютный wrapper под рабочую высоту 990px */
+.zaymer-wrapper-fluid-9 {
+    position: absolute !important;
+    top: 0 !important;
+    left: 50% !important;
+    transform: translateX(-50%) !important;
+    width: 100vw !important;
+    max-width: 1920px !important;
+    height: 100% !important;
+    box-sizing: border-box !important;
+    padding: 6.25vw !important; /* Отступы по 120px со всех сторон */
+}
+
+/* Координатная сетка 1680x750 */
+.zaymer-row-9 {
+    position: relative !important;
+    width: 100% !important;
+    height: 100% !important;
+}
+
+/* ЦЕНТРАЛЬНАЯ ИЛЛЮСТРАЦИЯ (1440x690, сверху 0, слева 120px) */
+.zaymer-site-ill-block {
+    position: absolute !important;
+    top: 0 !important;
+    left: 6.25vw !important;       /* Ровно 120px */
+    width: 75vw !important;         /* Ровно 1440px */
+    height: 35.937vw !important;    /* Ровно 690px */
+}
+
+.zaymer-site-img {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: contain !important; /* Сохраняем пропорции скриншота/мокапа */
+    display: block !important;
+}
+
+/* ТЕКСТОВАЯ ПОДПИСЬ (12px, цвет 555555, light, сверху 720px, слева 120px) */
+.zaymer-site-caption {
+    position: absolute !important;
+    top: 37.5vw !important;         /* Ровно 720px от нуля контентной области */
+    left: 6.25vw !important;        /* Ровно 120px — выравнивание по левому краю картинки */
+    font-family: 'AKT', sans-serif !important;
+    font-size: 0.625vw !important;  /* Ровно 12px */
+    font-weight: 300 !important;    /* Light */
+    color: #555555 !important;
+    line-height: 1.20 !important;
+    text-align: left !important;
+    white-space: nowrap !important;
+    -webkit-font-smoothing: antialiased !important;
+    -moz-osx-font-smoothing: grayscale !important;
+}
+
+/* ==========================================================================
+   КЕЙС ZAYMER RUSSIA: БЛОК 10 — ИЛЛЮСТРАЦИИ В ПРИЛОЖЕНИИ (ВЫСОТА 900px)
+   ========================================================================== */
+
+.zaymer-section-white-996 {
+    width: 100vw !important;
+    height: 0 !important;
+    /* Полная высота с паддингами: 996 + 120 + 120 = 1236px. Пропорция к 1920px = 64.375% */
+    padding-top: 64.375% !important; 
+    position: relative !important;
+    background-color: #FFFFFF !important; 
+    overflow: visible !important; /* Выпускаем контент вниз под следующий блок */
+    box-sizing: border-box !important;
+    z-index: 5 !important;
+}
+
+/* Центрированный абсолютный wrapper под рабочую высоту 1140px */
+.zaymer-wrapper-fluid-10 {
+    position: absolute !important;
+    top: 0 !important;
+    left: 50% !important;
+    transform: translateX(-50%) !important;
+    width: 100vw !important;
+    max-width: 1920px !important;
+    height: 100% !important;
+    box-sizing: border-box !important;
+    padding: 6.25vw !important; /* Отступы по 120px со всех сторон */
+}
+
+/* Координатная сетка 1680x900 */
+.zaymer-row-10 {
+    position: relative !important;
+    width: 100% !important;
+    height: 100% !important;
+}
+
+/* Базовый класс для блоков картинок приложения */
+.zaymer-app-ill-block {
+    position: absolute !important;
+}
+
+.zaymer-app-ill-img {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: contain !important;
+    display: block !important;
+}
+
+/* ТОЧНОЕ ПОЗИЦИОНИРОВАНИЕ КОМПОНЕНТОВ СЕТКИ */
+
+/* Левый квадрат 690x690 */
+.zaymer-app-ill-block.app-ill-1 {
+    top: 0 !important;
+    left: 0 !important;
+    width: 35.937vw !important;  /* Ровно 690px */
+    height: 35.937vw !important; /* Ровно 690px */
+}
+
+/* Правая верхняя плашка 930x390 */
+.zaymer-app-ill-block.app-ill-2 {
+    top: 0 !important;
+    left: 39.062vw !important;   /* Ровно 750px */
+    width: 48.437vw !important;  /* Ровно 930px */
+    height: 20.312vw !important; /* Ровно 390px */
+}
+
+/* Правый нижний левый бокс 450x330 */
+.zaymer-app-ill-block.app-ill-3 {
+    top: 21.875vw !important;    /* Ровно 420px */
+    left: 39.062vw !important;   /* Ровно 750px */
+    width: 23.437vw !important;  /* Ровно 450px */
+    height: 17.187vw !important; /* Ровно 330px */
+}
+
+/* Правый нижний правый бокс 450x330 */
+.zaymer-app-ill-block.app-ill-4 {
+    top: 21.875vw !important;    /* Ровно 420px */
+    left: 64.062vw !important;   /* Ровно 1230px */
+    width: 23.437vw !important;  /* Ровно 450px */
+    height: 17.187vw !important; /* Ровно 330px */
+}
+
+/* ТЕКСТОВАЯ ПОДПИСЬ (12px, цвет 555555, light, сверху 720px, слева 0) */
+.zaymer-app-ill-caption {
+    position: absolute !important;
+    top: 37.5vw !important;         /* Ровно 720px от нуля контентной области */
+    left: 0 !important;
+    font-family: 'AKT', sans-serif !important;
+    font-size: 0.625vw !important;  /* Ровно 12px */
+    font-weight: 300 !important;    /* Light */
+    color: #555555 !important;
+    line-height: 1.20 !important;
+    text-align: left !important;
+    white-space: nowrap !important;
+    -webkit-font-smoothing: antialiased !important;
+    -moz-osx-font-smoothing: grayscale !important;
+}
+
+/* НАВИГАЦИОННЫЙ БЛОК ДЛЯ БЛОКА 10 (Сверху 870px, Слева 0) */
+.zaymer-nav-10 {
+    position: absolute !important;
+    top: 45.312vw !important;     /* Ровно 870px от нуля контентной области */
+    left: 0 !important;
+    width: 54.687vw !important;  /* 1050px рабочей ширины */
+    height: 1.562vw !important;  /* 30px */
+    display: flex !important;
+    flex-direction: row !important;
+    gap: 3.125vw !important;     /* Шаг 60px между ссылками */
+    align-items: center !important;
+    z-index: 10 !important;
+}
+
+.zaymer-nav-item-10 {
+    font-family: 'AKT', sans-serif !important;
+    font-size: 0.833vw !important; /* 16px */
+    line-height: 1.25 !important;  /* Интерлиньяж 125% */
+    text-decoration: none !important;
+    white-space: nowrap !important;
+    text-align: left !important;
+    -webkit-font-smoothing: antialiased !important;
+    -moz-osx-font-smoothing: grayscale !important;
+}
+
+/* Неактивные пункты меню — цвет 555555, Light */
+.zaymer-nav-item-10:not(.active) {
+    font-weight: 300 !important;
+    color: #555555 !important;
+}
+
+/* Активный пункт (Zaymer Russia) — цвет 111111, Bold */
+.zaymer-nav-item-10.active {
+    font-weight: 700 !important;
+    color: #111111 !important;
+}
+
+/* ==========================================================================
+   КЕЙС ZAYMER RUSSIA: БЛОК 11 — РЕЗУЛЬТАТЫ (ВЫСОТА 955px + СКРУГЛЕНИЕ ВЕРХА)
+   ========================================================================== */
+
+.zaymer-section-result-955 {
+    width: 100vw !important;
+    height: 0 !important;
+    padding-top: 62.239% !important; 
+    position: relative !important;
+    background-color: #EEF7FD !important; 
+    overflow: hidden !important;
+    box-sizing: border-box !important;
+    
+    /* ТУТ КРИТИЧЕСКИЙ СДВИГ НАВЕРХ НА 96px */
+    margin-top: -5vw !important; 
+    
+    /* Скругление верхних углов */
+    border-top-left-radius: 5vw !important;
+    border-top-right-radius: 5vw !important;
+    border-bottom-left-radius: 0 !important;
+    border-bottom-right-radius: 0 !important;
+    
+    /* Поднимаем над 10-м блоком */
+    z-index: 6 !important; 
+}
+
+/* Центрированный абсолютный wrapper под рабочую высоту 1195px */
+.zaymer-wrapper-fluid-11 {
+    position: absolute !important;
+    top: 0 !important;
+    left: 50% !important;
+    transform: translateX(-50%) !important;
+    width: 100vw !important;
+    max-width: 1920px !important;
+    height: 100% !important;
+    box-sizing: border-box !important;
+    padding: 6.25vw !important; /* Отступы по 120px со всех сторон */
+}
+
+/* Координатная сетка 1680x955 */
+.zaymer-row-11 {
+    position: relative !important;
+    width: 100% !important;
+    height: 100% !important;
+}
+
+/* ЗАДНИЙ ПЛАН: КАСТОМНЫЙ ГРАДИЕНТ (1120x1054, top: 29px, left: -112px) */
+.zaymer-result-grad-wrap {
+    position: absolute !important;
+    top: 1.510vw !important;       /* Ровно 29px */
+    left: -5.833vw !important;     /* Ровно -112px */
+    width: 58.333vw !important;    /* Ровно 1120px */
+    height: 54.895vw !important;   /* Ровно 1054px */
+    z-index: 2 !important;         /* Под всеми контентными слоями */
+}
+
+.zaymer-result-grad-img {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: contain !important;
+    display: block !important;
+}
+
+/* Заголовок «Результаты» (80px, цвет 111111, regular) */
+.zaymer-result-title {
+    position: absolute !important;
+    top: 0 !important;
+    left: 0 !important;
+    font-family: 'AKT', sans-serif !important;
+    font-size: 4.166vw !important; /* 80px */
+    font-weight: 400 !important;
+    color: #111111 !important;
+    line-height: 1.20 !important;
+    text-align: left !important;
+    margin: 0 !important;
+    z-index: 4 !important;
+}
+
+/* ИЛЛЮСТРАЦИЯ РЕЗУЛЬТАТА (690x613, сверху 192px, слева 0) */
+.zaymer-result-ill-block {
+    position: absolute !important;
+    top: 10vw !important;          /* Ровно 192px */
+    left: 0 !important;
+    width: 35.937vw !important;    /* Ровно 690px */
+    height: 31.927vw !important;   /* Ровно 613px */
+    z-index: 3 !important;
+}
+
+.zaymer-result-img {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: contain !important;
+    display: block !important;
+}
+
+/* ТЕКСТОВЫЙ БЛОК БУЛЛИТОВ (811x496, сверху 192px, слева 780px) */
+.zaymer-result-text-block {
+    position: absolute !important;
+    top: 10vw !important;          /* Ровно 192px */
+    left: 40.625vw !important;     /* Ровно 780px */
+    width: 42.239vw !important;    /* Ровно 811px */
+    height: 25.833vw !important;   /* Ровно 496px */
+    display: flex !important;
+    flex-direction: column !important;
+    box-sizing: border-box !important;
+    z-index: 4 !important;
+}
+
+/* Стили буллитов (32px, цвет 555555, 125%, 5%) */
+.zaymer-result-bullet {
+    font-family: 'AKT', sans-serif !important;
+    font-size: 1.666vw !important; /* 32px */
+    font-weight: 400 !important;
+    color: #555555 !important;
+    line-height: 1.25 !important;
+    letter-spacing: 0.05em !important; /* 5% */
+    text-align: left !important;
+    margin: 0 !important;
+    margin-bottom: 2.5vw !important; /* Шаг 48px между пунктами */
+    padding-left: 2vw !important;    /* Отступ под точку */
+    position: relative !important;
+    -webkit-font-smoothing: antialiased !important;
+    -moz-osx-font-smoothing: grayscale !important;
+}
+
+/* Точка буллита */
+.zaymer-result-bullet::before {
+    content: "•" !important;
+    position: absolute !important;
+    left: 0 !important;
+    top: 0 !important;
+    color: #555555 !important;
+}
+
+.zaymer-result-bullet:last-child {
+    margin-bottom: 0 !important;
+}
+
+/* НАВИГАЦИОННЫЙ БЛОК НА ДНЕ (Сверху 925px, Слева 0) */
+.zaymer-nav-11 {
+    position: absolute !important;
+    top: 48.177vw !important;     /* Ровно 925px от нуля контентной области */
+    left: 0 !important;
+    width: 54.687vw !important;  /* 1050px рабочей ширины */
+    height: 1.562vw !important;  /* 30px */
+    display: flex !important;
+    flex-direction: row !important;
+    gap: 3.125vw !important;     /* Шаг 60px между ссылками */
+    align-items: center !important;
+    z-index: 10 !important;
+}
+
+.zaymer-nav-item-11 {
+    font-family: 'AKT', sans-serif !important;
+    font-size: 0.833vw !important; /* 16px */
+    line-height: 1.25 !important;
+    text-decoration: none !important;
+    white-space: nowrap !important;
+    text-align: left !important;
+    -webkit-font-smoothing: antialiased !important;
+    -moz-osx-font-smoothing: grayscale !important;
+}
+
+/* Неактивные пункты — цвет 555555, Light */
+.zaymer-nav-item-11:not(.active) {
+    font-weight: 300 !important;
+    color: #555555 !important;
+}
+
+/* Активный пункт (Zaymer Russia) — цвет 111111, Bold */
+.zaymer-nav-item-11.active {
+    font-weight: 700 !important;
+    color: #111111 !important;
+}
+
+/* ==========================================================================
+   КЕЙС ZAYMER RUSSIA: БЛОК 12 — РАЗДЕЛИТЕЛЬНАЯ ЛИНИЯ (СКЕЙЛИНГ / ТОЛЩИНА 1px)
+   ========================================================================== */
+
+.zaymer-section-line-1 {
+    width: 100vw !important;
+    height: 0 !important;
+    /* Полная высота с паддингами: 1 + 120 + 120 = 241px. Пропорция к 1920px = 12.552% */
+    padding-top: 12.552% !important; 
+    position: relative !important;
+    background-color: #EEF7FD !important; /* Голубой фон, как у результатов */
+    overflow: hidden !important;
+    box-sizing: border-box !important;
+    z-index: 6 !important;
+}
+
+/* Центрированный абсолютный wrapper под рабочую высоту 241px */
+.zaymer-wrapper-fluid-12 {
+    position: absolute !important;
+    top: 0 !important;
+    left: 50% !important;
+    transform: translateX(-50%) !important;
+    width: 100vw !important;
+    max-width: 1920px !important;
+    height: 100% !important;
+    box-sizing: border-box !important;
+    padding: 6.25vw !important; /* Отступы по 120px со всех сторон */
+}
+
+/* Координатная сетка 1680x1 */
+.zaymer-row-12 {
+    position: relative !important;
+    width: 100% !important;
+    height: 100% !important;
+}
+
+/* Линия 1680px на 1px (цвет 555555) */
+.zaymer-divider-line {
+    position: absolute !important;
+    top: 0 !important;
+    left: 0 !important;
+    width: 100% !important; /* Растягивается на всю контентную область (1680px) */
+    height: 1px !important;  /* Толщина ровно 1px */
+    background-color: #555555 !important;
+    opacity: 1 !important;
+}
+
+/* ==========================================================================
+   КЕЙС ZAYMER KAZAKHSTAN: БЛОК 1 — ИНТРО (ИСТИННЫЙ СКЕЙЛИНГ / ВЫСОТА 840px)
+   ========================================================================== */
+
+.zaymer-kz-section-intro {
+    width: 100vw !important;
+    height: 0 !important;
+    padding-top: 56.25% !important; 
+    position: relative !important;
+    background-color: #199D3E !important; 
+    
+    /* КРИТИЧЕСКИЙ ФИКС: Закрываем правый вылет, чтобы контент не ехал влево */
+    overflow: hidden !important; 
+    box-sizing: border-box !important;
+    z-index: 3 !important;
+}
+
+/* Центрированный абсолютный wrapper под рабочую высоту 1080px */
+.zaymer-kz-wrapper-fluid-1 {
+    position: absolute !important;
+    top: 0 !important;
+    left: 50% !important;
+    transform: translateX(-50%) !important;
+    width: 100vw !important;
+    max-width: 1920px !important;
+    height: 100% !important;
+    box-sizing: border-box !important;
+    padding: 6.25vw !important; /* Отступы по 120px со всех сторон */
+}
+
+/* Координатная сетка 1680x840 */
+.zaymer-kz-row-1 {
+    position: relative !important;
+    width: 100% !important;
+    height: 100% !important;
+}
+
+/* ЦЕНТРАЛЬНЫЙ ЛОГОТИП ПО КООРДИНАТАМ FIGMA (940x398.19, сверху 221px, слева 370px) */
+.zaymer-kz-logo-wrap {
+    position: absolute !important;
+    top: 11.510vw !important;       /* Ровно 221px сверху от нуля контентной области */
+    left: 19.270vw !important;      /* Ровно 370px слева */
+    width: 48.958vw !important;     /* Ровно 940px ширина */
+    height: 20.739vw !important;    /* Ровно 398.19px высота */
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    z-index: 3 !important;
+}
+
+.zaymer-kz-main-logo {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: contain !important; /* Чтобы логотип идеально вписался в контейнер без искажений */
+    display: block !important;
+}
+
+/* ТЕКСТ СТРАНЫ (64px, Light, белый, трекинг 15%, top: 581px, left: 627px) */
+.zaymer-kz-country-title {
+    position: absolute !important;
+    top: 30.260vw !important;       /* Ровно 581px */
+    left: 32.656vw !important;      /* Ровно 627px */
+    width: 22.187vw !important;      /* Ровно 426px */
+    
+    font-family: 'AKT', sans-serif !important;
+    font-size: 3.333vw !important;  /* Ровно 64px */
+    font-weight: 300 !important;    /* Шрифт Light по ТЗ */
+    color: #FFFFFF !important;
+    opacity: 0.75 !important;       /* 75% прозрачности из 100 по ТЗ */
+    
+    line-height: 1.20 !important;
+    letter-spacing: 0.15em !important; /* 15% трекинг */
+    text-align: center !important;
+    margin: 0 !important;
+    -webkit-font-smoothing: antialiased !important;
+    -moz-osx-font-smoothing: grayscale !important;
+}
+
+/* ОБЩИЙ КЛАСС ДЛЯ ВСЕХ SVG ДЕКОРАЦИЙ */
+.zaymer-kz-svg-img {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: contain !important;
+    display: block !important;
+}
+
+/* ВЫЛЕТАЮЩИЙ ДЕКОР ПО КООРДИНАТАМ FIGMA (900x900, сверху -573px, слева 1366px) */
+.zaymer-kz-svg-decor-big {
+    position: absolute !important;
+    /* Точка привязки контейнера на холсте */
+    top: -29.843vw !important;     /* Ровно -573px от нуля контентной области */
+    left: 71.145vw !important;     /* Ровно 1366px */
+    
+    /* ХИТРЫЙ ХАК: обнуляем физический размер контейнера для браузера, */
+    /* чтобы он не создавал горизонтальный скролл и не уводил контент влево */
+    width: 0 !important;
+    height: 0 !important;
+    z-index: 1 !important;
+}
+
+/* Сама картинка внутри невидимой точки привязки */
+.zaymer-kz-svg-decor-big .zaymer-kz-svg-img {
+    position: absolute !important;
+    top: 0 !important;
+    left: 0 !important;
+    width: 46.875vw !important;    /* Ровно 900px */
+    height: 46.875vw !important;   /* Ровно 900px */
+    max-width: none !important;    /* Запрещаем браузеру сжимать SVG */
+    display: block !important;
+}
+
+/* МИНИ-ЭЛЕМЕНТЫ АЙДЕНТИКИ (24x24, top: 607px) */
+.zaymer-kz-mini-decor {
+    position: absolute !important;
+    top: 31.614vw !important;      /* Ровно 607px */
+    width: 1.25vw !important;       /* Ровно 24px */
+    height: 1.25vw !important;      /* Ровно 24px */
+}
+
+/* Позиция левого элемента (left: 583px) */
+.zaymer-kz-mini-decor.decor-left {
+    left: 30.364vw !important;     /* Ровно 583px */
+}
+
+/* Позиция правого элемента (left: 1073px) */
+.zaymer-kz-mini-decor.decor-right {
+    left: 55.885vw !important;     /* Ровно 1073px */
+}
+
+/* ==========================================================================
+   КЕЙС ZAYMER KAZAKHSTAN: БЛОК 2 — СТРОГО ПО КООРДИНАТАМ FIGMA (1680x840)
+   ========================================================================= */
+
+.zaymer-kz-section-goal {
+    width: 100vw !important;
+    height: 0 !important;
+    /* Полная высота с паддингами: 840 + 120 + 120 = 1080px. Пропорция к 1920px = 56.25% */
+    padding-top: 56.25% !important; 
+    position: relative !important;
+    background-color: #199D3E !important; 
+    
+    /* Блокируем сдвиг фона по горизонтали, но разрешаем вылет картинки наверх */
+    overflow-x: hidden !important;
+    overflow-y: visible !important; 
+    box-sizing: border-box !important;
+    z-index: 4 !important;
+}
+
+/* Центрированный абсолютный wrapper под рабочую высоту 1080px */
+.zaymer-kz-wrapper-fluid-2 {
+    position: absolute !important;
+    top: 0 !important;
+    left: 50% !important;
+    transform: translateX(-50%) !important;
+    width: 100vw !important;
+    max-width: 1920px !important;
+    height: 100% !important;
+    box-sizing: border-box !important;
+    padding: 6.25vw !important; /* Отступы по 120px со всех сторон */
+}
+
+/* Координатная сетка 1680x840 */
+.zaymer-kz-row-2 {
+    position: relative !important;
+    width: 100% !important;
+    height: 100% !important;
+}
+
+/* ЛЕВАЯ КОЛОНКА: ТЕКСТОВЫЙ БЛОК (840x392, сверху 0, слева 0) */
+.zaymer-kz-goal-text-block {
+    position: absolute !important;
+    top: 0 !important;
+    left: 0 !important;
+    width: 43.75vw !important;     /* Ровно 840px */
+    height: 20.416vw !important;    /* Ровно 392px */
+    display: flex !important;
+    flex-direction: column !important;
+}
+
+/* Заголовок «Цель» (80px, белый, regular, 120%) */
+.zaymer-kz-goal-title {
+    font-family: 'AKT', sans-serif !important;
+    font-size: 4.166vw !important;  /* 80px */
+    font-weight: 400 !important;
+    color: #FFFFFF !important;
+    line-height: 1.20 !important;
+    text-align: left !important;
+    margin: 0 !important;
+    margin-bottom: 5vw !important;  /* Ровно 96px отступа до текста */
+}
+
+/* Описание цели (32px, белый 75%, regular, 125%, 5%) */
+.zaymer-kz-goal-p {
+    font-family: 'AKT', sans-serif !important;
+    font-size: 1.666vw !important;  /* 32px */
+    font-weight: 400 !important;
+    color: #FFFFFF !important;
+    opacity: 0.75 !important;       
+    line-height: 1.25 !important;
+    letter-spacing: 0.05em !important; /* 5% */
+    text-align: left !important;
+    margin: 0 !important;
+}
+
+/* ПРАВАЯ КОЛОНКА: PNG ИЛЛЮСТРАЦИЯ СТРОГО ПО КООРДИНАТАМ FIGMA */
+/* (998x1026, сверху -120px, слева 812px) */
+.zaymer-kz-goal-ill-block {
+    position: absolute !important;
+    top: -6.25vw !important;        /* СВЕРХУ: -120px */
+    left: 42.291vw !important;      /* СЛЕВА: 812px */
+    width: 51.979vw !important;      /* ШИРИНА: 998px */
+    height: 53.437vw !important;     /* ВЫСОТА: 1026px */
+    z-index: 5 !important;
+}
+
+.zaymer-kz-goal-ill-block .zaymer-kz-goal-img {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: contain !important;
+    display: block !important;
+}
+
+/* СВЕТЛЫЙ НАВИГАЦИОННЫЙ БЛОК НА ДНЕ (Сверху 810px, Слева 0) */
+.zaymer-kz-nav-2 {
+    position: absolute !important;
+    top: 42.187vw !important;       /* Ровно 810px */
+    left: 0 !important;
+    width: 54.687vw !important;     
+    height: 1.562vw !important;     
+    display: flex !important;
+    flex-direction: row !important;
+    gap: 3.125vw !important;        /* Шаг 60px между ссылками */
+    align-items: center !important;
+    z-index: 10 !important;
+}
+
+.zaymer-kz-nav-item-2 {
+    font-family: 'AKT', sans-serif !important;
+    font-size: 0.833vw !important;  /* 16px */
+    line-height: 1.25 !important;
+    text-decoration: none !important;
+    white-space: nowrap !important;
+    text-align: left !important;
+}
+
+/* Неактивные пункты меню — Белые, 75% прозрачности, Light */
+.zaymer-kz-nav-item-2:not(.active) {
+    font-weight: 300 !important;
+    color: #FFFFFF !important;
+    opacity: 0.75 !important;
+}
+
+/* Активный пункт (Zaymer Kazakhstan) — Чистый белый, Bold */
+.zaymer-kz-nav-item-2.active {
+    font-weight: 700 !important;
+    color: #FFFFFF !important;
+    opacity: 1 !important;
+}
+
+/* ==========================================================================
+   КЕЙС ZAYMER KAZAKHSTAN: БЛОК 3 — ЗАДАЧИ (ИСТИННЫЙ СКЕЙЛИНГ / ВЫСОТА 782px)
+   ========================================================================== */
+
+.zaymer-kz-section-tasks {
+    width: 100vw !important;
+    height: 0 !important;
+    /* Полная высота с паддингами: 782 + 120 + 120 = 1022px. Пропорция к 1920px = 53.229% */
+    padding-top: 53.229% !important; 
+    position: relative !important;
+    background-color: #FFFFFF !important; /* Белый фон */
+    overflow: visible !important; /* Разрешаем вылет картинки наверх на зелёный фон */
+    box-sizing: border-box !important;
+    z-index: 5 !important; /* Накрывает предыдущий блок */
+}
+
+/* Центрированный абсолютный wrapper под рабочую высоту 1022px */
+.zaymer-kz-wrapper-fluid-3 {
+    position: absolute !important;
+    top: 0 !important;
+    left: 50% !important;
+    transform: translateX(-50%) !important;
+    width: 100vw !important;
+    max-width: 1920px !important;
+    height: 100% !important;
+    box-sizing: border-box !important;
+    padding: 6.25vw !important; /* Отступы по 120px со всех сторон */
+}
+
+/* Координатная сетка 1680x782 */
+.zaymer-kz-row-3 {
+    position: relative !important;
+    width: 100% !important;
+    height: 100% !important;
+}
+
+/* Заголовок «Задачи» (80px, темно-серый, regular, 120%) */
+.zaymer-kz-tasks-title {
+    position: absolute !important;
+    top: 0 !important;
+    left: 0 !important;
+    width: 14.010vw !important;     /* Ровно 269px */
+    font-family: 'AKT', sans-serif !important;
+    font-size: 4.166vw !important;  /* 80px */
+    font-weight: 400 !important;
+    color: #111111 !important;
+    line-height: 1.20 !important;
+    text-align: left !important;
+    margin: 0 !important;
+}
+
+/* PNG ИЛЛЮСТРАЦИЯ СТРОГО ПО КООРДИНАТАМ FIGMA (690x590, сверху +192px, слева 0, снизу 0) */
+.zaymer-kz-tasks-ill-block {
+    position: absolute !important;
+    top: 10vw !important;           /* Ровно +192px сверху (теперь без минуса) */
+    left: 0 !important;             /* Ровно 0px слева */
+    width: 35.937vw !important;     /* Ровно 690px ширина */
+    height: 30.729vw !important;    /* Ровно 590px высота */
+    z-index: 6 !important;
+}
+
+.zaymer-kz-tasks-img {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: contain !important;
+    display: block !important;
+}
+
+/* ПРАВАЯ КОЛОНКА: БЛОК С БУЛЛИТАМИ (811x416, сверху 192px, слева 780px) */
+.zaymer-kz-tasks-text-block {
+    position: absolute !important;
+    top: 10vw !important;           /* Ровно 192px */
+    left: 40.625vw !important;      /* Ровно 780px */
+    width: 42.239vw !important;     /* Ровно 811px */
+    height: 21.666vw !important;    /* Ровно 416px */
+    display: flex !important;
+    flex-direction: column !important;
+}
+
+/* Стили для каждого буллита (32px, цвет 555555, regular, шаг 48px) */
+.zaymer-kz-task-item {
+    position: relative !important;
+    font-family: 'AKT', sans-serif !important;
+    font-size: 1.666vw !important;  /* 32px */
+    font-weight: 400 !important;
+    color: #555555 !important;
+    line-height: 1.25 !important;
+    letter-spacing: 0.05em !important; /* 5% */
+    text-align: left !important;
+    margin-bottom: 2.5vw !important; /* Расстояние между текстами ровно 48px */
+}
+
+/* Убираем нижний отступ у последнего буллита */
+.zaymer-kz-task-item:last-child {
+    margin-bottom: 0 !important;
+}
+
+/* ==========================================================================
+   КЕЙС ZAYMER KAZAKHSTAN: БЛОК 4 — SMM GRID (ВЫСОТА КОНТЕНТА 1110px)
+   ========================================================================== */
+
+.zaymer-kz-section-smm {
+    width: 100vw !important;
+    height: 0 !important;
+    /* Полная высота с паддингами: 1110 + 120 + 120 = 1350px. Пропорция к 1920px = 70.3125% */
+    padding-top: 70.3125% !important; 
+    position: relative !important;
+    background-color: #FFFFFF !important; 
+    overflow: hidden !important;
+    box-sizing: border-box !important;
+    z-index: 5 !important;
+}
+
+/* Центрированный абсолютный wrapper под рабочую высоту 1350px */
+.zaymer-kz-wrapper-fluid-4 {
+    position: absolute !important;
+    top: 0 !important;
+    left: 50% !important;
+    transform: translateX(-50%) !important;
+    width: 100vw !important;
+    max-width: 1920px !important;
+    height: 100% !important;
+    box-sizing: border-box !important;
+    padding: 6.25vw !important; /* Отступы по 120px со всех сторон */
+}
+
+/* Координатная сетка 1680x1110 */
+.zaymer-kz-row-4 {
+    position: relative !important;
+    width: 100% !important;
+    height: 100% !important;
+}
+
+/* ОБЩИЕ СТИЛИ ДЛЯ ВСЕХ ЯЧЕЕК ГРИДА */
+.zaymer-kz-smm-box {
+    position: absolute !important;
+}
+
+.zaymer-kz-smm-img {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: contain !important;
+    display: block !important;
+}
+
+/* --- ПОЗИЦИОНИРОВАНИЕ ИЛЛЮСТРАЦИЙ СТРОГО ПО FIGMA --- */
+
+/* PNG 1: 390x510, сверху 0, слева 0 */
+.zaymer-kz-smm-box.smm-1 {
+    top: 0 !important;
+    left: 0 !important;
+    width: 20.3125vw !important;    /* 390px */
+    height: 26.5625vw !important;   /* 510px */
+}
+
+/* PNG 2: 390x510, сверху 0, слева 420 */
+.zaymer-kz-smm-box.smm-2 {
+    top: 0 !important;
+    left: 21.875vw !important;      /* 420px */
+    width: 20.3125vw !important;    /* 390px */
+    height: 26.5625vw !important;   /* 510px */
+}
+
+/* PNG 3: 180x240, сверху 0, слева 840 */
+.zaymer-kz-smm-box.smm-3 {
+    top: 0 !important;
+    left: 43.75vw !important;       /* 840px */
+    width: 9.375vw !important;       /* 180px */
+    height: 12.5vw !important;       /* 240px */
+}
+
+/* PNG 4: 180x240, сверху 270, слева 840 */
+.zaymer-kz-smm-box.smm-4 {
+    top: 14.0625vw !important;      /* 270px */
+    left: 43.75vw !important;       /* 840px */
+    width: 9.375vw !important;       /* 180px */
+    height: 12.5vw !important;       /* 240px */
+}
+
+/* PNG 5: 630x510, сверху 0, слева 1050 */
+.zaymer-kz-smm-box.smm-5 {
+    top: 0 !important;
+    left: 54.6875vw !important;     /* 1050px */
+    width: 32.8125vw !important;    /* 630px */
+    height: 26.5625vw !important;   /* 510px */
+}
+
+/* PNG 6: 390x510, сверху 540, слева 0 */
+.zaymer-kz-smm-box.smm-6 {
+    top: 28.125vw !important;      /* 540px */
+    left: 0 !important;
+    width: 20.3125vw !important;    /* 390px */
+    height: 26.5625vw !important;   /* 510px */
+}
+
+/* PNG 7: 390x510, сверху 540, слева 420 */
+.zaymer-kz-smm-box.smm-7 {
+    top: 28.125vw !important;      /* 540px */
+    left: 21.875vw !important;      /* 420px */
+    width: 20.3125vw !important;    /* 390px */
+    height: 26.5625vw !important;   /* 510px */
+}
+
+/* PNG 8: 630x510, сверху 540, слева 840 */
+.zaymer-kz-smm-box.smm-8 {
+    top: 28.125vw !important;      /* 540px */
+    left: 43.75vw !important;       /* 840px */
+    width: 32.8125vw !important;    /* 630px */
+    height: 26.5625vw !important;   /* 510px */
+}
+
+/* PNG 9: 180x240, сверху 540, слева 1500 */
+.zaymer-kz-smm-box.smm-9 {
+    top: 28.125vw !important;      /* 540px */
+    left: 78.125vw !important;      /* 1500px */
+    width: 9.375vw !important;       /* 180px */
+    height: 12.5vw !important;       /* 240px */
+}
+
+/* PNG 10: 180x240, сверху 810, слева 1500 */
+.zaymer-kz-smm-box.smm-10 {
+    top: 42.1875vw !important;      /* 810px */
+    left: 78.125vw !important;      /* 1500px */
+    width: 9.375vw !important;       /* 180px */
+    height: 12.5vw !important;       /* 240px */
+}
+
+/* ТЕКСТ ПОДПИСИ (12px, цвет 555555, light, сверху 1080px, слева 0) */
+.zaymer-kz-smm-caption {
+    position: absolute !important;
+    top: 56.25vw !important;         /* Ровно 1080px */
+    left: 0 !important;
+    width: 9.375vw !important;       /* Ровно 180px под контент (1680 - 1500) */
+    font-family: 'AKT', sans-serif !important;
+    font-size: 0.625vw !important;  /* 12px */
+    font-weight: 300 !important;    /* Light */
+    color: #555555 !important;
+    line-height: 1.20 !important;
+    text-align: left !important;
+    margin: 0 !important;
+}
+
+/* ==========================================================================
+   КЕЙС ZAYMER KAZAKHSTAN: БЛОК 4 — НОВЫЙ ГРИД (ВЫСОТА КОНТЕНТА 1110px)
+   ========================================================================== */
+
+.zaymer-kz-section-smm-new {
+    width: 100vw !important;
+    height: 0 !important;
+    /* СТРОГО ПО ТВОЕЙ ФОРМУЛЕ: 1170 + 96 + 240 = 1506px. Пропорция к 1920px = 78.4375% */
+    padding-top: 78.4375% !important; 
+    position: relative !important;
+    background-color: #FFFFFF !important; 
+    overflow: visible !important; 
+    box-sizing: border-box !important;
+    z-index: 5 !important;
+}
+
+/* Wrapper теперь тоже растягивается на 1446px, сохраняя внутренние координаты */
+.zaymer-kz-wrapper-fluid-4-new {
+    position: absolute !important;
+    top: 0 !important;
+    left: 50% !important;
+    transform: translateX(-50%) !important;
+    width: 100vw !important;
+    max-width: 1920px !important;
+    height: 100% !important;
+    box-sizing: border-box !important;
+    padding: 6.25vw !important;
+}
+
+/* Координатная сетка 1680x1110 */
+.zaymer-kz-row-4-new {
+    position: relative !important;
+    width: 100% !important;
+    height: 100% !important;
+}
+
+/* Общие параметры боксов */
+.zaymer-kz-grid-box {
+    position: absolute !important;
+}
+
+.zaymer-kz-grid-img {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: contain !important;
+    display: block !important;
+}
+
+/* ИЛЛЮСТРАЦИЯ 1 (ОБНОВЛЕННАЯ): 1680x690, сверху -120px, выходит наружу и видна */
+.zaymer-kz-grid-box.box-big {
+    position: absolute !important;
+    top: -6.25vw !important;        /* Ровно -120px наплыв наверх за контентную область */
+    left: 0 !important;
+    width: 87.5vw !important;        /* Ровно 1680px ширина */
+    height: 35.9375vw !important;    /* Ровно 690px высота (вместо 1170px) */
+    z-index: 7 !important;          /* Гарантирует видимость поверх стыка блоков */
+}
+
+/* ИЛЛЮСТРАЦИЯ 2: 810x540, сверху 630px, слева 0 */
+.zaymer-kz-grid-box.box-half-left {
+    top: 32.8125vw !important;      /* Ровно 630px */
+    left: 0 !important;
+    width: 42.1875vw !important;    /* Ровно 810px */
+    height: 28.125vw !important;     /* Ровно 540px */
+}
+
+/* ИЛЛЮСТРАЦИЯ 3: 810x540, сверху 630px, слева 870px */
+.zaymer-kz-grid-box.box-half-right {
+    top: 32.8125vw !important;      /* Ровно 630px */
+    left: 45.3125vw !important;     /* Ровно 870px */
+    width: 42.1875vw !important;    /* Ровно 810px */
+    height: 28.125vw !important;     /* Ровно 540px */
+}
+
+/* ==========================================================================
+   КЕЙС ZAYMER KAZAKHSTAN: БЛОК 5 — РЕЗУЛЬТАТЫ (ВЫСОТА КОНТЕНТА 934px)
+   ========================================================================== */
+
+.zaymer-kz-section-results {
+    width: 100vw !important;
+    height: 0 !important;
+    /* Полная высота с паддингами: 934 + 120 + 120 = 1174px. Пропорция к 1920px = 61.145% */
+    padding-top: 61.145% !important; 
+    position: relative !important;
+    background-color: #00B1CC !important; /* Бирюзовый фон */
+    
+    /* Скругление верхних углов на 96px (5vw от 1920) */
+    border-top-left-radius: 5vw !important;
+    border-top-right-radius: 5vw !important;
+    border-bottom-left-radius: 0 !important;
+    border-bottom-right-radius: 0 !important;
+    
+    /* Наплыв наверх на белый 4-й блок под ушки скругления */
+    margin-top: -5vw !important; 
+    
+    overflow: hidden !important;
+    box-sizing: border-box !important;
+    z-index: 10 !important; /* Накрывает 4-й блок сверху */
+}
+
+/* Центрированный абсолютный wrapper под рабочую высоту 1174px */
+.zaymer-kz-wrapper-fluid-5 {
+    position: absolute !important;
+    top: 0 !important;
+    left: 50% !important;
+    transform: translateX(-50%) !important;
+    width: 100vw !important;
+    max-width: 1920px !important;
+    height: 100% !important;
+    box-sizing: border-box !important;
+    padding: 6.25vw !important; /* Отступы по 120px со всех сторон */
+}
+
+/* Координатная сетка 1680x934 */
+.zaymer-kz-row-5 {
+    position: relative !important;
+    width: 100% !important;
+    height: 100% !important;
+}
+
+/* Заголовок «Результаты» (80px, белый, regular, 120%) */
+.zaymer-kz-results-title {
+    position: absolute !important;
+    top: 0 !important;
+    left: 0 !important;
+    width: 22.187vw !important;     /* Ровно 426px */
+    font-family: 'AKT', sans-serif !important;
+    font-size: 4.166vw !important;  /* 80px */
+    font-weight: 400 !important;
+    color: #FFFFFF !important;
+    line-height: 1.20 !important;
+    text-align: left !important;
+    margin: 0 !important;
+}
+
+/* PNG ИЛЛЮСТРАЦИЯ (690x527, сверху 192px, слева 0) */
+.zaymer-kz-results-ill-block {
+    position: absolute !important;
+    top: 10vw !important;           /* Ровно 192px */
+    left: 0 !important;
+    width: 35.937vw !important;      /* Ровно 690px */
+    height: 27.447vw !important;     /* Ровно 527px */
+    z-index: 6 !important;
+}
+
+.zaymer-kz-results-img {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: contain !important;
+    display: block !important;
+}
+
+/* ПРАВАЯ КОЛОНКА: БЛОК С БУЛЛИТАМИ (811x456, сверху 192px, слева 780px) */
+.zaymer-kz-results-text-block {
+    position: absolute !important;
+    top: 10vw !important;           /* Ровно 192px */
+    left: 40.625vw !important;      /* Ровно 780px */
+    width: 42.239vw !important;     /* Ровно 811px */
+    height: 23.75vw !important;      /* Ровно 456px */
+    display: flex !important;
+    flex-direction: column !important;
+}
+
+/* Стили буллитов (32px, белый 75%, regular, шаг 48px) */
+.zaymer-kz-result-item {
+    position: relative !important;
+    font-family: 'AKT', sans-serif !important;
+    font-size: 1.666vw !important;  /* 32px */
+    font-weight: 400 !important;
+    color: #FFFFFF !important;
+    opacity: 0.75 !important;       /* 75% прозрачности по ТЗ */
+    line-height: 1.25 !important;
+    letter-spacing: 0.05em !important; /* 5% */
+    text-align: left !important;
+    margin-bottom: 2.5vw !important; /* Расстояние между текстами ровно 48px */
+}
+
+.zaymer-kz-result-item:last-child {
+    margin-bottom: 0 !important;
+}
+
+/* НАВИГАЦИОННЫЙ БЛОК НА ДНЕ (Сверху 904px, Слева 0) */
+.zaymer-kz-nav-5 {
+    position: absolute !important;
+    top: 47.083vw !important;       /* Ровно 904px от нуля контента */
+    left: 0 !important;
+    width: 54.687vw !important;     /* 1050px рабочей ширины */
+    height: 1.562vw !important;     /* 30px */
+    display: flex !important;
+    flex-direction: row !important;
+    gap: 3.125vw !important;        /* Шаг 60px между ссылками */
+    align-items: center !important;
+    z-index: 10 !important;
+}
+
+.zaymer-kz-nav-item-5 {
+    font-family: 'AKT', sans-serif !important;
+    font-size: 0.833vw !important;  /* 16px */
+    line-height: 1.25 !important;
+    text-decoration: none !important;
+    white-space: nowrap !important;
+    text-align: left !important;
+}
+
+/* Неактивные пункты — Белые, 75% прозрачности, Light */
+.zaymer-kz-nav-item-5:not(.active) {
+    font-weight: 300 !important;
+    color: #FFFFFF !important;
+    opacity: 0.75 !important;
+}
+
+/* Активный пункт (Zaymer Kazakhstan) — Чистый белый, Bold */
+.zaymer-kz-nav-item-5.active {
+    font-weight: 700 !important;
+    color: #FFFFFF !important;
+    opacity: 1 !important;
+}
+
+/* ==========================================================================
+   КЕЙС ZAYMER KAZAKHSTAN: БЛОК 6 — ТЕХНИЧЕСКАЯ БЕЛАЯ ЛИНЕЯ (ВЫСОТА 1px)
+   ========================================================================== */
+
+.zaymer-kz-section-line-white {
+    width: 100vw !important;
+    height: 0 !important;
+    /* Полная высота с паддингами: 1px + 120px + 120px = 241px. Пропорция к 1920px = 12.552% */
+    padding-top: 12.552% !important; 
+    position: relative !important;
+    background-color: #00B1CC !important; /* Бирюзовый фон продолжается */
+    overflow: hidden !important;
+    box-sizing: border-box !important;
+    z-index: 10 !important;
+}
+
+/* Центрированный абсолютный wrapper */
+.zaymer-kz-wrapper-fluid-6-white {
+    position: absolute !important;
+    top: 0 !important;
+    left: 50% !important;
+    transform: translateX(-50%) !important;
+    width: 100vw !important;
+    max-width: 1920px !important;
+    height: 100% !important;
+    box-sizing: border-box !important;
+    padding: 6.25vw !important; /* Отступы по 120px со всех сторон */
+}
+
+.zaymer-kz-row-6-white {
+    position: relative !important;
+    width: 100% !important;
+    height: 100% !important;
+}
+
+/* Сама белая линия (1680px, цвет FFFFFF, 75% прозрачности) */
+.zaymer-kz-line-element {
+    position: absolute !important;
+    top: 0 !important;              /* Ровно 0px сверху контентной области */
+    left: 0 !important;
+    width: 100% !important;        /* На всю ширину контента */
+    height: 1px !important;
+    background-color: #FFFFFF !important;
+    opacity: 0.75 !important;      /* 75% прозрачности по ТЗ */
+}
+
+/* ==========================================================================
+   КЕЙС UNAMOLIA: БЛОК 1 — ИНТРО (ИСТИННЫЙ СКЕЙЛИНГ / ФОН 055AFF)
+   ========================================================================== */
+
+.unamolia-section-intro {
+    width: 100vw !important;
+    height: 0 !important;
+    /* Полная высота с паддингами: 840 + 120 + 120 = 1080px. Пропорция к 1920px = 56.25% */
+    padding-top: 56.25% !important; 
+    position: relative !important;
+    background-color: #055AFF !important; /* Насыщенный синий фон */
+    overflow: hidden !important;
+    box-sizing: border-box !important;
+    z-index: 1 !important;
+}
+
+/* ЗАДНИЙ ФОН: SVG Паттерн вылетает наружу контента на -120px (занимает 1920x1080) */
+.unamolia-pattern-bg {
+    position: absolute !important;
+    top: 0 !important;
+    left: 0 !important;
+    width: 100% !important;
+    height: 100% !important;
+    z-index: 2 !important;
+    pointer-events: none !important;
+}
+
+.unamolia-pattern-svg {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important; 
+    display: block !important;
+}
+
+/* Центрированный абсолютный wrapper под рабочую высоту контента */
+.unamolia-wrapper-fluid-1 {
+    position: absolute !important;
+    top: 0 !important;
+    left: 50% !important;
+    transform: translateX(-50%) !important;
+    width: 100vw !important;
+    max-width: 1920px !important;
+    height: 100% !important;
+    box-sizing: border-box !important;
+    padding: 6.25vw !important; /* Отступы по 120px со всех сторон */
+    z-index: 3 !important; /* Контент строго поверх паттерна */
+}
+
+/* Координатная сетка 1680x840 */
+.unamolia-row-1 {
+    position: relative !important;
+    width: 100% !important;
+    height: 100% !important;
+}
+
+/* ЛОГОТИП СТРОГО ПО КООРДИНАТАМ FIGMA (960x220.68) */
+.unamolia-logo-block {
+    position: absolute !important;
+    top: 16.116vw !important;        /* Ровно 309.44px от верха контента */
+    left: 18.75vw !important;         /* Ровно 360px от левого края контента */
+    width: 50vw !important;           /* Ровно 960px ширина */
+    height: 11.493vw !important;      /* Ровно 220.68px высота */
+}
+
+.unamolia-logo-img {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: contain !important;
+    display: block !important;
+}
+
+/* ==========================================================================
+   КЕЙС UNAMOLIA: БЛОК 2 — ЦЕЛЬ (ИСТИННЫЙ СКЕЙЛИНГ / ВЫСОТА КОНТЕНТА 840px)
+   ========================================================================= */
+
+.unamolia-section-goal {
+    width: 100vw !important;
+    height: 0 !important;
+    /* Полная высота с паддингами: 840 + 120 + 120 = 1080px. Пропорция к 1920px = 56.25% */
+    padding-top: 56.25% !important; 
+    position: relative !important;
+    background-color: #055AFF !important; 
+    overflow: hidden !important;
+    box-sizing: border-box !important;
+    z-index: 4 !important;
+}
+
+/* Центрированный абсолютный wrapper под рабочую высоту 1080px */
+.unamolia-wrapper-fluid-2 {
+    position: absolute !important;
+    top: 0 !important;
+    left: 50% !important;
+    transform: translateX(-50%) !important;
+    width: 100vw !important;
+    max-width: 1920px !important;
+    height: 100% !important;
+    box-sizing: border-box !important;
+    padding: 6.25vw !important; /* Отступы по 120px со всех сторон */
+}
+
+/* Координатная сетка 1680x840 */
+.unamolia-row-2 {
+    position: relative !important;
+    width: 100% !important;
+    height: 100% !important;
+}
+
+/* ЛЕВАЯ КОЛОНКА: ТЕКСТОВЫЙ БЛОК (840x392) */
+.unamolia-goal-text-block {
+    position: absolute !important;
+    top: 0 !important;
+    left: 0 !important;
+    width: 43.75vw !important;      /* Ровно 840px */
+    height: 20.416vw !important;     /* Ровно 392px */
+    display: flex !important;
+    flex-direction: column !important;
+}
+
+/* Заголовок «Цель» (80px, белый, regular, 120%) */
+.unamolia-goal-title {
+    font-family: 'AKT', sans-serif !important;
+    font-size: 4.166vw !important;   /* 80px */
+    font-weight: 400 !important;
+    color: #FFFFFF !important;
+    line-height: 1.20 !important;
+    text-align: left !important;
+    margin: 0 !important;
+    margin-bottom: 5vw !important;   /* Ровно 96px отступа до текста */
+}
+
+/* Описание цели (32px, белый 75%, regular, 125%, 5%) */
+.unamolia-goal-p {
+    font-family: 'AKT', sans-serif !important;
+    font-size: 1.666vw !important;   /* 32px */
+    font-weight: 400 !important;
+    color: #FFFFFF !important;
+    opacity: 0.75 !important;       
+    line-height: 1.25 !important;
+    letter-spacing: 0.05em !important; /* 5% */
+    text-align: left !important;
+    margin: 0 !important;
+}
+
+/* ПРАВАЯ КОЛОНКА: PNG ИЛЛЮСТРАЦИЯ (750x739, сверху 0, слева 930px) */
+.unamolia-goal-ill-block {
+    position: absolute !important;
+    top: 0 !important;
+    left: 48.4375vw !important;     /* Ровно 930px */
+    width: 39.0625vw !important;    /* Ровно 750px */
+    height: 38.4895vw !important;   /* Ровно 739px */
+}
+
+.unamolia-goal-img {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: contain !important;
+    display: block !important;
+}
+
+/* НАВИГАЦИОННЫЙ БЛОК НА ДНЕ (Сверху 810px, Слева 0) */
+.unamolia-nav-2 {
+    position: absolute !important;
+    top: 42.1875vw !important;      /* Ровно 810px */
+    left: 0 !important;
+    width: 54.6875vw !important;     /* 1050px под контент */
+    height: 1.5625vw !important;     /* 30px */
+    display: flex !important;
+    flex-direction: row !important;
+    gap: 3.125vw !important;         /* Шаг 60px между ссылками */
+    align-items: center !important;
+    z-index: 10 !important;
+}
+
+.unamolia-nav-item-2 {
+    font-family: 'AKT', sans-serif !important;
+    font-size: 0.833vw !important;   /* 16px */
+    line-height: 1.25 !important;
+    text-decoration: none !important;
+    white-space: nowrap !important;
+    text-align: left !important;
+}
+
+/* Неактивные пункты меню — Белые, 75% прозрачности, Light */
+.unamolia-nav-item-2:not(.active) {
+    font-weight: 300 !important;
+    color: #FFFFFF !important;
+    opacity: 0.75 !important;
+}
+
+/* Активный пункт (UnaMolia) — Чистый белый, Bold */
+.unamolia-nav-item-2.active {
+    font-weight: 700 !important;
+    color: #FFFFFF !important;
+    opacity: 1 !important;
+}
+
+/* ==========================================================================
+   КЕЙС UNAMOLIA: БЛОК 3 — ЗАДАЧИ (ИСТИННЫЙ СКЕЙЛИНГ / ВЫСОТА КОНТЕНТА 816px)
+   ========================================================================== */
+
+.unamolia-section-tasks {
+    width: 100vw !important;
+    height: 0 !important;
+    /* ПОЛНАЯ ВЫСОТА СЕКЦИИ: Контент 816 + 120 (сверху) + 120 (снизу) = 1056px */
+    /* Пропорция к 1920px = ровно 55% */
+    padding-top: 55.0% !important; 
+    position: relative !important;
+    background-color: #FFFFFF !important; 
+    overflow: hidden !important;
+    box-sizing: border-box !important;
+    z-index: 5 !important;
+}
+
+/* Центрированный абсолютный wrapper под рабочую высоту 1056px */
+.unamolia-wrapper-fluid-3 {
+    position: absolute !important;
+    top: 0 !important;
+    left: 50% !important;
+    transform: translateX(-50%) !important;
+    width: 100vw !important;
+    max-width: 1920px !important;
+    height: 100% !important;
+    box-sizing: border-box !important;
+    padding: 6.25vw !important; /* Отступы по 120px со всех сторон */
+}
+
+/* Координатная сетка 1680x816 */
+.unamolia-row-3 {
+    position: relative !important;
+    width: 100% !important;
+    height: 100% !important;
+}
+
+/* Заголовок «Задачи» (80px, темно-серый, regular, 120%) */
+.unamolia-tasks-title {
+    position: absolute !important;
+    top: 0 !important;
+    left: 0 !important;
+    width: 14.010vw !important;      /* Ровно 269px */
+    font-family: 'AKT', sans-serif !important;
+    font-size: 4.166vw !important;   /* 80px */
+    font-weight: 400 !important;
+    color: #111111 !important;
+    line-height: 1.20 !important;
+    text-align: left !important;
+    margin: 0 !important;
+}
+
+/* PNG ИЛЛЮСТРАЦИЯ (690x590, сверху 192px, слева 0) */
+.unamolia-tasks-ill-block {
+    position: absolute !important;
+    top: 10vw !important;            /* Ровно 192px */
+    left: 0 !important;
+    width: 35.9375vw !important;     /* Ровно 690px */
+    height: 30.7291vw !important;    /* Ровно 590px */
+}
+
+.unamolia-tasks-img {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: contain !important;
+    display: block !important;
+}
+
+/* ПРАВАЯ КОЛОНКА: БЛОК С БУЛЛИТАМИ (811x624, сверху 192px, слева 780px) */
+.unamolia-tasks-text-block {
+    position: absolute !important;
+    top: 10vw !important;            /* Ровно 192px */
+    left: 40.625vw !important;       /* Ровно 780px */
+    width: 42.2395vw !important;     /* Ровно 811px */
+    height: 32.5vw !important;        /* Ровно 624px */
+    display: flex !important;
+    flex-direction: column !important;
+}
+
+/* Стили для каждого буллита с шагом 48px */
+.unamolia-task-item {
+    position: relative !important;
+    font-family: 'AKT', sans-serif !important;
+    font-size: 1.666vw !important;   /* 32px */
+    font-weight: 400 !important;
+    color: #555555 !important;
+    line-height: 1.25 !important;
+    letter-spacing: 0.05em !important; /* 5% */
+    text-align: left !important;
+    
+    /* ИЗМЕНИЛИ ШАГ: Расстояние между текстами теперь ровно 48px */
+    margin-bottom: 2.5vw !important; 
+    
+    /* Отступ слева под маркер-точку */
+    padding-left: 2.5vw !important;   
+}
+
+/* Точка-маркер остается на месте */
+.unamolia-task-item::before {
+    content: "•" !important;
+    position: absolute !important;
+    top: 0 !important;
+    left: 0 !important;
+    color: #555555 !important;       
+    font-size: 2vw !important;        
+    line-height: 1.1 !important;      
+}
+
+/* Убираем нижний отступ у самого последнего пункта */
+.unamolia-task-item:last-child {
+    margin-bottom: 0 !important;
+}
+
+/* ==========================================================================
+   КЕЙС UNAMOLIA: БЛОК 4 — ПЛИТКА SMM (ИСТИННЫЙ СКЕЙЛИНГ / ВЫСОТА КОНТЕНТА 2160px)
+   ========================================================================== */
+
+.unamolia-section-grid {
+    width: 100vw !important;
+    height: 0 !important;
+    /* Полная высота с паддингами: 2160 + 120 + 120 = 2400px. Пропорция к 1920px = 125.0% */
+    padding-top: 125.0% !important; 
+    position: relative !important;
+    background-color: #FFFFFF !important; 
+    overflow: hidden !important;
+    box-sizing: border-box !important;
+    z-index: 6 !important;
+}
+
+/* Центрированный абсолютный wrapper под рабочую высоту 2400px */
+.unamolia-wrapper-fluid-4 {
+    position: absolute !important;
+    top: 0 !important;
+    left: 50% !important;
+    transform: translateX(-50%) !important;
+    width: 100vw !important;
+    max-width: 1920px !important;
+    height: 100% !important;
+    box-sizing: border-box !important;
+    padding: 6.25vw !important; /* Отступы по 120px со всех сторон */
+}
+
+/* Координатная сетка 1680x2160 */
+.unamolia-row-4 {
+    position: relative !important;
+    width: 100% !important;
+    height: 100% !important;
+}
+
+/* Общий класс для элементов плитки */
+.unamolia-grid-ill {
+    position: absolute !important;
+    width: 43.75vw !important;       /* Ровно 840px */
+    height: 54.6875vw !important;     /* Ровно 1050px */
+}
+
+.unamolia-grid-img {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important;     /* Четкая бесшовная стыковка */
+    display: block !important;
+}
+
+/* ПОЗИЦИОНИРОВАНИЕ КАЖДОЙ КАРТИНКИ */
+.unamolia-grid-ill.ill-1 {
+    top: 0 !important;
+    left: 0 !important;
+}
+
+.unamolia-grid-ill.ill-2 {
+    top: 0 !important;
+    left: 43.75vw !important;        /* Ровно 840px */
+}
+
+.unamolia-grid-ill.ill-3 {
+    top: 54.6875vw !important;       /* Ровно 1050px */
+    left: 0 !important;
+}
+
+.unamolia-grid-ill.ill-4 {
+    top: 54.6875vw !important;       /* Ровно 1050px */
+    left: 43.75vw !important;        /* Ровно 840px */
+}
+
+/* ПОДПИСЬ ТЕКСТА (12px, цвет 555555, Light, 120%) */
+.unamolia-grid-caption {
+    position: absolute !important;
+    top: 110.9375vw !important;      /* Ровно 2130px */
+    left: 0 !important;
+    width: 9.375vw !important;        /* Ровно 180px */
+    font-family: 'AKT', sans-serif !important;
+    font-size: 0.625vw !important;   /* 12px */
+    font-weight: 300 !important;     /* Light */
+    color: #555555 !important;
+    line-height: 1.20 !important;
+    text-align: left !important;
+}
+
+/* ==========================================================================
+   КЕЙС UNAMOLIA: БЛОК 6 — ОНБОРДИНГ (ИСТИННЫЙ СКЕЙЛИНГ / ВЫСОТА КОНТЕНТА 1500px)
+   ========================================================================== */
+
+.unamolia-section-onboarding {
+    width: 100vw !important;
+    height: 0 !important;
+    /* Полная высота с паддингами: 1500 + 120 + 120 = 1740px. Пропорция к 1920px = 90.625% */
+    padding-top: 90.625% !important; 
+    position: relative !important;
+    background-color: #FFFFFF !important; 
+    overflow: hidden !important;
+    box-sizing: border-box !important;
+    z-index: 8 !important;
+}
+
+/* Центрированный absolute wrapper под высоту 1740px */
+.unamolia-wrapper-fluid-6 {
+    position: absolute !important;
+    top: 0 !important;
+    left: 50% !important;
+    transform: translateX(-50%) !important;
+    width: 100vw !important;
+    max-width: 1920px !important;
+    height: 100% !important;
+    box-sizing: border-box !important;
+    padding: 6.25vw !important; /* Отступы по 120px со всех сторон */
+}
+
+/* Координатная сетка 1680x1500 */
+.unamolia-row-6 {
+    position: relative !important;
+    width: 100% !important;
+    height: 100% !important;
+}
+
+/* Общий класс для изображений */
+.unamolia-onboarding-ill {
+    position: absolute !important;
+}
+
+.unamolia-onboarding-img {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important;
+    display: block !important;
+}
+
+/* ТОЧНЫЕ КООРДИНАТЫ И ГЕОМЕТРИЯ ЭКРАНА 6 */
+
+/* Иллюстрация 1: 750x750 */
+.unamolia-onboarding-ill.pic-1 {
+    top: 0 !important;
+    left: 0 !important;
+    width: 39.0625vw !important;     /* Ровно 750px */
+    height: 39.0625vw !important;    /* Ровно 750px */
+}
+
+/* Иллюстрация 2: 870x750 на left: 810px */
+.unamolia-onboarding-ill.pic-2 {
+    top: 0 !important;
+    left: 42.1875vw !important;     /* Ровно 810px */
+    width: 45.3125vw !important;     /* Ровно 870px */
+    height: 39.0625vw !important;    /* Ровно 750px */
+}
+
+/* Иллюстрация 3: 1680x690 на top: 810px */
+.unamolia-onboarding-ill.pic-3 {
+    top: 42.1875vw !important;      /* Ровно 810px */
+    left: 0 !important;
+    width: 87.5vw !important;        /* На всю ширину контента 1680px */
+    height: 35.9375vw !important;    /* Ровно 690px */
+}
+
+/* ==========================================================================
+   КЕЙС UNAMOLIA: БЛОК 7 — AI ПЕРСОНАЖИ (ИСТИННЫЙ СКЕЙЛИНГ / ВЫСОТА КОНТЕНТА 710px)
+   ========================================================================== */
+
+.unamolia-section-ai-chars {
+    width: 100vw !important;
+    height: 0 !important;
+    /* Полная высота с паддингами: 710 + 120 + 120 = 950px. Пропорция к 1920px = 49.479% */
+    padding-top: 49.479% !important; 
+    position: relative !important;
+    background-color: #FFFFFF !important; 
+    overflow: hidden !important;
+    box-sizing: border-box !important;
+    z-index: 9 !important;
+}
+
+/* Центрированный абсолютный wrapper под рабочую высоту 950px */
+.unamolia-wrapper-fluid-7 {
+    position: absolute !important;
+    top: 0 !important;
+    left: 50% !important;
+    transform: translateX(-50%) !important;
+    width: 100vw !important;
+    max-width: 1920px !important;
+    height: 100% !important;
+    box-sizing: border-box !important;
+    padding: 6.25vw !important; /* Отступы по 120px со всех сторон */
+}
+
+/* Координатная сетка 1680x710 */
+.unamolia-row-7 {
+    position: relative !important;
+    width: 100% !important;
+    height: 100% !important;
+}
+
+/* Общий класс для изображений триптиха */
+.unamolia-ai-ill {
+    position: absolute !important;
+    top: 0 !important;
+    width: 27.0833vw !important;     /* Ровно 520px */
+    height: 33.8541vw !important;    /* Ровно 650px */
+}
+
+.unamolia-ai-img {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important;
+    display: block !important;
+}
+
+/* СДВИГИ ДЛЯ КАЖДОЙ ИЛЛЮСТРАЦИИ ПО ГОРИЗОНТАЛИ */
+.unamolia-ai-ill.char-1 {
+    left: 0 !important;
+}
+
+.unamolia-ai-ill.char-2 {
+    left: 30.2083vw !important;     /* Ровно 580px */
+}
+
+.unamolia-ai-ill.char-3 {
+    left: 60.4166vw !important;     /* Ровно 1160px */
+}
+
+/* ПОДПИСЬ ТЕКСТА (12px, цвет 555555, Light, 120%) */
+.unamolia-ai-caption {
+    position: absolute !important;
+    top: 35.4166vw !important;       /* Ровно 680px */
+    left: 0 !important;
+    width: 19.427vw !important;      /* Ровно 373px */
+    font-family: 'AKT', sans-serif !important;
+    font-size: 0.625vw !important;   /* 12px */
+    font-weight: 300 !important;     /* Light */
+    color: #555555 !important;
+    line-height: 1.20 !important;
+    text-align: left !important;
+}
+
+/* ==========================================================================
+   КЕЙС UNAMOLIA: БЛОК 8 — 3D-PACK (ИСТИННЫЙ СКЕЙЛИНГ / ВЫСОТА КОНТЕНТА 600px)
+   ========================================================================== */
+
+.unamolia-section-3dpack {
+    width: 100vw !important;
+    height: 0 !important;
+    /* Полная высота с паддингами: 600 + 120 + 120 = 840px. Пропорция к 1920px = 43.75% */
+    padding-top: 43.75% !important; 
+    position: relative !important;
+    background-color: #FFFFFF !important; 
+    overflow: hidden !important;
+    box-sizing: border-box !important;
+    z-index: 10 !important;
+}
+
+/* Центрированный абсолютный wrapper под рабочую высоту 840px */
+.unamolia-wrapper-fluid-8 {
+    position: absolute !important;
+    top: 0 !important;
+    left: 50% !important;
+    transform: translateX(-50%) !important;
+    width: 100vw !important;
+    max-width: 1920px !important;
+    height: 100% !important;
+    box-sizing: border-box !important;
+    padding: 6.25vw !important; /* Отступы по 120px со всех сторон */
+}
+
+/* Координатная сетка 1680x600 */
+.unamolia-row-8 {
+    position: relative !important;
+    width: 100% !important;
+    height: 100% !important;
+}
+
+/* ЛЕВАЯ КОЛОНКА: ТЕКСТОВЫЙ БЛОК (690x600) */
+.unamolia-pack-text-block {
+    position: absolute !important;
+    top: 0 !important;
+    left: 0 !important;
+    width: 35.9375vw !important;     /* Ровно 690px */
+    height: 31.25vw !important;       /* Ровно 600px */
+    display: flex !important;
+    flex-direction: column !important;
+}
+
+/* Заголовок «3D-pack» (80px, цвет 111111, regular, 120%) */
+.unamolia-pack-title {
+    font-family: 'AKT', sans-serif !important;
+    font-size: 4.166vw !important;   /* 80px */
+    font-weight: 400 !important;
+    color: #111111 !important;
+    line-height: 1.20 !important;
+    text-align: left !important;
+    margin: 0 !important;
+    margin-bottom: 5vw !important;   /* Отступ от заголовка до текста ровно 96px */
+}
+
+/* Стили для абзацев текста (32px, цвет 555555, regular, шаг 48px) */
+.unamolia-pack-p {
+    font-family: 'AKT', sans-serif !important;
+    font-size: 1.666vw !important;   /* 32px */
+    font-weight: 400 !important;
+    color: #555555 !important;
+    line-height: 1.25 !important;
+    letter-spacing: 0.05em !important; /* 5% */
+    text-align: left !important;
+    margin: 0 !important;
+    margin-bottom: 2.5vw !important; /* Расстояние между текстами ровно 48px */
+}
+
+/* Убираем нижний отступ у последнего абзаца */
+.unamolia-pack-p:last-child {
+    margin-bottom: 0 !important;
+}
+
+/* ПРАВАЯ КОЛОНКА: PNG ИЛЛЮСТРАЦИЯ (810x600, сверху 0, слева 870px) */
+.unamolia-pack-ill-block {
+    position: absolute !important;
+    top: 0 !important;
+    left: 45.3125vw !important;     /* Ровно 870px */
+    width: 42.1875vw !important;     /* Ровно 810px */
+    height: 31.25vw !important;       /* Ровно 600px */
+}
+
+.unamolia-pack-img {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: contain !important;
+    display: block !important;
+}
+
+/* ==========================================================================
+   КЕЙС UNAMOLIA: БЛОК 9 — МЕГА-ШОУКЕЙС (ВЫСОТА КОНТЕНТА 3426px)
+   ========================================================================== */
+
+.unamolia-section-mega-showcase {
+    width: 100vw !important;
+    height: 0 !important;
+    /* Полная высота с паддингами: 3426 + 120 + 120 = 3666px. Пропорция к 1920px = 190.9375% */
+    padding-top: 190.9375% !important; 
+    position: relative !important;
+    background-color: #FFFFFF !important; 
+    overflow: hidden !important;
+    box-sizing: border-box !important;
+    z-index: 11 !important; /* Перекрывает верхний паддинг за счет Иллюстрации 1 */
+}
+
+/* Центрированный абсолютный wrapper под рабочую высоту 3666px */
+.unamolia-wrapper-fluid-9 {
+    position: absolute !important;
+    top: 0 !important;
+    left: 50% !important;
+    transform: translateX(-50%) !important;
+    width: 100vw !important;
+    max-width: 1920px !important;
+    height: 100% !important;
+    box-sizing: border-box !important;
+    padding: 6.25vw !important; /* Отступы по 120px */
+}
+
+.unamolia-row-9 {
+    position: relative !important;
+    width: 100% !important;
+    height: 100% !important;
+}
+
+/* Базовый класс для всех 10 картинок */
+.unamolia-mega-ill {
+    position: absolute !important;
+}
+
+.unamolia-mega-img {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important;
+    display: block !important;
+}
+
+/* ==========================================================================
+   ПОЗИЦИОНИРОВАНИЕ ВСЕХ ЭЛЕМЕНТОВ СЕТКИ (VW ОТ 1920px)
+   ========================================================================== */
+
+/* РЯД 1: Панорама (1680x810, top: -120px) */
+.unamolia-mega-ill.row1-full {
+    top: -6.25vw !important;         /* Наплыв наверх ровно на -120px */
+    left: 0 !important;
+    width: 87.5vw !important;        /* 1680px */
+    height: 42.1875vw !important;    /* 810px */
+}
+
+/* РЯД 2: Дуэт (810x720, top: 750px) */
+.unamolia-mega-ill.row2-left {
+    top: 39.0625vw !important;       /* 750px */
+    left: 0 !important;
+    width: 42.1875vw !important;     /* 810px */
+    height: 37.5vw !important;       /* 720px */
+}
+.unamolia-mega-ill.row2-right {
+    top: 39.0625vw !important;       /* 750px */
+    left: 45.3125vw !important;      /* 870px */
+    width: 42.1875vw !important;     /* 810px */
+    height: 37.5vw !important;       /* 720px */
+}
+
+/* РЯД 3: Триптих (520x390, top: 1530px) */
+.unamolia-mega-ill.row3-pic1 {
+    top: 79.6875vw !important;       /* 1530px */
+    left: 0 !important;
+    width: 27.0833vw !important;     /* 520px */
+    height: 20.3125vw !important;    /* 390px */
+}
+.unamolia-mega-ill.row3-pic2 {
+    top: 79.6875vw !important;       /* 1530px */
+    left: 30.2083vw !important;      /* 580px */
+    width: 27.0833vw !important;     /* 520px */
+    height: 20.3125vw !important;    /* 390px */
+}
+.unamolia-mega-ill.row3-pic3 {
+    top: 79.6875vw !important;       /* 1530px */
+    left: 60.4166vw !important;      /* 1160px */
+    width: 27.0833vw !important;     /* 520px */
+    height: 20.3125vw !important;    /* 390px */
+}
+
+/* РЯД 4: Асимметричное трио (Высота 450, top: 1980px) */
+.unamolia-mega-ill.row4-big {
+    top: 103.125vw !important;       /* 1980px */
+    left: 0 !important;
+    width: 42.1875vw !important;     /* 810px */
+    height: 23.4375vw !important;    /* 450px */
+}
+.unamolia-mega-ill.row4-mid1 {
+    top: 103.125vw !important;       /* 1980px */
+    left: 45.3125vw !important;      /* 870px */
+    width: 20.3125vw !important;     /* 390px */
+    height: 23.4375vw !important;    /* 450px */
+}
+.unamolia-mega-ill.row4-mid2 {
+    top: 103.125vw !important;       /* 1980px */
+    left: 67.1875vw !important;      /* 1290px */
+    width: 20.3125vw !important;     /* 390px */
+    height: 23.4375vw !important;    /* 450px */
+}
+
+/* РЯД 5: Заключительная панорама (1680x936, top: 2490px) */
+.unamolia-mega-ill.row5-full {
+    top: 129.6875vw !important;      /* 2490px */
+    left: 0 !important;
+    width: 87.5vw !important;        /* 1680px */
+    height: 48.75vw !important;       /* 936px */
+}
+
+/* ==========================================================================
+   КЕЙС UNAMOLIA: БЛОК 10 — ИЛЛЮСТРАЦИИ В ПРИЛОЖЕНИИ (ВЫСОТА КОНТЕНТА 750px)
+   ========================================================================== */
+
+.unamolia-section-app-showcase {
+    width: 100vw !important;
+    height: 0 !important;
+    /* Полная высота с паддингами: 750 + 120 + 120 = 990px. Пропорция к 1920px = 51.5625% */
+    padding-top: 51.5625% !important; 
+    position: relative !important;
+    background-color: #FFFFFF !important; 
+    overflow: hidden !important;
+    box-sizing: border-box !important;
+    z-index: 12 !important;
+}
+
+/* Центрированный абсолютный wrapper под рабочую высоту 990px */
+.unamolia-wrapper-fluid-10 {
+    position: absolute !important;
+    top: 0 !important;
+    left: 50% !important;
+    transform: translateX(-50%) !important;
+    width: 100vw !important;
+    max-width: 1920px !important;
+    height: 100% !important;
+    box-sizing: border-box !important;
+    padding: 6.25vw !important; /* Отступы по 120px со всех сторон */
+}
+
+.unamolia-row-10 {
+    position: relative !important;
+    width: 100% !important;
+    height: 100% !important;
+}
+
+/* Общий класс для элементов сетки */
+.unamolia-app-ill {
+    position: absolute !important;
+}
+
+.unamolia-app-img {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important;
+    display: block !important;
+}
+
+/* ТОЧНЫЕ КООРДИНАТЫ И ГЕОМЕТРИЯ ДЛЯ КАЖДОГО КЛАССА */
+
+/* Иллюстрация 1: Квадрат 690x690 слева */
+.unamolia-app-ill.app-pic1 {
+    top: 0 !important;
+    left: 0 !important;
+    width: 35.9375vw !important;     /* 690px */
+    height: 35.9375vw !important;    /* 690px */
+}
+
+/* Иллюстрация 2: Панорама 930x390 справа сверху */
+.unamolia-app-ill.app-pic2 {
+    top: 0 !important;
+    left: 39.0625vw !important;     /* 750px */
+    width: 48.4375vw !important;     /* 930px */
+    height: 20.3125vw !important;    /* 390px */
+}
+
+/* Иллюстрация 3: Малая карточка 450x330 справа внизу (первая) */
+.unamolia-app-ill.app-pic3 {
+    top: 21.875vw !important;       /* 420px */
+    left: 39.0625vw !important;     /* 750px */
+    width: 23.4375vw !important;     /* 450px */
+    height: 17.1875vw !important;    /* 330px */
+}
+
+/* Иллюстрация 4: Малая карточка 450x330 справа внизу (вторая) */
+.unamolia-app-ill.app-pic4 {
+    top: 21.875vw !important;       /* 420px */
+    left: 64.0625vw !important;      /* 1230px */
+    width: 23.4375vw !important;     /* 450px */
+    height: 17.1875vw !important;    /* 330px */
+}
+
+/* ПОДПИСЬ ТЕКСТА (12px, цвет 555555, Light, 120%) */
+.unamolia-app-caption {
+    position: absolute !important;
+    top: 37.5vw !important;          /* Ровно 720px */
+    left: 0 !important;
+    width: 10.9375vw !important;     /* Ровно 210px */
+    font-family: 'AKT', sans-serif !important;
+    font-size: 0.625vw !important;   /* 12px */
+    font-weight: 300 !important;     /* Light */
+    color: #555555 !important;
+    line-height: 1.20 !important;
+    text-align: left !important;
+}
+
+/* ==========================================================================
+   КЕЙС UNAMOLIA: БЛОК 11 — МАСКОТ (ИСТИННЫЙ СКЕЙЛИНГ / ВЫСОТА КОНТЕНТА 840px)
+   ========================================================================== */
+
+.unamolia-section-mascot {
+    width: 100vw !important;
+    height: 0 !important;
+    /* Полная высота с паддингами: 840 + 120 + 120 = 1080px. Пропорция к 1920px = 56.25% */
+    padding-top: 56.25% !important; 
+    position: relative !important;
+    background-color: #FFFFFF !important; 
+    overflow: visible !important; /* РАЗРЕШАЕМ ВЫЛЕТ ТЕНИ НА ПАДДИНГ СНИЗУ */
+    box-sizing: border-box !important;
+    z-index: 13 !important;
+}
+
+/* Центрированный абсолютный wrapper под рабочую высоту 1080px */
+.unamolia-wrapper-fluid-11 {
+    position: absolute !important;
+    top: 0 !important;
+    left: 50% !important;
+    transform: translateX(-50%) !important;
+    width: 100vw !important;
+    max-width: 1920px !important;
+    height: 100% !important;
+    box-sizing: border-box !important;
+    padding: 6.25vw !important; /* Отступы по 120px со всех сторон */
+}
+
+/* Координатная сетка 1680x840 */
+.unamolia-row-11 {
+    position: relative !important;
+    width: 100% !important;
+    height: 100% !important;
+}
+
+/* ЛЕВАЯ КОЛОНКА: ТЕКСТОВЫЙ БЛОК (841x440) */
+.unamolia-mascot-text-block {
+    position: absolute !important;
+    top: 0 !important;
+    left: 0 !important;
+    width: 43.802vw !important;       /* Ровно 841px */
+    height: 22.916vw !important;      /* Ровно 440px */
+    display: flex !important;
+    flex-direction: column !important;
+    z-index: 3 !important;
+}
+
+/* Заголовок «Маскот» (80px, цвет 111111, regular, 120%) */
+.unamolia-mascot-title {
+    font-family: 'AKT', sans-serif !important;
+    font-size: 4.166vw !important;   /* 80px */
+    font-weight: 400 !important;
+    color: #111111 !important;
+    line-height: 1.20 !important;
+    text-align: left !important;
+    margin: 0 !important;
+    margin-bottom: 5vw !important;   /* Отступ до текста ровно 96px */
+}
+
+/* Стили для абзацев текста (32px, цвет 555555, regular, шаг 48px) */
+.unamolia-mascot-p {
+    font-family: 'AKT', sans-serif !important;
+    font-size: 1.666vw !important;   /* 32px */
+    font-weight: 400 !important;
+    color: #555555 !important;
+    line-height: 1.25 !important;
+    letter-spacing: 0.05em !important; /* 5% */
+    text-align: left !important;
+    margin: 0 !important;
+    margin-bottom: 2.5vw !important; /* Расстояние между текстами ровно 48px */
+}
+
+/* Убираем нижний отступ у последнего абзаца */
+.unamolia-mascot-p:last-child {
+    margin-bottom: 0 !important;
+}
+
+/* СЛОЙ ТЕНИ: Вылетает вниз за контур на -22px (размер 356x77) */
+.unamolia-mascot-shadow-block {
+    position: absolute !important;
+    top: 40.8854vw !important;       /* Ровно 785px */
+    left: 59.7395vw !important;      /* Ровно 1147px */
+    width: 18.5416vw !important;      /* Ровно 356px */
+    height: 4.0104vw !important;      /* Ровно 77px */
+    z-index: 1 !important;           /* Под маскотом */
+}
+
+.unamolia-mascot-shadow-img {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: contain !important;
+    display: block !important;
+}
+
+/* ПРАВАЯ КОЛОНКА: ИЛЛЮСТРАЦИЯ МАСКОТА (720x840, сверху 0, слева 960px) */
+.unamolia-mascot-ill-block {
+    position: absolute !important;
+    top: 0 !important;
+    left: 50vw !important;           /* Ровно 960px */
+    width: 37.5vw !important;         /* Ровно 720px */
+    height: 43.75vw !important;       /* Ровно 840px */
+    z-index: 2 !important;           /* Поверх тени */
+}
+
+.unamolia-mascot-img {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: contain !important;
+    display: block !important;
+}
+
+/* ==========================================================================
+   КЕЙС UNAMOLIA: БЛОК 12 — ФИНАЛЬНЫЙ МАСКОТ (ВЫСОТА КОНТЕНТА 1200px)
+   ========================================================================== */
+
+.unamolia-section-final {
+    width: 100vw !important;
+    height: 0 !important;
+    /* Полная высота с учетом экстра-отступа снизу: 1536px. Пропорция = 80.0% */
+    padding-top: 80.0% !important; 
+    position: relative !important;
+    background-color: #FFFFFF !important; 
+    overflow: visible !important; 
+    box-sizing: border-box !important;
+    z-index: 14 !important;
+}
+
+/* Центрированный абсолютный wrapper под рабочую высоту 1440px */
+.unamolia-wrapper-fluid-12 {
+    position: absolute !important;
+    top: 0 !important;
+    left: 50% !important;
+    transform: translateX(-50%) !important;
+    width: 100vw !important;
+    max-width: 1920px !important;
+    height: 100% !important;
+    box-sizing: border-box !important;
+    padding: 6.25vw !important; /* Отступы по 120px со всех сторон */
+}
+
+.unamolia-row-12 {
+    position: relative !important;
+    width: 100% !important;
+    height: 100% !important;
+}
+
+/* Общий класс для адаптивных картинок внутри блока */
+.unamolia-final-img {
+    width: 100% !important;
+    height: 100% !important;
+    display: block !important;
+    object-fit: contain !important;
+}
+
+/* Возвращаем исходную верхнюю точку градиента, он растянется по новой длине секции */
+.unamolia-final-grad.big-gradient {
+    position: absolute !important;
+    top: -0.8333vw !important;       /* сверху -16px */
+    left: -6.25vw !important;        
+    width: 100vw !important;         
+    max-width: 1920px !important;
+    height: 75.0vw !important;       /* высота 1440px */
+    z-index: 1 !important;
+}
+
+/* 2. ГРАДИЕНТ-ТЕНЬ МАСКОТА (778x355): сверху 921px, слева 505px, снизу вылет -76px */
+.unamolia-final-grad.mascot-shadow {
+    position: absolute !important;
+    top: 47.9687vw !important;       /* сверху 921px */
+    left: 26.302vw !important;        /* слева 505px */
+    width: 40.5208vw !important;      /* ширина 778px */
+    height: 18.4895vw !important;     /* высота 355px */
+    z-index: 2 !important;
+}
+
+/* 3. ЦЕНТРАЛЬНЫЙ МАСКОТ (868x1200): сверху 0, слева 406px, на весь рост */
+.unamolia-final-mascot-block {
+    position: absolute !important;
+    top: 0 !important;
+    left: 21.1458vw !important;      /* слева 406px */
+    width: 45.2083vw !important;      /* ширина 868px */
+    height: 62.5vw !important;        /* высота 1200px */
+    z-index: 3 !important;           /* Строго поверх всех градиентов */
+}
+
+/* ==========================================================================
+   ОБНОВЛЕННЫЙ БЛОК 13: НАПЛЫВ НАВЕРХ НА 96px И ПОДЪЕМ В СЛОЯХ
+   ========================================================================== */
+
+.unamolia-section-results {
+    width: 100vw !important;
+    height: 0 !important;
+    padding-top: 61.1458% !important; /* Высота 1174px */
+    position: relative !important;
+    background-color: #F4F4F4 !important; 
+    
+    /* Скругление сверху 96px */
+    border-radius: 5vw 5vw 0 0 !important; 
+    
+    /* ПОДВИГНУЛИ НАВЕРХ НА 96px */
+    margin-top: -5vw !important; 
+    
+    /* ПОДНЯЛИ В СЛОЯХ поверх 12-го экрана */
+    z-index: 20 !important; 
+    
+    overflow: hidden !important;
+    box-sizing: border-box !important;
+}
+
+/* Центрированный абсолютный wrapper под рабочую высоту 1174px */
+.unamolia-wrapper-fluid-13 {
+    position: absolute !important;
+    top: 0 !important;
+    left: 50% !important;
+    transform: translateX(-50%) !important;
+    width: 100vw !important;
+    max-width: 1920px !important;
+    height: 100% !important;
+    box-sizing: border-box !important;
+    padding: 6.25vw !important; /* Отступы по 120px со всех сторон */
+}
+
+/* Координатная сетка 1680x934 */
+.unamolia-row-13 {
+    position: relative !important;
+    width: 100% !important;
+    height: 100% !important;
+}
+
+/* Заголовок (80px, темный, regular, 120%) */
+.unamolia-results-title {
+    position: absolute !important;
+    top: 0 !important;
+    left: 0 !important;
+    width: 22.1875vw !important;     /* Ровно 426px */
+    font-family: 'AKT', sans-serif !important;
+    font-size: 4.166vw !important;   /* 80px */
+    font-weight: 400 !important;
+    color: #111111 !important;
+    line-height: 1.20 !important;
+    text-align: left !important;
+    margin: 0 !important;
+}
+
+/* ОБНОВЛЕННАЯ ИЛЛЮСТРАЦИЯ 13 ЭКРАНА (757x742, сверху 117px, слева 0) */
+.unamolia-results-ill-block {
+    position: absolute !important;
+    top: 6.0937vw !important;         /* Ровно 117px от верха контента */
+    left: 0 !important;
+    width: 39.427vw !important;         /* Ровно 757px ширина */
+    height: 38.6458vw !important;       /* Ровно 742px высота */
+}
+
+.unamolia-results-img {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: contain !important;
+    display: block !important;
+}
+
+/* ПРАВАЯ КОЛОНКА: БЛОК С БУЛЛИТАМИ (811x456, сверху 192px, слева 780px) */
+.unamolia-results-text-block {
+    position: absolute !important;
+    top: 10vw !important;            /* Ровно 192px */
+    left: 40.625vw !important;       /* Ровно 780px */
+    width: 42.2395vw !important;     /* Ровно 811px */
+    height: 23.75vw !important;       /* Ровно 456px */
+    display: flex !important;
+    flex-direction: column !important;
+}
+
+/* Стили для каждого буллита на светлом фоне (32px, цвет 555555, regular, шаг 48px) */
+.unamolia-results-item {
+    position: relative !important;
+    font-family: 'AKT', sans-serif !important;
+    font-size: 1.666vw !important;   /* 32px */
+    font-weight: 400 !important;
+    color: #555555 !important;
+    line-height: 1.25 !important;
+    letter-spacing: 0.05em !important; /* 5% */
+    text-align: left !important;
+    margin-bottom: 2.5vw !important; /* Расстояние между текстами ровно 48px */
+    padding-left: 2.5vw !important;   /* Отступ под точку */
+}
+
+/* Маркер-точка в цвет контента */
+.unamolia-results-item::before {
+    content: "•" !important;
+    position: absolute !important;
+    top: 0 !important;
+    left: 0 !important;
+    color: #555555 !important;       
+    font-size: 2vw !important;        
+    line-height: 1.1 !important;      
+}
+
+.unamolia-results-item:last-child {
+    margin-bottom: 0 !important;
+}
+
+/* ТЕМНАЯ НАВИГАЦИЯ НА ДНЕ (Сверху 904px, Слева 0) */
+.unamolia-nav-13 {
+    position: absolute !important;
+    top: 47.0833vw !important;      /* Ровно 904px */
+    left: 0 !important;
+    width: 54.6875vw !important;     /* 1050px под контент */
+    height: 1.5625vw !important;     /* 30px */
+    display: flex !important;
+    flex-direction: row !important;
+    gap: 3.125vw !important;         /* Шаг 60px между ссылками */
+    align-items: center !important;
+    z-index: 10 !important;
+}
+
+.unamolia-nav-item-13 {
+    font-family: 'AKT', sans-serif !important;
+    font-size: 0.833vw !important;   /* 16px */
+    line-height: 1.25 !important;
+    text-decoration: none !important;
+    white-space: nowrap !important;
+    text-align: left !important;
+}
+
+/* Неактивные пункты на светлом фоне — Серые, Light */
+.unamolia-nav-item-13:not(.active) {
+    font-weight: 300 !important;
+    color: #555555 !important;
+}
+
+/* Активный пункт (UnaMolia) — Глубокий темный, Bold */
+.unamolia-nav-item-13.active {
+    font-weight: 700 !important;
+    color: #111111 !important;
+}
+
+/* ==========================================================================
+   КЕЙС UNAMOLIA: БЛОК 14 — ЛИНИЯ-ФУТЕР (ВЫСОТА КОНТЕНТА 1px)
+   ========================================================================== */
+
+.unamolia-section-footer-line {
+    width: 100vw !important;
+    height: 0 !important;
+    /* Полная высота с паддингами: 1 + 120 + 120 = 241px. Пропорция к 1920px = 12.552% */
+    padding-top: 12.552% !important; 
+    position: relative !important;
+    background-color: #F4F4F4 !important; /* Удерживаем светло-серый фон */
+    overflow: hidden !important;
+    box-sizing: border-box !important;
+    z-index: 21 !important;
+}
+
+/* Центрированный абсолютный wrapper под рабочую высоту 241px */
+.unamolia-wrapper-fluid-14 {
+    position: absolute !important;
+    top: 0 !important;
+    left: 50% !important;
+    transform: translateX(-50%) !important;
+    width: 100vw !important;
+    max-width: 1920px !important;
+    height: 100% !important;
+    box-sizing: border-box !important;
+    padding: 6.25vw !important; /* Отступы по 120px со всех сторон */
+}
+
+/* Координатная сетка 1680x1 */
+.unamolia-row-14 {
+    position: relative !important;
+    width: 100% !important;
+    height: 100% !important;
+}
+
+/* ФИНАЛЬНАЯ ЛИНИЯ В 1 ПИКСЕЛЬ */
+.unamolia-divider-line {
+    position: absolute !important;
+    top: 0 !important;
+    left: 0 !important;
+    width: 87.5vw !important;        /* На всю ширину контента 1680px */
+    height: 1px !important;          /* Толщина строго 1px */
+    background-color: #555555 !important; /* Серый цвет линии */
+}
+
+/* ==========================================================================
+   РАЗДЕЛ OTHER: СТРАНИЦА "В РАБОТЕ" (ИСТИННЫЙ СКЕЙЛИНГ / КОНТЕНТ 840px)
+   ========================================================================== */
+
+.other-section-progress {
+    width: 100vw !important;
+    height: 0 !important;
+    /* Полная высота с паддингами: 840 + 120 + 120 = 1080px. Пропорция = 56.25% */
+    padding-top: 56.25% !important; 
+    position: relative !important;
+    background-color: #FFD600 !important; 
+    overflow: hidden !important;
+    box-sizing: border-box !important;
+    z-index: 10 !important;
+}
+
+/* Центрированный абсолютный wrapper под рабочую высоту 1080px */
+.other-wrapper-fluid {
+    position: absolute !important;
+    top: 0 !important;
+    left: 50% !important;
+    transform: translateX(-50%) !important;
+    width: 100vw !important;
+    max-width: 1920px !important;
+    height: 100% !important;
+    box-sizing: border-box !important;
+    padding: 6.25vw !important; /* Отступы по 120px со всех сторон */
+}
+
+.other-row {
+    position: relative !important;
+    width: 100% !important;
+    height: 100% !important;
+}
+
+/* Центрированный заголовок «Этот раздел еще в работе 😊» (80px, цвет 111111, Regular, 120%) */
+.other-progress-title {
+    position: absolute !important;
+    top: 16.666vw !important;         /* Ровно 320px */
+    left: 27.0833vw !important;       /* Ровно 520px */
+    width: 33.2812vw !important;      /* Ширина 639px (1680 - 520 - 521) */
+    height: 10.4166vw !important;     /* Высота 200px (840 - 320 - 320) */
+    font-family: 'AKT', sans-serif !important;
+    font-size: 4.166vw !important;   /* 80px */
+    font-weight: 400 !important;
+    color: #111111 !important;
+    line-height: 1.20 !important;
+    text-align: center !important;    /* Выравнивание по центру */
+    margin: 0 !important;
+}
+
+/* ЦЕНТРИРОВАННАЯ НАВИГАЦИЯ НА ДНЕ (Сверху 810px, Слева 315px) */
+.other-nav-center {
+    position: absolute !important;
+    top: 42.1875vw !important;       /* Ровно 810px */
+    left: 16.4062vw !important;       /* Ровно 315px */
+    width: 54.6875vw !important;     /* Ширина ровно 1050px (1680 - 315 - 315) */
+    height: 1.5625vw !important;     /* 30px */
+    display: flex !important;
+    flex-direction: row !important;
+    gap: 3.125vw !important;         /* Расстояние между словами 60px */
+    justify-content: center !important; /* Центрируем элементы внутри флекса */
+    align-items: center !important;
+    z-index: 15 !important;
+}
+
+.other-nav-item {
+    font-family: 'AKT', sans-serif !important;
+    font-size: 0.833vw !important;   /* 16px */
+    line-height: 1.25 !important;
+    text-decoration: none !important;
+    white-space: nowrap !important;
+    text-align: center !important;
+    transition: color 0.2s ease !important;
+}
+
+/* Неактивные вкладки — серые и Light */
+.other-nav-item:not(.active) {
+    font-weight: 300 !important;     /* Light */
+    color: #555555 !important;
+}
+
+/* Активная вкладка (Other) — глубокий темный и Bold */
+.other-nav-item.active {
+    font-weight: 700 !important;     /* Bold */
+    color: #111111 !important;
+}
+
+.other-nav-item:hover {
+    color: #111111 !important;
+}
