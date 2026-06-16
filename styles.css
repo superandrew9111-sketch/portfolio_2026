@@ -2273,9 +2273,11 @@ body {
     padding-top: 56.25% !important; 
     position: relative !important;
     background-color: #339900 !important; /* Зелёный фон */
-    overflow: hidden !important; /* Жестко режем вылетающие слои графики по границам секции */
+    overflow: hidden !important; /* Жестко режем СВОЮ внутреннюю графику */
     box-sizing: border-box !important;
-    z-index: 11 !important;
+    
+    /* ИСПРАВЛЕНО: Опускаем блок в иерархии, чтобы Блок 3 мог накрыть его сверху */
+    z-index: 10 !important; 
 }
 
 /* Полностью резиновый wrapper с привязкой к левому краю окна */
