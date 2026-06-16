@@ -2448,22 +2448,23 @@ body {
     overflow: visible !important;    /* Выпускаем вылетающие элементы */
 }
 
-/* Координатная сетка 1680x570 */
+/* Координатная сетка 1680x570 — ЖЕСТКИЙ РАСПАХ ДЛЯ ВЫЛЕТОВ */
 .zaymer-row-3 {
     position: relative !important;
     width: 100% !important;
     height: 100% !important;
-    overflow: visible !important; 
+    overflow: visible !important; /* Выпускаем элементы наружу */
 }
 
 /* ИЛЛЮСТРАЦИЯ С ВЫЛЕТАМИ (1502x870, сверху -180px, слева 132px от контента) */
 .zaymer-showcase-ill-block {
     position: absolute !important;
-    top: -9.375vw !important;        /* Ровно -180px от нуля контента */
+    top: -9.375vw !important;        /* Ровно -180px наплыв наверх за границы контента */
     left: 6.875vw !important;         /* Ровно 132px от нуля контента */
     width: 78.2291vw !important;     /* Точные 1502px */
     height: 45.3125vw !important;    /* Точные 870px */
-    z-index: 5 !important;
+    z-index: 25 !important;          /* Задираем саму графику еще выше, чтобы она не падала под фон */
+    overflow: visible !important;    /* Полная свобода от обрезки контейнерами */
 }
 
 .zaymer-showcase-img {
@@ -2471,6 +2472,7 @@ body {
     height: 100% !important;
     object-fit: contain !important;  /* Сохраняем пропорции картинки без обрезки */
     display: block !important;
+    overflow: visible !important;    /* Убираем скрытые контейнерные маски */
 }
 
 /* ==========================================================================
