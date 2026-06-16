@@ -254,7 +254,6 @@ body {
     position: absolute !important;
     top: 0 !important;
     left: 0 !important;
-    width: 24.1145vw !important;     /* Ровно 463px ширины по ТЗ */
     font-family: 'AKT', sans-serif !important;
     font-size: 4.166vw !important;   /* 80px */
     font-weight: 400 !important;
