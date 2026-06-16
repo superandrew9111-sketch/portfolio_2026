@@ -562,7 +562,7 @@ body {
     font-family: 'AKT', sans-serif !important;
     font-size: 1.66vw !important; 
     font-weight: 400 !important;
-    color: #FFFFFF !important;
+    color: rgba(255, 255, 255, 0.75) !important;
     line-height: 1.25 !important; /* Твои 125% интерлиньяжа */
     letter-spacing: 0.05em !important; /* Твои 5% межбуквенного */
     text-align: left !important;
@@ -810,7 +810,7 @@ body {
     font-family: 'AKT', sans-serif !important;
     font-size: 1.041vw !important; /* 20px */
     font-weight: 400 !important;
-    color: #FFFFFF !important;
+    color: rgba(255, 255, 255, 0.75) !important;
     line-height: 1.25 !important;
     letter-spacing: 0.05em !important; 
     text-align: left !important;
