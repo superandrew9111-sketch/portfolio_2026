@@ -2434,7 +2434,7 @@ body {
     
     /* КРИТИЧЕСКИЕ СВОЙСТВА: выпускаем графику наружу и поднимаем блок выше предыдущего */
     overflow: visible !important; 
-    z-index: 4 !important; 
+    z-index: 15 !important; 
     box-sizing: border-box !important;
 }
 
