@@ -119,10 +119,10 @@ body {
 /* ЦЕНТРАЛЬНЫЙ БЛОК ТЕКСТА (850x311, сверху 235px, слева 690px от контента) */
 .hero-text-block {
     position: absolute !important;
-    top: 12.2395vw !important;        /* Ровно 235px от нуля контента */
+    top: 9.6354vw !important;       /* Ровно 235px от нуля контента */
     left: 35.9375vw !important;       /* Ровно 690px от нуля контента */
     width: 44.2708vw !important;       /* Ровно 850px */
-    height: 16.1979vw !important;      /* Ровно 311px */
+    height: 21.1979vw !important;      /* Ровно 311px */
     display: flex !important;
     flex-direction: column !important;
     justify-content: flex-start !important;
@@ -6073,3 +6073,75 @@ body {
 #nav-other-1 .slider-card-link:nth-child(6) .slider-card-action {
     color: #555555 !important; /* Твой кастомный цвет */
 }
+
+/* ==========================================================================
+   КНОПКИ КОНТАКТОВ (Добавь это в самый низ CSS-файла)
+   ========================================================================== */
+
+/* Контейнер, который намертво сажает кнопки на левый край текстового блока */
+.hero-contacts-actions {
+    display: flex !important;
+    justify-content: flex-start !important; /* Прижимает контент внутри себя влево */
+    align-self: flex-start !important;     /* ЖЕСТКИЙ ФИКС: приказывает ВСЕМУ контейнеру встать по левому краю родителя */
+    align-items: center !important;
+    gap: 1.25vw !important;                 /* Горизонтальное расстояние 24px */
+    margin-top: 2.5vw !important;           /* Отступ 48px сверху от текста */
+    margin-left: 0 !important;              /* Сбрасываем возможные сдвиги */
+    margin-right: auto !important;          /* Заталкивает кнопки влево, заполняя пустоту справа */
+    width: 100% !important;
+}
+
+/* Сами овальные кнопки */
+.contact-btn {
+    position: relative !important;
+    display: inline-block !important;       /* Ширина адаптивна под текст */
+    height: 2.5vw !important;               /* Высота 48px */
+    padding: 0 1.25vw !important;           /* Отступы от текста по 24px */
+    
+    /* Центрирование текста внутри кнопки */
+    text-align: center !important;
+    line-block-baseline: middle !important;
+    line-height: 2.5vw !important;          /* Выравнивание по вертикали */
+    
+    /* Твой шрифт AKT */
+    font-family: 'AKT', sans-serif !important;
+    font-size: 1.0416vw !important;         /* Размер 20px */
+    letter-spacing: 0.05em !important;      /* Трекинг 5% */
+    
+    /* Цветовая схема */
+    background-color: #111111 !important;
+    color: #ffffff !important;
+    border: none !important;
+    cursor: pointer !important;
+    border-radius: 1.25vw !important;       /* Скругление 24px */
+    transition: background-color 0.5s ease !important;
+}
+
+/* Ховер */
+.contact-btn:hover {
+    background-color: #555555 !important;
+}
+
+/* Всплывашка "Copied!" */
+.contact-btn::after {
+    content: 'Copied!' !important;
+    position: absolute !important;
+    bottom: 3.125vw !important;
+    left: 50% !important;
+    transform: translateX(-50%) translateY(10px) !important;
+    background: #111111 !important;
+    color: #fff !important;
+    padding: 0.3125vw 0.625vw !important;
+    font-size: 0.729vw !important;
+    letter-spacing: 0 !important;
+    border-radius: 0.2vw !important;
+    opacity: 0 !important;
+    pointer-events: none !important;
+    transition: all 0.2s ease !important;
+    line-height: normal !important;
+}
+
+.contact-btn.copied::after {
+    opacity: 1 !important;
+    transform: translateX(-50%) translateY(0) !important;
+}}

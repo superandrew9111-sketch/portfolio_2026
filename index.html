@@ -81,6 +81,18 @@
            Коллаборации: Т-Банк, Альфа-Банк.
         </p>
     </div>
+
+    <div class="hero-contacts-actions">
+    <!-- Кнопка Telegram -->
+    <button class="contact-btn" data-copy="@superandrew1" data-ru="Telegram" data-en="Telegram">Telegram</button>
+
+    <!-- Кнопка Email -->
+    <button class="contact-btn" data-copy="an-di.91@mail.ru" data-ru="E-mail" data-en="E-mail">E-mail</button>
+
+    <!-- Кнопка Телефона -->
+    <button class="contact-btn" data-copy="+79833209153" data-ru="Phone number" data-en="Phone number">Phone number</button>
+    </div>
+    
 </div>
             
             <!-- Правая колонка: контакты -->
@@ -463,6 +475,31 @@ document.addEventListener('DOMContentLoaded', () => {
             } else {
                 link.setAttribute('href', `${baseUrl}?lang=ru`);
             }
+        });
+    });
+</script>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        // Логика автоматического копирования в буфер обмена
+        document.querySelectorAll('.contact-btn').forEach(button => {
+            button.addEventListener('click', () => {
+                // Берем значение из атрибута data-copy каждой кнопки
+                const textToCopy = button.getAttribute('data-copy');
+                
+                // Записываем текст в буфер обмена пользователя
+                navigator.clipboard.writeText(textToCopy).then(() => {
+                    // Добавляем класс, который показывает всплывашку "Copied!"
+                    button.classList.add('copied');
+                    
+                    // Через 1.5 секунды убираем класс, чтобы плашка красиво скрылась
+                    setTimeout(() => {
+                        button.classList.remove('copied');
+                    }, 1500);
+                }).catch(err => {
+                    console.error('Ошибка при копировании: ', err);
+                });
+            });
         });
     });
 </script>
