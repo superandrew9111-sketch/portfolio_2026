@@ -66,324 +66,545 @@ body {
 }
 
 /* ==========================================================================
-   СТРАНИЦА ABOUT: БЛОК 13 — ГЕРОЙ-ЭКРАН (БЕСКОНЕЧНЫЙ СКЕЙЛИНГ / КОНТЕНТ 840px)
+   ЭКРАН 1: ABOUT / ГЛАВНЫЙ СТАРТОВЫЙ ЭКРАН (БЕСКОНЕЧНЫЙ РЕЗИНОВЫЙ СКЕЙЛИНГ)
    ========================================================================== */
 
-.about-section-hero {
+.section-hero-about {
     width: 100vw !important;
+    max-width: 100% !important;
     height: 0 !important;
-    /* Полная высота с паддингами: 840 + 120 + 120 = 1080px. Пропорция к 1920px = 56.25% */
-    padding-top: 56.25% !important; 
+    /* Полная высота с паддингами: 690 + 120 + 120 = 930px. Пропорция к 1920px = 48.4375% */
+    padding-top: 48.4375% !important; 
     position: relative !important;
-    background-color: #FFD600 !important; /* Насыщенный желтый фон */
+    background-color: #FFD600 !important; /* Яркий желтый фон по ТЗ */
     overflow: hidden !important;
     box-sizing: border-box !important;
-    z-index: 10 !important;
+    z-index: 5 !important;
 }
 
-/* Полностью резиновый wrapper без ограничений по ширине */
-.about-wrapper-fluid {
+/* Полностью резиновый wrapper с жесткой привязкой к левому краю окна */
+.hero-wrapper-fluid {
     position: absolute !important;
     top: 0 !important;
-    left: 0 !important;                /* Перевели привязку строго на левый край */
-    width: 100vw !important;            /* Растягивается строго по окну браузера */
+    left: 0 !important;
+    width: 100vw !important;
     height: 100% !important;
     box-sizing: border-box !important;
-    padding: 6.25vw !important;         /* Отступы по 120px со всех сторон всегда в пропорции */
+    padding: 6.25vw !important;      /* Отступы по 120px (6.25vw) со всех сторон */
 }
 
-/* Координатная сетка 1680x840 */
-.about-row {
+/* Координатная сетка 1680x690 */
+.hero-row {
     position: relative !important;
     width: 100% !important;
     height: 100% !important;
 }
 
-/* ЛЕВАЯ КОЛОНКА: КВАДРАТНАЯ ИЛЛЮСТРАЦИЯ HERO (600x600) */
-.about-hero-ill-block {
+/* ФОТО «hero.png» (600x600, сверху 90px, слева 0) */
+.hero-photo-block {
     position: absolute !important;
-    top: 3.125vw !important;          /* Ровно 60px */
+    top: 4.6875vw !important;         /* Ровно 90px от нуля контента */
     left: 0 !important;
     width: 31.25vw !important;         /* Ровно 600px */
     height: 31.25vw !important;        /* Ровно 600px */
 }
 
-.about-hero-img {
+.hero-img {
     width: 100% !important;
     height: 100% !important;
-    object-fit: cover !important;
+    object-fit: contain !important;
     display: block !important;
 }
 
-/* ЦЕНТРАЛЬНАЯ КОЛОНКА: ИНФО-БЛОК (810x599) */
-.about-hero-text-block {
+/* ЦЕНТРАЛЬНЫЙ БЛОК ТЕКСТА (850x311, сверху 235px, слева 690px от контента) */
+.hero-text-block {
     position: absolute !important;
-    top: 3.125vw !important;          /* Ровно 60px */
-    left: 35.9375vw !important;       /* Ровно 690px */
-    width: 42.1875vw !important;       /* Ровно 810px */
-    height: 31.1979vw !important;      /* Ровно 599px */
+    top: 12.2395vw !important;        /* Ровно 235px от нуля контента */
+    left: 35.9375vw !important;       /* Ровно 690px от нуля контента */
+    width: 44.2708vw !important;       /* Ровно 850px */
+    height: 16.1979vw !important;      /* Ровно 311px */
     display: flex !important;
     flex-direction: column !important;
+    justify-content: flex-start !important;
 }
 
-/* Главный заголовок (80px, Regular, 120%) */
-.about-hero-title {
+/* Текст 1: Позиционирование (32px, темный, regular, 120%, 5% трекинг) */
+.hero-subtitle-top {
     font-family: 'AKT', sans-serif !important;
-    font-size: 4.166vw !important;   /* 80px */
+    font-size: 1.6666vw !important;    /* Точные 32px */
     font-weight: 400 !important;
     color: #111111 !important;
     line-height: 1.20 !important;
+    letter-spacing: 0.05em !important; /* Межбуквенное расстояние 5% */
     text-align: left !important;
     margin: 0 !important;
-    margin-bottom: 5vw !important;   /* ТЗ отступ 96px от заголовка до подзаголовка */
+    margin-bottom: 2.5vw !important;   /* Отступ до Текста 2 ровно 48px */
+    -webkit-font-smoothing: antialiased !important;
+    -moz-osx-font-smoothing: grayscale !important;
 }
 
-/* Подзаголовок (32px, Regular, 120%) */
-.about-hero-subtitle {
+/* Текст 2: Манифест (20px, темный, regular, 120%, 5% трекинг) */
+.hero-description-p {
     font-family: 'AKT', sans-serif !important;
-    font-size: 1.666vw !important;   /* 32px */
+    font-size: 1.0416vw !important;    /* Точные 20px */
     font-weight: 400 !important;
     color: #111111 !important;
     line-height: 1.20 !important;
+    letter-spacing: 0.05em !important; /* Межбуквенное расстояние 5% */
     text-align: left !important;
     margin: 0 !important;
-    margin-bottom: 2.5vw !important; /* Умеренный воздух до основного текста */
+    white-space: pre-line !important;  /* Чтобы переносы строк из Figma встали как надо */
+    -webkit-font-smoothing: antialiased !important;
+    -moz-osx-font-smoothing: grayscale !important;
 }
 
-/* Основное описание (20px, Regular, 125%, 5%) */
-.about-hero-description {
-    font-family: 'AKT', sans-serif !important;
-    font-size: 1.0416vw !important;  /* 20px */
-    font-weight: 400 !important;
-    color: #111111 !important;
-    line-height: 1.25 !important;
-    letter-spacing: 0.05em !important; /* 5% */
-    text-align: left !important;
-    margin: 0 !important;
-}
-
-/* ПРАВАЯ НИЖНЯЯ КОЛОНКА: КОНТАКТЫ (Сверху 720px, Слева 1538px, Выравнивание по правому краю) */
-.about-contacts-block {
+/* ТЕКСТ КОНТАКТЫ (142x120, сверху 570px, слева 1538px от контента) */
+.hero-contacts-block {
     position: absolute !important;
-    top: 37.5vw !important;          /* Ровно 720px */
-    left: 80.1041vw !important;       /* Ровно 1538px */
-    width: 7.3958vw !important;        /* Оставшиеся 142px ширины */
+    top: 29.6875vw !important;        /* Ровно 570px от нуля контента */
+    left: 80.1041vw !important;       /* Ровно 1538px от нуля контента (1538 / 1920) */
+    width: 7.3958vw !important;         /* Ровно 142px */
+    height: 6.25vw !important;          /* Ровно 120px */
     display: flex !important;
     flex-direction: column !important;
-    gap: 1.5625vw !important;         /* Шаг между строчками ровно 30px */
-    align-items: flex-end !important;
+    gap: 1.5625vw !important;           /* Расстояние между строчками ровно 30px */
+    justify-content: flex-start !important;
 }
 
-.about-contact-link {
+.hero-contact-item {
     font-family: 'AKT', sans-serif !important;
-    font-size: 0.833vw !important;   /* 16px */
-    font-weight: 300 !important;     /* Light */
+    font-size: 0.8333vw !important;    /* Точные 16px */
+    font-weight: 300 !important;       /* Light */
     color: #555555 !important;
-    line-height: 1.25 !important;
-    text-decoration: none !important;
-    white-space: nowrap !important;
-    text-align: right !important;
-}
-
-/* ==========================================================================
-   СТИЛИ НАВИГАЦИИ И ССЫЛОК ДЛЯ СТРАНИЦЫ ABOUT (ЖЕЛТЫЙ ФОН)
-   ========================================================================== */
-
-/* Навигационный контейнер строго на координатах (Top: 810px, Left: 0) */
-.about-nav {
-    position: absolute !important;
-    top: 42.1875vw !important;       /* Ровно 810px при 1920px */
-    left: 0 !important;
-    width: 54.6875vw !important;     /* 1050px под ширину контента */
-    height: 1.5625vw !important;     /* 30px */
-    display: flex !important;
-    flex-direction: row !important;
-    gap: 3.125vw !important;         /* Шаг между ссылками ровно 60px */
-    align-items: center !important;
-    z-index: 15 !important;
-}
-
-/* Базовые стили для элементов навигации (16px, цвет 555555, Light) */
-.about-nav-item {
-    font-family: 'AKT', sans-serif !important;
-    font-size: 0.833vw !important;   /* Ровно 16px */
-    line-height: 1.25 !important;
-    text-decoration: none !important;
-    white-space: nowrap !important;
+    line-height: 1.25 !important;      /* Интерлиньяж 125% */
     text-align: left !important;
-    transition: color 0.2s ease !important;
-}
-
-/* Неактивные вкладки — серые и Light */
-.about-nav-item:not(.active) {
-    font-weight: 300 !important;     /* Light */
-    color: #555555 !important;
-}
-
-/* Активная вкладка (About) — глубокий темный цвет и Bold */
-.about-nav-item.active {
-    font-weight: 700 !important;     /* Bold */
-    color: #111111 !important;
-}
-
-/* Ховер для интерактивности */
-.about-nav-item:hover {
-    color: #111111 !important;
+    text-decoration: none !important;
+    white-space: nowrap !important;
+    -webkit-font-smoothing: antialiased !important;
+    -moz-osx-font-smoothing: grayscale !important;
 }
 
 /* ==========================================================================
-   СТРАНИЦА ABOUT: БЛОК 2 — ЧТО Я УМЕЮ (ВЫСОТА КОНТЕНТА 840px)
+   ЭКРАН 2: НАВИГАЦИОННАЯ СЕТКА КЕЙСОВ (1680x2550 ПРИ 100%)
    ========================================================================== */
 
-.about-section-skills {
+.section-cases-nav {
     width: 100vw !important;
+    max-width: 100% !important;
     height: 0 !important;
-    /* Полная высота с паддингами: 840 + 120 + 120 = 1080px. Пропорция = 56.25% */
-    padding-top: 56.25% !important; 
+    /* Полная высота с паддингами: 2550 + 120 + 120 = 2790px. Пропорция к 1920px = 145.3125% */
+    padding-top: 145.3125% !important;
     position: relative !important;
-    background-color: #FFFFFF !important; /* Белый фон */
-    overflow: hidden !important;
+    background-color: #FFFFFF !important;
     box-sizing: border-box !important;
-    z-index: 11 !important;
+    z-index: 4 !important;
 }
 
-/* Заголовок «Что я умею?» (80px, цвет 111111, Regular, 120%) */
-.about-skills-title {
+.cases-wrapper-fluid {
     position: absolute !important;
     top: 0 !important;
     left: 0 !important;
-    font-family: 'AKT', sans-serif !important;
-    font-size: 4.166vw !important;   /* 80px */
-    font-weight: 400 !important;
-    color: #111111 !important;
-    line-height: 1.20 !important;
-    text-align: left !important;
-    margin: 0 !important;
-}
-
-/* КОНТЕЙНЕР ДЛЯ 4-Х КОЛОНОК (1680x282, сверху 192px) */
-.about-skills-grid {
-    position: absolute !important;
-    top: 10vw !important;            /* Ровно 192px */
-    left: 0 !important;
-    width: 87.5vw !important;        /* 1680px */
-    height: 14.6875vw !important;    /* 282px */
-    display: flex !important;
-    flex-direction: row !important;
-    gap: 2.5vw !important;           /* Расстояние между общими блоками ровно 48px */
-}
-
-/* Каждая колонка имеет ширину 384px (20vw от 1920px) */
-.about-skill-column {
-    width: 20vw !important;          /* Ровно 384px */
+    width: 100vw !important;
     height: 100% !important;
-    display: flex !important;
-    flex-direction: column !important;
+    box-sizing: border-box !important;
+    padding: 6.25vw !important; /* Отступы по 120px со всех сторон */
 }
 
-/* Подзаголовок внутри блока (32px, цвет 111111, Regular, 120%) */
-.about-column-subtitle {
+.cases-grid-row {
+    position: relative !important;
+    width: 100% !important;
+    height: 100% !important;
+}
+
+/* ОБЩИЙ СТИЛЬ КАРТОЧЕК (810x810, скругление 48px, фон F2F2F2) */
+.case-card {
+    position: absolute !important;
+    width: 42.1875vw !important;        /* Ровно 810px */
+    height: 42.1875vw !important;       /* Ровно 810px */
+    background-color: #F2F2F2 !important;
+    border-radius: 2.5vw !important;    /* Скругление 48px */
+    overflow: hidden !important;        /* Чтобы картинки не вылетали за скругления */
+    display: block !important;
+    text-decoration: none !important;
+    box-sizing: border-box !important;
+    transition: background-color 0.5s cubic-bezier(0.25, 1, 0.5, 1) !important;
+}
+
+/* ОБЩИЕ СТИЛИ ТЕКСТОВЫХ БЛОКОВ (Изначально скрыты, выходят на ховере) */
+.case-text-block {
+    position: absolute !important;
+    left: 4.6875vw !important;          /* Ровно 90px */
+    top: 4.6875vw !important;           /* Ровно 90px */
+    width: 32.8125vw !important;        /* Ровно 630px */
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    opacity: 0 !important;              /* Прячем до ховера */
+    transform: translateY(-20px) !important; /* Легкий сдвиг вверх для красивого выплывания */
+    transition: transform 0.5s cubic-bezier(0.25, 1, 0.5, 1), opacity 0.5s cubic-bezier(0.25, 1, 0.5, 1) !important;
+    z-index: 10 !important;
+}
+
+/* Высота блоков под ТЗ */
+.text-block-89 { height: 4.6354vw !important; }   /* Ровно 89px */
+.text-block-114 { height: 5.9375vw !important; }  /* Ровно 114px */
+
+/* Стили заголовка (32px, regular, 125%) */
+.case-title {
     font-family: 'AKT', sans-serif !important;
-    font-size: 1.666vw !important;   /* 32px */
+    font-size: 1.6666vw !important;     /* 32px */
+    font-weight: 400 !important;
+    color: #111111 !important;
+    line-height: 1.25 !important;
+    text-align: center !important;
+    margin: 0 !important;
+    margin-bottom: 0.5vw !important;
+}
+
+/* Стили подзаголовка (20px, regular, 5% трекинг, 125%) */
+.case-subtitle {
+    font-family: 'AKT', sans-serif !important;
+    font-size: 1.0416vw !important;     /* 20px */
+    font-weight: 400 !important;
+    color: #555555 !important;
+    line-height: 1.25 !important;
+    letter-spacing: 0.05em !important;
+    text-align: center !important;
+    margin: 0 !important;
+}
+
+/* ОБЩИЙ КОНТЕЙНЕР ИЛЛЮСТРАЦИЙ */
+.case-ill-container {
+    position: absolute !important;
+    transition: all 0.5s cubic-bezier(0.25, 1, 0.5, 1) !important;
+}
+
+.case-img {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: contain !important;
+    display: block !important;
+}
+
+/* АНИМАЦИЯ ХОВЕРА (Эффект раскрытия) */
+.case-card:hover .case-text-block {
+    opacity: 1 !important;
+    transform: translateY(0) !important; /* Текст встает на место */
+}
+
+
+/* ==========================================================================
+   КООРДИНАТНАЯ ПОСАДКА ДЛЯ КАЖДОЙ КАРТОЧКИ И ИЛЛЮСТРАЦИИ
+   ========================================================================== */
+
+/* --- 1 КАРТОЧКА: A-Dengi (ИСПРАВЛЕНЫ КООРДИНАТЫ И ШИРИНА ИЛЛЮСТРАЦИИ) --- */
+.card-1 {
+    top: 0 !important;
+    left: 0 !important;
+}
+.card-1:hover { background-color: #F3F4F5 !important; }
+
+.ill-1 {
+    width: 100% !important;            /* ЖЕСТКО: Растягиваем на всю ширину карточки (810px) */
+    height: 53.5937vw !important;      /* Ровно 1029px */
+    left: 0 !important;
+    right: 0 !important;
+    top: -2.5vw !important;            /* ИСПРАВЛЕНО: Без ховера ровно -48px */
+}
+
+.card-1:hover .ill-1 {
+    top: 3.75vw !important;            /* ИСПРАВЛЕНО: При ховере ровно 72px */
+}
+
+/* --- 2 КАРТОЧКА: Т-Банк x Zaymer (ОБНОВЛЕНО) --- */
+.card-2 {
+    top: 0 !important;
+    left: 45.3125vw !important;        /* 870px */
+}
+.card-2:hover { background-color: #FFFCEA !important; }
+
+.ill-2 {
+    width: 100% !important;            /* ЖЕСТКО: Растягиваем на всю ширину карточки (810px) */
+    height: 42.1875vw !important;      /* Ровно 810px */
+    left: 0 !important;
+    right: 0 !important;
+    top: 5.78125vw !important;         /* ИСПРАВЛЕНО: Без ховера ровно 111px */
+}
+.card-2:hover .ill-2 {
+    top: 12.03125vw !important;        /* ИСПРАВЛЕНО: При ховере ровно 231px */
+}
+
+/* --- 3 КАРТОЧКА: Zaymer RU --- */
+.card-3 {
+    top: 45.3125vw !important;         /* 870px */
+    left: 0 !important;
+}
+.card-3:hover { background-color: #EBF5E5 !important; }
+
+.ill-3 {
+    width: 32.8125vw !important;       /* 630px */
+    height: 30.1041vw !important;      /* 578px */
+    left: 4.6875vw !important;          /* 90px */
+    top: 7.8125vw !important;          /* 150px */
+}
+.card-3:hover .ill-3 {
+    top: 14.0625vw !important;         /* 270px */
+}
+
+/* --- 4 КАРТОЧКА: Zaymer KZ --- */
+.card-4 {
+    top: 45.3125vw !important;         /* 870px */
+    left: 45.3125vw !important;        /* 870px */
+}
+.card-4:hover { background-color: #E8F5EC !important; }
+
+.ill-4 {
+    width: 32.8125vw !important;       /* 630px */
+    height: 32.2395vw !important;      /* 619px */
+    left: 4.6875vw !important;          /* 90px */
+    top: 7.8125vw !important;          /* 150px */
+}
+.card-4:hover .ill-4 {
+    top: 14.0625vw !important;         /* 270px */
+}
+
+/* --- 5 КАРТОЧКА: UnaMolia (Uzbekistan) --- */
+.card-5 {
+    top: 90.625vw !important;          /* 1740px */
+    left: 0 !important;
+}
+.card-5:hover { background-color: #E6EFFF !important; }
+
+.ill-5 {
+    width: 24.1145vw !important;       /* 463px */
+    height: 36.1458vw !important;      /* 694px */
+    left: 9.0625vw !important;         /* 174px */
+    top: 7.8125vw !important;          /* 150px */
+}
+.card-5:hover .ill-5 {
+    top: 14.0625vw !important;         /* 270px */
+}
+
+/* --- 6 КАРТОЧКА: Other (ОБНОВЛЕНО) --- */
+.card-6 {
+    top: 90.625vw !important;          /* 1740px */
+    left: 45.3125vw !important;        /* 870px */
+}
+.card-6:hover { background-color: #FFFBE5 !important; }
+
+.ill-6 {
+    /* Без ховера: слева справа 0 (ширина 810px) */
+    width: 100% !important;            
+    height: 37.6041vw !important;      /* Ровно 722px */
+    left: 0 !important;
+    right: 0 !important;
+    top: 7.8125vw !important;          /* Без ховера ровно 150px */
+}
+.card-6:hover .ill-6 {
+    /* При ховере: слева справа 90px (ширина карточки 810 - 90 - 90 = 630px) */
+    width: 32.8125vw !important;        /* Ровно 630px */
+    left: 4.6875vw !important;          /* Слева 90px */
+    right: 4.6875vw !important;         /* Справа 90px */
+    top: 14.0625vw !important;         /* При ховере ровно 270px */
+}
+
+/* ==========================================================================
+   ЭКРАН 3: ЧТО Я УМЕЮ / ABOUT SKILLS (1680x1167 ПРИ 100%)
+   ========================================================================== */
+
+.section-skills-about {
+    width: 100vw !important;
+    max-width: 100% !important;
+    height: 0 !important;
+    /* Полная высота с паддингами: 1167 + 120 + 120 = 1407px. Пропорция к 1920px = 73.2812% */
+    padding-top: 73.2812% !important;
+    position: relative !important;
+    background-color: #FFFFFF !important;
+    box-sizing: border-box !important;
+    z-index: 3 !important;
+}
+
+.skills-wrapper-fluid {
+    position: absolute !important;
+    top: 0 !important;
+    left: 0 !important;
+    width: 100vw !important;
+    height: 100% !important;
+    box-sizing: border-box !important;
+    padding: 6.25vw !important; /* Отступы по 120px со всех сторон */
+}
+
+.skills-grid-row {
+    position: relative !important;
+    width: 100% !important;
+    height: 100% !important;
+}
+
+/* ЗАГОЛОВОК СЕКЦИИ (80px, regular, 120%) */
+.skills-main-title {
+    position: absolute !important;
+    top: 0 !important;
+    left: 0 !important;
+    font-family: 'AKT', sans-serif !important;
+    font-size: 4.1666vw !important;    /* 80px */
     font-weight: 400 !important;
     color: #111111 !important;
     line-height: 1.20 !important;
     text-align: left !important;
     margin: 0 !important;
-    margin-bottom: 2.5vw !important; /* Отступ до списка ровно 48px */
 }
 
-/* Контейнер списка буллитов */
-.about-column-list {
+/* КОНТЕЙНЕР ДЛЯ 4-Х КАРТОЧЕК (1680x413, сверху 216px от контентного нуля) */
+.skills-cards-container {
+    position: absolute !important;
+    top: 11.25vw !important;           /* Ровно 216px */
+    left: 0 !important;
+    width: 100% !important;            /* Все 1680px */
+    height: 21.5104vw !important;      /* Ровно 413px */
+    display: flex !important;
+    flex-direction: row !important;
+    justify-content: space-between !important; /* Равномерный автоматический расклад по ширине */
+    align-items: flex-start !important;
+}
+
+/* СТИЛЬ КАЖДОЙ КАРТОЧКИ (396x413, скругление 48px, внутри 48px) */
+.skill-card {
+    width: 20.625vw !important;        /* Ровно 396px */
+    height: 100% !important;
+    background-color: #F2F2F2 !important;
+    border-radius: 2.5vw !important;    /* Скругление 48px */
+    box-sizing: border-box !important;
+    padding: 2.5vw !important;          /* Внутренние отступы 48px со всех сторон */
     display: flex !important;
     flex-direction: column !important;
+    justify-content: flex-start !important;
 }
 
-/* Строчки текста внутри колонок (20px, цвет 111111, Regular, шаг 32px между базовыми линиями) */
-.about-column-item {
-    position: relative !important;
+/* Шапка карточки: иконка + заголовок */
+.skill-card-header {
+    display: flex !important;
+    flex-direction: row !important;
+    align-items: center !important;
+    margin-bottom: 2.5vw !important;   /* Отступ 48px до списка */
+}
+
+.skill-icon-svg {
+    width: 2.5vw !important;           /* Ровно 48px */
+    height: 2.5vw !important;          /* Ровно 48px */
+    margin-right: 1.25vw !important;   /* Отступ между иконкой и текстом 24px */
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+}
+
+.skill-icon-img {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: contain !important;
+    display: block !important;
+}
+
+.skill-card-title {
     font-family: 'AKT', sans-serif !important;
-    font-size: 1.0416vw !important;  /* 20px */
+    font-size: 1.6666vw !important;    /* 32px */
     font-weight: 400 !important;
     color: #111111 !important;
     line-height: 1.25 !important;
-    letter-spacing: 0.05em !important; /* 5% */
     text-align: left !important;
-    
-    /* Шаг между строчками: 32px от верха до верха */
-    margin-bottom: 1.666vw !important; 
-    padding-left: 1.25vw !important;   /* Отступ под точку-маркер */
+    margin: 0 !important;
 }
 
-/* Точка-маркер перед каждым элементом */
-.about-column-item::before {
-    content: "•" !important;
-    position: absolute !important;
-    top: 0 !important;
-    left: 0 !important;
-    color: #111111 !important;
-    font-size: 1.25vw !important;
-    line-height: 1.1 !important;
+/* Список умений внутри карточки */
+.skill-card-list {
+    margin: 0 !important;
+    padding: 0 !important;
+    list-style: none !important;       
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 1.6666vw !important;          /* Отступы между строчками ровно 32px */
 }
 
-.about-column-item:last-child {
-    margin-bottom: 0 !important;
-}
-
-/* ТЕКСТ СКЛИЛЛСЕТА В 2 СТРОЧКИ (20px, цвет 555555, Light, Сверху 564px) */
-.about-skillset-raw-text {
-    position: absolute !important;
-    top: 29.375vw !important;        /* Ровно 564px */
-    left: 0 !important;
-    width: 87.5vw !important;        /* 1680px на всю ширину контента */
+.skill-card-list li {
     font-family: 'AKT', sans-serif !important;
-    font-size: 1.0416vw !important;  /* 20px */
-    font-weight: 300 !important;     /* Light */
+    font-size: 1.0416vw !important;    /* Ровно 20px */
+    font-weight: 400 !important;
     color: #555555 !important;
     line-height: 1.25 !important;
-    letter-spacing: 0.05em !important; /* 5% */
+    letter-spacing: 0.05em !important; /* Трекинг 5% */
     text-align: left !important;
+    position: relative !important;
+    padding-left: 1.5625vw !important; /* Место под буллит */
 }
 
-/* НАВИГАЦИЯ НА ДНЕ БЕЛОГО ЭКРАНА (Сверху 810px) */
-.about-nav-white {
+/* Кастомный круглый буллит перед текстом */
+.skill-card-list li::before {
+    content: "" !important;
     position: absolute !important;
-    top: 42.1875vw !important;       /* Ровно 810px */
     left: 0 !important;
-    width: 54.6875vw !important;     /* 1050px */
-    height: 1.5625vw !important;     /* 30px */
+    top: 0.5vw !important;
+    width: 0.4166vw !important;        /* Точка 8px */
+    height: 0.4166vw !important;
+    background-color: #555555 !important;
+    border-radius: 50% !important;
+}
+
+/* ==========================================================================
+   БЛОК SKILLSET (1680x418, сверху 749px от контентного нуля)
+   ========================================================================== */
+
+.skillset-main-box {
+    position: absolute !important;
+    top: 39.0104vw !important;         /* Ровно 749px */
+    left: 0 !important;
+    width: 100% !important;            /* Все 1680px */
+    height: 21.7708vw !important;      /* Ровно 418px */
+    background-color: #F2F2F2 !important;
+    border-radius: 2.5vw !important;    /* Скругление фасок 48px */
+    box-sizing: border-box !important;
+    padding: 2.5vw !important;          /* Внутренние отступы 48px со всех сторон */
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: flex-start !important;
+}
+
+.skillset-title {
+    font-family: 'AKT', sans-serif !important;
+    font-size: 1.6666vw !important;    /* 32px */
+    font-weight: 400 !important;
+    color: #111111 !important;
+    line-height: 1.20 !important;
+    text-align: left !important;
+    margin: 0 !important;
+    margin-bottom: 2.5vw !important;   /* Отступ до тегов 48px */
+}
+
+/* Сетка тегов с автоматическим переносом и зазорами 24px */
+.skillset-tags-grid {
     display: flex !important;
     flex-direction: row !important;
-    gap: 3.125vw !important;         /* Расстояние между словами 60px */
-    align-items: center !important;
-    z-index: 15 !important;
+    flex-wrap: wrap !important;        
+    gap: 1.25vw !important;            /* Расстояние между тегами со всех сторон ровно 24px */
+    justify-content: flex-start !important;
 }
 
-.about-nav-item-white {
+/* Общий базовый стиль для всех тегов */
+.tag {
     font-family: 'AKT', sans-serif !important;
-    font-size: 0.833vw !important;   /* 16px */
+    font-size: 1.0416vw !important;    /* Ровно 20px */
+    font-weight: 400 !important;
+    color: #111111 !important;
     line-height: 1.25 !important;
-    text-decoration: none !important;
-    white-space: nowrap !important;
     text-align: left !important;
-    transition: color 0.2s ease !important;
+    padding: 0.4166vw 1.0416vw !important; /* Паддинги: сверху/снизу 8px, слева/справа 20px */
+    border-radius: 1.0416vw !important;   /* Скругление тега 20px */
+    white-space: nowrap !important;
+    display: inline-block !important;
 }
 
-/* Неактивные вкладки на белом фоне */
-.about-nav-item-white:not(.active) {
-    font-weight: 300 !important;     /* Light */
-    color: #555555 !important;
-}
-
-/* Активная вкладка (About) */
-.about-nav-item-white.active {
-    font-weight: 700 !important;     /* Bold */
-    color: #111111 !important;
-}
-
-.about-nav-item-white:hover {
-    color: #111111 !important;
-}
+/* Цвета тегов по ТЗ */
+.tag-pink { background-color: #FFCDCD !important; }
+.tag-yellow { background-color: #FFF7CC !important; }
+.tag-blue { background-color: #CCE6FF !important; }
 
 /* ==========================================================================
    СТРАНИЦА ABOUT: БЛОК 3 — ЛИНИЯ-ФУТЕР (ВЫСОТА КОНТЕНТА 1px)
@@ -494,7 +715,7 @@ body {
     width: 100vw !important;
     max-width: 100% !important;
     height: 0 !important;
-    padding-top: 56.25% !important; /* Жёсткий замок пропорций 16:9 */
+    padding-top: 46.875% !important; /* Жёсткий замок пропорций 16:9 */
     position: relative !important;
     background-color: #192130 !important;
     
@@ -579,7 +800,6 @@ body {
     height: 34.375vw !important;  /* Ровно 660px */
     flex-shrink: 0 !important;
     /* Положение: снизу 180px до навигации */
-    margin-bottom: 9.375vw !important; 
 }
 
 .adengi-img-2 {
@@ -587,41 +807,6 @@ body {
     height: 100% !important;
     object-fit: contain !important;
     display: block !important;
-}
-
-/* НАВИГАЦИОННЫЙ БЛОК (1050x30) */
-.adengi-nav-2 {
-    width: 54.6875vw !important; /* Поправили до точных 1050px */
-    height: 1.5625vw !important; /* Поправили до точных 30px */
-    display: flex !important;
-    flex-direction: row !important;
-    gap: 3.125vw !important; /* Шаг 60px */
-    align-items: center !important;
-    margin-top: auto !important; /* Прижимается к дну контентной области */
-}
-
-.adengi-nav-item {
-    font-family: 'AKT', sans-serif !important;
-    font-size: 0.833vw !important; /* Поправили до точных 16px */
-    line-height: 1.20 !important;
-    letter-spacing: 0.05em !important; 
-    text-decoration: none !important;
-    white-space: nowrap !important;
-    text-align: left !important;
-    -webkit-font-smoothing: antialiased !important;
-    -moz-osx-font-smoothing: grayscale !important;
-}
-
-/* Неактивные ссылки — Light, 75% прозрачности */
-.adengi-nav-item:not(.active) {
-    font-weight: 300 !important; 
-    color: rgba(255, 255, 255, 0.75) !important;
-}
-
-/* Активная ссылка — Bold, 100% белый */
-.adengi-nav-item.active {
-    font-weight: 700 !important; 
-    color: #FFFFFF !important;
 }
 
 /* ==========================================================================
@@ -632,7 +817,7 @@ body {
     width: 100vw !important;
     max-width: 100% !important;
     height: 0 !important;
-    padding-top: 56.25% !important; /* Замок 16:9 */
+    padding-top: 50.3125% !important; /* Замок 16:9 */
     position: relative !important;
     background-color: #FFFFFF !important; /* Чистый белый фон */
     overflow: hidden !important;
@@ -704,42 +889,23 @@ body {
     -webkit-font-smoothing: antialiased !important;
     -moz-osx-font-smoothing: grayscale !important;
 }
-
-/* НАВИГАЦИОННЫЙ БЛОК (1050x30, сверху 810px, слева 0px от контентной области) */
-.adengi-nav-3 {
+/* Новая подпись «Пример SMM поста» строго по твоим координатам */
+.adengi-caption-3 {
     position: absolute !important;
-    top: 48.4375vw !important;    /* 810px от верха контента */
-    left: 6.25vw !important;     /* 0px от левого края контента */
-    width: 54.6875vw !important; /* Ровно 1050px */
-    height: 1.5625vw !important;  /* Ровно 30px */
-    display: flex !important;
-    flex-direction: row !important;
-    gap: 3.125vw !important;      /* Шаг между ссылками 60px */
-    align-items: center !important;
-    z-index: 15 !important;
-}
-
-.adengi-nav-item-3 {
+    
+    /* Сверху 712px + 120px внешнего отступа страницы = 832px */
+    top: 43.3333vw !important; 
+    
+    /* Слева 0px от контента (6.25vw от края экрана) */
+    left: 6.25vw !important; 
+    
     font-family: 'AKT', sans-serif !important;
-    font-size: 0.833vw !important; /* 16px */
-    line-height: 1.20 !important;
-    letter-spacing: 0.05em !important;
-    text-decoration: none !important;
-    white-space: nowrap !important;
+    font-size: 0.625vw !important;     /* Ровно 12px */
+    color: #555555 !important;
+    font-weight: 300 !important;        /* Light */
+    line-height: 120% !important;       /* Интерлиньяж 120% */
     text-align: left !important;
-    -webkit-font-smoothing: antialiased !important;
-    -moz-osx-font-smoothing: grayscale !important;
-}
-
-/* Ссылки сделаны ТЕМНЫМИ на белом фоне */
-.adengi-nav-item-3:not(.active) {
-    font-weight: 300 !important;
-    color: rgba(17, 17, 17, 0.75) !important; /* Темно-серый 75% */
-}
-
-.adengi-nav-item-3.active {
-    font-weight: 700 !important;
-    color: #111111 !important; /* Плотный черный */
+    white-space: nowrap !important;
 }
 
 /* ==========================================================================
@@ -1097,7 +1263,7 @@ body {
     width: 100vw !important;
     max-width: 100% !important;
     height: 0 !important;
-    padding-top: 56.25% !important; /* Наш стандартный замок 16:9 под высоту 840px */
+    padding-top: 50.2083% !important; /* Наш стандартный замок 16:9 под высоту 840px */
     position: relative !important;
     background-color: #F2F5FA !important; /* Тот же светлый серо-голубой фон */
     overflow: hidden !important;
@@ -1160,43 +1326,6 @@ body {
     margin: 0 !important;
     -webkit-font-smoothing: antialiased !important;
     -moz-osx-font-smoothing: grayscale !important;
-}
-
-/* НАВИГАЦИОННЫЙ БЛОК НА СВЕТЛОМ ФОНЕ (1050x30, сверху 810px, слева 0) */
-.adengi-nav-6 {
-    position: absolute !important;
-    top: 42.1875vw !important;   /* Идеальные 810px от нуля контента */
-    left: 0 !important;
-    width: 54.6875vw !important;  /* Ровно 1050px */
-    height: 1.5625vw !important;  /* Ровно 30px */
-    display: flex !important;
-    flex-direction: row !important;
-    gap: 3.125vw !important;     /* Шаг 60px между ссылками */
-    align-items: center !important;
-    z-index: 20 !important;
-}
-
-.adengi-nav-item-6 {
-    font-family: 'AKT', sans-serif !important;
-    font-size: 0.833vw !important; /* 16px */
-    line-height: 1.25 !important;
-    text-decoration: none !important;
-    white-space: nowrap !important;
-    text-align: left !important;
-    -webkit-font-smoothing: antialiased !important;
-    -moz-osx-font-smoothing: grayscale !important;
-}
-
-/* Неактивные вкладки — цвет 555555, Light */
-.adengi-nav-item-6:not(.active) {
-    font-weight: 300 !important;
-    color: #555555 !important;
-}
-
-/* Активная вкладка — цвет 111111, Bold */
-.adengi-nav-item-6.active {
-    font-weight: 700 !important;
-    color: #111111 !important;
 }
 
 /* ==========================================================================
@@ -1385,7 +1514,7 @@ body {
     max-width: 100% !important;
     height: 0 !important;
     /* Полная высота с паддингами: 870 + 120 + 120 = 1110px. Пропорция к 1920px = 57.8125% */
-    padding-top: 57.8125% !important; 
+    padding-top: 50% !important; 
     position: relative !important;
     background-color: #F2F5FA !important; /* Светлый серо-голубой фон */
     overflow: hidden !important;
@@ -1463,43 +1592,6 @@ body {
     margin: 0 !important;
     -webkit-font-smoothing: antialiased !important;
     -moz-osx-font-smoothing: grayscale !important;
-}
-
-/* НАВИГАЦИОННЫЙ БЛОК НА СВЕТЛОМ ФОНЕ (1050x30, сверху 840px, слева 0) */
-.adengi-nav-9 {
-    position: absolute !important;
-    top: 43.75vw !important;         /* Ровно 840px от нуля контента */
-    left: 0 !important;
-    width: 54.6875vw !important;     /* Ровно 1050px */
-    height: 1.5625vw !important;     /* Ровно 30px */
-    display: flex !important;
-    flex-direction: row !important;
-    gap: 3.125vw !important;         /* Шаг 60px между ссылками */
-    align-items: center !important;
-    z-index: 20 !important;
-}
-
-.adengi-nav-item-9 {
-    font-family: 'AKT', sans-serif !important;
-    font-size: 0.833vw !important;   /* 16px */
-    line-height: 1.25 !important;
-    text-decoration: none !important;
-    white-space: nowrap !important;
-    text-align: left !important;
-    -webkit-font-smoothing: antialiased !important;
-    -moz-osx-font-smoothing: grayscale !important;
-}
-
-/* Неактивные вкладки — цвет 555555, Light */
-.adengi-nav-item-9:not(.active) {
-    font-weight: 300 !important;
-    color: #555555 !important;
-}
-
-/* Активная вкладка — цвет 111111, Bold */
-.adengi-nav-item-9.active {
-    font-weight: 700 !important;
-    color: #111111 !important;
 }
 
 /* ==========================================================================
@@ -1619,7 +1711,7 @@ body {
 /* Внешний экран: жесткие 16:9, сжимается по высоте сам */
 .collab-section-fluid {
     width: 100vw !important;
-    aspect-ratio: 1920 / 1080 !important;
+    aspect-ratio: 43.75% !important;
     background-color: #EEF7FD !important;
     position: relative !important;
     box-sizing: border-box !important;
@@ -1633,7 +1725,7 @@ body {
 /* НАША КОНТЕНТНАЯ ОБЛАСТЬ (1680x840 при 1920px) */
 .collab-wrapper-fluid {
     width: 87.5vw !important; /* 1680px */
-    aspect-ratio: 1680 / 840 !important; 
+    aspect-ratio: 1680 / 600 !important; 
     box-sizing: border-box !important;
     display: flex !important;
     flex-direction: column !important;
@@ -1653,7 +1745,7 @@ body {
     align-items: flex-start !important;
     width: 100% !important;
     margin-top: 0 !important;
-    margin-bottom: 10.9375vw !important; /* Точные 210px до навигации */
+    margin-bottom: 0 !important; /* Точные 210px до навигации */
 }
 
 /* ЖЕСТКИЙ КОНТЕЙНЕР ДЛЯ ТЕКСТА (840x488) */
@@ -1727,38 +1819,6 @@ body {
     height: 100% !important;
     object-fit: cover !important;
     display: block !important;
-}
-
-/* НАВИГАЦИОННЫЙ БЛОК (1050x30) */
-.collab-fluid-nav {
-    width: 54.6875vw !important; /* Точные 1050px */
-    height: 1.5625vw !important;  /* Точные 30px */
-    display: flex !important;
-    flex-direction: row !important;
-    gap: 3.125vw !important;      /* Шаг 60px */
-    align-items: center !important;
-    margin-top: auto !important;  /* Прижимается к нижнему паддингу */
-    margin-left: 0 !important;    /* Жестко удерживает левый край контентной области */
-}
-
-.fluid-nav-item {
-    font-family: 'AKT', 'Inter', sans-serif !important;
-    font-size: 0.8333vw !important; /* Точные 16px */
-    text-decoration: none !important;
-    white-space: nowrap !important;
-    color: #555555 !important;
-    line-height: 1.25 !important;
-}
-
-/* Активная вкладка — Regular */
-.fluid-nav-item.active {
-    color: #111111 !important;
-    font-weight: 400 !important; 
-}
-
-/* Неактивные вкладки — Light */
-.fluid-nav-item:not(.active) {
-    font-weight: 300 !important; 
 }
 
 /* ==========================================================================
@@ -1884,12 +1944,12 @@ body {
     max-width: 100% !important;
     height: 0 !important;
     /* Полная высота с паддингами: 3134 + 120 + 120 = 3374px. Пропорция к 1920px = 175.7291% */
-    padding-top: 175.7291% !important; 
+    padding-top: 180.7291% !important; 
     position: relative !important;
     background-color: #FFFFFF !important;
     overflow: hidden !important; /* Меняем на hidden, чтобы уши градиента 2048px не создавали горизонтальный скролл */
     box-sizing: border-box !important;
-    z-index: 13 !important;
+    z-index: 2 !important;
 }
 
 /* Полностью резиновый wrapper, работающий по единой левой оси сайта */
@@ -2026,7 +2086,7 @@ body {
     width: 100vw !important;
     max-width: 100% !important;
     height: 0 !important;
-    padding-top: 61.5625% !important; 
+    padding-top: 53.75% !important; 
     position: relative !important;
     background-color: #FFFFFF !important; 
     overflow: hidden !important;
@@ -2038,6 +2098,9 @@ body {
     border-top-right-radius: 5vw !important;
     border-bottom-left-radius: 0 !important;
     border-bottom-right-radius: 0 !important;
+
+    /* ТУТ КРИТИЧЕСКИЙ СДВИГ НАВЕРХ НА 96px */
+    margin-top: -5vw !important; 
 }
 
 /* Полностью резиновый wrapper с привязкой к левому краю окна */
@@ -2131,44 +2194,6 @@ body {
     left: 0 !important;
     top: 0 !important;
     color: #555555 !important;
-}
-
-/* НАВИГАЦИОННЫЙ БЛОК (1050x30, сверху 912px, слева 0 от контента) */
-.tbank-nav-5 {
-    position: absolute !important;
-    top: 47.5vw !important;          /* Ровно 912px от нуля контента (убрали дубль на 840px) */
-    left: 0 !important;              /* Ровно по левой оси контента внутри паддинга */
-    width: 54.6875vw !important;     /* Точные 1050px */
-    height: 1.5625vw !important;      /* Точные 30px */
-    display: flex !important;
-    flex-direction: row !important;
-    gap: 3.125vw !important;            /* Шаг 60px между ссылками */
-    align-items: center !important;
-    z-index: 10 !important;
-}
-
-/* ЭЛЕМЕНТЫ НАВИГАЦИИ БЛОКА 5 */
-.tbank-nav-item-5 {
-    font-family: 'AKT', sans-serif !important;
-    font-size: 0.8333vw !important;  /* Точные 16px */
-    line-height: 1.25 !important;
-    text-decoration: none !important;
-    white-space: nowrap !important;
-    text-align: left !important;
-    -webkit-font-smoothing: antialiased !important;
-    -moz-osx-font-smoothing: grayscale !important;
-}
-
-/* Неактивные вкладки — цвет 555555, Light (font-weight: 300) */
-.tbank-nav-item-5:not(.active) {
-    font-weight: 300 !important;
-    color: #555555 !important;
-}
-
-/* Активная вкладка — цвет 111111, Bold (font-weight: 700) */
-.tbank-nav-item-5.active {
-    font-weight: 700 !important;
-    color: #111111 !important;
 }
 
 /* ==========================================================================
@@ -2376,45 +2401,6 @@ body {
     height: 100% !important;
     object-fit: contain !important;
     display: block !important;
-}
-
-/* НАВИГАЦИОННЫЙ БЛОК (Сверху 820px, Слева 0 от контента) */
-.zaymer-nav-2 {
-    position: absolute !important;
-    top: 42.7083vw !important;         /* Точные 820px от нуля контента */
-    left: 0 !important;
-    width: 54.6875vw !important;       /* Точные 1050px */
-    height: 1.5625vw !important;        /* Точные 30px */
-    display: flex !important;
-    flex-direction: row !important;
-    gap: 3.125vw !important;            /* Шаг 60px между ссылками */
-    align-items: center !important;
-    z-index: 10 !important;
-}
-
-.zaymer-nav-item-2 {
-    font-family: 'AKT', sans-serif !important;
-    font-size: 0.8333vw !important;    /* Точные 16px */
-    line-height: 1.25 !important;
-    text-decoration: none !important;
-    white-space: nowrap !important;
-    text-align: left !important;
-    -webkit-font-smoothing: antialiased !important;
-    -moz-osx-font-smoothing: grayscale !important;
-}
-
-/* Неактивные пункты — Белые, Light, 75% прозрачности */
-.zaymer-nav-item-2:not(.active) {
-    font-weight: 300 !important;
-    color: #FFFFFF !important;
-    opacity: 0.75 !important;
-}
-
-/* Активный пункт Zaymer Russia — Белый, Bold, 100% непрозрачности */
-.zaymer-nav-item-2.active {
-    font-weight: 700 !important;
-    color: #FFFFFF !important;
-    opacity: 1 !important;
 }
 
 /* ==========================================================================
@@ -2682,7 +2668,7 @@ body {
     max-width: 100% !important;
     height: 0 !important;
     /* Полная высота с паддингами: 1980 + 120 + 120 = 2220px. Пропорция к 1920px = 115.625% */
-    padding-top: 115.625% !important; 
+    padding-top: 107.8125% !important; 
     position: relative !important;
     background-color: #FFFFFF !important; /* Чистый белый фон */
     overflow: hidden !important;
@@ -2786,43 +2772,6 @@ body {
     left: 59.375vw !important;       /* Точные 1140px */
     width: 28.125vw !important;      /* Ровно 540px */
     height: 18.75vw !important;      /* Ровно 360px */
-}
-
-/* НАВИГАЦИОННЫЙ БЛОК НА ДНЕ (Сверху 1950px, Тёмные цвета) */
-.zaymer-nav-6 {
-    position: absolute !important;
-    top: 101.5625vw !important;      /* Ровно 1950px от нуля контента */
-    left: 0 !important;              /* Ровно по левой оси контента */
-    width: 54.6875vw !important;       /* Точные 1050px */
-    height: 1.5625vw !important;        /* Точные 30px */
-    display: flex !important;
-    flex-direction: row !important;
-    gap: 3.125vw !important;            /* Шаг 60px между ссылками */
-    align-items: center !important;
-    z-index: 10 !important;
-}
-
-.zaymer-nav-item-6 {
-    font-family: 'AKT', sans-serif !important;
-    font-size: 0.8333vw !important;  /* Точные 16px */
-    line-height: 1.25 !important;
-    text-decoration: none !important;
-    white-space: nowrap !important;
-    text-align: left !important;
-    -webkit-font-smoothing: antialiased !important;
-    -moz-osx-font-smoothing: grayscale !important;
-}
-
-/* Неактивные пункты — Серые, Light */
-.zaymer-nav-item-6:not(.active) {
-    font-weight: 300 !important;
-    color: #555555 !important;
-}
-
-/* Активный пункт Zaymer Russia — Темный, Bold */
-.zaymer-nav-item-6.active {
-    font-weight: 700 !important;
-    color: #111111 !important;
 }
 
 /* ==========================================================================
@@ -3139,7 +3088,7 @@ body {
     max-width: 100% !important;
     height: 0 !important;
     /* Полная высота с паддингами: 996 + 120 + 120 = 1236px. Пропорция к 1920px = 64.375% */
-    padding-top: 64.375% !important; 
+    padding-top: 56.5625% !important; 
     position: relative !important;
     background-color: #FFFFFF !important; 
     overflow: visible !important; /* Выпускаем контент вниз под следующий блок */
@@ -3227,43 +3176,6 @@ body {
     -moz-osx-font-smoothing: grayscale !important;
 }
 
-/* НАВИГАЦИОННЫЙ БЛОК ДЛЯ БЛОКА 10 (Сверху 870px, Слева 0 от контента) */
-.zaymer-nav-10 {
-    position: absolute !important;
-    top: 45.3125vw !important;       /* Ровно 870px от нуля контента */
-    left: 0 !important;              /* Ровно по левой оси контента */
-    width: 54.6875vw !important;       /* Точные 1050px */
-    height: 1.5625vw !important;        /* Точные 30px */
-    display: flex !important;
-    flex-direction: row !important;
-    gap: 3.125vw !important;            /* Шаг 60px между ссылками */
-    align-items: center !important;
-    z-index: 10 !important;
-}
-
-.zaymer-nav-item-10 {
-    font-family: 'AKT', sans-serif !important;
-    font-size: 0.8333vw !important;  /* Точные 16px */
-    line-height: 1.25 !important;
-    text-decoration: none !important;
-    white-space: nowrap !important;
-    text-align: left !important;
-    -webkit-font-smoothing: antialiased !important;
-    -moz-osx-font-smoothing: grayscale !important;
-}
-
-/* Неактивные пункты меню — цвет 555555, Light */
-.zaymer-nav-item-10:not(.active) {
-    font-weight: 300 !important;
-    color: #555555 !important;
-}
-
-/* Активный пункт (Zaymer Russia) — цвет 111111, Bold */
-.zaymer-nav-item-10.active {
-    font-weight: 700 !important;
-    color: #111111 !important;
-}
-
 /* ==========================================================================
    КЕЙС ZAYMER RUSSIA: БЛОК 11 — РЕЗУЛЬТАТЫ (БЕСКОНЕЧНЫЙ РЕЗИНОВЫЙ СКЕЙЛИНГ)
    ========================================================================== */
@@ -3272,7 +3184,7 @@ body {
     width: 100vw !important;
     max-width: 100% !important;
     height: 0 !important;
-    padding-top: 62.2395% !important; /* Точные 955px + паддинги */
+    padding-top: 55% !important; /* Точные 955px + паддинги */
     position: relative !important;
     background-color: #EEF7FD !important; 
     overflow: hidden !important;
@@ -3399,43 +3311,6 @@ body {
 
 .zaymer-result-bullet:last-child {
     margin-bottom: 0 !important;
-}
-
-/* НАВИГАЦИОННЫЙ БЛОК НА ДНЕ (Сверху 925px, Слева 0 от контента) */
-.zaymer-nav-11 {
-    position: absolute !important;
-    top: 48.177vw !important;        /* Ровно 925px от нуля контента */
-    left: 0 !important;              /* Ровно по левой оси контента */
-    width: 54.6875vw !important;       /* Точные 1050px */
-    height: 1.5625vw !important;        /* Точные 30px */
-    display: flex !important;
-    flex-direction: row !important;
-    gap: 3.125vw !important;            /* Шаг 60px между ссылками */
-    align-items: center !important;
-    z-index: 10 !important;
-}
-
-.zaymer-nav-item-11 {
-    font-family: 'AKT', sans-serif !important;
-    font-size: 0.8333vw !important;  /* Точные 16px */
-    line-height: 1.25 !important;
-    text-decoration: none !important;
-    white-space: nowrap !important;
-    text-align: left !important;
-    -webkit-font-smoothing: antialiased !important;
-    -moz-osx-font-smoothing: grayscale !important;
-}
-
-/* Неактивные пункты — цвет 555555, Light */
-.zaymer-nav-item-11:not(.active) {
-    font-weight: 300 !important;
-    color: #555555 !important;
-}
-
-/* Активный пункт (Zaymer Russia) — цвет 111111, Bold */
-.zaymer-nav-item-11.active {
-    font-weight: 700 !important;
-    color: #111111 !important;
 }
 
 /* ==========================================================================
@@ -3615,7 +3490,7 @@ body {
     max-width: 100% !important;
     height: 0 !important;
     /* Полная высота с паддингами: 840 + 120 + 120 = 1080px. Пропорция к 1920px = 56.25% */
-    padding-top: 56.25% !important; 
+    padding-top: 48.177083% !important; 
     position: relative !important;
     background-color: #199D3E !important; 
     
@@ -3687,9 +3562,9 @@ body {
 .zaymer-kz-goal-ill-block {
     position: absolute !important;
     top: -6.25vw !important;           /* СВЕРХУ: Ровно -120px */
-    left: 42.2916vw !important;        /* СЛЕВА: Точные 812px */
+    left: 44.75vw !important;        /* СЛЕВА: Точные 812px */
     width: 51.9791vw !important;        /* ШИРИНА: Точные 998px */
-    height: 53.4375vw !important;       /* ВЫСОТА: Точные 1026px */
+    height: 48.177083vw !important;       /* ВЫСОТА: Точные 1026px */
     z-index: 5 !important;
 }
 
@@ -3698,45 +3573,6 @@ body {
     height: 100% !important;
     object-fit: contain !important;
     display: block !important;
-}
-
-/* СВЕТЛЫЙ НАВИГАЦИОННЫЙ БЛОК НА ДНЕ (Сверху 810px, Слева 0 от контента) */
-.zaymer-kz-nav-2 {
-    position: absolute !important;
-    top: 42.1875vw !important;         /* Точные 810px от нуля контента */
-    left: 0 !important;
-    width: 54.6875vw !important;       /* Точные 1050px */
-    height: 1.5625vw !important;        /* Точные 30px */
-    display: flex !important;
-    flex-direction: row !important;
-    gap: 3.125vw !important;            /* Шаг 60px между ссылками */
-    align-items: center !important;
-    z-index: 10 !important;
-}
-
-.zaymer-kz-nav-item-2 {
-    font-family: 'AKT', sans-serif !important;
-    font-size: 0.8333vw !important;    /* Точные 16px */
-    line-height: 1.25 !important;
-    text-decoration: none !important;
-    white-space: nowrap !important;
-    text-align: left !important;
-    -webkit-font-smoothing: antialiased !important;
-    -moz-osx-font-smoothing: grayscale !important;
-}
-
-/* Неактивные пункты меню — Белые, 75% прозрачности, Light */
-.zaymer-kz-nav-item-2:not(.active) {
-    font-weight: 300 !important;
-    color: #FFFFFF !important;
-    opacity: 0.75 !important;
-}
-
-/* Активный пункт (Zaymer Kazakhstan) — Чистый белый, Bold */
-.zaymer-kz-nav-item-2.active {
-    font-weight: 700 !important;
-    color: #FFFFFF !important;
-    opacity: 1 !important;
 }
 
 /* ==========================================================================
@@ -3779,7 +3615,7 @@ body {
     position: absolute !important;
     top: 0 !important;
     left: 0 !important;
-    width: 14.0104vw !important;     /* Точные 269px */
+    width: 100.0104vw !important;     /* Точные 269px */
     font-family: 'AKT', sans-serif !important;
     font-size: 4.1666vw !important;  /* Точные 80px */
     font-weight: 400 !important;
@@ -4065,7 +3901,7 @@ body {
     max-width: 100% !important;
     height: 0 !important;
     /* Полная высота с паддингами: 934 + 120 + 120 = 1174px. Пропорция к 1920px = 61.1458% */
-    padding-top: 61.1458% !important; 
+    padding-top: 50% !important; 
     position: relative !important;
     background-color: #00B1CC !important; /* Бирюзовый фон */
     
@@ -4162,45 +3998,6 @@ body {
 
 .zaymer-kz-result-item:last-child {
     margin-bottom: 0 !important;
-}
-
-/* НАВИГАЦИОННЫЙ БЛОК НА ДНЕ (Сверху 904px, Слева 0 от контента) */
-.zaymer-kz-nav-5 {
-    position: absolute !important;
-    top: 47.0833vw !important;       /* Точные 904px от нуля контента */
-    left: 0 !important;              /* Ровно по левой оси контента */
-    width: 54.6875vw !important;       /* Точные 1050px рабочей ширины */
-    height: 1.5625vw !important;        /* Точные 30px */
-    display: flex !important;
-    flex-direction: row !important;
-    gap: 3.125vw !important;            /* Шаг 60px между ссылками */
-    align-items: center !important;
-    z-index: 10 !important;
-}
-
-.zaymer-kz-nav-item-5 {
-    font-family: 'AKT', sans-serif !important;
-    font-size: 0.8333vw !important;  /* Точные 16px */
-    line-height: 1.25 !important;
-    text-decoration: none !important;
-    white-space: nowrap !important;
-    text-align: left !important;
-    -webkit-font-smoothing: antialiased !important;
-    -moz-osx-font-smoothing: grayscale !important;
-}
-
-/* Неактивные пункты — Белые, 75% прозрачности, Light */
-.zaymer-kz-nav-item-5:not(.active) {
-    font-weight: 300 !important;
-    color: #FFFFFF !important;
-    opacity: 0.75 !important;
-}
-
-/* Активный пункт (Zaymer Kazakhstan) — Чистый белый, Bold */
-.zaymer-kz-nav-item-5.active {
-    font-weight: 700 !important;
-    color: #FFFFFF !important;
-    opacity: 1 !important;
 }
 
 /* ==========================================================================
@@ -4327,7 +4124,7 @@ body {
     max-width: 100% !important;
     height: 0 !important;
     /* Полная высота с паддингами: 840 + 120 + 120 = 1080px. Пропорция к 1920px = 56.25% */
-    padding-top: 56.25% !important; 
+    padding-top: 51.0416% !important; 
     position: relative !important;
     background-color: #055AFF !important; 
     overflow: hidden !important;
@@ -4407,45 +4204,6 @@ body {
     display: block !important;
 }
 
-/* НАВИГАЦИОННЫЙ БЛОК НА ДНЕ (Сверху 810px, Слева 0 от контента) */
-.unamolia-nav-2 {
-    position: absolute !important;
-    top: 42.1875vw !important;         /* Точные 810px от нуля контента */
-    left: 0 !important;              /* Жесткое выравнивание по левой оси */
-    width: 54.6875vw !important;       /* Точные 1050px под контент */
-    height: 1.5625vw !important;        /* Точные 30px */
-    display: flex !important;
-    flex-direction: row !important;
-    gap: 3.125vw !important;            /* Шаг 60px между ссылками */
-    align-items: center !important;
-    z-index: 10 !important;
-}
-
-.unamolia-nav-item-2 {
-    font-family: 'AKT', sans-serif !important;
-    font-size: 0.8333vw !important;    /* Точные 16px */
-    line-height: 1.25 !important;
-    text-decoration: none !important;
-    white-space: nowrap !important;
-    text-align: left !important;
-    -webkit-font-smoothing: antialiased !important;
-    -moz-osx-font-smoothing: grayscale !important;
-}
-
-/* Неактивные пункты меню — Белые, 75% прозрачности, Light */
-.unamolia-nav-item-2:not(.active) {
-    font-weight: 300 !important;
-    color: #FFFFFF !important;
-    opacity: 0.75 !important;
-}
-
-/* Активный пункт (UnaMolia) — Чистый белый, Bold */
-.unamolia-nav-item-2.active {
-    font-weight: 700 !important;
-    color: #FFFFFF !important;
-    opacity: 1 !important;
-}
-
 /* ==========================================================================
    КЕЙС UNAMOLIA: БЛОК 3 — ЗАДАЧИ (БЕСКОНЕЧНЫЙ РЕЗИНОВЫЙ СКЕЙЛИНГ)
    ========================================================================== */
@@ -4486,7 +4244,7 @@ body {
     position: absolute !important;
     top: 0 !important;
     left: 0 !important;
-    width: 14.0104vw !important;     /* Точные 269px */
+    width: 100.0104vw !important;     /* Точные 269px */
     font-family: 'AKT', sans-serif !important;
     font-size: 4.1666vw !important;  /* Точные 80px */
     font-weight: 400 !important;
@@ -5297,7 +5055,7 @@ body {
     width: 100vw !important;
     max-width: 100% !important;
     height: 0 !important;
-    padding-top: 61.1458% !important; /* Высота 1174px */
+    padding-top: 57.23958% !important; /* Высота 1174px */
     position: relative !important;
     background-color: #F4F4F4 !important; 
     
@@ -5405,43 +5163,6 @@ body {
     margin-bottom: 0 !important;
 }
 
-/* ТЕМНАЯ НАВИГАЦИЯ НА ДНЕ (Сверху 904px, Слева 0 от контента) */
-.unamolia-nav-13 {
-    position: absolute !important;
-    top: 47.0833vw !important;       /* Ровно 904px от нуля контента */
-    left: 0 !important;              /* Ровно по левой оси контента */
-    width: 54.6875vw !important;       /* 1050px под контент */
-    height: 1.5625vw !important;        /* 30px */
-    display: flex !important;
-    flex-direction: row !important;
-    gap: 3.125vw !important;            /* Шаг 60px между ссылками */
-    align-items: center !important;
-    z-index: 10 !important;
-}
-
-.unamolia-nav-item-13 {
-    font-family: 'AKT', sans-serif !important;
-    font-size: 0.8333vw !important;  /* Точные 16px */
-    line-height: 1.25 !important;
-    text-decoration: none !important;
-    white-space: nowrap !important;
-    text-align: left !important;
-    -webkit-font-smoothing: antialiased !important;
-    -moz-osx-font-smoothing: grayscale !important;
-}
-
-/* Неактивные пункты на светлом фоне — Серые, Light */
-.unamolia-nav-item-13:not(.active) {
-    font-weight: 300 !important;
-    color: #555555 !important;
-}
-
-/* Активный пункт (UnaMolia) — Глубокий темный, Bold */
-.unamolia-nav-item-13.active {
-    font-weight: 700 !important;
-    color: #111111 !important;
-}
-
 /* ==========================================================================
    КЕЙС UNAMOLIA: БЛОК 14 — ЛИНИЯ-ФУТЕР (БЕСКОНЕЧНЫЙ РЕЗИНОВЫЙ СКЕЙЛИНГ)
    ========================================================================== */
@@ -5525,8 +5246,8 @@ body {
 .other-progress-title {
     position: absolute !important;
     top: 16.6666vw !important;       /* Точные 320px от верхнего контентного нуля */
-    left: 27.0833vw !important;       /* Ровно 520px слева */
-    width: 33.2812vw !important;      /* Ширина ровно 639px (1680 - 520 - 521) */
+    left: 23.4375vw !important;       /* Ровно 520px слева */
+    width: 40.625vw !important;      /* Ширина ровно 639px (1680 - 520 - 521) */
     height: 10.4166vw !important;     /* Высота ровно 200px (840 - 320 - 320) */
     font-family: 'AKT', sans-serif !important;
     font-size: 4.1666vw !important;   /* Точные 80px */
@@ -5554,24 +5275,6 @@ body {
     z-index: 15 !important;
 }
 
-.other-nav-item {
-    font-family: 'AKT', sans-serif !important;
-    font-size: 0.8333vw !important;   /* Точные 16px */
-    line-height: 1.25 !important;
-    text-decoration: none !important;
-    white-space: nowrap !important;
-    text-align: center !important;
-    transition: color 0.2s ease !important;
-    -webkit-font-smoothing: antialiased !important;
-    -moz-osx-font-smoothing: grayscale !important;
-}
-
-/* Неактивные вкладки — серые и Light */
-.other-nav-item:not(.active) {
-    font-weight: 300 !important;     /* Light */
-    color: #555555 !important;
-}
-
 /* Активная вкладка (Other) — глубокий темный и Bold */
 .other-nav-item.active {
     font-weight: 700 !important;     /* Bold */
@@ -5580,4 +5283,793 @@ body {
 
 .other-nav-item:hover {
     color: #111111 !important;
+}
+/* ==========================================================================
+   ГЛОБАЛЬНЫЙ СКВОЗНОЙ ХЕДДЕР (FIXED / БЕСКОНЕЧНЫЙ РЕЗИНОВЫЙ СКЕЙЛИНГ)
+   ========================================================================== */
+
+.site-header-fixed {
+    position: fixed !important;
+    top: 0 !important;
+    left: 0 !important;
+    width: 100vw !important;
+    max-width: 100% !important;
+    height: 0 !important;
+    /* Высота контента 30px + 30px (верх) + 30px (низ) = 90px. Пропорция к 1920px = 4.6875% */
+    padding-top: 4.6875% !important;
+    
+    /* Фон с блюром 16px и прозрачностью навигации 99.9% */
+    background-color: rgba(255, 255, 255, 0.75) !important; 
+    -webkit-backdrop-filter: blur(16px) !important;
+    backdrop-filter: blur(16px) !important;
+    
+    box-sizing: border-box !important;
+    
+    /* === ИСПРАВЛЕНИЕ === */
+    z-index: 10000 !important;           /* Поднимаем на самый верх, выше чем z-index: 5 у первого экрана */
+    backface-visibility: hidden !important; /* Изолируем контекст наложения */
+    -webkit-backface-visibility: hidden !important;
+    transform: translateZ(0) !important;  /* Принудительно выносим в отдельный слой композиции */
+}
+
+/* Полностью резиновый wrapper с жесткой привязкой к левому краю окна */
+.header-wrapper-fluid {
+    position: absolute !important;
+    top: 0 !important;
+    left: 0 !important;
+    width: 100vw !important;
+    height: 100% !important;
+    box-sizing: border-box !important;
+    padding: 1.5625vw 6.25vw !important; /* Паддинги: сверху/снизу 30px (1.5625vw), слева/справа 120px (6.25vw) */
+}
+
+/* Координатная сетка 1680x30 */
+.header-row {
+    position: relative !important;
+    width: 100% !important;
+    height: 100% !important;
+}
+
+/* БЛОК 1: ОСНОВНАЯ НАВИГАЦИЯ (322x30, сверху 0, слева 0 от контента) */
+.header-nav-main {
+    position: absolute !important;
+    top: 0 !important;
+    left: 0 !important;
+    width: 16.7708vw !important;      /* Ровно 322px */
+    height: 1.5625vw !important;       /* Ровно 30px */
+    display: flex !important;
+    flex-direction: row !important;
+    gap: 3.125vw !important;           /* Расстояние между пунктами ровно 60px */
+    align-items: center !important;
+    justify-content: flex-start !important;
+}
+
+.header-nav-link {
+    font-family: 'AKT', sans-serif !important;
+    font-size: 1.0416vw !important;    /* Ровно 20px */
+    line-height: 1.20 !important;      /* Интерлиньяж 120% */
+    color: #555555 !important;
+    font-weight: 300 !important;       /* Light */
+    text-decoration: none !important;
+    white-space: nowrap !important;
+    text-align: left !important;
+    transition: color 0.2s ease !important;
+    -webkit-font-smoothing: antialiased !important;
+    -moz-osx-font-smoothing: grayscale !important;
+    /* Твои текущие стили (шрифт, размеры, отступы) остаются */
+    
+    font-weight: 400 !important; /* По умолчанию обычный */
+    color: #555555 !important;   /* Или твой дефолтный цвет для неактивных ссылок */
+    
+    /* ПЛАВНЫЙ ПЕРЕХОД: полсекунды с замедлением в конце */
+    transition: color 0.5s cubic-bezier(0.25, 1, 0.5, 1), font-weight 0.5s cubic-bezier(0.25, 1, 0.5, 1) !important;
+}
+
+/* Состояния для ссылок (Ховер и Активная страница) */
+.header-nav-link:hover {
+    color: #111111 !important;
+}
+
+.header-nav-link.active {
+    font-weight: 700 !important; /* Становится жирным */
+    color: #111111 !important;   /* Цвет по ТЗ */
+}
+
+
+/* БЛОК 2: ИМЯ И ФАМИЛИЯ (300x30, сверху 0, слева 810px от общего контента) */
+.header-title-center {
+    position: absolute !important;
+    top: 0 !important;
+    left: 42.1875vw !important;       /* Ровно 810px от левого нуля контента */
+    width: 15.625vw !important;         /* Ровно 300px */
+    height: 1.5625vw !important;       /* Ровно 30px */
+    font-family: 'AKT', sans-serif !important;
+    font-size: 1.0416vw !important;    /* Ровно 20px */
+    font-weight: 700 !important;       /* Bold */
+    color: #111111 !important;
+    line-height: 1.20 !important;      /* Интерлиньяж 120% */
+    text-align: left !important;
+    margin: 0 !important;
+    white-space: nowrap !important;
+    -webkit-font-smoothing: antialiased !important;
+    -moz-osx-font-smoothing: grayscale !important;
+}
+
+
+/* БЛОК 3: ПЕРЕКЛЮЧАТЕЛЬ ЯЗЫКОВ (86x30, жесткая посадка по правому краю) */
+.header-nav-lang {
+    position: absolute !important;
+    top: 0 !important;
+    right: 0 !important;              /* ЖЕСТКО: привязываем к правому краю контента, вылет исключен */
+    width: 4.4791vw !important;        /* Ровно 86px */
+    height: 1.5625vw !important;       /* Ровно 30px */
+    display: flex !important;
+    flex-direction: row !important;
+    gap: 1.5625vw !important;          /* Расстояние между RU и ENG строго 30px */
+    align-items: center !important;
+    justify-content: flex-end !important; /* Выравнивание по правому краю коробки */
+}
+
+.header-lang-link {
+    font-family: 'AKT', sans-serif !important;
+    font-size: 1.0416vw !important;    /* Ровно 20px */
+    line-height: 1.20 !important;      /* Интерлиньяж 120% */
+    color: #555555 !important;
+    font-weight: 300 !important;       /* Light */
+    text-decoration: none !important;
+    white-space: nowrap !important;
+    transition: color 0.2s ease !important;
+    -webkit-font-smoothing: antialiased !important;
+    -moz-osx-font-smoothing: grayscale !important;
+}
+
+.header-lang-link {
+    font-family: 'AKT', sans-serif !important; /* Впиши сюда реальное название твоего шрифта */
+    font-weight: 400; /* Regular по дефолту */
+    color: #888888; /* Или какой там у тебя цвет у неактивной ссылки */
+    transition: color 0.2s ease;
+}
+
+/* Состояния переключателя языков */
+.header-lang-link:hover {
+    color: #111111 !important;
+}
+
+.header-lang-link.active {
+    font-family: 'AKT', sans-serif !important; /* Повторяем шрифт здесь для надежности */
+    font-weight: 700 !important;       /* Bold */
+    color: #111111 !important;
+}
+
+
+/* ТЕХНИЧЕСКАЯ ЛИНЕЯ НА ВСЮ ШИРИНУ ЭКРАНА (1920x1, ровно 59px от контентного нуля) */
+.header-bottom-line {
+    position: absolute !important;
+    top: 4.6354vw !important;          /* Вычислено: 30px паддинга + 59px от контента = 89px от верха экрана */
+    left: 0 !important;
+    width: 100vw !important;           /* Сквозная линия на весь экран (1920px) */
+    max-width: 100% !important;
+    height: 1px !important;
+    background-color: #000000 !important;
+    opacity: 0.15 !important;          /* Прозрачность 15% */
+    z-index: 1000 !important;          /* Поверх фонового стекла */
+}
+
+/* ==========================================================================
+   МЕХАНИКА СКРЫТИЯ/ПОЯВЛЕНИЯ ХЕДЕРА НА СТРАНИЦАХ КЕЙСОВ
+   ========================================================================== */
+
+/* Этот класс мы будем давать хедеру ТОЛЬКО на страницах кейсов (в index.html его не пиши) */
+.header-hidden-initially {
+    opacity: 0 !important;
+    transform: translateY(-100%) translateZ(0) !important; /* Уводим вверх на всю его высоту */
+    transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1), opacity 0.6s ease !important;
+}
+
+/* Класс, который скрипт включит, когда пользователь доскроллит до 3-го экрана */
+.header-hidden-initially.show-header {
+    opacity: 1 !important;
+    transform: translateY(0) translateZ(0) !important; /* Плавно возвращаем на место */
+}
+
+/* ==========================================================================
+   ИСПРАВЛЕННЫЙ ЭКРАН: ГОРИЗОНТАЛЬНАЯ НАВИГАЦИЯ (1680x450)
+   ========================================================================== */
+
+.cases-slider-section {
+    position: relative !important;
+    width: 100% !important;
+    
+    /* ФИКС ФОНА: Высота карточек (23.4375vw / 450px) + отступ снизу (6.25vw / 120px) */
+    height: 29.6875vw !important; /* Суммарно 570px белого фона */
+    
+    /* Переносим отступ внутрь, чтобы он был залит белым цветом */
+    padding-bottom: 6.25vw !important; /* Ровно 120px снизу */
+    margin-bottom: 0 !important;       /* Обнуляем внешний маргин */
+    
+    box-sizing: border-box !important;
+    overflow: hidden !important;
+}
+
+/* Трек горизонтального скролла */
+.slider-track {
+    display: flex !important;
+    flex-direction: row !important;
+    width: 100% !important;
+    
+    /* Высота трека должна быть строго по высоте карточек */
+    height: 23.4375vw !important; /* Ровно 450px */
+    overflow-x: auto !important;
+    overflow-y: hidden !important;
+    scroll-behavior: smooth !important;
+    
+    /* Жесткое примагничивание по левому краю */
+    scroll-snap-type: x mandatory !important;
+    
+    /* ТВОЙ ИСПРАВЛЕННЫЙ ФИКС: Сдвигаем трек на 120px (6.25vw) */
+    padding-left: 6.25vw !important;  
+    padding-right: 6.25vw !important; 
+    
+    /* Указываем браузеру точку примагничивания с учетом отступа */
+    scroll-padding-left: 6.25vw !important; 
+    
+    box-sizing: border-box !important;
+}
+
+/* Скрываем дефолтный скроллбар браузера */
+.slider-track::-webkit-scrollbar {
+    display: none !important;
+}
+.slider-track {
+    -ms-overflow-style: none !important;
+    scrollbar-width: none !important;
+}
+
+/* Базовый класс для ссылки-карточки */
+.slider-card-link {
+    text-decoration: none !important;
+    display: block !important;
+    flex-shrink: 0 !important;
+    width: 35.9375vw !important;  /* Ровно 690px от 1920px */
+    height: 23.4375vw !important; /* Ровно 450px от 1920px */
+    margin-right: 1.5625vw !important; /* Отступ между карточками 30px (1.5625vw) */
+    background-color: #F2F2F2 !important;
+    border-radius: 2.5vw !important; /* Фаска 48px (2.5vw) */
+    position: relative !important;
+    overflow: hidden !important;
+    box-sizing: border-box !important;
+    
+    /* Каждая карточка магнитится строго к линии scroll-padding-left */
+    scroll-snap-align: start !important; 
+}
+
+.slider-card-link:last-child {
+    margin-right: 0 !important;
+}
+
+/* ==========================================================================
+   ЦВЕТНОЙ КОНТЕЙНЕР-МАСКА + ПЛАВНЫЙ ЗУМ ИЛЛЮСТРАЦИИ (1920px)
+   ========================================================================== */
+
+/* 1. Цветной контейнер-маска: жестко зафиксирован на месте */
+.slider-card-ill-container {
+    position: absolute !important;
+    left: 1.25vw !important;         /* Слева 24px */
+    top: 1.25vw !important;          /* Сверху 24px */
+    bottom: 1.25vw !important;       /* Снизу 24px */
+    width: 14.375vw !important;      /* Ровно 276px от 1920px */
+    height: 20.9375vw !important;    /* Ровно 402px от 1920px */
+    border-radius: 1.25vw !important; /* Фаска 24px */
+    
+    /* Маска: обрезает иллюстрацию, если она выходит за рамки при масштабировании */
+    overflow: hidden !important; 
+    box-sizing: border-box !important;
+}
+
+/* 2. Сама иллюстрация: в исходном состоянии занимает 100% или масштабируется */
+.slider-card-ill {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important;
+    display: block !important;
+    
+    /* Стартовое состояние: графика в исходном масштабе */
+    transform: scale(1.0) !important;
+    
+    /* Мягкая и медленная анимация на 0.5 секунды */
+    transition: transform 0.5s ease-out !important;
+}
+
+/* УНИКАЛЬНЫЕ ЦВЕТА НАШИХ КОНТЕЙНЕРОВ-МАСОК */
+
+/* Карточка 1: A-Dengi */
+.slider-card-link:nth-child(1) .slider-card-ill-container {
+    background-color: #F3F4F5 !important;
+}
+
+/* Карточка 2: Т-Банк x Zaymer */
+.slider-card-link:nth-child(2) .slider-card-ill-container {
+    background-color: #FFFCEA !important;
+}
+
+/* Карточка 3: Zaymer RU */
+.slider-card-link:nth-child(3) .slider-card-ill-container {
+    background-color: #EBF5E5 !important;
+}
+
+/* Карточка 4: Zaymer KZ */
+.slider-card-link:nth-child(4) .slider-card-ill-container {
+    background-color: #E8F5EC !important;
+}
+
+/* Карточка 5: UnaMolia (Uzbekistan) */
+.slider-card-link:nth-child(5) .slider-card-ill-container {
+    background-color: #E6EFFF !important;
+}
+
+/* Карточка 6: Other */
+.slider-card-link:nth-child(6) .slider-card-ill-container {
+    background-color: #FFFBE5 !important;
+}
+
+/* ЛОГИКА АНИМАЦИИ: При ховере на карточку плавно увеличиваем ТОЛЬКО иллюстрацию внутри маски */
+.slider-card-link:hover .slider-card-ill {
+    transform: scale(1.1) !important; /* Увеличивается на 10%, уходя под маску контейнера */
+}
+/* ==========================================================================
+   ВОЗВРАТ ТЕКСТА И ШРИФТОВ НА СЕТКУ (1920px)
+   ========================================================================== */
+
+/* Основной текстовый контейнер для заголовка и подзаголовка */
+.slider-card-content {
+    position: absolute !important;
+    left: 17.1875vw !important;   /* Жестко 330px слева */
+    top: 3.125vw !important;       /* Жестко 60px сверху */
+    right: 3.125vw !important;     /* 60px справа */
+    bottom: 13.0729vw !important;  /* 251px снизу */
+    height: 7.2395vw !important;   /* Высота 139px */
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: flex-start !important;
+    box-sizing: border-box !important;
+}
+
+/* Корректировка высоты контейнера для первой карточки (114px) */
+.slider-card-link:nth-child(1) .slider-card-content {
+    height: 5.9375vw !important;  /* 114px */
+}
+
+/* Заголовок кейса */
+.slider-card-title {
+    font-family: 'AKT', sans-serif !important;
+    font-size: 1.6667vw !important; /* 32px */
+    color: #111111 !important;
+    font-weight: 400 !important;   /* Regular */
+    line-height: 125% !important;
+    margin: 0 0 0.5208vw 0 !important;
+    text-align: left !important;
+}
+
+/* Подзаголовок кейса */
+.slider-card-subtitle {
+    font-family: 'AKT', sans-serif !important;
+    font-size: 1.0417vw !important; /* 20px */
+    color: #111111 !important;
+    font-weight: 400 !important;   /* Regular */
+    line-height: 125% !important;
+    letter-spacing: 0.05em !important; /* Межбуквенное 5% */
+    margin: 0 !important;
+    text-align: left !important;
+}
+
+/* Текст Next project */
+.slider-card-action {
+    position: absolute !important;
+    left: 17.1875vw !important;    /* Слева 330px */
+    top: 20.8333vw !important;     /* Сверху 400px */
+    right: auto !important;
+    bottom: auto !important;
+    z-index: 10 !important;
+    
+    font-family: 'AKT', sans-serif !important;
+    font-size: 0.8333vw !important; /* 16px */
+    color: #555555 !important;
+    font-weight: 300 !important;    /* Light */
+    line-height: 125% !important;
+    text-align: left !important;
+    transition: color 0.4s ease, font-weight 0.4s ease !important;
+}
+
+/* Плавный ховер на Next project */
+.slider-card-link:hover .slider-card-action {
+    color: #111111 !important;
+    font-weight: 700 !important;    /* Bold */
+}
+
+#nav-index {
+    background-color: #FFFFFF !important;
+}
+
+#nav-a-dengi {
+    background-color: #F2F5FA !important;
+}
+
+/* 1-я карточка на странице А-Денги */
+#nav-a-dengi .slider-card-link:nth-child(1) {
+    background-color: #FFFFFF !important; /* Твой цвет для всей плашки */
+    display: none !important;
+}
+
+/* 2-я карточка на странице А-Денги */
+#nav-a-dengi .slider-card-link:nth-child(2) {
+    background-color: #FFFFFF !important; /* Твой цвет для всей плашки */
+}
+
+/* 3-я карточка на странице А-Денги */
+#nav-a-dengi .slider-card-link:nth-child(3) {
+    background-color: #FFFFFF !important; /* Твой цвет для всей плашки */
+}
+
+/* 4-я карточка на странице А-Денги */
+#nav-a-dengi .slider-card-link:nth-child(4) {
+    background-color: #FFFFFF !important; /* Твой цвет для всей плашки */
+}
+
+/*5-я карточка на странице А-Денги */
+#nav-a-dengi .slider-card-link:nth-child(5) {
+    background-color: #FFFFFF !important; /* Твой цвет для всей плашки */
+}
+
+/*6-я карточка на странице А-Денги */
+#nav-a-dengi .slider-card-link:nth-child(6) {
+    background-color: #FFFFFF !important; /* Твой цвет для всей плашки */
+}
+
+#nav-t-bank {
+    background-color: #FFFFFF !important;
+}
+
+/* 1-я карточка на странице А-Денги */
+#nav-t-bank .slider-card-link:nth-child(1) {
+    background-color: #EEF7FD !important; /* Твой цвет для всей плашки */
+}
+
+/* 2-я карточка на странице А-Денги */
+#nav-t-bank .slider-card-link:nth-child(2) {
+    background-color: #EEF7FD !important; /* Твой цвет для всей плашки */
+        display: none !important;
+}
+
+/* 3-я карточка на странице А-Денги */
+#nav-t-bank .slider-card-link:nth-child(3) {
+    background-color: #EEF7FD !important; /* Твой цвет для всей плашки */
+}
+
+/* 4-я карточка на странице А-Денги */
+#nav-t-bank .slider-card-link:nth-child(4) {
+    background-color: #EEF7FD !important; /* Твой цвет для всей плашки */
+}
+
+/*5-я карточка на странице А-Денги */
+#nav-t-bank .slider-card-link:nth-child(5) {
+    background-color: #EEF7FD !important; /* Твой цвет для всей плашки */
+}
+
+/*6-я карточка на странице А-Денги */
+#nav-t-bank .slider-card-link:nth-child(6) {
+    background-color: #EEF7FD !important; /* Твой цвет для всей плашки */
+}
+
+#nav-zaymer-ru {
+    background-color: #EEF7FD !important;
+}
+
+/* 1-я карточка на странице А-Денги */
+#nav-zaymer-ru .slider-card-link:nth-child(1) {
+    background-color: #FFFFFF !important; /* Твой цвет для всей плашки */
+}
+
+/* 2-я карточка на странице А-Денги */
+#nav-zaymer-ru .slider-card-link:nth-child(2) {
+    background-color: #FFFFFF !important; /* Твой цвет для всей плашки */
+}
+
+/* 3-я карточка на странице А-Денги */
+#nav-zaymer-ru .slider-card-link:nth-child(3) {
+    background-color: #FFFFFF !important; /* Твой цвет для всей плашки */
+    display: none !important;
+}
+
+/* 4-я карточка на странице А-Денги */
+#nav-zaymer-ru .slider-card-link:nth-child(4) {
+    background-color: #FFFFFF !important; /* Твой цвет для всей плашки */
+}
+
+/*5-я карточка на странице А-Денги */
+#nav-zaymer-ru .slider-card-link:nth-child(5) {
+    background-color: #FFFFFF !important; /* Твой цвет для всей плашки */
+}
+
+/*6-я карточка на странице А-Денги */
+#nav-zaymer-ru .slider-card-link:nth-child(6) {
+    background-color: #FFFFFF !important; /* Твой цвет для всей плашки */
+}
+
+#nav-zaymer-kz {
+    background-color: #00B1CC !important;
+}
+
+/* 1-я карточка на странице А-Денги */
+#nav-zaymer-kz .slider-card-link:nth-child(1) {
+    background-color: #40C5D9 !important; /* Твой цвет для всей плашки */
+}
+
+#nav-zaymer-kz .slider-card-link:nth-child(1) .slider-card-title {
+    color: #FFFFFF !important; /* Твой кастомный цвет */
+}
+
+/* 2. Меняем цвет ПОДЗАГЛОВКА во всей первой карточке */
+#nav-zaymer-kz .slider-card-link:nth-child(1) .slider-card-subtitle {
+    color: #FFFFFF !important; /* Твой кастомный цвет */
+}
+
+/* 3. Меняем цвет надписи Next project в первой карточке */
+#nav-zaymer-kz .slider-card-link:nth-child(1) .slider-card-action {
+    color: #FFFFFF !important; /* Твой кастомный цвет */
+    opacity: 75%;
+}
+
+/* 2-я карточка на странице А-Денги */
+#nav-zaymer-kz .slider-card-link:nth-child(2) {
+    background-color: #40C5D9 !important; /* Твой цвет для всей плашки */
+}
+
+#nav-zaymer-kz .slider-card-link:nth-child(2) .slider-card-title {
+    color: #FFFFFF !important; /* Твой кастомный цвет */
+}
+
+/* 2. Меняем цвет ПОДЗАГЛОВКА во всей первой карточке */
+#nav-zaymer-kz .slider-card-link:nth-child(2) .slider-card-subtitle {
+    color: #FFFFFF !important; /* Твой кастомный цвет */
+}
+
+/* 3. Меняем цвет надписи Next project в первой карточке */
+#nav-zaymer-kz .slider-card-link:nth-child(2) .slider-card-action {
+    color: #FFFFFF !important; /* Твой кастомный цвет */
+    opacity: 75%;
+}
+
+/* 3-я карточка на странице А-Денги */
+#nav-zaymer-kz .slider-card-link:nth-child(3) {
+    background-color: #40C5D9 !important; /* Твой цвет для всей плашки */
+}
+
+#nav-zaymer-kz .slider-card-link:nth-child(3) .slider-card-title {
+    color: #FFFFFF !important; /* Твой кастомный цвет */
+}
+
+/* 2. Меняем цвет ПОДЗАГЛОВКА во всей первой карточке */
+#nav-zaymer-kz .slider-card-link:nth-child(3) .slider-card-subtitle {
+    color: #FFFFFF !important; /* Твой кастомный цвет */
+}
+
+/* 3. Меняем цвет надписи Next project в первой карточке */
+#nav-zaymer-kz .slider-card-link:nth-child(3) .slider-card-action {
+    color: #FFFFFF !important; /* Твой кастомный цвет */
+    opacity: 75%;
+}
+
+/* 4-я карточка на странице А-Денги */
+#nav-zaymer-kz .slider-card-link:nth-child(4) {
+    background-color: #40C5D9 !important; /* Твой цвет для всей плашки */
+    display: none !important;
+}
+
+#nav-zaymer-kz .slider-card-link:nth-child(4) .slider-card-title {
+    color: #FFFFFF !important; /* Твой кастомный цвет */
+}
+
+/* 2. Меняем цвет ПОДЗАГЛОВКА во всей первой карточке */
+#nav-zaymer-kz .slider-card-link:nth-child(4) .slider-card-subtitle {
+    color: #FFFFFF !important; /* Твой кастомный цвет */
+}
+
+/* 3. Меняем цвет надписи Next project в первой карточке */
+#nav-zaymer-kz .slider-card-link:nth-child(4) .slider-card-action {
+    color: #FFFFFF !important; /* Твой кастомный цвет */
+    opacity: 75%;
+}
+
+/*5-я карточка на странице А-Денги */
+#nav-zaymer-kz .slider-card-link:nth-child(5) {
+    background-color: #40C5D9 !important; /* Твой цвет для всей плашки */
+}
+
+#nav-zaymer-kz .slider-card-link:nth-child(5) .slider-card-title {
+    color: #FFFFFF !important; /* Твой кастомный цвет */
+}
+
+/* 2. Меняем цвет ПОДЗАГЛОВКА во всей первой карточке */
+#nav-zaymer-kz .slider-card-link:nth-child(5) .slider-card-subtitle {
+    color: #FFFFFF !important; /* Твой кастомный цвет */
+}
+
+/* 3. Меняем цвет надписи Next project в первой карточке */
+#nav-zaymer-kz .slider-card-link:nth-child(5) .slider-card-action {
+    color: #FFFFFF !important; /* Твой кастомный цвет */
+    opacity: 75%;
+}
+
+/*6-я карточка на странице А-Денги */
+#nav-zaymer-kz .slider-card-link:nth-child(6) {
+    background-color: #40C5D9 !important; /* Твой цвет для всей плашки */
+}
+
+#nav-zaymer-kz .slider-card-link:nth-child(6) .slider-card-title {
+    color: #FFFFFF !important; /* Твой кастомный цвет */
+}
+
+/* 2. Меняем цвет ПОДЗАГЛОВКА во всей первой карточке */
+#nav-zaymer-kz .slider-card-link:nth-child(6) .slider-card-subtitle {
+    color: #FFFFFF !important; /* Твой кастомный цвет */
+}
+
+/* 3. Меняем цвет надписи Next project в первой карточке */
+#nav-zaymer-kz .slider-card-link:nth-child(6) .slider-card-action {
+    color: #FFFFFF !important; /* Твой кастомный цвет */
+    opacity: 75%;
+}
+
+#nav-unamolia {
+    background-color: #F4F4F4 !important;
+}
+
+/* 1-я карточка на странице А-Денги */
+#nav-unamolia .slider-card-link:nth-child(1) {
+    background-color: #FFFFFF !important; /* Твой цвет для всей плашки */
+}
+
+/* 2-я карточка на странице А-Денги */
+#nav-unamolia .slider-card-link:nth-child(2) {
+    background-color: #FFFFFF !important; /* Твой цвет для всей плашки */
+}
+
+/* 3-я карточка на странице А-Денги */
+#nav-unamolia .slider-card-link:nth-child(3) {
+    background-color: #FFFFFF !important; /* Твой цвет для всей плашки */
+}
+
+/* 4-я карточка на странице А-Денги */
+#nav-unamolia .slider-card-link:nth-child(4) {
+    background-color: #FFFFFF !important; /* Твой цвет для всей плашки */
+}
+
+/*5-я карточка на странице А-Денги */
+#nav-unamolia .slider-card-link:nth-child(5) {
+    background-color: #FFFFFF !important; /* Твой цвет для всей плашки */
+    display: none !important;
+}
+
+/*6-я карточка на странице А-Денги */
+#nav-unamolia .slider-card-link:nth-child(6) {
+    background-color: #FFFFFF !important; /* Твой цвет для всей плашки */
+}
+
+#nav-other-1 {
+    background-color: #FFD600 !important;
+}
+
+/* 1-я карточка на странице А-Денги */
+#nav-other-1 .slider-card-link:nth-child(1) {
+    background-color: #FFEB80 !important; /* Твой цвет для всей плашки */
+}
+
+#nav-other-1 .slider-card-link:nth-child(1) .slider-card-title {
+    color: #111111 !important; /* Твой кастомный цвет */
+}
+
+/* 2. Меняем цвет ПОДЗАГЛОВКА во всей первой карточке */
+#nav-other-1 .slider-card-link:nth-child(1) .slider-card-subtitle {
+    color: #555555 !important; /* Твой кастомный цвет */
+}
+
+/* 3. Меняем цвет надписи Next project в первой карточке */
+#nav-other-1 .slider-card-link:nth-child(1) .slider-card-action {
+    color: #555555 !important; /* Твой кастомный цвет */
+}
+
+/* 2-я карточка на странице А-Денги */
+#nav-other-1 .slider-card-link:nth-child(2) {
+    background-color: #FFEB80 !important; /* Твой цвет для всей плашки */
+}
+
+#nav-other-1 .slider-card-link:nth-child(2) .slider-card-title {
+    color: #111111 !important; /* Твой кастомный цвет */
+}
+
+/* 2. Меняем цвет ПОДЗАГЛОВКА во всей первой карточке */
+#nav-other-1 .slider-card-link:nth-child(2) .slider-card-subtitle {
+    color: #555555 !important; /* Твой кастомный цвет */
+}
+
+/* 3. Меняем цвет надписи Next project в первой карточке */
+#nav-other-1 .slider-card-link:nth-child(2) .slider-card-action {
+    color: #555555 !important; /* Твой кастомный цвет */
+}
+
+/* 3-я карточка на странице А-Денги */
+#nav-other-1 .slider-card-link:nth-child(3) {
+    background-color: #FFEB80 !important; /* Твой цвет для всей плашки */
+}
+
+#nav-other-1 .slider-card-link:nth-child(3) .slider-card-title {
+    color: #111111 !important; /* Твой кастомный цвет */
+}
+
+/* 2. Меняем цвет ПОДЗАГЛОВКА во всей первой карточке */
+#nav-other-1 .slider-card-link:nth-child(3) .slider-card-subtitle {
+    color: #555555 !important; /* Твой кастомный цвет */
+}
+
+/* 3. Меняем цвет надписи Next project в первой карточке */
+#nav-other-1 .slider-card-link:nth-child(3) .slider-card-action {
+    color: #555555 !important; /* Твой кастомный цвет */
+}
+
+/* 4-я карточка на странице А-Денги */
+#nav-other-1 .slider-card-link:nth-child(4) {
+    background-color: #FFEB80 !important; /* Твой цвет для всей плашки */
+}
+
+#nav-other-1 .slider-card-link:nth-child(4) .slider-card-title {
+    color: #111111 !important; /* Твой кастомный цвет */
+}
+
+/* 2. Меняем цвет ПОДЗАГЛОВКА во всей первой карточке */
+#nav-other-1 .slider-card-link:nth-child(4) .slider-card-subtitle {
+    color: #555555 !important; /* Твой кастомный цвет */
+}
+
+/* 3. Меняем цвет надписи Next project в первой карточке */
+#nav-other-1 .slider-card-link:nth-child(4) .slider-card-action {
+    color: #555555 !important; /* Твой кастомный цвет */
+}
+
+/*5-я карточка на странице А-Денги */
+#nav-other-1 .slider-card-link:nth-child(5) {
+    background-color: #FFEB80 !important; /* Твой цвет для всей плашки */
+}
+
+#nav-other-1 .slider-card-link:nth-child(5) .slider-card-title {
+    color: #111111 !important; /* Твой кастомный цвет */
+}
+
+/* 2. Меняем цвет ПОДЗАГЛОВКА во всей первой карточке */
+#nav-other-1 .slider-card-link:nth-child(5) .slider-card-subtitle {
+    color: #555555 !important; /* Твой кастомный цвет */
+}
+
+/* 3. Меняем цвет надписи Next project в первой карточке */
+#nav-other-1 .slider-card-link:nth-child(5) .slider-card-action {
+    color: #555555 !important; /* Твой кастомный цвет */
+}
+
+/*6-я карточка на странице А-Денги */
+#nav-other-1 .slider-card-link:nth-child(6) {
+    background-color: #FFEB80 !important; /* Твой цвет для всей плашки */
+    display: none !important;
+}
+
+#nav-other-1 .slider-card-link:nth-child(6) .slider-card-title {
+    color: #111111 !important; /* Твой кастомный цвет */
+}
+
+/* 2. Меняем цвет ПОДЗАГЛОВКА во всей первой карточке */
+#nav-other-1 .slider-card-link:nth-child(6) .slider-card-subtitle {
+    color: #555555 !important; /* Твой кастомный цвет */
+}
+
+/* 3. Меняем цвет надписи Next project в первой карточке */
+#nav-other-1 .slider-card-link:nth-child(6) .slider-card-action {
+    color: #555555 !important; /* Твой кастомный цвет */
 }
