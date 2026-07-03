@@ -5380,15 +5380,16 @@ body {
 .header-title-center {
     position: absolute !important;
     top: 0 !important;
-    left: 42.1875vw !important;       /* Ровно 810px от левого нуля контента */
-    width: 15.625vw !important;         /* Ровно 300px */
+    left: 39.6875vw !important;       /* Ровно 762px от левого нуля контента */
+    width: 8.125vw !important;         /* Ровно 300px */
     height: 1.5625vw !important;       /* Ровно 30px */
     font-family: 'AKT', sans-serif !important;
     font-size: 1.0416vw !important;    /* Ровно 20px */
     font-weight: 700 !important;       /* Bold */
     color: #111111 !important;
     line-height: 1.20 !important;      /* Интерлиньяж 120% */
-    text-align: left !important;
+    letter-spacing: 0.05em !important;
+    text-align: center !important;
     margin: 0 !important;
     white-space: nowrap !important;
     -webkit-font-smoothing: antialiased !important;
@@ -6144,4 +6145,110 @@ body {
 .contact-btn.copied::after {
     opacity: 1 !important;
     transform: translateX(-50%) translateY(0) !important;
-}}
+}
+
+/* ==========================================================================
+   ФИКСИРОВАННЫЙ ПРЕЛОАДЕР (Цвет #FFD600, расчет от 1920px)
+   ========================================================================== */
+
+#preloader {
+    position: fixed !important;
+    top: 0 !important;
+    left: 0 !important;
+    width: 100vw !important;
+    height: 100vh !important;
+    background-color: #FFD600 !important;
+    z-index: 99999 !important;
+    /* Анимация плавного подъема самого экрана загрузки вверх */
+    transition: transform 0.8s cubic-bezier(0.85, 0, 0.15, 1) !important;
+}
+
+/* Экран загрузки поднимается вверх */
+#preloader.slide-up {
+    transform: translateY(-100vh) !important;
+}
+
+/* ТЕКСТ ЛОАДЕРА: Копия твоего хедера по координатам, но по центру экрана */
+#preloader-text {
+    position: fixed !important;
+    z-index: 100000 !important;
+    
+    /* Точное положение по центру экрана 1680x840 (по ТЗ сверху/снизу 391px, с учетом высоты шрифта) */
+    top: calc(50vh - 1.25vw) !important; 
+    left: 45.9375vw !important;       /* Ровно 762px от левого нуля контента */
+    width: 8.125vw !important;         /* Ровно 300px, как в хедере */
+    
+    /* Свойства шрифта 1 в 1 из твоего ТЗ и хедера */
+    font-family: 'AKT', sans-serif !important;
+    font-size: 1.0416vw !important;    /* Ровно 20px */
+    font-weight: 700 !important;
+    line-height: 1.20 !important;
+    letter-spacing: 0.05em !important;
+    text-align: center !important;
+    white-space: nowrap !important;
+    -webkit-font-smoothing: antialiased !important;
+    -moz-osx-font-smoothing: grayscale !important;
+    
+    /* Градиентная плавная заливка */
+    background: linear-gradient(to right, #111111 var(--progress, 0%), #555555 var(--progress, 0%)) !important;
+    -webkit-background-clip: text !important;
+    -webkit-text-fill-color: transparent !important;
+    
+    /* Плавность для анимации полета и растворения */
+    transition: top 0.8s cubic-bezier(0.85, 0, 0.15, 1), 
+                left 0.8s cubic-bezier(0.85, 0, 0.15, 1), 
+                opacity 0.4s ease,
+                background 0.1s linear !important;
+}
+
+/* Вспомогательный контейнер для линии: встает строго под текст с отступом 24px */
+.preloader-line-container {
+    position: fixed !important;
+    top: calc(50vh - 1.25vw + 20px + 24px) !important; /* Центр экрана (высота текста) + отступ 24px */
+    left: 50vw !important;
+    transform: translateX(-50%) !important;
+    width: 156px !important;                            /* Длина линии ровно 156px по ТЗ */
+    display: flex !important;
+    justify-content: center !important;
+    transition: opacity 0.3s ease !important;
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+/* Сама серая линия подложки */
+.progress-bar-line {
+    width: 100% !important;
+    height: 0.4166vw !important;       /* Толщина 8px (0.4166 от 1920) */
+    background-color: #555555 !important;
+    border-radius: 0.2083vw !important;/* Фаска 4px */
+    position: relative !important;
+    overflow: hidden !important;
+}
+
+/* Черный ползунок внутри линии (заполнение через scaleX) */
+#progress-bar-fill {
+    position: absolute !important;
+    top: 0 !important;
+    left: 0 !important;
+    width: 100% !important;
+    height: 100% !important;
+    background-color: #111111 !important;
+    transform: scaleX(calc(var(--raw-progress, 0) / 100)) !important;
+    transform-origin: left center !important;
+    transition: transform 0.1s linear, background-color 0.2s ease !important;
+}
+
+/* Класс скрытия линии перед полетом */
+.preloader-line-container.fade-out {
+    opacity: 0 !important;
+}
+
+/* ХОВЕР ЭФФЕКТЫ (Цвет 555555) */
+#preloader:hover #preloader-text {
+    background: linear-gradient(to right, #555555 var(--progress, 0%), #555555 var(--progress, 0%)) !important;
+    -webkit-background-clip: text !important;
+    -webkit-text-fill-color: transparent !important;
+}
+#preloader:hover #progress-bar-fill {
+    background-color: #555555 !important;
+}

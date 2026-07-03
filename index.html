@@ -22,6 +22,16 @@
 </head>
 <body>
 
+    <div id="preloader">
+    <div id="preloader-text" data-ru="Курлаев Андрей" data-en="Kurlaev Andrew">Курлаев Андрей</div>
+    
+    <div class="preloader-line-container">
+        <div class="progress-bar-line">
+            <div id="progress-bar-fill"></div>
+        </div>
+    </div>
+</div>
+
     <header class="site-header-fixed">
     
     <!-- Нижняя линия во всю ширину экрана (1920px) теперь лежит здесь -->
@@ -502,6 +512,92 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         });
     });
+</script>
+
+<script>
+    (function() {
+        const preloader = document.getElementById('preloader');
+        const textEl = document.getElementById('preloader-text');
+        const lineContainer = document.querySelector('.preloader-line-container');
+        const headerName = document.querySelector('.header-title-center');
+        
+        let count = 0;
+
+        // Имитация загрузки до 90%
+        const counterInterval = setInterval(() => {
+            if (count < 90) {
+                count += Math.floor(Math.random() * 4) + 1;
+                if (count > 90) count = 90;
+                updateLoadingProgress(count);
+            }
+        }, 40);
+
+        function updateLoadingProgress(value) {
+            if (textEl) textEl.style.setProperty('--progress', value + '%');
+            if (preloader) preloader.style.setProperty('--raw-progress', value);
+        }
+
+        // Финал при полной загрузке контента страницы
+        window.addEventListener('load', function() {
+            clearInterval(counterInterval);
+            
+            let finishCount = count;
+            const finishInterval = setInterval(() => {
+                if (finishCount < 100) {
+                    finishCount += 2;
+                    updateLoadingProgress(finishCount);
+                } else {
+                    clearInterval(finishInterval);
+                    
+                    // Фиксация 100% на экране перед стартом движения
+                    setTimeout(() => {
+                        // 1. Плавно гасим линию лоадера
+                        if (lineContainer) lineContainer.classList.add('fade-out');
+                        
+                        setTimeout(() => {
+                            // 2. Считываем точные динамические координаты хедера
+                            if (headerName && textEl) {
+                                const targetRect = headerName.getBoundingClientRect();
+                                
+                                // Переводим летящий текст в сплошной цвет #111111 (убираем градиент)
+                                const isHovered = window.getComputedStyle(textEl).webkitTextFillColor !== 'transparent';
+                                textEl.style.background = 'none';
+                                textEl.style.webkitTextFillColor = isHovered ? '#555555' : '#111111';
+                                
+                                // Отправляем текст лоадера точно в координаты хедера
+                                textEl.style.top = targetRect.top + 'px';
+                                textEl.style.left = targetRect.left + 'px';
+                            }
+                            
+                            // 3. Синхронно отправляем сам желтый экран загрузки вверх
+                            if (preloader) preloader.classList.add('slide-up');
+                            
+                            // 4. ТИДОРОГАЯ ПАУЗА И РАСТВОРЕНИЕ
+                            // Ждем ровно 800мс (время, пока текст летит и встает на место хедера)
+                            setTimeout(() => {
+                                
+                                // Текст ПРИЛЕТЕЛ и ЗАМЕР. Держим его видимым ещё полсекунды (500мс)
+                                setTimeout(() => {
+                                    if (textEl) {
+                                        textEl.style.opacity = '0'; // Вот теперь плавно растворяем
+                                    }
+                                    
+                                    // Полностью убираем элементы из DOM после фейда
+                                    setTimeout(() => {
+                                        if (textEl) textEl.style.display = 'none';
+                                        if (preloader) preloader.style.display = 'none';
+                                    }, 400);
+
+                                }, 500); // <-- ВРЕМЯ ЗАВИСАНИЯ ИМЕНИ В ШАПКЕ (500мс = 0.5 секунды)
+                                
+                            }, 800); // Время полета
+                            
+                        }, 200);
+                    }, 400);
+                }
+            }, 15);
+        });
+    })();
 </script>
 
 </body>
