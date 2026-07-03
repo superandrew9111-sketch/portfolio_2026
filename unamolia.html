@@ -492,13 +492,12 @@ document.addEventListener('DOMContentLoaded', () => {
         const urlParams = new URLSearchParams(window.location.search);
         const langParam = urlParams.get('lang');
         
-        // 2. Определяем текущий язык. Если в урле en или eng — включаем английский
         let currentLang = 'ru'; 
         if (langParam === 'en' || langParam === 'eng') {
             currentLang = 'en';
         }
 
-        // 3. Переключаем активный класс на кнопках RU/ENG в навигации
+        // 2. Переключаем активный класс на кнопках RU/ENG в шапке
         const ruBtn = document.querySelector('.header-lang-link[href="?lang=ru"]');
         const enBtn = document.querySelector('.header-lang-link[href="?lang=en"]');
         
@@ -512,32 +511,50 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         }
 
-        // 4. Пробегаемся по всему HTML и подставляем нужный текст из data-атрибутов
+        // 3. БЕЗОПАСНЫЙ ПЕРЕВОД: Меняем только текст, чтобы не ломать структуру кнопок
         document.querySelectorAll('[data-ru]').forEach(el => {
             const translatedText = el.getAttribute(`data-${currentLang}`);
             if (translatedText) {
-                el.innerHTML = translatedText;
+                if (el.tagName === 'BUTTON' || el.classList.contains('contact-btn')) {
+                    el.textContent = translatedText;
+                } else {
+                    el.innerHTML = translatedText;
+                }
             }
         });
 
-        // 5. ФИНАЛЬНЫЙ ФИКС: Сохраняем язык при переходе по ссылкам
+        // 4. ЖЕЛЕЗНЫЙ ПРОБРОС ССЫЛОК (Чтобы язык не слетал при переходе на About)
         document.querySelectorAll('a').forEach(link => {
             const href = link.getAttribute('href');
-            
-            // Пропускаем пустые ссылки, внешние сайты и якоря (#)
-            if (!href || href.startsWith('http') || href.startsWith('#')) return;
-            
-            // Пропускаем сами кнопки переключения языков
-            if (link.classList.contains('header-lang-link')) return;
+            if (!href || href.startsWith('http') || link.classList.contains('header-lang-link')) return;
 
-            // Отрезаем старые параметры, если они были
-            const baseUrl = href.split('?')[0];
+            try {
+                const fakeBase = window.location.origin + window.location.pathname;
+                const urlObj = new URL(href, fakeBase);
 
-            // Модифицируем ссылку под текущий язык
-            if (currentLang === 'en') {
-                link.setAttribute('href', `${baseUrl}?lang=en`);
-            } else {
-                link.setAttribute('href', `${baseUrl}?lang=ru`);
+                if (currentLang === 'en') {
+                    urlObj.searchParams.set('lang', 'en');
+                } else {
+                    urlObj.searchParams.set('lang', 'ru');
+                }
+
+                let newHref = urlObj.pathname.split('/').pop() + urlObj.search + urlObj.hash;
+                
+                if (href.startsWith('#')) {
+                    newHref = href.split('?')[0] + urlObj.search; 
+                    if (href.includes('#')) {
+                        const cleanHash = href.match(/#[A-Za-z0-9_-]+/)[0];
+                        newHref = cleanHash + urlObj.search;
+                    }
+                }
+
+                if (href.startsWith('../')) {
+                    newHref = '../' + newHref;
+                }
+
+                link.setAttribute('href', newHref);
+            } catch (e) {
+                console.error('Ошибка обработки ссылки:', e);
             }
         });
     });
