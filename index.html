@@ -549,17 +549,17 @@ document.addEventListener('DOMContentLoaded', () => {
                 } else {
                     clearInterval(finishInterval);
                     
-                    // Фиксация 100% на экране перед стартом движения
+                    // Пауза 400мс на отметке 100% для фиксации результата дизайнером
                     setTimeout(() => {
                         // 1. Плавно гасим линию лоадера
                         if (lineContainer) lineContainer.classList.add('fade-out');
                         
                         setTimeout(() => {
-                            // 2. Считываем точные динамические координаты хедера
+                            // 2. Считываем точные динамические координаты твоего хедера
                             if (headerName && textEl) {
                                 const targetRect = headerName.getBoundingClientRect();
                                 
-                                // Переводим летящий текст в сплошной цвет #111111 (убираем градиент)
+                                // Переводим летящий текст в сплошной цвет #111111 (или #555555 если был ховер)
                                 const isHovered = window.getComputedStyle(textEl).webkitTextFillColor !== 'transparent';
                                 textEl.style.background = 'none';
                                 textEl.style.webkitTextFillColor = isHovered ? '#555555' : '#111111';
@@ -572,23 +572,17 @@ document.addEventListener('DOMContentLoaded', () => {
                             // 3. Синхронно отправляем сам желтый экран загрузки вверх
                             if (preloader) preloader.classList.add('slide-up');
                             
-                            // 4. ТИДОРОГАЯ ПАУЗА И РАСТВОРЕНИЕ
-                            // Ждем ровно 800мс (время, пока текст летит и встает на место хедера)
+                            // 4. Текст остановился у хедера (через 800мс транзишна) -> Плавно растворяем его
                             setTimeout(() => {
+                                if (textEl) {
+                                    textEl.style.opacity = '0';
+                                }
                                 
-                                // Текст ПРИЛЕТЕЛ и ЗАМЕР. Держим его видимым ещё полсекунды (500мс)
+                                // Полностью очищаем DOM от элементов лоадера
                                 setTimeout(() => {
-                                    if (textEl) {
-                                        textEl.style.opacity = '0'; // Вот теперь плавно растворяем
-                                    }
-                                    
-                                    // Полностью убираем элементы из DOM после фейда
-                                    setTimeout(() => {
-                                        if (textEl) textEl.style.display = 'none';
-                                        if (preloader) preloader.style.display = 'none';
-                                    }, 400);
-
-                                }, 500); // <-- ВРЕМЯ ЗАВИСАНИЯ ИМЕНИ В ШАПКЕ (500мс = 0.5 секунды)
+                                    if (textEl) textEl.style.display = 'none';
+                                    if (preloader) preloader.style.display = 'none';
+                                }, 400);
                                 
                             }, 800); // Время полета
                             
