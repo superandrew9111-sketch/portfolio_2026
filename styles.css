@@ -5209,81 +5209,1370 @@ body {
 }
 
 /* ==========================================================================
-   РАЗДЕЛ OTHER: СТРАНИЦА "В РАБОТЕ" (БЕСКОНЕЧНЫЙ РЕЗИНОВЫЙ СКЕЙЛИНГ)
+   OTHER SCREEN (Рабочая область 1680x840 в сетке 1920)
    ========================================================================== */
 
-.other-section-progress {
-    width: 100vw !important;
-    max-width: 100% !important;
-    height: 0 !important;
-    /* Полная высота с паддингами: 840 + 120 + 120 = 1080px. Пропорция = 56.25% */
-    padding-top: 56.25% !important; 
-    position: relative !important;
-    background-color: #FFD600 !important; 
-    overflow: hidden !important;
-    box-sizing: border-box !important;
-    z-index: 10 !important;
+.other-screen {
+    position: relative;
+    width: 87.5vw;               /* 1680px */
+    height: 43.75vw;             /* 840px */
+    margin: 6.25vw;
+    box-sizing: border-box;
 }
 
-/* Полностью резиновый wrapper с жесткой привязкой к левому краю окна */
-.other-wrapper-fluid {
-    position: absolute !important;
-    top: 0 !important;
-    left: 0 !important;              /* Выжигаем старое центрирование */
-    width: 100vw !important;         /* Разжимаем во всю ширину вьюпорта */
-    height: 100% !important;
-    box-sizing: border-box !important;
-    padding: 6.25vw !important;      /* Отступы по 120px со всех сторон */
+/* Заголовок "Other Project" */
+.other-main-title {
+    position: absolute;
+    top: 17.1875vw;              /* 330px */
+    left: 18.6458vw;             /* 358px */
+    width: 50.2604vw;            /* 965px */
+    margin: 0;
+    padding: 0;
+    font-family: 'AKT', sans-serif;
+    font-size: 7.5vw;            /* 144px */
+    font-weight: 400;
+    line-height: 1.20;
+    letter-spacing: 0.05em;
+    color: #111111;
+    text-align: center;
+    white-space: nowrap;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
 }
 
-.other-row {
-    position: relative !important;
-    width: 100% !important;
-    height: 100% !important;
+/* Категории сверху слева */
+.other-categories {
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: flex;
+    align-items: center;
+    gap: 1.5625vw;               /* 30px */
+    font-family: 'AKT', sans-serif;
+    font-size: 0.8333vw;         /* 16px */
+    font-weight: 400;
+    line-height: 1.25;
+    color: #555555;
+    white-space: nowrap;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
 }
 
-/* Центрированный заголовок «Этот раздел еще в работе 😊» (80px, цвет 111111, Regular, 120%) */
-.other-progress-title {
-    position: absolute !important;
-    top: 16.6666vw !important;       /* Точные 320px от верхнего контентного нуля */
-    left: 23.4375vw !important;       /* Ровно 520px слева */
-    width: 40.625vw !important;      /* Ширина ровно 639px (1680 - 520 - 521) */
-    height: 10.4166vw !important;     /* Высота ровно 200px (840 - 320 - 320) */
-    font-family: 'AKT', sans-serif !important;
-    font-size: 4.1666vw !important;   /* Точные 80px */
-    font-weight: 400 !important;
-    color: #111111 !important;
-    line-height: 1.20 !important;
-    text-align: center !important;    /* Выравнивание по центру */
-    margin: 0 !important;
-    -webkit-font-smoothing: antialiased !important;
-    -moz-osx-font-smoothing: grayscale !important;
+.other-divider {
+    color: #555555;
+    user-select: none;
 }
 
-/* ЦЕНТРИРОВАННАЯ НАВИГАЦИЯ НА ДНЕ (Сверху 810px, Слева 315px от контента) */
+/* Creative Presentation слева внизу */
+.other-presentation {
+    position: absolute;
+    top: 42.7083vw;              /* 820px */
+    left: 0;
+    font-family: 'AKT', sans-serif;
+    font-size: 0.8333vw;         /* 16px */
+    font-weight: 400;
+    line-height: 1.25;
+    color: #555555;
+    white-space: nowrap;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+/* Контакты справа внизу */
+.other-contacts {
+    position: absolute;
+    top: 37.5vw;                 /* 720px */
+    left: 80.1041vw;             /* 1538px */
+    display: flex;
+    flex-direction: column;
+    gap: 1.5625vw;               /* 30px */
+    font-family: 'AKT', sans-serif;
+    font-size: 0.8333vw;         /* 16px */
+    font-weight: 400;
+    line-height: 1.25;
+    color: #555555;
+    white-space: nowrap;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.other-contact-item {
+    color: #555555;
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+.other-contact-item:hover {
+    color: #111111;
+}
+
+/* ==========================================================================
+   ROBOCASH SCREEN (1680x840 в сетке 1920, фон #F9F9F9)
+   ========================================================================== */
+
+.robocash-screen {
+    position: relative;
+    z-index: 1;                  /* Нижний слой */
+    width: 100vw;
+    background-color: #F9F9F9;
+    box-sizing: border-box;
+    margin-top: 6.25vw;          /* 120px отступ сверху от блока Other */
+    padding-top: 6.25vw;         /* 120px внутренний отступ сверху */
+    padding-bottom: 0;
+    margin-bottom: 0;
+    overflow: visible;           /* Вылет картинки наружу вниз */
+}
+
+.robocash-content {
+    position: relative;
+    width: 87.5vw;               /* 1680px */
+    height: 56.25vw;             /* 840px */
+    margin: 0 auto;
+    box-sizing: border-box;
+}
+
+.robocash-text-col {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 42.5vw;               /* 816px */
+    display: flex;
+    flex-direction: column;
+    z-index: 2;
+}
+
+.robocash-title {
+    margin: 0 0 2.5vw 0;
+    padding: 0;
+    font-family: 'AKT', sans-serif;
+    font-size: 4.1666vw;         /* 80px */
+    font-weight: 400;
+    line-height: 1.15;
+    letter-spacing: normal;
+    color: #111111;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.robocash-desc {
+    font-family: 'AKT', sans-serif;
+    font-size: 1.6666vw;         /* 32px */
+    font-weight: 400;
+    line-height: 1.25;
+    letter-spacing: 0.05em;
+    color: #555555;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.robocash-desc p {
+    margin: 0 0 1.25vw 0;
+    padding: 0;
+}
+
+.robocash-desc p:last-child {
+    margin-bottom: 0;
+}
+
+/* Иллюстрация: слева 720px, вылет вправо на 120px, вниз на 120px */
+.robocash-illustration-wrap {
+    position: absolute;
+    top: 0;
+    left: 37.5vw;                /* 720px */
+    width: 56.25vw;              /* 1080px (1680 - 720 + 120) */
+    height: 50vw;                /* 960px (840 + 120) */
+    z-index: 1;
+    pointer-events: none;
+}
+
+.robocash-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: left top;
+    display: block;
+}
+
+/* ==========================================================================
+   ЭКРАН 3: ГАЛЕРЕЯ ROBOCASH (1680x4740, фон #F9F9F9)
+   ========================================================================== */
+
+.robocash-gallery-screen {
+    position: relative;
+    z-index: 5;                  /* Выше блока 2: перекрывает вылет */
+    margin-top: -6.25vw;         /* -120px наезд на вылет иллюстрации */
+    width: 100vw;
+    background-color: #F9F9F9;
+    box-sizing: border-box;
+    overflow: hidden;
+}
+
+.robocash-gallery-content {
+    position: relative;
+    width: 87.5vw;               /* 1680px */
+    height: 246.875vw;           /* 4740px (4740 / 19.2) */
+    margin-top: 6.25vw;
+    margin-left: 6.25vw;
+    box-sizing: border-box;
+}
+
+.gallery-item {
+    position: absolute;
+    box-sizing: border-box;
+    overflow: hidden;
+}
+
+.gallery-item img {
+    width: 100%;
+    height: 100%;
+    display: block;
+    image-rendering: -webkit-optimize-contrast; /* Максимальная резкость 1x */
+}
+
+/* 1. 1680x840 (top: 0, left: 0) */
+.item-1 {
+    top: 0;
+    left: 0;
+    width: 87.5vw;               /* 1680px */
+    height: 43.75vw;             /* 840px */
+}
+
+/* 2. 810x810 (top: 900px, left: 0) */
+.item-2 {
+    top: 46.875vw;              /* 900px */
+    left: 0;
+    width: 42.1875vw;            /* 810px */
+    height: 42.1875vw;           /* 810px */
+}
+
+/* 3. 810x810 (top: 900px, left: 870px) */
+.item-3 {
+    top: 46.875vw;              /* 900px */
+    left: 45.3125vw;             /* 870px */
+    width: 42.1875vw;            /* 810px */
+    height: 42.1875vw;           /* 810px */
+}
+
+/* 4. 810x660 (top: 1770px, left: 0) */
+.item-4 {
+    top: 92.1875vw;              /* 1770px */
+    left: 0;
+    width: 42.1875vw;            /* 810px */
+    height: 34.375vw;            /* 660px */
+}
+
+/* 5. 810x810 (top: 1770px, left: 870px) */
+.item-5 {
+    top: 92.1875vw;              /* 1770px */
+    left: 45.3125vw;             /* 870px */
+    width: 42.1875vw;            /* 810px */
+    height: 42.1875vw;           /* 810px */
+}
+
+/* 6. 810x660 (top: 2490px, left: 0) */
+.item-6 {
+    top: 129.6875vw;             /* 2490px */
+    left: 0;
+    width: 42.1875vw;            /* 810px */
+    height: 34.375vw;            /* 660px */
+}
+
+/* 7. 810x660 (top: 2640px, left: 870px) */
+.item-7 {
+    top: 137.5vw;                /* 2640px */
+    left: 45.3125vw;             /* 870px */
+    width: 42.1875vw;            /* 810px */
+    height: 34.375vw;            /* 660px */
+}
+
+/* 8. 810x660 (top: 3210px, left: 0) */
+.item-8 {
+    top: 167.1875vw;             /* 3210px */
+    left: 0;
+    width: 42.1875vw;            /* 810px */
+    height: 34.375vw;            /* 660px */
+}
+
+/* 9. 810x660 (top: 3360px, left: 870px) */
+.item-9 {
+    top: 175vw;                  /* 3360px */
+    left: 45.3125vw;             /* 870px */
+    width: 42.1875vw;            /* 810px */
+    height: 34.375vw;            /* 660px */
+}
+
+/* 10. 810x810 (top: 3930px, left: 0) */
+.item-10 {
+    top: 204.6875vw;             /* 3930px */
+    left: 0;
+    width: 42.1875vw;            /* 810px */
+    height: 42.1875vw;           /* 810px */
+}
+
+/* 11. 810x660 (top: 4080px, left: 870px) */
+.item-11 {
+    top: 212.5vw;                /* 4080px */
+    left: 45.3125vw;             /* 870px */
+    width: 42.1875vw;            /* 810px */
+    height: 34.375vw;            /* 660px */
+}
+
+/* --------------------------------------------------------------------------
+   РАЗДЕЛИТЕЛЬНАЯ ЛИНИЯ И НАВИГАЦИЯ НА ДНЕ
+   -------------------------------------------------------------------------- */
+/* Подложка на всю ширину экрана с фоном #F9F9F9 */
+.divider-wrapper {
+    width: 100vw;
+    background-color: #F9F9F9;
+    padding: 6.25vw 0;           /* 120px воздуха сверху и снизу от линии */
+    box-sizing: border-box;
+}
+
+/* Сама серая линия 1px */
+.block-divider-line {
+    width: 87.5vw;               /* 1680px */
+    height: 1px;
+    background-color: #555555;   /* Цвет самой полоски */
+    margin: 0 auto;
+    box-sizing: border-box;
+}
+
 .other-nav-center {
-    position: absolute !important;
-    top: 42.1875vw !important;       /* Точные 810px от нуля контента */
-    left: 16.4062vw !important;       /* Ровно 315px от контентного нуля */
-    width: 54.6875vw !important;      /* Ширина ровно 1050px (1680 - 315 - 315) */
-    height: 1.5625vw !important;       /* Точные 30px */
+    position: relative !important;
+    top: auto !important;
+    left: auto !important;
+    margin: 0 auto 6.25vw auto !important; /* 120px отступ на дне экрана */
+    width: 54.6875vw !important;           /* 1050px */
+    height: 1.5625vw !important;           /* 30px */
     display: flex !important;
     flex-direction: row !important;
-    gap: 3.125vw !important;            /* Расстояние между пунктами 60px */
-    justify-content: center !important; /* Центрируем элементы внутри флекса */
+    gap: 3.125vw !important;                /* 60px */
+    justify-content: center !important;
     align-items: center !important;
     z-index: 15 !important;
 }
 
-/* Активная вкладка (Other) — глубокий темный и Bold */
-.other-nav-item.active {
-    font-weight: 700 !important;     /* Bold */
-    color: #111111 !important;
+/* ==========================================================================
+   CREDITBAR KZ SCREEN (1680x528 в сетке 1920, фон #3A97EE)
+   ========================================================================== */
+
+.creditbar-screen {
+    position: relative;
+    width: 100vw;
+    margin-top: -6.25vw;
+    background-color: #3A97EE;
+    box-sizing: border-box;
+    overflow: visible;                   /* Чтобы фоновая иллюстрация вылетала наружу */
 }
 
-.other-nav-item:hover {
-    color: #111111 !important;
+.creditbar-content {
+    position: relative;
+    top: 6.25vw !important;
+    width: 87.5vw;                       /* 1680px при 1920 */
+    height: 40vw;
+    margin-top: 6.25vw;                   /* 528px при 1920 */
+    margin-left: 6.25vw;
+    margin-right: 6.25vw;    
+    box-sizing: border-box;
 }
+
+/* 1. ФОНОВАЯ ИЛЛЮСТРАЦИЯ (1647x768, вылет слева и сверху на -120px) */
+.creditbar-bg-wrap {
+    position: absolute;
+    top: -6.25vw;                        /* -120px */
+    left: -6.25vw;                       /* -120px */
+    width: 85.78125vw;                   /* 1647px */
+    height: 40vw;                        /* 768px */
+    z-index: 1;
+    pointer-events: none;
+}
+
+.creditbar-bg-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+/* 2. ОСНОВНАЯ ИЛЛЮСТРАЦИЯ (690x528) */
+.creditbar-illustration-wrap {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 35.9375vw;                    /* 690px */
+    height: 27.5vw;                      /* 528px */
+    z-index: 2;
+    pointer-events: none;
+}
+
+.creditbar-main-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+/* 3. ТЕКСТОВЫЙ БЛОК (900x528, слева 780px) */
+.creditbar-text-block {
+    position: absolute;
+    top: 0;
+    left: 40.625vw;                      /* 780px */
+    width: 46.875vw;                     /* 900px */
+    height: 27.5vw;                      /* 528px */
+    display: flex;
+    flex-direction: column;
+    z-index: 3;
+}
+
+/* Заголовок: 80px, Regular, auto, цвет #FFFFFF */
+.creditbar-title {
+    margin: 0 0 5vw 0;                   /* Отступ ровно 96px (5vw) до текста */
+    padding: 0;
+    font-family: 'AKT', sans-serif;
+    font-size: 4.1666vw;                 /* 80px */
+    font-weight: 400;
+    line-height: normal;                 /* auto */
+    letter-spacing: normal;              /* auto */
+    color: #FFFFFF;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+/* Описание: 32px, Regular, 125%, трекинг 5%, цвет белый 75% прозрачности */
+.creditbar-desc {
+    font-family: 'AKT', sans-serif;
+    font-size: 1.6666vw;                 /* 32px */
+    font-weight: 400;
+    line-height: 1.25;                   /* 125% */
+    letter-spacing: 0.05em;              /* 5% */
+    color: rgba(255, 255, 255, 0.75);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.creditbar-desc p {
+    margin: 0 0 1.25vw 0;                /* Абзацный отступ */
+    padding: 0;
+}
+
+.creditbar-desc p:last-child {
+    margin-bottom: 0;
+}
+
+/* ==========================================================================
+   ГАЛЕРЕЯ CREDITBAR KZ (1680x2100, фон #E7F1FF)
+   ========================================================================== */
+
+.creditbar-gallery-screen {
+    position: relative;
+    width: 100vw;
+    background-color: #E7F1FF;
+    box-sizing: border-box;
+    padding-top: 6.25vw !important;      /* 120px внутренний отступ сверху */
+    padding-bottom: 6.25vw !important;   /* 120px внутренний отступ снизу */
+    overflow: hidden;
+}
+
+.creditbar-gallery-content {
+    position: relative;
+    width: 87.5vw;                       /* 1680px */
+    height: 109.375vw;                   /* 2100px */
+    margin-left: 6.25vw;                 /* 120px слева */
+    box-sizing: border-box;
+}
+
+/* Общий сброс для карточек галереи */
+.cb-item {
+    position: absolute;
+    box-sizing: border-box;
+    overflow: hidden;
+}
+
+.cb-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    image-rendering: -webkit-optimize-contrast;
+}
+
+/* 1. 540x540 (top: 0, left: 0) */
+.cb-item-1 {
+    top: 0;
+    left: 0;
+    width: 28.125vw;                     /* 540px */
+    height: 28.125vw;                    /* 540px */
+}
+
+/* 2. 540x540 (top: 0, left: 570px) */
+.cb-item-2 {
+    top: 0;
+    left: 29.6875vw;                     /* 570px */
+    width: 28.125vw;                     /* 540px */
+    height: 28.125vw;                    /* 540px */
+}
+
+/* 3. 540x540 (top: 0, left: 1140px) */
+.cb-item-3 {
+    top: 0;
+    left: 59.375vw;                      /* 1140px */
+    width: 28.125vw;                     /* 540px */
+    height: 28.125vw;                    /* 540px */
+}
+
+/* 4. 810x810 (top: 600px, left: 0) */
+.cb-item-4 {
+    top: 31.25vw;                        /* 600px */
+    left: 0;
+    width: 42.1875vw;                    /* 810px */
+    height: 42.1875vw;                   /* 810px */
+}
+
+/* 5. 810x630 (top: 600px, left: 870px) */
+.cb-item-5 {
+    top: 31.25vw;                        /* 600px */
+    left: 45.3125vw;                     /* 870px */
+    width: 42.1875vw;                    /* 810px */
+    height: 32.8125vw;                   /* 630px */
+}
+
+/* 6. 810x630 (top: 1470px, left: 0) */
+.cb-item-6 {
+    top: 76.5625vw;                      /* 1470px */
+    left: 0;
+    width: 42.1875vw;                    /* 810px */
+    height: 32.8125vw;                   /* 630px */
+}
+
+/* 7. 810x810 (top: 1290px, left: 870px) */
+.cb-item-7 {
+    top: 67.1875vw;                      /* 1290px */
+    left: 45.3125vw;                     /* 870px */
+    width: 42.1875vw;                    /* 810px */
+    height: 42.1875vw;                   /* 810px */
+}
+
+/* ==========================================================================
+   CREDITBAR SMM SCREEN (1680x1320, фон #E7F1FF, с мягкой тенью)
+   ========================================================================== */
+
+.creditbar-smm-screen {
+    position: relative;
+    width: 100vw;
+    background-color: #E7F1FF;
+    box-sizing: border-box;
+    padding-top: 6.25vw !important;      /* 120px внутреннее поле сверху */
+    padding-bottom: 6.25vw !important;   /* 120px серо-голубого фона под линией */
+    overflow: visible !important;        /* БОЛЬШЕ НЕ РЕЖЕТ ТЕНЬ И ВЫЛЕТЫ */
+}
+
+.creditbar-smm-content {
+    position: relative;
+    width: 87.5vw;                       /* 1680px */
+    height: 68.75vw;                     /* 1320px */
+    margin-left: 6.25vw;                 /* 120px слева */
+    box-sizing: border-box;
+}
+
+/* Иллюстрация (1862x1736): вылет вниз на 360px мягко ложится на фон */
+.creditbar-smm-wrap {
+    position: absolute;
+    top: -2.9166vw;                      /* -56px */
+    left: -6.25vw;                       /* -120px */
+    width: 96.9791vw;                    /* 1862px */
+    height: 90.4166vw;                   /* 1736px */
+    z-index: 1;
+    pointer-events: none;
+}
+
+.creditbar-smm-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    image-rendering: -webkit-optimize-contrast;
+}
+
+/* Подпись: слева 0, снизу 0 */
+.creditbar-smm-caption {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    z-index: 3;
+    font-family: 'AKT', sans-serif;
+    font-size: 0.625vw;                  /* 12px */
+    font-weight: 300;                    /* Light */
+    line-height: normal;
+    letter-spacing: normal;
+    color: #555555;
+    white-space: nowrap;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+/* ==========================================================================
+   ВНУТРЕННЯЯ РАЗДЕЛИТЕЛЬНАЯ ЛИНИЯ (1680x1, цвет #555555)
+   ========================================================================== */
+
+.creditbar-inner-divider {
+    position: relative;
+    z-index: 2;                          /* Ложится поверх рассеивающейся тени */
+    width: 87.5vw;                       /* 1680px */
+    height: 1px;
+    background-color: #555555;
+    margin-top: 6.25vw;                  /* 120px воздуха от контента до линии */
+    margin-bottom: 0 !important;         /* Не пробивает родителя */
+    margin-left: 6.25vw;                 /* 120px слева */
+    box-sizing: border-box;
+}
+
+/* ==========================================================================
+   SATCREDIT SCREEN (1680x656, фон #D05C19)
+   ========================================================================== */
+
+.satcredit-screen {
+    position: relative;
+    width: 100vw;
+    background-color: #D05C19;
+    box-sizing: border-box;
+    padding-top: 6.25vw !important;      /* 120px внутреннее поле сверху */
+    padding-bottom: 6.25vw !important;   /* 120px внутреннее поле снизу */
+    overflow: hidden;
+}
+
+.satcredit-content {
+    position: relative;
+    width: 87.5vw;                       /* 1680px */
+    height: 34.1666vw;                   /* 656px */
+    margin-left: 6.25vw;                 /* 120px слева */
+    box-sizing: border-box;
+}
+
+/* 1. ТЕКСТОВЫЙ БЛОК (слева 0) */
+.satcredit-text-block {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 46.875vw;                     /* 900px */
+    height: 100%;
+    box-sizing: border-box;
+    z-index: 2;
+}
+
+/* Заголовок: 80px, Normal, цвет #FFFFFF */
+.satcredit-title {
+    position: absolute;
+    top: 0;
+    left: 0;
+    margin: 0;
+    padding: 0;
+    font-family: 'AKT', sans-serif;
+    font-size: 4.1666vw;                 /* 80px */
+    font-weight: 400;
+    line-height: normal;                 /* auto */
+    letter-spacing: normal;              /* auto */
+    color: #FFFFFF;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+/* Описание: 32px, top 288px, цвет #FFFFFF с прозрачностью */
+.satcredit-desc {
+    position: absolute;
+    top: 15.0vw;                         /* 288px */
+    left: 0;
+    margin: 0;
+    padding: 0;
+    font-family: 'AKT', sans-serif;
+    font-size: 1.6666vw;                 /* 32px */
+    font-weight: 400;
+    line-height: 1.25;                   /* 125% */
+    letter-spacing: 0.05em;              /* 5% */
+    color: rgba(255, 255, 255, 0.75);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.satcredit-desc p {
+    margin: 0 0 1.25vw 0;                /* Межабзацный зазор */
+    padding: 0;
+}
+
+.satcredit-desc p:last-child {
+    margin-bottom: 0;
+}
+
+/* 2. ИЛЛЮСТРАЦИЯ СПРАВА (690x528, слева 990px) */
+.satcredit-illustration-wrap {
+    position: absolute;
+    top: 0;
+    left: 51.5625vw;                     /* 990px */
+    width: 35.9375vw;                    /* 690px */
+    height: 27.5vw;                      /* 528px */
+    z-index: 1;
+    pointer-events: none;
+}
+
+.satcredit-main-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    image-rendering: -webkit-optimize-contrast;
+}
+
+/* ==========================================================================
+   ГАЛЕРЕЯ SATCREDIT (1680x4293, фон #F5F6F8)
+   ========================================================================== */
+
+.satcredit-gallery-screen {
+    position: relative;
+    width: 100vw;
+    background-color: #F5F6F8;
+    box-sizing: border-box;
+    padding-top: 6.25vw !important;      /* 120px внутреннее поле сверху */
+    padding-bottom: 6.25vw !important;   /* 120px внутреннее поле снизу */
+    overflow: hidden;
+}
+
+.satcredit-gallery-content {
+    position: relative;
+    width: 87.5vw;                       /* 1680px */
+    height: 223.59375vw;                 /* 4293px */
+    margin-left: 6.25vw;                 /* 120px слева */
+    box-sizing: border-box;
+}
+
+/* Общий сброс для карточек галереи */
+.satcredit-item {
+    position: absolute;
+    box-sizing: border-box;
+    overflow: hidden;
+}
+
+.satcredit-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    image-rendering: -webkit-optimize-contrast;
+}
+
+/* 1. 3D (1680x1323, top: 0, left: 0) */
+.satcredit-item-1 {
+    top: 0;
+    left: 0;
+    width: 87.5vw;                       /* 1680px */
+    height: 68.90625vw;                  /* 1323px */
+}
+
+/* 2. 3D (810x810, top: 1563px, left: 0) */
+.satcredit-item-2 {
+    top: 81.40625vw;                     /* 1563px */
+    left: 0;
+    width: 42.1875vw;                    /* 810px */
+    height: 42.1875vw;                   /* 810px */
+}
+
+/* 3. 3D (810x810, top: 1563px, left: 870px) */
+.satcredit-item-3 {
+    top: 81.40625vw;                     /* 1563px */
+    left: 45.3125vw;                     /* 870px */
+    width: 42.1875vw;                    /* 810px */
+    height: 42.1875vw;                   /* 810px */
+}
+
+/* 4. Паттерн (1680x640, top: 2613px, left: 0) */
+.satcredit-item-4 {
+    top: 136.09375vw;                    /* 2613px */
+    left: 0;
+    width: 87.5vw;                       /* 1680px */
+    height: 33.3333vw;                   /* 640px */
+}
+
+/* 5. Метафоры (1520x800, top: 3493px, left: 80px) */
+.satcredit-item-5 {
+    top: 181.92708vw;                    /* 3493px */
+    left: 4.1666vw;                      /* 80px */
+    width: 79.1666vw;                    /* 1520px */
+    height: 41.6666vw;                   /* 800px */
+}
+
+/* ==========================================================================
+   ЗАКРЫВАЮЩИЙ БЛОК SATCREDIT (1680x810, фон #F5F6F8)
+   ========================================================================== */
+
+.satcredit-closing-screen {
+    position: relative;
+    width: 100vw;
+    background-color: #F5F6F8;
+    box-sizing: border-box;
+    padding-top: 6.25vw !important;
+    padding-bottom: 6.25vw !important;   /* ВОТ ОНИ: железные 120px серого фона снизу */
+    overflow: visible;
+}
+
+.satcredit-closing-content {
+    position: relative;
+    width: 87.5vw;                       /* 1680px */
+    height: 48.4375vw;                   /* 810px */
+    margin-left: 6.25vw;                 /* 120px слева */
+    box-sizing: border-box;
+}
+
+/* Иллюстрация: 1920x1073, слева -120px, сверху -23px, вылет вниз на 240px */
+.satcredit-closing-wrap {
+    position: absolute;
+    top: -1.1979vw;                      /* -23px */
+    left: -6.25vw;                       /* -120px */
+    width: 100vw;                        /* 1920px */
+    height: 55.8854vw;                   /* 1073px */
+    z-index: 1;
+    pointer-events: none;
+}
+
+.satcredit-closing-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    image-rendering: -webkit-optimize-contrast;
+}
+
+/* ==========================================================================
+   ВНУТРЕННЯЯ РАЗДЕЛИТЕЛЬНАЯ ЛИНИЯ (1680x1, цвет #555555)
+   ========================================================================== */
+
+.satcredit-inner-divider {
+    position: relative;
+    z-index: 2;
+    width: 87.5vw;                       /* 1680px */
+    height: 1px;
+    background-color: #555555;           /* Цвет самой 1px полоски */
+    margin-bottom: 0 !important;         /* Марджин в 0, чтобы не пробивать родителя */
+    margin-left: 6.25vw;                 /* 120px слева */
+    box-sizing: border-box;
+}
+
+/* ==========================================================================
+   AKSAY SCREEN (1680x720, фон #FFAA00)
+   ========================================================================== */
+
+.aksay-screen {
+    position: relative;
+    width: 100vw;
+    background-color: #FFAA00;
+    box-sizing: border-box;
+    padding-top: 6.25vw !important;      /* 120px внутреннее поле сверху */
+    padding-bottom: 6.25vw !important;   /* 120px внутреннее поле снизу */
+    overflow: hidden;
+}
+
+.aksay-content {
+    position: relative;
+    width: 87.5vw;                       /* 1680px */
+    height: 37.5vw;                      /* 720px */
+    margin-left: 6.25vw;                 /* 120px слева */
+    box-sizing: border-box;
+}
+
+/* 1. ИЛЛЮСТРАЦИЯ СЛЕВА (690x720) */
+.aksay-illustration-wrap {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 35.9375vw;                    /* 690px */
+    height: 37.5vw;                      /* 720px */
+    z-index: 1;
+    pointer-events: none;
+}
+
+.aksay-main-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    image-rendering: -webkit-optimize-contrast;
+}
+
+/* 2. ТЕКСТОВЫЙ БЛОК (слева 780px, ширина 900px) */
+.aksay-text-block {
+    position: absolute;
+    top: 0;
+    left: 40.625vw;                      /* 780px */
+    width: 46.875vw;                     /* 900px */
+    height: 100%;
+    display: flex;                       /* Флекс-контейнер для динамического зазора */
+    flex-direction: column;
+    box-sizing: border-box;
+    z-index: 2;
+}
+
+/* Заголовок: 80px, Normal, цвет #111111 */
+.aksay-title {
+    position: relative;                  /* В обычном потоке */
+    margin: 0 0 5.0vw 0 !important;      /* РОСКОШНЫЙ ЧИСТЫЙ ОТСТУП 96px ВНИЗ */
+    padding: 0;
+    font-family: 'AKT', sans-serif;
+    font-size: 4.1666vw;                 /* 80px */
+    font-weight: 400;
+    line-height: normal;
+    letter-spacing: normal;
+    color: #111111;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+/* Описание: 32px, цвет #555555 */
+.aksay-desc {
+    position: relative;                  /* Идет следом за заголовком ровно через 96px */
+    margin: 0;
+    padding: 0;
+    font-family: 'AKT', sans-serif;
+    font-size: 1.6666vw;                 /* 32px */
+    font-weight: 400;
+    line-height: 1.25;                   /* 125% */
+    letter-spacing: 0.05em;              /* 5% */
+    color: #555555;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.aksay-desc p {
+    margin: 0 0 1.25vw 0;
+    padding: 0;
+}
+
+.aksay-desc p:last-child {
+    margin-bottom: 0;
+}
+
+/* ==========================================================================
+   АКСАЙ: СРАВНЕНИЕ ЛОГОТИПОВ (1680x630, фон #FFFFFF, padding-bottom 240px)
+   ========================================================================== */
+
+.aksay-compare-screen {
+    position: relative;
+    width: 100vw;
+    background-color: #FFFFFF;
+    box-sizing: border-box;
+    padding-top: 6.25vw !important;      /* 120px внутреннее поле сверху */
+    padding-bottom: 6.25vw !important;   /* 240px внутреннее поле снизу */
+    overflow: hidden;
+}
+
+.aksay-compare-content {
+    position: relative;
+    width: 87.5vw;                       /* 1680px */
+    height: 32.8125vw;                   /* 630px */
+    margin-left: 6.25vw;                 /* 120px слева */
+    box-sizing: border-box;
+}
+
+/* Общий враппер для логотипов */
+.aksay-logo-wrap {
+    position: absolute;
+    top: 0;
+    width: 37.5vw;                       /* 720px */
+    height: 32.8125vw;                   /* 630px */
+    z-index: 1;
+    box-sizing: border-box;
+}
+
+.aksay-logo-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    image-rendering: -webkit-optimize-contrast;
+}
+
+/* Позиции карточек */
+.aksay-logo-before {
+    left: 4.6875vw;                      /* 90px */
+}
+
+.aksay-logo-after {
+    left: 45.3125vw;                     /* 870px */
+}
+
+/* Общие стили для синих плашек/тегов */
+.aksay-logo-tag {
+    position: absolute;
+    top: 1.5625vw;                       /* 30px */
+    z-index: 2;
+    font-family: 'AKT', sans-serif;
+    font-size: 0.8333vw;                 /* 16px */
+    font-weight: 400;                    /* Regular */
+    line-height: 1.25;                   /* 125% */
+    letter-spacing: 0.05em;              /* 5% */
+    color: #0C8CE9;
+    white-space: nowrap;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+/* Позиции подписей */
+.aksay-tag-before {
+    left: 6.25vw;                        /* 120px */
+}
+
+.aksay-tag-after {
+    left: 46.875vw;                      /* 900px */
+}
+
+/* ==========================================================================
+   ГАЛЕРЕЯ АКСАЙ (1680x1620, фон #F2F5FF)
+   ========================================================================== */
+
+.aksay-gallery-screen {
+    position: relative;
+    width: 100vw;
+    background-color: #F2F5FF;
+    box-sizing: border-box;
+    padding-top: 6.25vw !important;      /* 120px внутреннее поле сверху */
+    padding-bottom: 6.25vw !important;   /* 120px внутреннее поле снизу */
+    overflow: hidden;
+}
+
+.aksay-gallery-content {
+    position: relative;
+    width: 87.5vw;                       /* 1680px */
+    height: 84.375vw;                    /* 1620px */
+    margin-left: 6.25vw;                 /* 120px слева */
+    box-sizing: border-box;
+}
+
+/* Общий сброс для карточек галереи */
+.aksay-item {
+    position: absolute;
+    box-sizing: border-box;
+    overflow: hidden;
+}
+
+.aksay-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    image-rendering: -webkit-optimize-contrast;
+}
+
+/* 1. Визитка (810x720, top: 0, left: 0) */
+.aksay-item-1 {
+    top: 0;
+    left: 0;
+    width: 42.1875vw;                    /* 810px */
+    height: 37.5vw;                      /* 720px */
+}
+
+/* 2. Брендинг авто (810x720, top: 0, left: 870px) */
+.aksay-item-2 {
+    top: 0;
+    left: 45.3125vw;                     /* 870px */
+    width: 42.1875vw;                    /* 810px */
+    height: 37.5vw;                      /* 720px */
+}
+
+/* 3. Панорама авто (1680x390, top: 780px, left: 0) */
+.aksay-item-3 {
+    top: 40.625vw;                       /* 780px */
+    left: 0;
+    width: 87.5vw;                       /* 1680px */
+    height: 20.3125vw;                   /* 390px */
+}
+
+/* 4. Каска (810x390, top: 1230px, left: 0) */
+.aksay-item-4 {
+    top: 64.0625vw;                      /* 1230px */
+    left: 0;
+    width: 42.1875vw;                    /* 810px */
+    height: 20.3125vw;                   /* 390px */
+}
+
+/* 5. Жилет (810x390, top: 1230px, left: 870px) */
+.aksay-item-5 {
+    top: 64.0625vw;                      /* 1230px */
+    left: 45.3125vw;                     /* 870px */
+    width: 42.1875vw;                    /* 810px */
+    height: 20.3125vw;                   /* 390px */
+}
+
+/* ==========================================================================
+   АКСАЙ: ШРИФТ TEKTUR (1680x840, фон #FFFFFF)
+   ========================================================================== */
+
+.aksay-font-screen {
+    position: relative;
+    width: 100vw;
+    background-color: #FFFFFF;
+    box-sizing: border-box;
+    padding-top: 6.25vw !important;      /* 120px внутреннее поле сверху */
+    padding-bottom: 6.25vw !important;   /* 120px внутреннее поле снизу */
+    overflow: hidden;
+}
+
+.aksay-font-content {
+    position: relative;
+    width: 87.5vw;                       /* 1680px */
+    height: 43.75vw;                     /* 840px */
+    margin-left: 6.25vw;                 /* 120px слева */
+    box-sizing: border-box;
+}
+
+/* 1. ТЕКСТОВЫЙ БЛОК ОПИСАНИЯ (720x720, слева 0) */
+.aksay-font-desc-block {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 37.5vw;                       /* 720px */
+    height: 37.5vw;                      /* 720px */
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box;
+    z-index: 1;
+}
+
+/* Заголовок: 80px, Bold, интерлиньяж 125% */
+.aksay-font-title {
+    position: relative;
+    margin: 0 0 5.0vw 0 !important;      /* 96px отступ вниз */
+    padding: 0;
+    font-family: 'AKT', sans-serif;
+    font-size: 4.1666vw;                 /* 80px */
+    font-weight: 700;                    /* Bold */
+    line-height: 1.25;                   /* 125% */
+    letter-spacing: normal;
+    color: #111111;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+/* Описание: 32px, Regular, интерлиньяж 125%, трекинг 5% */
+.aksay-font-desc {
+    position: relative;
+    margin: 0;
+    padding: 0;
+    font-family: 'AKT', sans-serif;
+    font-size: 1.6666vw;                 /* 32px */
+    font-weight: 400;
+    line-height: 1.25;                   /* 125% */
+    letter-spacing: 0.05em;              /* 5% */
+    color: #555555;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.aksay-font-desc p {
+    margin: 0 0 1.25vw 0;
+    padding: 0;
+}
+
+.aksay-font-desc p:last-child {
+    margin-bottom: 0;
+}
+
+/* ОБЩИЕ ПАРАМЕТРЫ ДЛЯ СВЕТЛО-ГОЛУБЫХ ПЛАШЕК (#F2F5FF) */
+.aksay-type-card {
+    position: absolute;
+    background-color: #F2F5FF;
+    box-sizing: border-box;
+    overflow: hidden;
+}
+
+/* 2. БЛОК 1: Аа (450x450, top: 0, left: 840px) */
+.aksay-type-card-1 {
+    top: 0;
+    left: 43.75vw;                       /* 840px */
+    width: 23.4375vw;                    /* 450px */
+    height: 23.4375vw;                   /* 450px */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.type-glyph-big {
+    font-family: 'Tektur', sans-serif;
+    font-size: 12.3958vw;                /* 238px */
+    font-weight: 700;                    /* Bold */
+    line-height: 1.25;                   /* 125% */
+    color: #000000;
+    user-select: none;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+/* 3. БЛОК 2: НАБОР ЗНАКОВ (450x330, top: 510px, left: 840px) */
+.aksay-type-card-2 {
+    top: 26.5625vw;                      /* 510px */
+    left: 43.75vw;                       /* 840px */
+    width: 23.4375vw;                    /* 450px */
+    height: 17.1875vw;                   /* 330px */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.type-charset {
+    font-family: 'Tektur', sans-serif;
+    font-size: 3.3333vw;                 /* 64px */
+    font-weight: 400;                    /* Regular */
+    line-height: 1.2;                    /* 120% */
+    letter-spacing: normal;
+    color: #000000;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+/* 4. БЛОК 3: НАЧЕРТАНИЯ (330x840, top: 0, left: 1350px) */
+.aksay-type-card-3 {
+    top: 0;
+    left: 70.3125vw;                     /* 1350px */
+    width: 17.1875vw;                    /* 330px */
+    height: 43.75vw;                     /* 840px */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-left: 2.6041vw;              /* ~50px оптический отступ слева */
+    box-sizing: border-box;
+    gap: 2.7083vw;                       /* Ровно 52px зазор между строками */
+}
+
+.aksay-type-card-3 span {
+    font-family: 'Tektur', sans-serif;
+    font-size: 2.2916vw;                 /* 44px */
+    line-height: 1.2;                    /* 120% */
+    letter-spacing: normal;
+    color: #000000;
+    white-space: nowrap;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+/* Веса шрифта Tektur по списку */
+.weight-regular   { font-weight: 400; }
+.weight-medium    { font-weight: 500; }
+.weight-semibold  { font-weight: 600; }
+.weight-bold      { font-weight: 700; }
+.weight-extrabold { font-weight: 800; }
+.weight-black     { font-weight: 900; }
+
+/* ==========================================================================
+   АКСАЙ: ЗАКРЫВАЮЩИЙ БЛОК (1560x590, фон #FFFFFF)
+   ========================================================================== */
+
+.aksay-closing-screen {
+    position: relative;
+    width: 100vw;
+    background-color: #FFFFFF;
+    box-sizing: border-box;
+    padding-top: 12.5vw !important;      /* 240px верхнее поле */
+    padding-bottom: 6.25vw !important;   /* 120px нижнее поле под линией */
+    overflow: hidden;
+}
+
+.aksay-closing-content {
+    position: relative;
+    width: 81.25vw;                      /* 1560px */
+    height: 30.7291vw;                   /* 590px */
+    margin-left: 9.375vw;                /* 180px слева */
+    box-sizing: border-box;
+}
+
+/* Иллюстрации */
+.aksay-close-img-wrap {
+    position: absolute;
+    top: 0;
+    width: 35.9375vw;                    /* 690px */
+    height: 25vw;                        /* 480px */
+    box-sizing: border-box;
+}
+
+.aksay-close-img-wrap img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    display: block;
+    image-rendering: -webkit-optimize-contrast;
+}
+
+.aksay-close-img-1 {
+    left: 0;
+}
+
+.aksay-close-img-2 {
+    left: 45.3125vw;                     /* 870px */
+}
+
+/* SVG стрелка/элемент (60x15, слева 750px, сверху 232px) */
+.aksay-close-arrow {
+    position: absolute;
+    top: 12.0833vw;                      /* 232px */
+    left: 39.0625vw;                     /* 750px */
+    width: 3.125vw;                      /* 60px */
+    height: 0.78125vw;                   /* 15px */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 2;
+}
+
+.aksay-close-arrow svg {
+    width: 100%;
+    height: 100%;
+    display: block;
+}
+
+/* Текстовые подписи: AKT, 32px, Regular, 125%, цвет #0C8CE9 */
+/* Текстовые подписи: AKT, 32px, Regular, 125%, цвет #0C8CE9 */
+.aksay-close-text {
+    position: absolute;
+    top: 26.5625vw;                      /* 510px */
+    width: 35.9375vw;                    /* РОВНО 690px — как у иллюстрации */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;                  /* Текст всегда строго по центру блока */
+    font-family: 'AKT', sans-serif;
+    font-size: 1.6666vw;                 /* 32px */
+    font-weight: 400;                    /* Regular */
+    line-height: 1.25;                   /* 125% */
+    letter-spacing: normal;
+    color: #0C8CE9;
+    z-index: 3;
+    box-sizing: border-box;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+/* Координаты точно по левому краю картинок */
+.aksay-close-text-1 {
+    left: 0;                             /* Совпадает с .aksay-close-img-1 */
+}
+
+.aksay-close-text-2 {
+    left: 45.3125vw;                     /* 870px — совпадает с .aksay-close-img-2 */
+}
+
+/* ==========================================================================
+   ВНУТРЕННЯЯ РАЗДЕЛИТЕЛЬНАЯ ЛИНИЯ (1680x1, цвет #555555)
+   ========================================================================== */
+
+.aksay-closing-divider {
+    position: relative;
+    z-index: 2;
+    width: 87.5vw;                       /* 1680px */
+    height: 1px;
+    background-color: #555555;
+    margin-top: 19.2708vw;               /* 370px зазор до линии (в сумме 490px до низа) */
+    margin-bottom: 0 !important;
+    margin-left: auto;
+    margin-right: auto;                  /* Ровное центрирование линии по сетке 1920 */
+    box-sizing: border-box;
+}
+
 /* ==========================================================================
    ГЛОБАЛЬНЫЙ СКВОЗНОЙ ХЕДДЕР (FIXED / БЕСКОНЕЧНЫЙ РЕЗИНОВЫЙ СКЕЙЛИНГ)
    ========================================================================== */
@@ -5957,12 +7246,12 @@ body {
 }
 
 #nav-other-1 {
-    background-color: #FFD600 !important;
+    background-color: #FFFFFF !important;
 }
 
 /* 1-я карточка на странице А-Денги */
 #nav-other-1 .slider-card-link:nth-child(1) {
-    background-color: #FFEB80 !important; /* Твой цвет для всей плашки */
+    background-color: #F2F2F2 !important; /* Твой цвет для всей плашки */
 }
 
 #nav-other-1 .slider-card-link:nth-child(1) .slider-card-title {
@@ -5981,7 +7270,7 @@ body {
 
 /* 2-я карточка на странице А-Денги */
 #nav-other-1 .slider-card-link:nth-child(2) {
-    background-color: #FFEB80 !important; /* Твой цвет для всей плашки */
+    background-color: #F2F2F2 !important; /* Твой цвет для всей плашки */
 }
 
 #nav-other-1 .slider-card-link:nth-child(2) .slider-card-title {
@@ -6000,7 +7289,7 @@ body {
 
 /* 3-я карточка на странице А-Денги */
 #nav-other-1 .slider-card-link:nth-child(3) {
-    background-color: #FFEB80 !important; /* Твой цвет для всей плашки */
+    background-color: #F2F2F2 !important; /* Твой цвет для всей плашки */
 }
 
 #nav-other-1 .slider-card-link:nth-child(3) .slider-card-title {
@@ -6019,7 +7308,7 @@ body {
 
 /* 4-я карточка на странице А-Денги */
 #nav-other-1 .slider-card-link:nth-child(4) {
-    background-color: #FFEB80 !important; /* Твой цвет для всей плашки */
+    background-color: #F2F2F2 !important; /* Твой цвет для всей плашки */
 }
 
 #nav-other-1 .slider-card-link:nth-child(4) .slider-card-title {
@@ -6038,7 +7327,7 @@ body {
 
 /*5-я карточка на странице А-Денги */
 #nav-other-1 .slider-card-link:nth-child(5) {
-    background-color: #FFEB80 !important; /* Твой цвет для всей плашки */
+    background-color: #F2F2F2 !important; /* Твой цвет для всей плашки */
 }
 
 #nav-other-1 .slider-card-link:nth-child(5) .slider-card-title {
@@ -6057,7 +7346,7 @@ body {
 
 /*6-я карточка на странице А-Денги */
 #nav-other-1 .slider-card-link:nth-child(6) {
-    background-color: #FFEB80 !important; /* Твой цвет для всей плашки */
+    background-color: #F2F2F2 !important; /* Твой цвет для всей плашки */
     display: none !important;
 }
 
