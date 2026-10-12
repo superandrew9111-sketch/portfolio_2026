@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Zaymer Kazakhstan — Portfolio</title>
     <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="responsive.css">
 </head>
 <body>
 
@@ -16,6 +17,12 @@
     <div class="header-wrapper-fluid">
         <div class="header-row">
             
+            <button class="header-menu-btn" type="button" aria-label="Меню" aria-expanded="false">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+
             <!-- Левая навигация -->
             <nav class="header-nav-main">
                 <a href="index.html#about" class="header-nav-link">About</a>
@@ -109,37 +116,51 @@
     <div class="zaymer-kz-wrapper-fluid-4">
         
         <div class="zaymer-kz-row-4">
-            
-            <div class="zaymer-kz-smm-box smm-1">
-                <img src="images/zaymer-kz-smm-1.png" alt="SMM Post 1" class="zaymer-kz-smm-img">
-            </div>
-            <div class="zaymer-kz-smm-box smm-2">
-                <img src="images/zaymer-kz-smm-2.png" alt="SMM Post 2" class="zaymer-kz-smm-img">
-            </div>
-            <div class="zaymer-kz-smm-box smm-3">
-                <img src="images/zaymer-kz-smm-3.png" alt="SMM Post 3" class="zaymer-kz-smm-img">
-            </div>
-            <div class="zaymer-kz-smm-box smm-4">
-                <img src="images/zaymer-kz-smm-4.png" alt="SMM Post 4" class="zaymer-kz-smm-img">
-            </div>
-            <div class="zaymer-kz-smm-box smm-5">
-                <img src="images/zaymer-kz-smm-5.png" alt="SMM Post 5" class="zaymer-kz-smm-img">
+
+            <div class="smm-band smm-band-pair">
+                <div class="zaymer-kz-smm-box smm-1">
+                    <img src="images/zaymer-kz-smm-1.png" alt="SMM Post 1" class="zaymer-kz-smm-img">
+                </div>
+                <div class="zaymer-kz-smm-box smm-2">
+                    <img src="images/zaymer-kz-smm-2.png" alt="SMM Post 2" class="zaymer-kz-smm-img">
+                </div>
             </div>
 
-            <div class="zaymer-kz-smm-box smm-6">
-                <img src="images/zaymer-kz-smm-6.png" alt="SMM Post 6" class="zaymer-kz-smm-img">
+            <div class="smm-band smm-band-side">
+                <div class="smm-stack">
+                    <div class="zaymer-kz-smm-box smm-3">
+                        <img src="images/zaymer-kz-smm-3.png" alt="SMM Post 3" class="zaymer-kz-smm-img">
+                    </div>
+                    <div class="zaymer-kz-smm-box smm-4">
+                        <img src="images/zaymer-kz-smm-4.png" alt="SMM Post 4" class="zaymer-kz-smm-img">
+                    </div>
+                </div>
+                <div class="zaymer-kz-smm-box smm-5">
+                    <img src="images/zaymer-kz-smm-5.png" alt="SMM Post 5" class="zaymer-kz-smm-img">
+                </div>
             </div>
-            <div class="zaymer-kz-smm-box smm-7">
-                <img src="images/zaymer-kz-smm-7.png" alt="SMM Post 7" class="zaymer-kz-smm-img">
+
+            <div class="smm-band smm-band-pair">
+                <div class="zaymer-kz-smm-box smm-6">
+                    <img src="images/zaymer-kz-smm-6.png" alt="SMM Post 6" class="zaymer-kz-smm-img">
+                </div>
+                <div class="zaymer-kz-smm-box smm-7">
+                    <img src="images/zaymer-kz-smm-7.png" alt="SMM Post 7" class="zaymer-kz-smm-img">
+                </div>
             </div>
-            <div class="zaymer-kz-smm-box smm-8">
-                <img src="images/zaymer-kz-smm-8.png" alt="SMM Post 8" class="zaymer-kz-smm-img">
-            </div>
-            <div class="zaymer-kz-smm-box smm-9">
-                <img src="images/zaymer-kz-smm-9.png" alt="SMM Post 9" class="zaymer-kz-smm-img">
-            </div>
-            <div class="zaymer-kz-smm-box smm-10">
-                <img src="images/zaymer-kz-smm-10.png" alt="SMM Post 10" class="zaymer-kz-smm-img">
+
+            <div class="smm-band smm-band-side">
+                <div class="zaymer-kz-smm-box smm-8">
+                    <img src="images/zaymer-kz-smm-8.png" alt="SMM Post 8" class="zaymer-kz-smm-img">
+                </div>
+                <div class="smm-stack">
+                    <div class="zaymer-kz-smm-box smm-9">
+                        <img src="images/zaymer-kz-smm-9.png" alt="SMM Post 9" class="zaymer-kz-smm-img">
+                    </div>
+                    <div class="zaymer-kz-smm-box smm-10">
+                        <img src="images/zaymer-kz-smm-10.png" alt="SMM Post 10" class="zaymer-kz-smm-img">
+                    </div>
+                </div>
             </div>
 
             <p class="zaymer-kz-smm-caption" data-ru="Пример SMM-поста" data-en="Social Media Post Example">Пример SMM-поста</p>
@@ -401,5 +422,6 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 </script>
 
+<script src="script.js"></script>
 </body>
 </html>

@@ -19,4 +19,28 @@ document.addEventListener('DOMContentLoaded', () => {
     // Запуск при загрузке и изменении размера окна
     resizePortfolio();
     window.addEventListener('resize', resizePortfolio);
+
+    const header = document.querySelector('.site-header-fixed');
+    const menuButton = document.querySelector('.header-menu-btn');
+    const menuNav = document.querySelector('.header-nav-main');
+
+    if (header && menuButton && menuNav) {
+        const closeMenu = () => {
+            header.classList.remove('menu-open');
+            menuButton.setAttribute('aria-expanded', 'false');
+        };
+
+        menuButton.addEventListener('click', () => {
+            const open = header.classList.toggle('menu-open');
+            menuButton.setAttribute('aria-expanded', open ? 'true' : 'false');
+        });
+
+        menuNav.querySelectorAll('a').forEach((link) => {
+            link.addEventListener('click', closeMenu);
+        });
+
+        window.addEventListener('resize', () => {
+            if (window.innerWidth >= 768) closeMenu();
+        });
+    }
 });

@@ -2,10 +2,11 @@
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Kurlaev Andrew — Senior Communication Designer</title>
     
     <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="responsive.css">
     
     <style>
         /* Базовые системные сбросы, чтобы страница не прыгала до прогрузки основного CSS */
@@ -17,6 +18,22 @@
             overflow-x: hidden;
             -webkit-font-smoothing: antialiased;
             -moz-osx-font-smoothing: grayscale;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        #about,
+        #cases,
+        #skills {
+            scroll-margin-top: 96px;
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            html {
+                scroll-behavior: auto;
+            }
         }
     </style>
 </head>
@@ -40,6 +57,12 @@
     <div class="header-wrapper-fluid">
         <div class="header-row">
             
+            <button class="header-menu-btn" type="button" aria-label="Меню" aria-expanded="false">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+
             <!-- Левая навигация -->
             <nav class="header-nav-main">
                 <a href="#about" class="header-nav-link active">About</a>
@@ -594,5 +617,6 @@ document.addEventListener('DOMContentLoaded', () => {
     })();
 </script>
 
+<script src="script.js"></script>
 </body>
 </html>
