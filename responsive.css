@@ -1,0 +1,787 @@
+/* ==========================================================================
+   Адаптив ниже 1200px. Десктопный артборд в styles.css не меняется.
+   ========================================================================== */
+
+.header-menu-btn {
+    display: none;
+    width: 44px;
+    height: 44px;
+    padding: 0;
+    border: 0;
+    background: transparent;
+    cursor: pointer;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+    flex-shrink: 0;
+}
+
+.header-menu-btn span {
+    display: block;
+    width: 18px;
+    height: 2px;
+    background: #111111;
+    border-radius: 1px;
+}
+
+@media (max-width: 1199px) {
+    html,
+    body {
+        overflow-x: clip !important;
+        max-width: 100% !important;
+    }
+
+    body {
+        width: 100% !important;
+    }
+
+    section[id] {
+        scroll-margin-top: 76px;
+    }
+
+    /* --- Сброс артборда: секции растут по контенту --- */
+    section:not(.cases-slider-section) {
+        width: 100% !important;
+        max-width: 100% !important;
+        height: auto !important;
+        min-height: 0 !important;
+        padding: clamp(36px, 6vw, 72px) clamp(20px, 4vw, 40px) !important;
+        overflow: visible !important;
+        box-sizing: border-box !important;
+    }
+
+    section:not(.cases-slider-section) :is(div, h1, h2, h3, p, ul, ol, li, nav, span, a, button, img):not([hidden]) {
+        position: relative !important;
+        inset: auto !important;
+        top: auto !important;
+        right: auto !important;
+        bottom: auto !important;
+        left: auto !important;
+        width: auto !important;
+        max-width: 100% !important;
+        height: auto !important;
+        min-height: 0 !important;
+        min-width: 0 !important;
+        transform: none !important;
+        margin-left: 0 !important;
+        margin-right: 0 !important;
+        white-space: normal !important;
+    }
+
+    section:not(.cases-slider-section) div:not([hidden]) {
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: stretch !important;
+        gap: 16px !important;
+        box-sizing: border-box !important;
+    }
+
+    section:not(.cases-slider-section) > div,
+    section:not(.cases-slider-section) div[class*="wrapper"],
+    section:not(.cases-slider-section) div[class*="row"],
+    section:not(.cases-slider-section) div[class*="content"] {
+        width: 100% !important;
+        height: auto !important;
+        padding: 0 !important;
+    }
+
+    section:not(.cases-slider-section) img:not([hidden]) {
+        display: block !important;
+        width: 100% !important;
+        max-width: 100% !important;
+        height: auto !important;
+        object-fit: contain !important;
+    }
+
+    section:not(.cases-slider-section) br {
+        display: none !important;
+    }
+
+    section:not(.cases-slider-section) :is(h1, h2, [class*="title"]):not([hidden]) {
+        font-size: clamp(28px, 4.6vw, 52px) !important;
+        line-height: 1.15 !important;
+        letter-spacing: 0 !important;
+        margin: 0 !important;
+    }
+
+    section:not(.cases-slider-section) :is(h3, p, li, [class*="lead"], [class*="desc"], [class*="subtitle"], [class*="caption"]):not([hidden]) {
+        font-size: clamp(16px, 2.1vw, 20px) !important;
+        line-height: 1.45 !important;
+        letter-spacing: 0.01em !important;
+        margin: 0 !important;
+    }
+
+    /* Декор, который на узком экране только раздувает секцию */
+    .unamolia-pattern-bg,
+    .zaymer-about-svg-rect,
+    .zaymer-kz-svg-decor-big,
+    .zaymer-kz-mini-decor,
+    .tbank-bg-gradient-wrap {
+        display: none !important;
+    }
+
+    /* --- Шапка --- */
+    .site-header-fixed {
+        width: 100% !important;
+        max-width: 100% !important;
+        height: 64px !important;
+        padding-top: 0 !important;
+    }
+
+    .header-wrapper-fluid {
+        position: relative !important;
+        top: auto !important;
+        left: auto !important;
+        width: 100% !important;
+        height: 100% !important;
+        padding: 0 20px !important;
+        display: flex !important;
+        align-items: center !important;
+    }
+
+    .header-row {
+        position: relative !important;
+        display: flex !important;
+        align-items: center !important;
+        justify-content: space-between !important;
+        gap: 16px !important;
+        width: 100% !important;
+        height: auto !important;
+    }
+
+    .header-nav-main,
+    .header-nav-lang {
+        position: static !important;
+        width: auto !important;
+        height: auto !important;
+        top: auto !important;
+        left: auto !important;
+        right: auto !important;
+        gap: 14px !important;
+    }
+
+    .header-title-center {
+        position: absolute !important;
+        top: 50% !important;
+        left: 50% !important;
+        width: auto !important;
+        height: auto !important;
+        transform: translate(-50%, -50%) !important;
+        font-size: 14px !important;
+        line-height: 1.2 !important;
+        pointer-events: none !important;
+    }
+
+    .header-nav-link,
+    .header-lang-link {
+        font-size: 14px !important;
+        line-height: 1.2 !important;
+        white-space: nowrap !important;
+    }
+
+    .header-bottom-line {
+        top: auto !important;
+        bottom: 0 !important;
+        width: 100% !important;
+    }
+
+    /* --- Главная: герой --- */
+    section.section-hero-about {
+        padding-top: 96px !important;
+        background-color: #FFD600 !important;
+    }
+
+    section.section-hero-about .hero-row {
+        align-items: flex-start !important;
+        gap: 28px !important;
+    }
+
+    section.section-hero-about .hero-photo-block {
+        width: min(100%, 420px) !important;
+        height: auto !important;
+        margin-inline: auto !important;
+    }
+
+    section.section-hero-about .hero-img {
+        width: 100% !important;
+        height: auto !important;
+    }
+
+    section.section-hero-about .hero-text-block,
+    section.section-hero-about .hero-contacts-block,
+    section.section-hero-about .hero-description-p {
+        width: 100% !important;
+        height: auto !important;
+    }
+
+    section.section-hero-about .hero-subtitle-top {
+        font-size: clamp(18px, 2.4vw, 26px) !important;
+        margin-bottom: 12px !important;
+    }
+
+    section.section-hero-about .hero-contacts-block {
+        gap: 8px !important;
+    }
+
+    section.section-hero-about .hero-contact-item {
+        font-size: 16px !important;
+        white-space: normal !important;
+    }
+
+    section.section-hero-about .hero-contacts-actions:not([hidden]) {
+        flex-direction: row !important;
+        flex-wrap: wrap !important;
+        align-items: center !important;
+        gap: 12px !important;
+        width: 100% !important;
+        margin-top: 8px !important;
+    }
+
+    section.section-hero-about .contact-btn:not([hidden]) {
+        height: 44px !important;
+        line-height: 44px !important;
+        padding: 0 18px !important;
+        font-size: 16px !important;
+        border-radius: 22px !important;
+        letter-spacing: 0.03em !important;
+    }
+
+    section.section-hero-about .contact-btn::after {
+        bottom: 52px !important;
+        padding: 6px 10px !important;
+        font-size: 13px !important;
+        border-radius: 6px !important;
+    }
+
+    /* --- Главная: сетка кейсов --- */
+    section.section-cases-nav .cases-grid-row:not([hidden]) {
+        display: grid !important;
+        grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+        gap: 16px !important;
+        width: 100% !important;
+        height: auto !important;
+    }
+
+    section.section-cases-nav .case-card {
+        position: relative !important;
+        top: auto !important;
+        left: auto !important;
+        display: flex !important;
+        flex-direction: column !important;
+        width: 100% !important;
+        height: auto !important;
+        min-height: 0 !important;
+        border-radius: 24px !important;
+        overflow: hidden !important;
+        gap: 8px !important;
+    }
+
+    section.section-cases-nav .case-text-block,
+    section.section-cases-nav .text-block-89,
+    section.section-cases-nav .text-block-114 {
+        position: relative !important;
+        top: auto !important;
+        left: auto !important;
+        width: auto !important;
+        height: auto !important;
+        opacity: 1 !important;
+        transform: none !important;
+        padding: 20px 16px 0 !important;
+        align-items: center !important;
+    }
+
+    section.section-cases-nav .case-card:hover .case-text-block {
+        opacity: 1 !important;
+        transform: none !important;
+    }
+
+    section.section-cases-nav .case-title {
+        font-size: clamp(18px, 2.2vw, 26px) !important;
+        margin-bottom: 6px !important;
+    }
+
+    section.section-cases-nav .case-subtitle {
+        font-size: clamp(14px, 1.7vw, 18px) !important;
+    }
+
+    section.section-cases-nav .case-ill-container:not([hidden]),
+    section.section-cases-nav .case-card:hover .case-ill-container:not([hidden]) {
+        position: relative !important;
+        top: auto !important;
+        left: auto !important;
+        right: auto !important;
+        width: 100% !important;
+        height: 240px !important;
+        flex: 0 0 auto !important;
+    }
+
+    section.section-cases-nav .case-img:not([hidden]) {
+        width: 100% !important;
+        height: 100% !important;
+        object-fit: contain !important;
+    }
+
+    /* --- Главная: скиллы --- */
+    section.section-skills-about .skills-grid-row {
+        gap: 28px !important;
+    }
+
+    section.section-skills-about .skills-main-title {
+        position: relative !important;
+        top: auto !important;
+        left: auto !important;
+        width: auto !important;
+        height: auto !important;
+    }
+
+    section.section-skills-about .skills-cards-container:not([hidden]) {
+        position: relative !important;
+        top: auto !important;
+        display: grid !important;
+        grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+        gap: 16px !important;
+        width: 100% !important;
+        height: auto !important;
+    }
+
+    section.section-skills-about .skill-card,
+    section.section-skills-about .skillset-main-box {
+        width: 100% !important;
+        height: auto !important;
+        padding: 24px !important;
+        border-radius: 24px !important;
+        gap: 16px !important;
+    }
+
+    section.section-skills-about .skill-card-header:not([hidden]) {
+        flex-direction: row !important;
+        align-items: center !important;
+        gap: 12px !important;
+        margin-bottom: 8px !important;
+    }
+
+    section.section-skills-about .skill-icon-svg:not([hidden]),
+    section.section-skills-about .skill-icon-img:not([hidden]) {
+        width: 40px !important;
+        height: 40px !important;
+        margin-right: 0 !important;
+        flex: 0 0 40px !important;
+    }
+
+    section.section-skills-about .skill-card-title,
+    section.section-skills-about .skillset-title {
+        font-size: clamp(20px, 2.4vw, 28px) !important;
+    }
+
+    section.section-skills-about .skill-card-list {
+        gap: 10px !important;
+    }
+
+    section.section-skills-about .skill-card-list li {
+        font-size: 16px !important;
+        padding-left: 16px !important;
+    }
+
+    section.section-skills-about .skill-card-list li::before {
+        width: 6px !important;
+        height: 6px !important;
+        top: 0.5em !important;
+    }
+
+    section.section-skills-about .skillset-tags-grid:not([hidden]) {
+        flex-direction: row !important;
+        flex-wrap: wrap !important;
+        gap: 10px !important;
+    }
+
+    section.section-skills-about .tag:not([hidden]) {
+        font-size: 15px !important;
+        padding: 8px 14px !important;
+        border-radius: 16px !important;
+        white-space: nowrap !important;
+    }
+
+    /* --- Линии-футеры --- */
+    section.about-section-footer-line,
+    section.adengi-section-footer,
+    section.tbank-section-footer,
+    section.zaymer-section-line-1,
+    section.zaymer-kz-section-line-white,
+    section.unamolia-section-footer-line {
+        padding-top: 12px !important;
+        padding-bottom: 36px !important;
+    }
+
+    div[class*="divider-line"],
+    div[class*="footer-line"],
+    .block-divider-line {
+        width: 100% !important;
+        max-width: 100% !important;
+        height: 1px !important;
+        min-height: 1px !important;
+        display: block !important;
+        position: relative !important;
+        left: auto !important;
+        top: auto !important;
+        transform: none !important;
+    }
+
+    .divider-wrapper {
+        width: 100% !important;
+        max-width: 100% !important;
+        height: auto !important;
+        position: relative !important;
+        left: auto !important;
+        transform: none !important;
+        padding: 8px 20px 24px !important;
+        box-sizing: border-box !important;
+    }
+
+    /* --- Слайдер следующих проектов --- */
+    .cases-slider-section {
+        width: 100% !important;
+        max-width: 100% !important;
+        height: auto !important;
+        padding: 8px 0 32px !important;
+        overflow: hidden !important;
+        box-sizing: border-box !important;
+    }
+
+    .slider-track {
+        width: 100% !important;
+        max-width: 100% !important;
+        height: auto !important;
+        padding-left: 20px !important;
+        padding-right: 20px !important;
+        scroll-padding-left: 20px !important;
+        gap: 12px !important;
+        box-sizing: border-box !important;
+    }
+
+    .cases-slider-section .slider-card-link {
+        display: flex !important;
+        flex-direction: column !important;
+        width: min(70vw, 520px) !important;
+        height: auto !important;
+        min-height: 0 !important;
+        margin-right: 12px !important;
+        padding: 16px !important;
+        border-radius: 24px !important;
+        gap: 0 !important;
+    }
+
+    .cases-slider-section .slider-card-ill-container {
+        position: relative !important;
+        left: auto !important;
+        top: auto !important;
+        right: auto !important;
+        bottom: auto !important;
+        width: 100% !important;
+        height: 210px !important;
+        border-radius: 16px !important;
+        flex: 0 0 auto !important;
+    }
+
+    .cases-slider-section .slider-card-ill {
+        width: 100% !important;
+        height: 100% !important;
+        object-fit: cover !important;
+    }
+
+    .cases-slider-section .slider-card-link .slider-card-content {
+        position: relative !important;
+        left: auto !important;
+        top: auto !important;
+        right: auto !important;
+        bottom: auto !important;
+        width: 100% !important;
+        height: auto !important;
+        padding-top: 16px !important;
+        gap: 6px !important;
+    }
+
+    .cases-slider-section .slider-card-title {
+        font-size: 22px !important;
+        margin: 0 !important;
+    }
+
+    .cases-slider-section .slider-card-subtitle {
+        font-size: 16px !important;
+        letter-spacing: 0.02em !important;
+    }
+
+    .cases-slider-section .slider-card-action {
+        position: relative !important;
+        left: auto !important;
+        top: auto !important;
+        font-size: 14px !important;
+        margin-top: 16px !important;
+    }
+
+    /* --- Обложки кейсов --- */
+    section.adengi-cover-section,
+    section.zaymer-section-intro,
+    section.unamolia-section-intro,
+    section.main-cover,
+    section.zaymer-kz-section-intro,
+    section.other-screen {
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important;
+        justify-content: center !important;
+        gap: 16px !important;
+        min-height: 240px !important;
+        overflow: hidden !important;
+    }
+
+    section.adengi-cover-section,
+    section.zaymer-section-intro,
+    section.unamolia-section-intro {
+        aspect-ratio: 16 / 9 !important;
+        padding: 24px !important;
+    }
+
+    section.adengi-cover-section .adengi-logo-container:not([hidden]),
+    section.adengi-cover-section .adengi-main-logo:not([hidden]),
+    section.zaymer-section-intro .zaymer-intro-logo-block:not([hidden]),
+    section.zaymer-section-intro .zaymer-intro-logo:not([hidden]),
+    section.unamolia-section-intro .unamolia-logo-block:not([hidden]),
+    section.unamolia-section-intro .unamolia-logo-img:not([hidden]),
+    section.zaymer-kz-section-intro .zaymer-kz-logo-wrap:not([hidden]),
+    section.zaymer-kz-section-intro .zaymer-kz-main-logo:not([hidden]) {
+        width: min(78%, 560px) !important;
+        height: auto !important;
+        margin-inline: auto !important;
+    }
+
+    section.main-cover {
+        aspect-ratio: auto !important;
+        overflow: visible !important;
+        align-items: stretch !important;
+    }
+
+    section.main-cover .cover-side {
+        width: 100% !important;
+        align-items: center !important;
+        gap: 12px !important;
+    }
+
+    section.main-cover img:not([hidden]) {
+        width: min(80%, 420px) !important;
+        margin-inline: auto !important;
+    }
+
+    section.zaymer-kz-section-intro {
+        aspect-ratio: auto !important;
+        min-height: 280px !important;
+        overflow: visible !important;
+        text-align: center !important;
+    }
+
+    section.zaymer-kz-section-intro .zaymer-kz-country-title {
+        width: 100% !important;
+        text-align: center !important;
+    }
+
+    section.other-screen {
+        aspect-ratio: auto !important;
+        min-height: 70vh !important;
+        padding-top: 96px !important;
+        overflow: visible !important;
+        text-align: center !important;
+        background-color: #FFD600 !important;
+    }
+
+    section.other-screen .other-categories:not([hidden]) {
+        flex-direction: row !important;
+        flex-wrap: wrap !important;
+        justify-content: center !important;
+        gap: 8px !important;
+        width: 100% !important;
+    }
+
+    section.other-screen .other-contacts {
+        align-items: center !important;
+        width: 100% !important;
+    }
+
+    /* --- Экран шрифта A-Dengi --- */
+    section.adengi-section-dark .adengi-row-4 {
+        align-items: stretch !important;
+        gap: 20px !important;
+    }
+
+    section.adengi-section-dark .adengi-glyphs-column-4:not([hidden]),
+    section.adengi-section-dark .adengi-weights-column-4:not([hidden]) {
+        flex-direction: row !important;
+        flex-wrap: wrap !important;
+        align-items: center !important;
+        gap: 12px 20px !important;
+        width: 100% !important;
+    }
+
+    section.adengi-section-dark .adengi-hr-4,
+    section.adengi-section-dark .adengi-vr-4 {
+        width: 100% !important;
+        height: 1px !important;
+        min-height: 1px !important;
+        background: rgba(255, 255, 255, 0.22) !important;
+    }
+
+    section.adengi-section-dark .adengi-alpha-line,
+    section.adengi-section-dark .adengi-glyph-text,
+    section.adengi-section-dark .adengi-weight-item,
+    section.adengi-section-dark .adengi-nav-item-4 {
+        font-size: clamp(16px, 2.4vw, 24px) !important;
+        line-height: 1.35 !important;
+        white-space: normal !important;
+        overflow-wrap: anywhere !important;
+        height: auto !important;
+        width: auto !important;
+    }
+
+    section.adengi-section-dark .adengi-nav-4 {
+        gap: 8px !important;
+        width: 100% !important;
+    }
+
+    section.aksay-font-screen .type-glyph-big {
+        font-size: clamp(72px, 18vw, 140px) !important;
+        line-height: 1 !important;
+    }
+
+    section.aksay-font-screen .aksay-type-card {
+        width: 100% !important;
+        height: auto !important;
+        min-height: 0 !important;
+        padding: 24px !important;
+        align-items: flex-start !important;
+    }
+
+    /* --- Прелоадер --- */
+    #preloader-text {
+        left: 50% !important;
+        width: auto !important;
+        max-width: calc(100% - 32px) !important;
+        transform: translateX(-50%) !important;
+        font-size: clamp(16px, 4vw, 22px) !important;
+        text-align: center !important;
+    }
+}
+
+/* Планшет: галереи в две колонки, обложка Т-Банка в ряд */
+@media (min-width: 768px) and (max-width: 1199px) {
+    section:not(.cases-slider-section) :is(
+        .adengi-row-5,
+        .adengi-row-6,
+        .adengi-row-8,
+        .tbank-row-4,
+        .zaymer-row-5,
+        .zaymer-row-6,
+        .zaymer-row-8,
+        .zaymer-kz-row-4,
+        .zaymer-kz-row-4-new,
+        .unamolia-row-4,
+        .unamolia-row-9,
+        .unamolia-row-10,
+        .robocash-gallery-content,
+        .creditbar-gallery-content,
+        .satcredit-gallery-content,
+        .aksay-gallery-content
+    ):not([hidden]) {
+        display: grid !important;
+        grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+        gap: 16px !important;
+        width: 100% !important;
+        height: auto !important;
+        align-items: start !important;
+    }
+
+    .adengi-row-5 > p,
+    .adengi-row-6 > p,
+    .adengi-row-8 > p,
+    .tbank-row-4 > p,
+    .zaymer-row-5 > p,
+    .zaymer-row-6 > p,
+    .zaymer-row-8 > p,
+    .zaymer-kz-row-4 > p,
+    .unamolia-row-9 > .row1-full,
+    .unamolia-row-9 > .row5-full,
+    .zaymer-kz-row-4-new > .box-big {
+        grid-column: 1 / -1 !important;
+    }
+
+    section.main-cover {
+        flex-direction: row !important;
+        align-items: center !important;
+    }
+}
+
+@media (max-width: 767px) {
+    .header-menu-btn {
+        display: inline-flex !important;
+        position: relative !important;
+        z-index: 2 !important;
+    }
+
+    .site-header-fixed .header-title-center {
+        position: static !important;
+        transform: none !important;
+        flex: 1 1 auto !important;
+        text-align: left !important;
+        pointer-events: auto !important;
+        font-size: 14px !important;
+    }
+
+    .site-header-fixed .header-nav-main {
+        display: none !important;
+        position: absolute !important;
+        top: calc(100% + 8px) !important;
+        left: -20px !important;
+        width: calc(100% + 40px) !important;
+        height: auto !important;
+        flex-direction: column !important;
+        align-items: flex-start !important;
+        gap: 0 !important;
+        padding: 8px 20px 16px !important;
+        background: #ffffff !important;
+        -webkit-backdrop-filter: none !important;
+        backdrop-filter: none !important;
+        box-shadow: 0 16px 32px rgba(0, 0, 0, 0.08) !important;
+        z-index: 3 !important;
+    }
+
+    .site-header-fixed.menu-open .header-nav-main {
+        display: flex !important;
+    }
+
+    .site-header-fixed .header-nav-link {
+        font-size: 18px !important;
+        padding: 12px 0 !important;
+        width: 100% !important;
+    }
+
+    .site-header-fixed .header-nav-lang {
+        gap: 12px !important;
+    }
+
+    section.section-cases-nav .cases-grid-row:not([hidden]),
+    section.section-skills-about .skills-cards-container:not([hidden]) {
+        grid-template-columns: 1fr !important;
+    }
+
+    section.section-cases-nav .case-ill-container:not([hidden]),
+    section.section-cases-nav .case-card:hover .case-ill-container:not([hidden]) {
+        height: 220px !important;
+    }
+
+    .cases-slider-section .slider-card-link {
+        width: 86vw !important;
+    }
+
+    section.section-hero-about .contact-btn:not([hidden]) {
+        width: 100% !important;
+        text-align: center !important;
+    }
+}
