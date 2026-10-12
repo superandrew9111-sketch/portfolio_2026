@@ -23,6 +23,8 @@
     height: 2px;
     background: #111111;
     border-radius: 1px;
+    transform-origin: center;
+    transition: transform 0.32s cubic-bezier(0.2, 0.8, 0.2, 1), opacity 0.2s ease;
 }
 
 @media (max-width: 1199px) {
@@ -105,20 +107,102 @@
         margin: 0 !important;
     }
 
-    section:not(.cases-slider-section) :is(h3, p, li, [class*="lead"], [class*="desc"], [class*="subtitle"], [class*="caption"]):not([hidden]) {
+    section:not(.cases-slider-section) :is(h3, p, li, [class*="lead"], [class*="desc"], [class*="subtitle"], [class*="caption"], .unamolia-task-item, .unamolia-results-item, .zaymer-kz-task-item, .zaymer-kz-result-item):not([hidden]) {
         font-size: clamp(16px, 2.1vw, 20px) !important;
         line-height: 1.45 !important;
         letter-spacing: 0.01em !important;
         margin: 0 !important;
     }
 
-    /* Декор, который на узком экране только раздувает секцию */
-    .unamolia-pattern-bg,
-    .zaymer-about-svg-rect,
-    .zaymer-kz-svg-decor-big,
-    .zaymer-kz-mini-decor,
-    .tbank-bg-gradient-wrap {
+    section:not(.cases-slider-section) :is(.unamolia-task-item, .unamolia-results-item):not([hidden]) {
+        margin-bottom: 12px !important;
+        padding-left: 18px !important;
+    }
+
+    section:not(.cases-slider-section) :is(.zaymer-kz-task-item, .zaymer-kz-result-item):not([hidden]) {
+        margin-bottom: 12px !important;
+    }
+
+    section:not(.cases-slider-section) :is(.zaymer-kz-task-item, .zaymer-kz-result-item):last-child:not([hidden]) {
+        margin-bottom: 0 !important;
+    }
+
+    section:not(.cases-slider-section) :is(.unamolia-task-item, .unamolia-results-item):not([hidden])::before {
+        font-size: 1em !important;
+        line-height: 1.45 !important;
+    }
+
+    /* Блок «Цель коллаборации»: пропорция артборда сжимала секцию и накладывала картинку на текст */
+    section.collab-section-fluid {
+        aspect-ratio: auto !important;
+        height: auto !important;
+        display: block !important;
+        overflow: visible !important;
+    }
+
+    section.collab-section-fluid :is(.collab-wrapper-fluid, .collab-row, .collab-col-text, .collab-col-ill):not([hidden]) {
+        aspect-ratio: auto !important;
+        width: 100% !important;
+        height: auto !important;
+    }
+
+    section.collab-section-fluid .collab-fluid-img:not([hidden]) {
+        width: min(100%, 420px) !important;
+        height: auto !important;
+        margin-inline: auto !important;
+        object-fit: contain !important;
+    }
+
+    /* Декор, который на узком экране только раздувает секцию.
+       Селектор сильнее общего display:flex, иначе none не срабатывает. */
+    section:not(.cases-slider-section) :is(
+        .zaymer-about-svg-rect,
+        .tbank-bg-gradient-wrap
+    ):not([hidden]) {
         display: none !important;
+    }
+
+    /* Zaymer RU «О продукте»: текст, затем телефон без пустого поля слева */
+    section.zaymer-section-about .zaymer-about-text-block:not([hidden]) {
+        order: -1 !important;
+        width: 100% !important;
+        height: auto !important;
+    }
+
+    section.zaymer-section-about .zaymer-about-ill-block:not([hidden]) {
+        width: min(100%, 420px) !important;
+        height: auto !important;
+        align-self: flex-end !important;
+        margin-top: 0 !important;
+        margin-left: auto !important;
+        margin-right: calc(clamp(20px, 4vw, 40px) * -1) !important;
+        margin-bottom: calc(clamp(36px, 6vw, 72px) * -1) !important;
+        overflow: hidden !important;
+    }
+
+    section.zaymer-section-about .zaymer-about-img:not([hidden]) {
+        width: 152% !important;
+        max-width: none !important;
+        height: auto !important;
+        margin-left: -52% !important;
+        object-fit: contain !important;
+    }
+
+    /* Zaymer RU шоукейс: без вертикальных отступов, верх картинки на зелёном блоке */
+    section#zaymer-ru-3 {
+        padding-top: 0 !important;
+        padding-bottom: 0 !important;
+        margin-top: 0 !important;
+        margin-bottom: 0 !important;
+        overflow: visible !important;
+        z-index: 16 !important;
+    }
+
+    section#zaymer-ru-3 .zaymer-showcase-ill-block:not([hidden]) {
+        margin-top: clamp(-96px, 0vw, -48px) !important;
+        margin-bottom: 0 !important;
+        overflow: visible !important;
+        z-index: 2 !important;
     }
 
     /* --- Шапка --- */
@@ -188,6 +272,12 @@
 
     /* --- Главная: герой --- */
     section.section-hero-about {
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important;
+        justify-content: center !important;
+        min-height: 100vh !important;
+        min-height: 100dvh !important;
         padding-top: 96px !important;
         background-color: #FFD600 !important;
     }
@@ -312,14 +402,19 @@
         left: auto !important;
         right: auto !important;
         width: 100% !important;
-        height: 240px !important;
+        height: 260px !important;
         flex: 0 0 auto !important;
+        box-sizing: border-box !important;
+        padding: 8px 20px 28px !important;
+        overflow: hidden !important;
     }
 
     section.section-cases-nav .case-img:not([hidden]) {
         width: 100% !important;
         height: 100% !important;
         object-fit: contain !important;
+        object-position: center center !important;
+        transform: none !important;
     }
 
     /* --- Главная: скиллы --- */
@@ -462,7 +557,7 @@
     .cases-slider-section .slider-card-link {
         display: flex !important;
         flex-direction: column !important;
-        width: min(70vw, 520px) !important;
+        width: calc(100vw - 92px) !important;
         height: auto !important;
         min-height: 0 !important;
         margin-right: 12px !important;
@@ -478,7 +573,8 @@
         right: auto !important;
         bottom: auto !important;
         width: 100% !important;
-        height: 210px !important;
+        height: auto !important;
+        aspect-ratio: 276 / 402 !important;
         border-radius: 16px !important;
         flex: 0 0 auto !important;
     }
@@ -519,7 +615,7 @@
         margin-top: 16px !important;
     }
 
-    /* --- Обложки кейсов --- */
+    /* --- Обложки кейсов: первый экран на всю высоту, контент по центру --- */
     section.adengi-cover-section,
     section.zaymer-section-intro,
     section.unamolia-section-intro,
@@ -530,16 +626,15 @@
         flex-direction: column !important;
         align-items: center !important;
         justify-content: center !important;
-        gap: 16px !important;
-        min-height: 240px !important;
-        overflow: hidden !important;
-    }
-
-    section.adengi-cover-section,
-    section.zaymer-section-intro,
-    section.unamolia-section-intro {
-        aspect-ratio: 16 / 9 !important;
+        box-sizing: border-box !important;
+        height: 100vh !important;
+        height: 100dvh !important;
+        min-height: 100vh !important;
+        min-height: 100dvh !important;
+        aspect-ratio: auto !important;
         padding: 24px !important;
+        gap: 16px !important;
+        overflow: hidden !important;
     }
 
     section.adengi-cover-section .adengi-logo-container:not([hidden]),
@@ -555,55 +650,404 @@
         margin-inline: auto !important;
     }
 
-    section.main-cover {
-        aspect-ratio: auto !important;
-        overflow: visible !important;
-        align-items: stretch !important;
-    }
-
-    section.main-cover .cover-side {
+    section.unamolia-section-intro .unamolia-pattern-bg:not([hidden]) {
+        display: block !important;
+        position: absolute !important;
+        inset: 0 !important;
         width: 100% !important;
-        align-items: center !important;
-        gap: 12px !important;
+        height: 100% !important;
+        margin: 0 !important;
+        z-index: 0 !important;
+        pointer-events: none !important;
+        overflow: hidden !important;
     }
 
-    section.main-cover img:not([hidden]) {
-        width: min(80%, 420px) !important;
+    section.unamolia-section-intro .unamolia-pattern-svg:not([hidden]) {
+        position: absolute !important;
+        inset: 0 !important;
+        width: 100% !important;
+        height: 100% !important;
+        max-width: none !important;
+        object-fit: cover !important;
+    }
+
+    section.unamolia-section-intro .unamolia-wrapper-fluid-1:not([hidden]) {
+        position: relative !important;
+        z-index: 1 !important;
+        width: 100% !important;
+        height: auto !important;
+    }
+
+    section.main-cover {
+        align-items: stretch !important;
+        justify-content: stretch !important;
+        gap: 0 !important;
+        padding: 0 !important;
+    }
+
+    section.main-cover .cover-side:not([hidden]) {
+        position: relative !important;
+        flex: 1 1 50% !important;
+        width: 100% !important;
+        height: auto !important;
+        min-height: 0 !important;
+        align-items: center !important;
+        justify-content: flex-start !important;
+        gap: 0 !important;
+        padding: 72px 24px 16px !important;
+        overflow: hidden !important;
+    }
+
+    section.main-cover .cover-left:not([hidden]) {
+        padding: 80px 24px 0 !important;
+    }
+
+    section.main-cover .cover-right:not([hidden]) {
+        justify-content: flex-end !important;
+        padding: 0 24px 28px !important;
+    }
+
+    section.main-cover :is(.logo-t-bank, .logo-zaymer):not([hidden]) {
+        position: relative !important;
+        z-index: 1 !important;
+        width: min(62%, 260px) !important;
+        max-width: 260px !important;
+        height: auto !important;
         margin-inline: auto !important;
+        object-fit: contain !important;
+    }
+
+    section.main-cover .ill-t-bank-1:not([hidden]) {
+        position: absolute !important;
+        top: auto !important;
+        right: 0 !important;
+        bottom: 0 !important;
+        left: auto !important;
+        width: auto !important;
+        max-width: 87.5% !important;
+        height: auto !important;
+        max-height: calc(100% - 190px) !important;
+        margin: 0 !important;
+        object-fit: contain !important;
+        z-index: 0 !important;
+    }
+
+    section.main-cover .ill-zaymer-2:not([hidden]) {
+        position: absolute !important;
+        top: 0 !important;
+        right: auto !important;
+        bottom: auto !important;
+        left: 50% !important;
+        width: auto !important;
+        max-width: 75% !important;
+        height: auto !important;
+        max-height: calc(100% - 150px) !important;
+        margin: 0 !important;
+        transform: translateX(-50%) !important;
+        object-fit: contain !important;
+        z-index: 0 !important;
     }
 
     section.zaymer-kz-section-intro {
-        aspect-ratio: auto !important;
-        min-height: 280px !important;
-        overflow: visible !important;
         text-align: center !important;
     }
 
-    section.zaymer-kz-section-intro .zaymer-kz-country-title {
+    section.zaymer-kz-section-intro .zaymer-kz-wrapper-fluid-1:not([hidden]) {
+        position: absolute !important;
+        inset: 0 !important;
         width: 100% !important;
+        height: 100% !important;
+        margin: 0 !important;
+        padding: 0 !important;
+    }
+
+    section.zaymer-kz-section-intro .zaymer-kz-row-1:not([hidden]) {
+        position: relative !important;
+        width: 100% !important;
+        height: 100% !important;
+        display: flex !important;
+        flex-flow: row wrap !important;
+        align-items: center !important;
+        align-content: center !important;
+        justify-content: center !important;
+        gap: 12px !important;
+        margin: 0 !important;
+        padding: 0 !important;
+    }
+
+    section.zaymer-kz-section-intro .zaymer-kz-logo-wrap:not([hidden]) {
+        position: relative !important;
+        flex: 0 0 100% !important;
+        width: 100% !important;
+        z-index: 2 !important;
+    }
+
+    section.zaymer-kz-section-intro .zaymer-kz-svg-decor-big:not([hidden]) {
+        display: block !important;
+        position: absolute !important;
+        top: 0 !important;
+        right: auto !important;
+        bottom: auto !important;
+        left: 0 !important;
+        width: 0 !important;
+        height: 0 !important;
+        margin: 0 !important;
+        padding: 0 !important;
+        overflow: visible !important;
+        z-index: 1 !important;
+        pointer-events: none !important;
+    }
+
+    section.zaymer-kz-section-intro .zaymer-kz-svg-decor-big .zaymer-kz-svg-img:not([hidden]) {
+        position: absolute !important;
+        top: -23.6vw !important;
+        left: 77.4vw !important;
+        width: 46.875vw !important;
+        height: 46.875vw !important;
+        max-width: none !important;
+        margin: 0 !important;
+        object-fit: contain !important;
+    }
+
+    section.zaymer-kz-section-intro .zaymer-kz-mini-decor:not([hidden]) {
+        display: block !important;
+        position: relative !important;
+        top: auto !important;
+        right: auto !important;
+        bottom: auto !important;
+        left: auto !important;
+        flex: 0 0 auto !important;
+        width: clamp(10px, 2.6vw, 16px) !important;
+        height: clamp(10px, 2.6vw, 16px) !important;
+        margin: 0 !important;
+        z-index: 2 !important;
+    }
+
+    section.zaymer-kz-section-intro .zaymer-kz-mini-decor .zaymer-kz-svg-img:not([hidden]) {
+        width: 100% !important;
+        height: 100% !important;
+        max-width: none !important;
+        object-fit: contain !important;
+    }
+
+    section.zaymer-kz-section-intro h1.zaymer-kz-country-title:not([hidden]) {
+        position: relative !important;
+        flex: 0 0 auto !important;
+        width: auto !important;
+        margin: 0 !important;
+        font-size: clamp(22px, 6.4vw, 40px) !important;
+        font-weight: 300 !important;
+        line-height: 1.2 !important;
+        letter-spacing: 0.15em !important;
+        color: #ffffff !important;
+        opacity: 0.75 !important;
         text-align: center !important;
+        z-index: 2 !important;
+    }
+
+    section.zaymer-kz-section-goal .zaymer-kz-goal-ill-block:not([hidden]) {
+        align-self: flex-end !important;
+        width: calc(100% + clamp(20px, 4vw, 40px)) !important;
+        max-width: none !important;
+        margin-left: 0 !important;
+        margin-right: calc(clamp(20px, 4vw, 40px) * -1) !important;
+    }
+
+    section.zaymer-kz-section-goal .zaymer-kz-goal-img:not([hidden]) {
+        width: 100% !important;
+        max-width: none !important;
+        height: auto !important;
+        object-fit: contain !important;
+    }
+
+    /* Сетка SMM: крупные карточки парами, мелкие остаются узкой колонкой */
+    section.zaymer-kz-section-smm .zaymer-kz-row-4:not([hidden]) {
+        position: relative !important;
+        display: flex !important;
+        flex-direction: column !important;
+        gap: 12px !important;
+        width: 100% !important;
+        height: auto !important;
+        aspect-ratio: auto !important;
+        margin: 0 !important;
+        padding: 0 !important;
+    }
+
+    section.zaymer-kz-section-smm .smm-band:not([hidden]) {
+        display: flex !important;
+        flex-direction: row !important;
+        align-items: stretch !important;
+        gap: 10px !important;
+        width: 100% !important;
+        height: auto !important;
+        margin: 0 !important;
+        padding: 0 !important;
+    }
+
+    section.zaymer-kz-section-smm .smm-stack:not([hidden]) {
+        display: flex !important;
+        flex-direction: column !important;
+        justify-content: flex-start !important;
+        gap: 10px !important;
+        flex: 0 0 clamp(88px, 22%, 120px) !important;
+        width: clamp(88px, 22%, 120px) !important;
+        height: auto !important;
+        margin: 0 !important;
+        padding: 0 !important;
+    }
+
+    section.zaymer-kz-section-smm .zaymer-kz-smm-box:not([hidden]) {
+        position: relative !important;
+        top: auto !important;
+        right: auto !important;
+        bottom: auto !important;
+        left: auto !important;
+        margin: 0 !important;
+        overflow: hidden !important;
+    }
+
+    section.zaymer-kz-section-smm .smm-band-pair .zaymer-kz-smm-box:not([hidden]) {
+        flex: 1 1 0 !important;
+        width: auto !important;
+        min-width: 0 !important;
+        height: auto !important;
+        aspect-ratio: 390 / 510 !important;
+    }
+
+    section.zaymer-kz-section-smm .smm-stack .zaymer-kz-smm-box:not([hidden]) {
+        flex: 0 0 auto !important;
+        width: 100% !important;
+        height: auto !important;
+        aspect-ratio: 180 / 240 !important;
+    }
+
+    section.zaymer-kz-section-smm .smm-band-side > .zaymer-kz-smm-box:not([hidden]) {
+        flex: 1 1 auto !important;
+        width: auto !important;
+        min-width: 0 !important;
+        height: auto !important;
+        align-self: stretch !important;
+        aspect-ratio: auto !important;
+    }
+
+    section.zaymer-kz-section-smm .smm-band-pair .zaymer-kz-smm-img:not([hidden]),
+    section.zaymer-kz-section-smm .smm-stack .zaymer-kz-smm-img:not([hidden]) {
+        width: 100% !important;
+        height: 100% !important;
+        max-width: none !important;
+        object-fit: contain !important;
+    }
+
+    section.zaymer-kz-section-smm .smm-band-side > .zaymer-kz-smm-box .zaymer-kz-smm-img:not([hidden]) {
+        position: absolute !important;
+        inset: 0 !important;
+        width: 100% !important;
+        height: 100% !important;
+        max-width: none !important;
+        object-fit: cover !important;
+        object-position: center !important;
+    }
+
+    section.zaymer-kz-section-smm .zaymer-kz-smm-caption:not([hidden]) {
+        position: relative !important;
+        top: auto !important;
+        right: auto !important;
+        bottom: auto !important;
+        left: auto !important;
+        width: 100% !important;
+        margin: 0 !important;
     }
 
     section.other-screen {
-        aspect-ratio: auto !important;
-        min-height: 70vh !important;
-        padding-top: 96px !important;
-        overflow: visible !important;
-        text-align: center !important;
+        position: relative !important;
+        display: block !important;
+        width: 100% !important;
+        margin: 0 !important;
+        padding: 0 !important;
+        gap: 0 !important;
+        text-align: left !important;
         background-color: #FFD600 !important;
+        overflow: hidden !important;
     }
 
     section.other-screen .other-categories:not([hidden]) {
+        position: absolute !important;
+        top: 88px !important;
+        right: auto !important;
+        bottom: auto !important;
+        left: 24px !important;
+        display: flex !important;
         flex-direction: row !important;
         flex-wrap: wrap !important;
-        justify-content: center !important;
+        justify-content: flex-start !important;
+        align-items: center !important;
         gap: 8px !important;
-        width: 100% !important;
+        width: calc(100% - 48px) !important;
+        margin: 0 !important;
+        font-size: 14px !important;
+        line-height: 1.3 !important;
+        color: #555555 !important;
+        white-space: normal !important;
     }
 
-    section.other-screen .other-contacts {
-        align-items: center !important;
-        width: 100% !important;
+    section.other-screen h1.other-main-title:not([hidden]) {
+        position: absolute !important;
+        top: 50% !important;
+        right: auto !important;
+        bottom: auto !important;
+        left: 50% !important;
+        width: calc(100% - 40px) !important;
+        margin: 0 !important;
+        transform: translate(-50%, -50%) !important;
+        font-size: clamp(40px, 11vw, 80px) !important;
+        font-weight: 400 !important;
+        line-height: 1.1 !important;
+        letter-spacing: 0.02em !important;
+        text-align: center !important;
+        color: #111111 !important;
+        white-space: normal !important;
+    }
+
+    section.other-screen .other-presentation:not([hidden]) {
+        position: absolute !important;
+        top: auto !important;
+        right: auto !important;
+        bottom: 28px !important;
+        left: 24px !important;
+        width: auto !important;
+        max-width: 46% !important;
+        margin: 0 !important;
+        font-size: 14px !important;
+        line-height: 1.3 !important;
+        color: #555555 !important;
+        white-space: normal !important;
+    }
+
+    section.other-screen .other-contacts:not([hidden]) {
+        position: absolute !important;
+        top: auto !important;
+        right: 24px !important;
+        bottom: 28px !important;
+        left: auto !important;
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: flex-end !important;
+        gap: 8px !important;
+        width: auto !important;
+        max-width: 48% !important;
+        margin: 0 !important;
+        font-size: 14px !important;
+        line-height: 1.3 !important;
+        text-align: right !important;
+        color: #555555 !important;
+        white-space: normal !important;
+    }
+
+    section.other-screen .other-contact-item:not([hidden]) {
+        font-size: 14px !important;
+        line-height: 1.3 !important;
+        color: #555555 !important;
+        text-align: right !important;
     }
 
     /* --- Экран шрифта A-Dengi --- */
@@ -659,6 +1103,317 @@
         align-items: flex-start !important;
     }
 
+    /* UnaMolia: тень и маскот снова одним слоем, градиент финала тоже */
+    section.unamolia-section-mascot .unamolia-row-11:not([hidden]) {
+        position: relative !important;
+    }
+
+    section.unamolia-section-mascot .unamolia-mascot-ill-block:not([hidden]) {
+        position: relative !important;
+        z-index: 2 !important;
+        width: min(100%, 480px) !important;
+        margin-inline: auto !important;
+    }
+
+    section.unamolia-section-mascot .unamolia-mascot-shadow-block:not([hidden]) {
+        position: absolute !important;
+        top: auto !important;
+        bottom: -4px !important;
+        left: 50% !important;
+        width: min(48%, 230px) !important;
+        height: auto !important;
+        margin: 0 !important;
+        transform: translateX(-50%) !important;
+        z-index: 1 !important;
+        pointer-events: none !important;
+    }
+
+    section.unamolia-section-final .unamolia-row-12:not([hidden]) {
+        position: relative !important;
+    }
+
+    section.unamolia-section-final .unamolia-final-mascot-block:not([hidden]) {
+        position: relative !important;
+        z-index: 3 !important;
+        width: min(86%, 520px) !important;
+        margin-inline: auto !important;
+    }
+
+    section.unamolia-section-final .unamolia-final-grad.big-gradient:not([hidden]) {
+        position: absolute !important;
+        top: 0 !important;
+        bottom: 0 !important;
+        left: calc(clamp(20px, 4vw, 40px) * -1) !important;
+        width: calc(100% + clamp(20px, 4vw, 40px) * 2) !important;
+        max-width: none !important;
+        height: 100% !important;
+        margin: 0 !important;
+        z-index: 1 !important;
+        pointer-events: none !important;
+    }
+
+    section.unamolia-section-final .unamolia-final-grad.big-gradient .unamolia-final-img:not([hidden]) {
+        width: 100% !important;
+        height: 100% !important;
+        max-width: none !important;
+        object-fit: cover !important;
+        object-position: center bottom !important;
+    }
+
+    section.unamolia-section-final .unamolia-final-grad.mascot-shadow:not([hidden]) {
+        position: absolute !important;
+        top: auto !important;
+        bottom: -2% !important;
+        left: 50% !important;
+        width: min(78%, 460px) !important;
+        height: auto !important;
+        margin: 0 !important;
+        transform: translateX(-50%) !important;
+        z-index: 2 !important;
+        pointer-events: none !important;
+    }
+
+    /* Zaymer RU «Результаты»: градиент снова за иллюстрацией, а не отдельным рядом */
+    section.zaymer-section-result-955 .zaymer-row-11:not([hidden]) {
+        position: relative !important;
+    }
+
+    section.zaymer-section-result-955 .zaymer-result-grad-wrap:not([hidden]) {
+        position: absolute !important;
+        top: 0 !important;
+        bottom: 0 !important;
+        left: calc(clamp(20px, 4vw, 40px) * -1) !important;
+        width: calc(100% + clamp(20px, 4vw, 40px) * 2) !important;
+        max-width: none !important;
+        height: 100% !important;
+        margin: 0 !important;
+        z-index: 0 !important;
+        pointer-events: none !important;
+    }
+
+    section.zaymer-section-result-955 .zaymer-result-grad-img:not([hidden]) {
+        width: 100% !important;
+        height: 100% !important;
+        max-width: none !important;
+        object-fit: cover !important;
+        object-position: center !important;
+    }
+
+    section.zaymer-section-result-955 :is(.zaymer-result-title, .zaymer-result-ill-block, .zaymer-result-text-block):not([hidden]) {
+        position: relative !important;
+        z-index: 1 !important;
+    }
+
+    /* CreditBar: фон на всю секцию, текст и иллюстрация поверх */
+    section.creditbar-screen {
+        position: relative !important;
+        overflow: hidden !important;
+        background-color: #3A97EE !important;
+    }
+
+    section.creditbar-screen .creditbar-content:not([hidden]) {
+        position: relative !important;
+        width: 100% !important;
+        height: auto !important;
+        margin: 0 !important;
+        top: auto !important;
+    }
+
+    section.creditbar-screen .creditbar-bg-wrap:not([hidden]) {
+        position: absolute !important;
+        top: calc(clamp(36px, 6vw, 72px) * -1) !important;
+        bottom: calc(clamp(36px, 6vw, 72px) * -1) !important;
+        left: calc(clamp(20px, 4vw, 40px) * -1) !important;
+        width: calc(100% + clamp(20px, 4vw, 40px) * 2) !important;
+        max-width: none !important;
+        height: auto !important;
+        margin: 0 !important;
+        z-index: 0 !important;
+        pointer-events: none !important;
+    }
+
+    section.creditbar-screen .creditbar-bg-img:not([hidden]) {
+        width: 100% !important;
+        height: 100% !important;
+        max-width: none !important;
+        object-fit: cover !important;
+        object-position: left center !important;
+    }
+
+    section.creditbar-screen :is(.creditbar-illustration-wrap, .creditbar-text-block):not([hidden]) {
+        position: relative !important;
+        z-index: 1 !important;
+        width: 100% !important;
+        height: auto !important;
+        left: auto !important;
+        top: auto !important;
+    }
+
+    section.creditbar-screen .creditbar-main-img:not([hidden]) {
+        width: min(100%, 420px) !important;
+        height: auto !important;
+        margin-inline: auto !important;
+        object-fit: contain !important;
+    }
+
+    /* CreditBar SMM: картинка чуть шире колонки */
+    section.creditbar-smm-screen .creditbar-smm-wrap:not([hidden]) {
+        position: relative !important;
+        width: calc(100% + clamp(20px, 4vw, 40px) * 2) !important;
+        max-width: none !important;
+        height: auto !important;
+        margin-left: calc(clamp(20px, 4vw, 40px) * -1) !important;
+        margin-right: calc(clamp(20px, 4vw, 40px) * -1) !important;
+        top: auto !important;
+        left: auto !important;
+    }
+
+    section.creditbar-smm-screen .creditbar-smm-img:not([hidden]) {
+        width: 100% !important;
+        height: auto !important;
+        max-width: none !important;
+        object-fit: contain !important;
+    }
+
+    section.creditbar-smm-screen .creditbar-smm-caption:not([hidden]) {
+        position: relative !important;
+        bottom: auto !important;
+        left: auto !important;
+        margin-top: 12px !important;
+        font-size: 14px !important;
+        white-space: normal !important;
+    }
+
+    /* Аксай: подпись над своим логотипом, текст крупнее */
+    section.aksay-compare-screen .aksay-compare-content:not([hidden]) {
+        display: flex !important;
+        flex-direction: column !important;
+        gap: 10px !important;
+        width: 100% !important;
+        height: auto !important;
+        margin: 0 !important;
+    }
+
+    section.aksay-compare-screen .aksay-logo-tag:not([hidden]) {
+        position: relative !important;
+        top: auto !important;
+        left: auto !important;
+        width: 100% !important;
+        margin: 8px 0 0 !important;
+        font-size: 16px !important;
+        line-height: 1.3 !important;
+        letter-spacing: 0.04em !important;
+        color: #0C8CE9 !important;
+        white-space: normal !important;
+    }
+
+    section.aksay-compare-screen .aksay-tag-before:not([hidden]) {
+        order: 1 !important;
+    }
+
+    section.aksay-compare-screen .aksay-logo-before:not([hidden]) {
+        order: 2 !important;
+    }
+
+    section.aksay-compare-screen .aksay-tag-after:not([hidden]) {
+        order: 3 !important;
+    }
+
+    section.aksay-compare-screen .aksay-logo-after:not([hidden]) {
+        order: 4 !important;
+    }
+
+    section.aksay-compare-screen .aksay-logo-wrap:not([hidden]) {
+        position: relative !important;
+        top: auto !important;
+        left: auto !important;
+        width: 100% !important;
+        height: auto !important;
+    }
+
+    section.aksay-compare-screen .aksay-logo-img:not([hidden]) {
+        width: 100% !important;
+        height: auto !important;
+        object-fit: contain !important;
+    }
+
+    /* Аксай: картинка, подпись, стрелка вниз, вторая картинка и подпись */
+    section.aksay-closing-screen .aksay-closing-content:not([hidden]) {
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important;
+        gap: 12px !important;
+        width: 100% !important;
+        height: auto !important;
+        margin: 0 !important;
+    }
+
+    section.aksay-closing-screen .aksay-close-img-wrap:not([hidden]) {
+        position: relative !important;
+        top: auto !important;
+        left: auto !important;
+        width: 100% !important;
+        height: auto !important;
+    }
+
+    section.aksay-closing-screen .aksay-close-img-1:not([hidden]) {
+        order: 1 !important;
+    }
+
+    section.aksay-closing-screen .aksay-close-text-1:not([hidden]) {
+        order: 2 !important;
+    }
+
+    section.aksay-closing-screen .aksay-close-arrow:not([hidden]) {
+        order: 3 !important;
+        position: relative !important;
+        top: auto !important;
+        left: auto !important;
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        width: 48px !important;
+        height: 48px !important;
+        margin: 4px auto !important;
+        transform: none !important;
+    }
+
+    section.aksay-closing-screen .aksay-close-arrow svg {
+        width: 48px !important;
+        height: 12px !important;
+        transform: rotate(90deg) !important;
+    }
+
+    section.aksay-closing-screen .aksay-close-img-2:not([hidden]) {
+        order: 4 !important;
+    }
+
+    section.aksay-closing-screen .aksay-close-text-2:not([hidden]) {
+        order: 5 !important;
+    }
+
+    section.aksay-closing-screen .aksay-close-img-wrap img:not([hidden]) {
+        width: 100% !important;
+        height: auto !important;
+        object-fit: contain !important;
+    }
+
+    section.aksay-closing-screen .aksay-close-text:not([hidden]) {
+        position: relative !important;
+        top: auto !important;
+        left: auto !important;
+        width: 100% !important;
+        margin: 0 !important;
+        font-size: 16px !important;
+        line-height: 1.35 !important;
+        text-align: center !important;
+        color: #0C8CE9 !important;
+    }
+
+    section.aksay-closing-screen .aksay-close-text br {
+        display: block !important;
+    }
+
     /* --- Прелоадер --- */
     #preloader-text {
         left: 50% !important;
@@ -680,7 +1435,6 @@
         .zaymer-row-5,
         .zaymer-row-6,
         .zaymer-row-8,
-        .zaymer-kz-row-4,
         .zaymer-kz-row-4-new,
         .unamolia-row-4,
         .unamolia-row-9,
@@ -714,7 +1468,15 @@
 
     section.main-cover {
         flex-direction: row !important;
-        align-items: center !important;
+        align-items: stretch !important;
+    }
+
+    section.main-cover .cover-side:not([hidden]) {
+        width: auto !important;
+    }
+
+    section.main-cover .cover-left:not([hidden]) {
+        padding-top: 80px !important;
     }
 }
 
@@ -735,31 +1497,89 @@
     }
 
     .site-header-fixed .header-nav-main {
-        display: none !important;
+        display: flex !important;
         position: absolute !important;
-        top: calc(100% + 8px) !important;
+        top: 100% !important;
         left: -20px !important;
         width: calc(100% + 40px) !important;
         height: auto !important;
+        max-height: 0 !important;
         flex-direction: column !important;
         align-items: flex-start !important;
         gap: 0 !important;
-        padding: 8px 20px 16px !important;
+        padding: 0 20px !important;
+        overflow: hidden !important;
         background: #ffffff !important;
         -webkit-backdrop-filter: none !important;
         backdrop-filter: none !important;
-        box-shadow: 0 16px 32px rgba(0, 0, 0, 0.08) !important;
+        box-shadow: none !important;
         z-index: 3 !important;
+        opacity: 0 !important;
+        visibility: hidden !important;
+        pointer-events: none !important;
+        transform: translateY(-8px) !important;
+        transition:
+            max-height 0.34s cubic-bezier(0.2, 0.8, 0.2, 1),
+            opacity 0.22s ease,
+            transform 0.34s cubic-bezier(0.2, 0.8, 0.2, 1),
+            padding 0.34s cubic-bezier(0.2, 0.8, 0.2, 1),
+            box-shadow 0.34s ease,
+            visibility 0s linear 0.34s !important;
     }
 
     .site-header-fixed.menu-open .header-nav-main {
-        display: flex !important;
+        max-height: 240px !important;
+        padding: 8px 20px 16px !important;
+        opacity: 1 !important;
+        visibility: visible !important;
+        pointer-events: auto !important;
+        transform: translateY(0) !important;
+        box-shadow: 0 16px 32px rgba(0, 0, 0, 0.08) !important;
+        transition:
+            max-height 0.38s cubic-bezier(0.2, 0.8, 0.2, 1),
+            opacity 0.28s ease,
+            transform 0.38s cubic-bezier(0.2, 0.8, 0.2, 1),
+            padding 0.38s cubic-bezier(0.2, 0.8, 0.2, 1),
+            box-shadow 0.38s ease,
+            visibility 0s linear 0s !important;
+    }
+
+    .site-header-fixed.menu-open .header-menu-btn span:nth-child(1) {
+        transform: translateY(7px) rotate(45deg);
+    }
+
+    .site-header-fixed.menu-open .header-menu-btn span:nth-child(2) {
+        opacity: 0;
+    }
+
+    .site-header-fixed.menu-open .header-menu-btn span:nth-child(3) {
+        transform: translateY(-7px) rotate(-45deg);
     }
 
     .site-header-fixed .header-nav-link {
         font-size: 18px !important;
         padding: 12px 0 !important;
         width: 100% !important;
+        opacity: 0 !important;
+        transform: translateY(-8px) !important;
+        transition: opacity 0.22s ease, transform 0.22s ease, color 0.3s ease, font-weight 0.3s ease !important;
+    }
+
+    .site-header-fixed.menu-open .header-nav-link {
+        opacity: 1 !important;
+        transform: translateY(0) !important;
+    }
+
+    .site-header-fixed.menu-open .header-nav-link:nth-child(1) {
+        transition-delay: 0.06s !important;
+    }
+
+    .site-header-fixed.menu-open .header-nav-link:nth-child(2) {
+        transition-delay: 0.11s !important;
+    }
+
+    .site-header-fixed.menu-open .header-nav-link:nth-child(3) {
+        transition-delay: 0.16s !important;
     }
 
     .site-header-fixed .header-nav-lang {
@@ -773,15 +1593,27 @@
 
     section.section-cases-nav .case-ill-container:not([hidden]),
     section.section-cases-nav .case-card:hover .case-ill-container:not([hidden]) {
-        height: 220px !important;
+        height: 248px !important;
     }
 
     .cases-slider-section .slider-card-link {
-        width: 86vw !important;
+        width: calc(100vw - 92px) !important;
     }
 
     section.section-hero-about .contact-btn:not([hidden]) {
         width: 100% !important;
         text-align: center !important;
+    }
+
+    section#zaymer-ru-3 .zaymer-showcase-ill-block:not([hidden]) {
+        margin-top: -16px !important;
+    }
+}
+
+@media (max-width: 767px) and (prefers-reduced-motion: reduce) {
+    .site-header-fixed .header-nav-main,
+    .site-header-fixed .header-nav-link,
+    .header-menu-btn span {
+        transition: none !important;
     }
 }

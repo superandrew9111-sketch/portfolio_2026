@@ -19,6 +19,22 @@
             -webkit-font-smoothing: antialiased;
             -moz-osx-font-smoothing: grayscale;
         }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        #about,
+        #cases,
+        #skills {
+            scroll-margin-top: 96px;
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            html {
+                scroll-behavior: auto;
+            }
+        }
     </style>
 </head>
 <body>
