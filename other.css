@@ -1,0 +1,1473 @@
+/* ===========================
+   OTHER PROJECTS PAGE (.ot-)
+=========================== */
+:root {
+  --ot-gap-lg: clamp(24px, 3.125vw, 60px);
+  --ot-gap-sm: clamp(16px, 1.56vw, 30px);
+}
+
+/* ===========================
+   1. HERO
+=========================== */
+.ot-hero {
+  background: #FFD600;
+  height: 100vh;
+  max-height: 1080px;
+  min-height: 620px;
+  padding: clamp(48px, 6.25vw, 120px) 0;
+  display: flex;
+}
+
+.ot-hero__inner {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  flex: 1;
+}
+
+.ot-hero__tags {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+  font-size: 16px;
+  font-weight: 300;
+  line-height: 1.25;
+  color: var(--text-muted);
+}
+
+.ot-hero__title {
+  font-size: clamp(42px, 7.5vw, 144px);
+  font-weight: 400;
+  line-height: 1.25;
+  letter-spacing: 0.05em;
+  text-align: center;
+  color: #000000;
+  margin: auto 0;
+}
+
+.ot-hero__bottom {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 32px;
+  font-size: 16px;
+  font-weight: 300;
+  line-height: 1.25;
+  color: var(--text-muted);
+}
+
+.ot-hero__contacts {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 30px;
+}
+
+.ot-hero__contacts a {
+  transition: color 0.35s var(--ease-smooth);
+}
+
+.ot-hero__contacts a:hover {
+  color: var(--text-dark);
+}
+
+/* ===========================
+   DIVIDERS
+=========================== */
+.ot-divider {
+  padding: clamp(36px, 6.25vw, 120px) 0;
+}
+
+.ot-divider--rc {
+  background: #F9F9F9;
+}
+
+.ot-divider__line {
+  width: 100%;
+  height: 1px;
+  background: #555555;
+}
+
+/* ===========================
+   2. ROBOCASH INTRO
+=========================== */
+.ot-robocash-intro {
+  position: relative;
+  background: #F9F9F9;
+  padding: clamp(48px, 6.25vw, 120px) 0;
+  min-height: clamp(640px, 56.25vw, 1080px);
+  overflow: hidden;
+}
+
+.ot-robocash-intro__container {
+  position: relative;
+  z-index: 2;
+}
+
+.ot-robocash-intro__text {
+  max-width: min(816px, 48.57%);
+  display: flex;
+  flex-direction: column;
+  gap: clamp(36px, 5vw, 96px);
+}
+
+.ot-robocash-intro__paragraphs {
+  display: flex;
+  flex-direction: column;
+  gap: clamp(24px, 2.5vw, 48px);
+}
+
+.ot-robocash-intro__visual-mobile {
+  display: none;
+}
+
+.ot-robocash-intro__visual-desktop {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  width: 56.77%;
+  max-width: 1090px;
+  z-index: 1;
+  pointer-events: none;
+}
+
+.ot-robocash-intro__visual-desktop img {
+  width: 100%;
+  height: auto;
+}
+
+/* ===========================
+   3. ROBOCASH GALLERY
+=========================== */
+.ot-robocash-grid {
+  background: #F9F9F9;
+  padding: clamp(36px, 6.25vw, 120px) 0;
+  overflow-x: clip;
+}
+
+.ot-rc-container {
+  display: flex;
+  flex-direction: column;
+  gap: var(--ot-gap-lg);
+  min-width: 0;
+}
+
+.ot-rc-hero-card {
+  width: 100%;
+  aspect-ratio: 1680 / 840;
+  background: #000000;
+  border-radius: clamp(20px, 5vw, 96px);
+  overflow: hidden;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+}
+
+.ot-rc-hero-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  object-position: center bottom;
+}
+
+.ot-rc-pair {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--ot-gap-lg);
+}
+
+.ot-rc-card {
+  border-radius: clamp(20px, 2.5vw, 48px);
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.ot-rc-card--dark  { background: #000000; }
+.ot-rc-card--light { background: #FFFFFF; }
+
+.ot-rc-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.ot-rc-card--square {
+  aspect-ratio: 810 / 810;
+}
+
+.ot-rc-card--rect {
+  aspect-ratio: 810 / 660;
+}
+
+.ot-rc-stagger {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--ot-gap-lg);
+  align-items: start;
+  min-width: 0;
+}
+
+.ot-rc-carousel {
+  display: contents;
+}
+
+.ot-rc-card--stagger-left {
+  margin-top: -18.5185%;
+}
+
+/* ===========================
+   4. CREDITBAR INTRO
+=========================== */
+.ot-creditbar-intro {
+  position: relative;
+  background: #3A97EE;
+  padding: clamp(36px, 6.25vw, 120px) 0;
+  overflow: hidden;
+}
+
+.ot-creditbar-intro__bg {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 85.78%;
+  height: 100%;
+  pointer-events: none;
+}
+
+.ot-creditbar-intro__bg img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: left bottom;
+}
+
+.ot-creditbar-intro__grid {
+  position: relative;
+  z-index: 1;
+}
+
+.ot-creditbar-intro__text {
+  display: grid;
+  grid-template-columns: 690fr 900fr;
+  column-gap: clamp(36px, 4.7vw, 90px);
+  row-gap: clamp(36px, 5vw, 96px);
+  align-items: start;
+}
+
+.ot-creditbar-intro__text .case-heading {
+  grid-column: 2;
+  grid-row: 1;
+}
+
+.ot-creditbar-intro__visual {
+  grid-column: 1;
+  grid-row: 1 / span 2;
+  aspect-ratio: 690 / 528;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 0;
+}
+
+.ot-creditbar-intro__visual img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.ot-creditbar-intro__lead {
+  grid-column: 2;
+  grid-row: 2;
+  color: #FFFFFF;
+  max-width: 750px;
+}
+
+/* ===========================
+   5. CREDITBAR GALLERY
+=========================== */
+.ot-creditbar-grid {
+  background: #E7F1FF;
+  padding: clamp(36px, 6.25vw, 120px) 0;
+  overflow-x: clip;
+}
+
+.ot-cb-container {
+  display: flex;
+  flex-direction: column;
+  gap: var(--ot-gap-lg);
+  min-width: 0;
+}
+
+.ot-cb-circles {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: clamp(16px, 1.56vw, 30px);
+  min-width: 0;
+}
+
+.ot-cb-circle-card {
+  aspect-ratio: 540 / 540;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.ot-cb-circle-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  -webkit-user-drag: none;
+  user-select: none;
+}
+
+.ot-cb-stagger {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--ot-gap-lg);
+  align-items: start;
+}
+
+.ot-cb-tile {
+  background: #3A97EE;
+  border-radius: clamp(13.5px, 3.33vw, 64px);
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.ot-cb-tile img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.ot-cb-tile--sq   { aspect-ratio: 810 / 810; }
+.ot-cb-tile--rect { aspect-ratio: 810 / 630; }
+
+.ot-cb-tile--4 {
+  margin-top: -22.2222%;
+}
+
+/* ===========================
+   6. CREDITBAR SMM + DIVIDER
+   Невидимый контейнер 1680×1260, иллюстрация 2389×2061 (left: -647, top: -56)
+=========================== */
+.ot-creditbar-smm {
+  background: #E7F1FF;
+  padding: clamp(36px, 6.25vw, 120px) 0;
+  overflow: hidden;
+}
+
+.ot-cb-smm__box {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 1680 / 1260;
+  overflow: visible;
+  z-index: 1;
+}
+
+.ot-cb-smm__box img {
+  position: absolute;
+  left: -38.5119%;
+  top: -4.4444%;
+  width: 142.2024%;
+  max-width: none;
+  height: auto;
+  pointer-events: none;
+}
+
+.ot-cb-smm__caption {
+  position: relative;
+  z-index: 2;
+  margin-top: clamp(16px, 1.56vw, 30px);
+}
+
+.ot-cb-smm__line {
+  position: relative;
+  z-index: 2;
+  margin-top: clamp(72px, 13.33vw, 256px);
+}
+
+/* ===========================
+   7. SATCREDIT INTRO
+=========================== */
+.ot-satcredit-intro {
+  background: #D05C19;
+  padding: clamp(36px, 6.25vw, 120px) 0;
+}
+
+.ot-satcredit-intro__grid {
+  display: grid;
+  grid-template-columns: 780fr 690fr;
+  gap: clamp(36px, 10.9vw, 210px);
+  align-items: start;
+}
+
+.ot-satcredit-intro__text {
+  display: flex;
+  flex-direction: column;
+  gap: clamp(36px, 5vw, 96px);
+  min-width: 0;
+}
+
+.ot-satcredit-intro__paragraphs {
+  display: flex;
+  flex-direction: column;
+  gap: clamp(24px, 2.5vw, 48px);
+  max-width: 750px;
+}
+
+.ot-satcredit-intro__lead {
+  color: rgba(255, 255, 255, 0.75);
+}
+
+.ot-sc-collage {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: clamp(15px, 1.56vw, 30px);
+  min-width: 0;
+}
+
+.ot-sc-col {
+  display: flex;
+  flex-direction: column;
+  gap: clamp(15px, 1.56vw, 30px);
+  min-width: 0;
+}
+
+.ot-sc-tile {
+  border-radius: clamp(8.2px, 0.83vw, 16px);
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.ot-sc-tile img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.ot-sc-tile--white { background: #FFFFFF; }
+.ot-sc-tile--gray  { background: #F5F6F8; }
+.ot-sc-tile--blue  { background: #055AFF; }
+
+.ot-sc-tile--sq   { aspect-ratio: 210 / 210; }
+.ot-sc-tile--tall { aspect-ratio: 210 / 288; }
+.ot-sc-tile--med  { aspect-ratio: 210 / 249; }
+
+.ot-sc-tile--blue img {
+  object-fit: cover;
+}
+
+.ot-sc-tile--palette {
+  background: #FFFFFF;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+  gap: clamp(4px, 0.42vw, 8px);
+  padding: clamp(4px, 0.42vw, 8px);
+}
+
+.ot-sc-tile--palette span {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+.ot-pal-1 { border-radius: clamp(4px, 0.42vw, 8px) 0 0 0; }
+.ot-pal-2 { border-radius: 0 clamp(4px, 0.42vw, 8px) 0 0; }
+.ot-pal-5 { border-radius: 0 0 0 clamp(4px, 0.42vw, 8px); }
+.ot-pal-6 { border-radius: 0 0 clamp(4px, 0.42vw, 8px) 0; }
+
+/* ===========================
+   8. SATCREDIT SHOWCASE
+=========================== */
+.ot-satcredit-showcase {
+  background: #F5F6F8;
+  padding: clamp(36px, 6.25vw, 120px) 0;
+}
+
+.ot-sc-showcase__inner {
+  display: flex;
+  flex-direction: column;
+  gap: clamp(36px, 12.5vw, 240px);
+}
+
+.ot-sc-hero-cards {
+  width: 100%;
+}
+
+.ot-sc-hero-cards img {
+  width: 100%;
+  height: auto;
+}
+
+.ot-sc-pair {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--ot-gap-lg);
+}
+
+.ot-sc-pair__card {
+  aspect-ratio: 1 / 1;
+  background: #FFFFFF;
+  border-radius: clamp(16px, 3.33vw, 64px);
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.ot-sc-pair__card img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.ot-sc-pattern {
+  width: 100%;
+  border-radius: clamp(32px, 3.33vw, 64px);
+  overflow: hidden;
+}
+
+.ot-sc-pattern img {
+  width: 100%;
+  height: auto;
+}
+
+.ot-sc-pattern .img--mobile {
+  display: none;
+}
+
+.ot-sc-moodboard {
+  width: 100%;
+  max-width: 1520px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 400fr 400fr 640fr;
+  gap: clamp(20px, 2.08vw, 40px);
+}
+
+.ot-sc-mood-col {
+  display: flex;
+  flex-direction: column;
+  gap: clamp(20px, 2.08vw, 40px);
+  min-width: 0;
+}
+
+.ot-sc-mood-item {
+  border-radius: clamp(24px, 2.08vw, 40px);
+  overflow: hidden;
+  background: #FFFFFF;
+}
+
+.ot-sc-mood-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.ot-sc-mood-item--1 { aspect-ratio: 400 / 299; background: #000000; }
+.ot-sc-mood-item--2 { aspect-ratio: 400 / 160; background: #11141A; }
+.ot-sc-mood-item--3 { aspect-ratio: 400 / 261; }
+.ot-sc-mood-item--4 { aspect-ratio: 400 / 560; }
+.ot-sc-mood-item--5 { aspect-ratio: 400 / 200; }
+.ot-sc-mood-item--6 { aspect-ratio: 640 / 280; }
+.ot-sc-mood-item--7 { aspect-ratio: 640 / 280; }
+.ot-sc-mood-item--8 { aspect-ratio: 640 / 160; }
+
+/* ===========================
+   9. SATCREDIT BANNERS + DIVIDER
+   Невидимый контейнер 1680×810, иллюстрация 1932×1274 (left: -126, top: -23)
+=========================== */
+.ot-satcredit-banners {
+  background: #F5F6F8;
+  padding: clamp(36px, 6.25vw, 120px) 0;
+  overflow: hidden;
+}
+
+.ot-sc-banners__desktop {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 1680 / 810;
+  overflow: visible;
+  z-index: 1;
+}
+
+.ot-sc-banners__desktop img {
+  position: absolute;
+  left: -7.5%;
+  top: -2.8395%;
+  width: 115%;
+  max-width: none;
+  height: auto;
+  pointer-events: none;
+}
+
+.ot-sc-banners__mobile {
+  display: none;
+}
+
+.ot-sc-banners__line {
+  position: relative;
+  z-index: 3;
+  margin-top: clamp(36px, 6.25vw, 120px);
+}
+
+/* ===========================
+   10. AKSAY INTRO
+=========================== */
+.ot-aksay-intro {
+  background: #FFAA00;
+  padding: clamp(36px, 6.25vw, 120px) 0;
+}
+
+.ot-aksay-intro__grid {
+  display: grid;
+  grid-template-columns: 690fr 900fr;
+  gap: clamp(36px, 4.7vw, 90px);
+  align-items: start;
+}
+
+.ot-aksay-intro__visual {
+  aspect-ratio: 690 / 720;
+  background: #FFFFFF;
+  overflow: hidden;
+  min-width: 0;
+}
+
+.ot-aksay-intro__visual img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.ot-aksay-intro__text {
+  display: flex;
+  flex-direction: column;
+  gap: clamp(36px, 5vw, 96px);
+  max-width: 840px;
+  min-width: 0;
+}
+
+.ot-aksay-intro__paragraphs {
+  display: flex;
+  flex-direction: column;
+  gap: clamp(24px, 2.5vw, 48px);
+  max-width: 750px;
+}
+
+/* ===========================
+   11. AKSAY LOGOS (БЫЛО / СТАЛО)
+=========================== */
+.ot-aksay-logos {
+  background: #FFFFFF;
+  padding: clamp(36px, 6.25vw, 120px) 0;
+}
+
+.ot-aksay-logos__grid {
+  max-width: 1500px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--ot-gap-lg);
+}
+
+.ot-aksay-logos__item {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+
+.ot-aksay-logos__card {
+  aspect-ratio: 720 / 630;
+  background: #F2F5FF;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.ot-aksay-logos__card img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.ot-aksay-logos__caption {
+  display: none;
+}
+
+/* ===========================
+   12. AKSAY MERCH
+=========================== */
+.ot-aksay-merch {
+  background: #F2F5FF;
+  padding: clamp(36px, 6.25vw, 120px) 0;
+}
+
+.ot-aksay-merch__grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--ot-gap-lg);
+}
+
+.ot-ak-merch-card {
+  overflow: hidden;
+  background: #FFFFFF;
+}
+
+.ot-ak-merch-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.ot-ak-merch-card--sq {
+  aspect-ratio: 810 / 720;
+}
+
+.ot-ak-merch-card--full {
+  grid-column: 1 / -1;
+  aspect-ratio: 1680 / 390;
+}
+
+.ot-ak-merch-card--wide {
+  aspect-ratio: 810 / 390;
+}
+
+/* ===========================
+   13. TYPOGRAPHY (TEKTUR)
+=========================== */
+.ot-tektur {
+  background: #FFFFFF;
+  padding: clamp(36px, 6.25vw, 120px) 0;
+}
+
+.ot-tektur__grid {
+  display: grid;
+  grid-template-columns: 720fr 840fr;
+  gap: clamp(36px, 6.25vw, 120px);
+  align-items: start;
+}
+
+.ot-tektur__left {
+  display: flex;
+  flex-direction: column;
+  gap: clamp(36px, 4.8vw, 92px);
+  min-width: 0;
+}
+
+.ot-tektur__heading {
+  font-size: clamp(48px, 4.17vw, 80px);
+  font-weight: 700;
+  line-height: 1.25;
+  color: #111111;
+}
+
+.ot-tektur__desc {
+  display: flex;
+  flex-direction: column;
+  gap: clamp(20px, 2.08vw, 40px);
+  font-size: clamp(20px, 1.67vw, 32px);
+  font-weight: 400;
+  line-height: 1.25;
+  letter-spacing: 0.05em;
+  color: rgba(17, 17, 17, 0.75);
+}
+
+.ot-tektur__right {
+  display: grid;
+  grid-template-columns: 450fr 330fr;
+  gap: clamp(16px, 3.125vw, 60px);
+  align-items: stretch;
+  min-width: 0;
+}
+
+.ot-tektur__col-main {
+  display: flex;
+  flex-direction: column;
+  gap: clamp(16px, 3.125vw, 60px);
+  min-width: 0;
+}
+
+.ot-tektur__aa {
+  aspect-ratio: 450 / 450;
+  background: #F2F5FF;
+  font-family: 'Tektur', sans-serif;
+  font-weight: 700;
+  font-size: clamp(92px, 12.41vw, 238.27px);
+  line-height: 1.25;
+  color: #000000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  user-select: none;
+}
+
+.ot-tektur__glyphs {
+  aspect-ratio: 450 / 330;
+  background: #F2F5FF;
+  font-family: 'Tektur', sans-serif;
+  font-weight: 400;
+  font-size: clamp(24px, 3.33vw, 64px);
+  line-height: 1.2;
+  color: #111111;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 13.3%;
+}
+
+.ot-tektur__weights {
+  background: #F2F5FF;
+  font-family: 'Tektur', sans-serif;
+  font-size: clamp(18px, 2.29vw, 44px);
+  line-height: 1.2;
+  color: #111111;
+  padding: clamp(24px, 3.125vw, 60px) clamp(12px, 1.56vw, 30px);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  white-space: nowrap;
+}
+
+/* ===========================
+   14. FONT COMPARISON
+=========================== */
+.ot-aksay-compare {
+  background: #FFFFFF;
+  padding: clamp(36px, 12.5vw, 240px) 0;
+}
+
+.ot-compare__inner {
+  max-width: calc(1560px + var(--gutter) * 2);
+}
+
+.ot-compare__grid {
+  display: grid;
+  grid-template-columns: 690fr auto 690fr;
+  column-gap: clamp(20px, 3.125vw, 60px);
+  align-items: start;
+}
+
+.ot-compare__item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-width: 0;
+}
+
+.ot-compare__box {
+  width: 100%;
+  aspect-ratio: 690 / 450;
+  background: #F2F5FF;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.ot-compare__box img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.ot-compare__label {
+  margin-top: clamp(24px, 3.125vw, 60px);
+  font-size: clamp(20px, 1.67vw, 32px);
+  font-weight: 400;
+  line-height: 1.25;
+  text-align: center;
+  color: #0C8CE9;
+}
+
+.ot-compare__arrow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  align-self: stretch;
+  padding-bottom: clamp(64px, 7.29vw, 140px);
+}
+
+.ot-compare__arrow svg {
+  width: clamp(32px, 3.125vw, 60px);
+  height: auto;
+}
+
+/* ===========================
+   15. NAV & FOOTER OVERRIDES
+=========================== */
+.ot-nav-section,
+.ot-footer {
+  background: #FFFFFF;
+}
+
+.ot-nav-card {
+  background: #F2F2F2;
+}
+
+.ot-nav-card:hover .project-nav-card__next {
+  color: var(--text-dark);
+  text-shadow: 0 0 0.4px currentColor;
+}
+
+/* ===========================
+   RESPONSIVE (TABLET & MOBILE)
+=========================== */
+@media (max-width: 1024px) {
+  .ot-robocash-intro {
+    min-height: auto;
+  }
+
+  .ot-robocash-intro__text {
+    max-width: none;
+  }
+
+  .ot-robocash-intro__visual-desktop {
+    display: none;
+  }
+
+  .ot-robocash-intro__visual-mobile {
+    position: relative;
+    display: block;
+    width: 100%;
+    aspect-ratio: 354 / 338;
+    overflow: hidden;
+  }
+
+  .ot-robocash-intro__visual-mobile img {
+    position: absolute;
+    left: -18%;
+    bottom: 0;
+    width: 118%;
+    max-width: none;
+    height: auto;
+  }
+
+  .ot-creditbar-intro__text {
+    grid-template-columns: 1fr;
+    gap: 36px;
+  }
+
+  .ot-creditbar-intro__text .case-heading,
+  .ot-creditbar-intro__visual,
+  .ot-creditbar-intro__lead {
+    grid-column: 1;
+    grid-row: auto;
+  }
+
+  .ot-creditbar-intro__visual {
+    max-width: 460px;
+    margin: 0 auto;
+  }
+
+  .ot-satcredit-intro__grid,
+  .ot-aksay-intro__grid,
+  .ot-tektur__grid {
+    grid-template-columns: 1fr;
+  }
+
+  .ot-tektur__left {
+    display: contents;
+  }
+
+  .ot-tektur__heading {
+    order: 0;
+  }
+
+  .ot-tektur__right {
+    order: 1;
+    max-width: 560px;
+  }
+
+  .ot-tektur__desc {
+    order: 2;
+  }
+}
+
+@media (max-width: 768px) {
+  .ot-mobile-hide {
+    display: none;
+  }
+
+  /* 1. Hero */
+  .ot-hero {
+    min-height: 100svh;
+    max-height: 874px;
+    padding: 48px 0 36px;
+  }
+
+  .ot-hero__inner {
+    justify-content: center;
+    align-items: center;
+  }
+
+  .ot-hero__tags,
+  .ot-hero__bottom {
+    display: none;
+  }
+
+  .ot-hero__title {
+    font-size: 33.29px;
+    max-width: 140px;
+    margin: 0;
+  }
+
+  /* Dividers */
+  .ot-divider {
+    display: none;
+  }
+
+  /* 2. RoboCash Intro */
+  .ot-robocash-intro {
+    padding: 36px 0;
+  }
+
+  .ot-robocash-intro__text {
+    gap: 36px;
+  }
+
+  .ot-robocash-intro__paragraphs {
+    gap: 24px;
+  }
+
+  /* 3. RoboCash Gallery + Carousel 1 (5 белых карточек) */
+  .ot-robocash-grid {
+    padding: 36px 0;
+  }
+
+  .ot-rc-container {
+    gap: 36px;
+  }
+
+  .ot-rc-hero-card {
+    aspect-ratio: 1680 / 840;
+    border-radius: 20px;
+  }
+
+  .ot-rc-pair {
+    gap: 16px;
+    margin-top: -20px;
+  }
+
+  .ot-rc-card--square {
+    aspect-ratio: 169 / 170.68;
+    border-radius: 20px;
+  }
+
+  .ot-rc-stagger {
+    display: flex;
+    flex-direction: column;
+    gap: 36px;
+    margin-top: -20px;
+  }
+
+  .ot-rc-card--4 {
+    width: 100%;
+    aspect-ratio: 810 / 660;
+    border-radius: 20px;
+  }
+
+  .ot-rc-carousel {
+    display: flex;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scroll-padding-left: var(--gutter);
+    gap: 16px;
+    width: calc(100% + var(--gutter) * 2);
+    min-width: 0;
+    margin: 0 calc(var(--gutter) * -1);
+    padding: 0 var(--gutter) 4px;
+    -webkit-overflow-scrolling: touch;
+    touch-action: pan-x pan-y;
+    cursor: grab;
+    scrollbar-width: none;
+  }
+
+  .ot-rc-carousel::-webkit-scrollbar {
+    display: none;
+  }
+
+  .ot-rc-carousel.is-dragging {
+    cursor: grabbing;
+    scroll-snap-type: none;
+  }
+
+  .ot-rc-carousel .ot-rc-card {
+    flex: 0 0 334px;
+    width: 334px;
+    height: 296.89px;
+    aspect-ratio: auto;
+    border-radius: 20px;
+    scroll-snap-align: start;
+  }
+
+  .ot-rc-carousel .ot-rc-card img {
+    -webkit-user-drag: none;
+    user-select: none;
+  }
+
+  .ot-rc-card--stagger-left {
+    margin-top: 0;
+  }
+
+  .ot-rc-card--11 {
+    width: 100%;
+    aspect-ratio: 810 / 660;
+    border-radius: 20px;
+  }
+
+  /* 4. CreditBar Intro: убираем фон, растягиваем щит под десктоп-пропорции (690/528) */
+  .ot-creditbar-intro {
+    padding: 36px 0;
+  }
+
+  .ot-creditbar-intro__bg {
+    display: none;
+  }
+
+  .ot-creditbar-intro__visual {
+    width: 100%;
+    max-width: none;
+    aspect-ratio: 690 / 528;
+  }
+
+  /* 5. CreditBar Gallery + Carousel 2 (3 круглые карточки) */
+  .ot-creditbar-grid {
+    padding: 36px 0;
+  }
+
+  .ot-cb-container {
+    gap: 36px;
+  }
+
+  .ot-cb-circles {
+    display: flex;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scroll-padding-left: var(--gutter);
+    gap: 16px;
+    width: calc(100% + var(--gutter) * 2);
+    min-width: 0;
+    margin: 0 calc(var(--gutter) * -1);
+    padding: 0 var(--gutter) 4px;
+    -webkit-overflow-scrolling: touch;
+    touch-action: pan-x pan-y;
+    cursor: grab;
+    scrollbar-width: none;
+  }
+
+  .ot-cb-circles::-webkit-scrollbar {
+    display: none;
+  }
+
+  .ot-cb-circles.is-dragging {
+    cursor: grabbing;
+    scroll-snap-type: none;
+  }
+
+  .ot-cb-circle-card {
+    flex: 0 0 324px;
+    width: 324px;
+    height: 334px;
+    aspect-ratio: auto;
+    scroll-snap-align: start;
+  }
+
+  .ot-cb-stagger {
+    gap: 12px;
+  }
+
+  .ot-cb-tile {
+    border-radius: 13.49px;
+  }
+
+  /* 6. CreditBar SMM на мобилке: единые пропорции контейнера 1680/1260 с тенями наружу */
+  .ot-creditbar-smm {
+    padding: 36px 0 0;
+  }
+
+  .ot-cb-smm__caption {
+    margin-top: 24px;
+  }
+
+  .ot-cb-smm__line {
+    margin: 36px 0;
+  }
+
+  /* 7. SatCredit Intro: Заголовок -> Коллаж -> Текст */
+  .ot-satcredit-intro {
+    padding: 36px 0;
+  }
+
+  .ot-satcredit-intro__grid {
+    gap: 36px;
+  }
+
+  .ot-satcredit-intro__text {
+    display: contents;
+  }
+
+  .ot-satcredit-intro__text .case-heading {
+    order: 0;
+  }
+
+  .ot-sc-collage {
+    order: 1;
+    gap: 15px;
+  }
+
+  .ot-satcredit-intro__paragraphs {
+    order: 2;
+    gap: 24px;
+  }
+
+  .ot-satcredit-intro__lead {
+    color: #FFFFFF;
+  }
+
+  .ot-sc-col {
+    gap: 15px;
+  }
+
+  .ot-sc-tile {
+    border-radius: 8.21px;
+  }
+
+  /* 8. SatCredit Showcase */
+  .ot-satcredit-showcase {
+    padding: 36px 0;
+  }
+
+  .ot-sc-showcase__inner {
+    gap: 36px;
+  }
+
+  .ot-sc-pair {
+    gap: 12px;
+  }
+
+  .ot-sc-pair__card {
+    border-radius: 16px;
+  }
+
+  .ot-sc-pattern {
+    border-radius: 32px;
+  }
+
+  .ot-sc-pattern .img--desktop {
+    display: none;
+  }
+
+  .ot-sc-pattern .img--mobile {
+    display: block;
+  }
+
+  .ot-sc-moodboard {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+
+  .ot-sc-mood-col {
+    gap: 24px;
+  }
+
+  .ot-sc-mood-item {
+    border-radius: 32px;
+  }
+
+  /* 9. SatCredit Banners на мобилке:
+     Двойной: контейнер 354×273, иллюстрация 439×429 (-43, -7)
+     Одинарный: контейнер 354×531, иллюстрация 520×836 (-83, -15) */
+  .ot-satcredit-banners {
+    padding: 36px 0 0;
+  }
+
+  .ot-sc-banners__desktop {
+    display: none;
+  }
+
+  .ot-sc-banners__mobile {
+    display: flex;
+    flex-direction: column;
+    gap: 36px;
+  }
+
+  .ot-sc-banners__m1-wrap {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 354 / 273;
+    overflow: visible;
+    z-index: 2;
+  }
+
+  .ot-sc-banners__m1 {
+    position: absolute;
+    left: -12.1469%;
+    top: -2.5641%;
+    width: 124.0113%;
+    max-width: none;
+    height: auto;
+    pointer-events: none;
+  }
+
+  .ot-sc-banners__m2-wrap {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 354 / 531;
+    overflow: visible;
+    z-index: 1;
+  }
+
+  .ot-sc-banners__m2 {
+    position: absolute;
+    left: -23.4463%;
+    top: -2.8249%;
+    width: 146.8927%;
+    max-width: none;
+    height: auto;
+    pointer-events: none;
+  }
+
+  .ot-sc-banners__line {
+    margin: 36px 0;
+    position: relative;
+    z-index: 3;
+  }
+
+  /* 10. Аксай Intro: Заголовок -> Фото -> Текст */
+  .ot-aksay-intro {
+    padding: 36px 0;
+  }
+
+  .ot-aksay-intro__grid {
+    gap: 36px;
+  }
+
+  .ot-aksay-intro__text {
+    display: contents;
+  }
+
+  .ot-aksay-intro__text .case-heading {
+    order: 0;
+  }
+
+  .ot-aksay-intro__visual {
+    order: 1;
+    aspect-ratio: 354 / 287;
+  }
+
+  .ot-aksay-intro__paragraphs {
+    order: 2;
+    gap: 24px;
+  }
+
+  /* 11. Аксай Logos (Было / Стало) */
+  .ot-aksay-logos {
+    padding: 36px 0;
+  }
+
+  .ot-aksay-logos__grid {
+    grid-template-columns: 1fr;
+    gap: 36px;
+  }
+
+  .ot-aksay-logos__caption {
+    display: block;
+  }
+
+  /* 12. Аксай Merch */
+  .ot-aksay-merch {
+    padding: 36px 0;
+  }
+
+  .ot-aksay-merch__grid {
+    grid-template-columns: 1fr;
+    gap: 36px;
+  }
+
+  .ot-ak-merch-card--full {
+    aspect-ratio: 354 / 185.64;
+  }
+
+  .ot-ak-merch-card--wide {
+    aspect-ratio: 354 / 230.1;
+  }
+
+  /* 13. Tektur */
+  .ot-tektur {
+    padding: 36px 0;
+  }
+
+  .ot-tektur__grid {
+    gap: 36px;
+  }
+
+  .ot-tektur__right {
+    grid-template-columns: 190fr 121fr;
+    gap: 16px;
+  }
+
+  .ot-tektur__col-main {
+    gap: 16px;
+  }
+
+  .ot-tektur__aa {
+    font-size: clamp(82px, 24.9vw, 120px);
+  }
+
+  .ot-tektur__glyphs {
+    font-size: clamp(22px, 6.7vw, 32px);
+  }
+
+  .ot-tektur__weights {
+    font-size: clamp(16px, 4.6vw, 22px);
+    padding: 25px 12px;
+  }
+
+  .ot-tektur__desc {
+    gap: 24px;
+    font-size: 20px;
+  }
+
+  /* 14. Font Comparison */
+  .ot-aksay-compare {
+    padding: 36px 0;
+  }
+
+  .ot-compare__grid {
+    grid-template-columns: 1fr;
+    gap: 36px;
+  }
+
+  .ot-compare__arrow {
+    display: none;
+  }
+
+  .ot-compare__item {
+    align-items: flex-start;
+  }
+
+  .ot-compare__label {
+    margin-top: 24px;
+    font-size: 20px;
+    text-align: left;
+  }
+
+  .ot-compare__label br {
+    display: none;
+  }
+}

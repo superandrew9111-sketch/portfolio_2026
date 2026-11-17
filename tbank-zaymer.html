@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Т-Банк x Zaymer — Kurlaev Andrew</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="case.css" />
+  <link rel="stylesheet" href="tbank.css" />
+</head>
+<body class="case-page tb-page">
+
+  <!-- Липкая шапка (появляется после скролла первого экрана) -->
+  <header class="site-header site-header--reveal" id="header">
+    <div class="header-inner">
+      <button class="burger-btn" id="burgerBtn" aria-label="Открыть меню" aria-expanded="false">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+
+      <nav class="header-nav" aria-label="Основная навигация">
+        <a href="index.html#about" class="nav-link">About</a>
+        <a href="index.html#cases" class="nav-link is-active">Cases</a>
+        <a href="index.html#experience" class="nav-link">Experience</a>
+      </nav>
+
+      <a href="index.html" class="header-brand">Kurlaev Andrew</a>
+
+      <div class="lang-switch" role="group" aria-label="Выбор языка">
+        <button class="lang-btn is-active" data-lang="ru">RU</button>
+        <button class="lang-btn" data-lang="eng">ENG</button>
+      </div>
+    </div>
+    <div class="header-divider"></div>
+  </header>
+
+  <!-- Мобильное меню -->
+  <div class="mobile-menu" id="mobileMenu" aria-hidden="true">
+    <nav class="mobile-menu-nav">
+      <a href="index.html#about" class="mobile-nav-link">About</a>
+      <a href="index.html#cases" class="mobile-nav-link">Cases</a>
+      <a href="index.html#experience" class="mobile-nav-link">Experience</a>
+    </nav>
+    <div class="mobile-menu-contacts">
+      <a href="tel:+79833209153">+7-983-320-91-53</a>
+      <a href="https://t.me/superandrew1" target="_blank" rel="noopener">tg: @superandrew1</a>
+      <a href="mailto:an-di.91@mail.ru">an-di.91@mail.ru</a>
+    </div>
+  </div>
+
+  <main>
+    <!-- 1. Первый экран (сплит Т-Банк / Займер) -->
+    <section class="tb-hero" id="caseHero">
+      <div class="tb-hero__half tb-hero__half--tbank">
+        <img src="image/tbank-logo.svg" alt="Т-Банк" class="tb-hero__logo" />
+        <img src="image/tb-hero-left.png" alt="Кейс с деньгами" class="tb-hero__img tb-hero__img--left" />
+      </div>
+
+      <div class="tb-hero__half tb-hero__half--zaymer">
+        <img src="image/tb-hero-right.png" alt="Веер карт" class="tb-hero__img tb-hero__img--right" />
+        <img src="image/zaymer-logo.svg" alt="Займер" class="tb-hero__logo" />
+      </div>
+    </section>
+
+    <!-- 2. Цель коллаборации -->
+    <section class="tb-goal">
+      <div class="container tb-goal__container">
+        <div class="tb-goal__text">
+          <h1 class="case-heading">Цель коллаборации</h1>
+          <div class="tb-goal__list">
+            <p>Кросс-промо кампания двух финтех-экосистем для продвижения совместных инструментов:</p>
+            <ul>
+              <li>Получение займов на Т-Банк и погашение кредитов без переплат с карты Т-Банк.</li>
+              <li>Продвижение дебетовых карт и Т-Мобайла.</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="tb-goal__visuals">
+          <div class="tb-coins-col">
+            <div class="tb-coin-card tb-coin-card--white">
+              <img src="image/tb-coin-1.png" alt="Монета" />
+            </div>
+            <div class="tb-coin-card tb-coin-card--cream">
+              <img src="image/tb-coin-2.png" alt="Монета рубль" />
+            </div>
+          </div>
+
+          <div class="tb-palette-wrap">
+            <div class="tb-palette-col">
+              <span style="background: #333333;"></span>
+              <span style="background: #FFDD2D;"></span>
+              <span style="background: #FFFFFF;"></span>
+            </div>
+            <div class="tb-palette-col">
+              <span style="background: #485252;"></span>
+              <span style="background: #339900;"></span>
+              <span style="background: #FEBE00;"></span>
+              <span style="background: #FF8900;"></span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 3. Задача (со скруглённым верхним краем) -->
+    <section class="tb-task">
+      <div class="container">
+        <h2 class="case-heading">Задача</h2>
+
+        <div class="tb-task__grid">
+          <div class="tb-task__visuals">
+            <!-- Плашка с логотипами картинкой -->
+            <div class="tb-bridge-banner">
+              <img src="image/tb-task-banner_1.png" alt="Т-Банк и Займер" />
+            </div>
+
+            <!-- Градиентный баннер 0% + подарок -->
+            <div class="tb-task-banner">
+              <img src="image/tb-task-banner.png" alt="0% и бонус" />
+            </div>
+          </div>
+
+          <div class="tb-task__text">
+            <p>Разработка универсального Key Visual для рекламы в Личном Кабинете.</p>
+            <ul>
+              <li>Найти баланс между графикой Т-Банка и айдентикой Займера.</li>
+              <li>Прямая работа и согласование концепций с руководителями Т-Банка.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 4. 3D-сцены, карусель Key Visual и робот -->
+    <section class="tb-visuals">
+      <div class="container">
+        <!-- 3D карточки (на мобилке ОСАГО идёт вторым) -->
+        <div class="tb-kv-grid">
+          <div class="tb-kv-card tb-kv-card--cards">
+            <img src="image/tb-kv-cards.png" alt="Карты Т-Банк Black" />
+          </div>
+          <div class="tb-kv-card tb-kv-card--sim">
+            <img src="image/tb-kv-sim.png" alt="СИМ-карты Т-Мобайл" />
+          </div>
+          <div class="tb-kv-card tb-kv-card--wide tb-kv-card--osago">
+            <div class="tb-kv-card__bg" aria-hidden="true">
+              <div class="tb-glow tb-glow--osago"></div>
+            </div>
+            <img src="image/tb-kv-osago.png" alt="ОСАГО Т-Банк" />
+          </div>
+        </div>
+
+        <!-- 3 баннера Key Visual (на мобилке скролл-карусель) -->
+        <div class="tb-banners-wrap">
+          <div class="tb-banners-row" id="tbBannersRow">
+            <img src="image/tb-banner-1.png" alt="Распоряжайся своим займом с Т-Банком" class="tb-banner-img" />
+            <img src="image/tb-banner-2.png" alt="Оформляй Осаго вместе с Т-Банком" class="tb-banner-img" />
+            <img src="image/tb-banner-3.png" alt="Симка т-мобайл рубль бережет" class="tb-banner-img" />
+          </div>
+          <span class="case-caption">Пример Key Visual</span>
+        </div>
+
+        <!-- Большой робот с градиентом на фоне -->
+        <div class="tb-robot-wrap">
+          <div class="tb-glow tb-glow--robot" aria-hidden="true"></div>
+          <img src="image/tb-robot-big.png" alt="Робот Займер с картой Т-Банк" class="tb-robot-img" />
+        </div>
+      </div>
+    </section>
+
+    <!-- 5. Результат -->
+    <section class="tb-result">
+      <div class="container">
+        <h2 class="case-heading">Результат</h2>
+
+        <div class="tb-result__grid">
+          <div class="tb-result__screens">
+            <div class="tb-screen-frame">
+              <img src="image/tb-result-1.png" alt="Главный экран с кнопкой Т-Банка" />
+            </div>
+            <div class="tb-screen-frame">
+              <img src="image/tb-result-2.png" alt="Личный кабинет с баннером Т-Банка" />
+            </div>
+          </div>
+
+          <div class="tb-result__text">
+            <p>
+              Спроектировал визуальную концепцию (Key Visual) и UI-решения для масштабной ко-брендинговой интеграции. Созданная система 3D-композиций обеспечила бесшовный пользовательский опыт на многомиллионную аудиторию.
+            </p>
+            <ul>
+              <li>На главном экране сайта интегрирована кнопка Т-Банка, сразу заявляющая о взаимодействии систем.</li>
+              <li>Полностью настроен и функционирует прием платежей через шлюзы Т-Банка.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 6. Нижняя навигация (на белом фоне, карточки #EEF7FD, без Т-Банк x Zaymer) -->
+    <section class="project-nav-section tb-nav-section" aria-label="Навигация по проектам">
+      <div class="project-nav-track" id="projectNavTrack">
+        <a href="a-dengi.html" class="project-nav-card tb-nav-card">
+          <div class="project-nav-card__thumb" style="background: #F3F4F5;">
+            <img src="image/nav-1.png" alt="A-Dengi" />
+          </div>
+          <div class="project-nav-card__body">
+            <div>
+              <h3 class="project-nav-card__title">A-Dengi</h3>
+              <p class="project-nav-card__desc">Как мы разработали МФО от Альфа Банка</p>
+            </div>
+            <span class="project-nav-card__next">Next project</span>
+          </div>
+        </a>
+
+        <a href="zaymer-ru.html" class="project-nav-card tb-nav-card" data-nav-start>
+          <div class="project-nav-card__thumb" style="background: #EBF5E5;">
+            <img src="image/nav-3.png" alt="Zaymer RU" />
+          </div>
+          <div class="project-nav-card__body">
+            <div>
+              <h3 class="project-nav-card__title">Zaymer RU</h3>
+              <p class="project-nav-card__desc">Как мы сделали крупный ребрендинг для лидера по выдачам МФО - Zaymer</p>
+            </div>
+            <span class="project-nav-card__next">Next project</span>
+          </div>
+        </a>
+
+        <a href="zaymer-kz.html" class="project-nav-card tb-nav-card">
+          <div class="project-nav-card__thumb" style="background: #E8F5EC;">
+            <img src="image/nav-4.png" alt="Zaymer KZ" />
+          </div>
+          <div class="project-nav-card__body">
+            <div>
+              <h3 class="project-nav-card__title">Zaymer KZ</h3>
+              <p class="project-nav-card__desc">Как я локализировал с помощью брендинга весь SMM для МФО в Казахстане</p>
+            </div>
+            <span class="project-nav-card__next">Next project</span>
+          </div>
+        </a>
+
+        <a href="unamolia.html" class="project-nav-card tb-nav-card">
+          <div class="project-nav-card__thumb" style="background: #E6EFFF;">
+            <img src="image/nav-5.png" alt="UnaMolia" />
+          </div>
+          <div class="project-nav-card__body">
+            <div>
+              <h3 class="project-nav-card__title">UnaMolia (Uzbekistan)</h3>
+              <p class="project-nav-card__desc">Как мы создали уникальный продукт для целой страны</p>
+            </div>
+            <span class="project-nav-card__next">Next project</span>
+          </div>
+        </a>
+
+        <a href="other.html" class="project-nav-card tb-nav-card">
+          <div class="project-nav-card__thumb" style="background: #FFFBE5;">
+            <img src="image/nav-6.png" alt="Other" />
+          </div>
+          <div class="project-nav-card__body">
+            <div>
+              <h3 class="project-nav-card__title">Other</h3>
+              <p class="project-nav-card__desc">Другие проекты которые я разрабатывал</p>
+            </div>
+            <span class="project-nav-card__next">Next project</span>
+          </div>
+        </a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer tb-footer">
+    <div class="container">
+      <div class="footer-line"></div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

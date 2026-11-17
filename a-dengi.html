@@ -1,476 +1,349 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>A-Dengi Case - Kurlaev Andrew</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="styles.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>A-Dengi — Kurlaev Andrew</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="case.css" />
 </head>
-<body class="a-dengi-page">
+<body class="case-page">
 
-     <header class="site-header-fixed header-hidden-initially">
-    
-    <!-- Нижняя линия во всю ширину экрана (1920px) теперь лежит здесь -->
-    <div class="header-bottom-line"></div>
+  <!-- Липкая шапка (появляется после скролла первого экрана) -->
+  <header class="site-header site-header--reveal" id="header">
+    <div class="header-inner">
+      <button class="burger-btn" id="burgerBtn" aria-label="Открыть меню" aria-expanded="false">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
 
-    <div class="header-wrapper-fluid">
-        <div class="header-row">
-            
-            <!-- Левая навигация -->
-            <nav class="header-nav-main">
-                <a href="index.html#about" class="header-nav-link">About</a>
-                <a href="index.html#cases" class="header-nav-link">Cases</a>
-                <a href="index.html#skills" class="header-nav-link">Experience</a> 
-            </nav>
-            
-            <!-- Центр -->
-            <div class="header-title-center" data-ru="Курлаев Андрей" data-en="Kurlaev Andrew">Курлаев Андрей</div>
-            
-            <!-- Правые языки -->
-            <div class="header-nav-lang">
-                <a href="?lang=ru" class="header-lang-link">RU</a>
-                <a href="?lang=en" class="header-lang-link active">ENG</a>
-            </div>
-            
-        </div>
+      <nav class="header-nav" aria-label="Основная навигация">
+        <a href="index.html#about" class="nav-link">About</a>
+        <a href="index.html#cases" class="nav-link is-active">Cases</a>
+        <a href="index.html#experience" class="nav-link">Experience</a>
+      </nav>
+
+      <a href="index.html" class="header-brand">Kurlaev Andrew</a>
+
+      <div class="lang-switch" role="group" aria-label="Выбор языка">
+        <button class="lang-btn is-active" data-lang="ru">RU</button>
+        <button class="lang-btn" data-lang="eng">ENG</button>
+      </div>
     </div>
-</header>
+    <div class="header-divider"></div>
+  </header>
 
-    <!-- БЛОК 1: ОБЛОЖКА (1920x1080) -->
-    <section id="adengi-1" class="adengi-cover-section">
-    <div class="adengi-cover-wrapper">
-        
-        <div class="adengi-logo-container">
-            <img src="images/a-dengi-logo.svg" alt="A-Dengi Logo" class="adengi-main-logo">
-        </div>
-
+  <!-- Мобильное меню -->
+  <div class="mobile-menu" id="mobileMenu" aria-hidden="true">
+    <nav class="mobile-menu-nav">
+      <a href="index.html#about" class="mobile-nav-link">About</a>
+      <a href="index.html#cases" class="mobile-nav-link">Cases</a>
+      <a href="index.html#experience" class="mobile-nav-link">Experience</a>
+    </nav>
+    <div class="mobile-menu-contacts">
+      <a href="tel:+79833209153">+7-983-320-91-53</a>
+      <a href="https://t.me/superandrew1" target="_blank" rel="noopener">tg: @superandrew1</a>
+      <a href="mailto:an-di.91@mail.ru">an-di.91@mail.ru</a>
     </div>
-</section>
+  </div>
 
-    <!-- БЛОК 2: ЦЕЛЬ ПРОДУКТА (1920x1080) -->
-    <section id="adengi-2" class="adengi-section-fluid">
-    <div class="adengi-wrapper-fluid">
-        
-        <div class="adengi-row-2">
-            
-            <div class="adengi-text-block-2">
-                <h2 class="adengi-title-2" data-ru="Цель продукта" data-en="Product Goal">Цель продукта</h2>
-                <p class="adengi-lead-2" data-ru="Удержание «отказного» трафика Альфа-Банка. Создание отдельного МФО-сервиса, чтобы сохранять аудиторию, которой банк отказал <br>в классическом кредите, и перенаправлять <br>её на микрокредитование." data-en="Retaining Alfa-Bank’s rejected traffic. <br>Creating a dedicated micro-lending brand identity <br>to capture and re-engage users denied traditional bank loans, communicating a seamless transition <br>to alternative financial solutions.">Удержание «отказного» трафика Альфа-Банка. Создание отдельного МФО-сервиса, чтобы сохранять аудиторию, которой банк отказал в классическом кредите, и перенаправлять её на микрокредитование.</p>
-            </div>
+  <main>
+    <!-- 1. Первый экран с SVG логотипом -->
+    <section class="case-hero" id="caseHero">
+      <img src="image/adengi-logo-desktop.svg" alt="А деньги" class="case-hero__logo-desktop" />
+      <img src="image/adengi-logo-mobile.svg" alt="А деньги" class="case-hero__logo-mobile" />
+    </section>
 
-            <div class="adengi-ill-block-2">
-                <img src="images/a-dengi-ill-1.png" alt="Иллюстрация Цель продукта" class="adengi-img-2">
-            </div>
-
+    <!-- 2. Цель продукта -->
+    <section class="case-goal">
+      <div class="container case-goal__container">
+        <div class="case-goal__text">
+          <h1 class="case-heading case-heading--white">Цель продукта</h1>
+          <p class="case-lead case-lead--light">
+            Удержание «отказного» трафика Альфа-Банка. Создание отдельного МФО-сервиса, чтобы сохранять аудиторию, которой банк отказал в классическом кредите, и перенаправлять её на микрокредитование.
+          </p>
         </div>
 
-    </div>
-</section>
+        <div class="case-goal__visual">
+          <div class="case-goal__glow" aria-hidden="true"></div>
+          <img src="image/adengi-goal-3d.png" alt="3D логотип A-Dengi" class="case-goal__img" />
+        </div>
+      </div>
+    </section>
 
-    <!-- БЛОК 3: ЗАДАЧА (1920x1080) -->
-    <section id="adengi-3" class="adengi-section-white">
-    <div class="adengi-wrapper-fluid">
-        
-        <h2 class="adengi-title-3" data-ru="Задача" data-en="The Challenge">Задача</h2>
+    <!-- 3. Задача -->
+    <section class="case-task">
+      <div class="container">
+        <h2 class="case-heading">Задача</h2>
 
-        <div class="adengi-ill-block-3">
-            <img src="images/a-dengi-smm.png" alt="Иллюстрация Задачи" class="adengi-img-3">
+        <div class="case-task__grid">
+          <div class="case-task__media-wrap">
+            <div class="case-task__smm-grid">
+              <div class="smm-tile"><img src="image/adengi-smm-1.png" alt="SMM пост 1" /></div>
+              <div class="smm-tile"><img src="image/adengi-smm-2.png" alt="SMM пост 2" /></div>
+              <div class="smm-tile"><img src="image/adengi-smm-3.png" alt="SMM пост 3" /></div>
+              <div class="smm-tile"><img src="image/adengi-smm-4.png" alt="SMM пост 4" /></div>
+            </div>
+            <span class="case-caption">Пример SMM поста</span>
+          </div>
+
+          <div class="case-task__text">
+            <p>
+              Построить с нуля визуальную базу для бесшовного перенаправления пользователей.
+            </p>
+            <p>
+              Было необходимо разработать айдентику и масштабный пак уникальной 3D-графики для всех уровней коммуникации, чтобы направить пользователя в новый продукт и сохранить доверие в новом сервисе.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 4. Типографика (Inter) -->
+    <section class="case-typography">
+      <div class="container case-typography__container">
+        <div class="case-typography__left">
+          <h2 class="case-heading case-heading--white">Inter</h2>
+          <div class="typo-divider"></div>
+
+          <div class="typo-info-grid">
+            <div class="typo-desc">
+              <p>Неогротеск, выбранный для удобства и простоты в интерфейсах.</p>
+              <p>Универсальный шрифт сохраняет абсолютную читаемость в микроформатах, удобен для визуальной коммуникации, большая вариативность применения в продуктовой платформе и материалах.</p>
+            </div>
+
+            <div class="typo-divider typo-divider--mobile"></div>
+
+            <div class="typo-glyphs">
+              <p>АБВГДЕЁЖЗИЙКЛМНОПРСТУФХЦЧШЩЪЫЬЭЮЯ</p>
+              <p>абвгдеёжзийклмнопрстуфхцчшщъыьэюя</p>
+              <p>012345678910</p>
+              <p>%$&amp;€№?!@#+=</p>
+            </div>
+          </div>
+
+          <div class="typo-divider typo-divider--mobile"></div>
+
+          <nav class="case-inline-nav" aria-label="Проекты">
+            <a href="index.html#about">About</a>
+            <a href="a-dengi.html" class="is-active">A-Dengi</a>
+            <a href="tbank-zaymer.html">Т-Банк x Zaymer</a>
+            <a href="zaymer-ru.html">Zaymer Russia</a>
+            <a href="zaymer-kz.html">Zaymer Kazakhstan</a>
+            <a href="unamolia.html">UnaMolia (Uzbekistan)</a>
+            <a href="other.html">Other</a>
+          </nav>
         </div>
 
-        <div class="adengi-text-block-3">
-            <p class="adengi-lead-3" data-ru="Построить с нуля визуальную базу <br>для бесшовного перенаправления пользователей. <br><br>Было необходимо разработать айдентику <br>и масштабный пак уникальной 3D-графики для всех уровней коммуникации, чтобы направить пользователя в новый продукт <br>и сохранить доверие в новом сервисе." data-en="To establish a visual foundation from scratch that enables seamless user redirection. <br><br>The project required developing <br>a comprehensive brand identity <br>and a massive, custom 3D graphics system <br>for all communication levels. The goal <br>was to guide users into the new product while maintaining bulletproof trust <br>in the newly launched service.">Построить с нуля визуальную базу для бесшовного перенаправления пользователей. Было необходимо разработать айдентику и масштабный пак уникальной 3D-графики для всех уровней коммуникации, чтобы направить пользователя в новый продукт и сохранить доверие в новом сервисе.</p>
+        <div class="case-typography__right">
+          <div class="typo-aa-col">
+            <div class="typo-aa" style="font-weight: 100;">Аа</div>
+            <div class="typo-aa" style="font-weight: 200;">Аа</div>
+            <div class="typo-aa" style="font-weight: 300;">Аа</div>
+            <div class="typo-aa" style="font-weight: 400;">Аа</div>
+            <div class="typo-aa" style="font-weight: 500;">Аа</div>
+          </div>
+
+          <div class="typo-weights-col">
+            <span style="font-weight: 100;">Thin</span>
+            <span style="font-weight: 200;">Extra Light</span>
+            <span style="font-weight: 300;">Light</span>
+            <span style="font-weight: 400;">Regular</span>
+            <span style="font-weight: 500;">Medium</span>
+            <span style="font-weight: 600;">SemiBold</span>
+            <span style="font-weight: 700;">Bold</span>
+            <span style="font-weight: 800;">ExtraBold</span>
+            <span style="font-weight: 900;">Black</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 5. Mail рассылки и Onboarding -->
+    <section class="case-comms">
+      <div class="container">
+        <div class="case-comms__grid">
+          <div class="case-comms__mail">
+            <div class="mail-stack">
+              <img src="image/adengi-mail-1.png" alt="Mail рассылка 1" class="mail-img" />
+              <img src="image/adengi-mail-2.png" alt="Mail рассылка 2" class="mail-img" />
+            </div>
+            <span class="case-caption">Пример mail рассылки</span>
+          </div>
+
+          <div class="case-comms__onboard">
+            <div class="onboard-row">
+              <img src="image/adengi-onboard-1.png" alt="Onboarding 1" class="onboard-img" />
+              <img src="image/adengi-onboard-2.png" alt="Onboarding 2" class="onboard-img" />
+              <img src="image/adengi-onboard-3.png" alt="Onboarding 3" class="onboard-img" />
+            </div>
+            <span class="case-caption">Onboarding приложения</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 6. Screens для Google Play -->
+    <section class="case-store">
+      <div class="container">
+        <div class="store-grid">
+          <img src="image/adengi-gp-1.png" alt="Выдачи 24/7" />
+          <img src="image/adengi-gp-2.png" alt="Честные условия" />
+          <img src="image/adengi-gp-3.png" alt="Мгновенное решение" />
+          <img src="image/adengi-gp-4.png" alt="Без лишних звонков" />
+          <img src="image/adengi-gp-5.png" alt="Быстрое получение" />
+        </div>
+        <span class="case-caption">Screens для Google Play</span>
+      </div>
+    </section>
+
+    <!-- 7. 3D-pack (единая иллюстрация брендбука) -->
+    <section class="case-3dpack">
+      <div class="container case-3dpack__container">
+        <div class="case-3dpack__text">
+          <h2 class="case-heading">3D-pack</h2>
+          <p class="case-lead">
+            Иллюстрации разработаны с использованием основного брендбука, учитывая формы, цвета, шрифты для узнаваемости бренда.
+          </p>
         </div>
 
-        <div class="adengi-caption-3" data-ru="Пример SMM поста" data-en="SMM Post Example">Пример SMM поста</div>
-
-    </div>
-</section>
-
-    <!-- БЛОК 4: ЭКРАН ШРИФТ (1920x1080) -->
-    <section id="adengi-4" class="adengi-section-dark">
-    <div class="adengi-wrapper-fluid">
-        
-        <div class="adengi-row-4">
-            
-            <h2 class="adengi-title-4">Inter</h2>
-
-            <div class="adengi-hr-4"></div>
-
-            <div class="adengi-desc-block-4">
-                <p class="adengi-desc-text-4" data-ru="Неогротеск, выбранный для удобства <br>и простоты в интерфейсах. <br><br>Универсальный шрифт сохраняет абсолютную читаемость в микроформатах, удобен для визуальной коммуникации, большая вариативность применения <br>в продуктовой платформе и материадах." data-en="A Neo-Grotesque typeface selected <br>for interface clarity and simplicity. <br><br>This versatile font maintains flawless readability at micro-scales, streamlines visual communication, and offers high flexibility across the product platform <br>and marketing materials.">Неогротеск, выбранный для удобства и простоты в интерфейсах. Универсальный шрифт сохраняет абсолютную читаемость в микроформатах, удобен для визуальной коммуникации, большая вариативность применения в продуктовой платформе и материадах.</p>
-            </div>
-
-            <div class="adengi-vr-4"></div>
-
-            <div class="adengi-alphabet-4">
-                <div class="adengi-alpha-line">АБВГДЕЁЖЗИЙКЛМНОП РСТУФХЦЧШЩЪЫЬЭЮЯ</div>
-                <div class="adengi-alpha-line">абвгдеёжзийклмнопрст уфхцчшщъыьэюя</div>
-                <div class="adengi-alpha-line">012345678910</div>
-                <div class="adengi-alpha-line">%&$€№?!@#+=</div>
-            </div>
-
-            <div class="adengi-glyphs-column-4">
-                <div class="adengi-glyph-item w-thin"><span class="adengi-glyph-text">Аа</span></div>
-                <div class="adengi-glyph-item w-extralight"><span class="adengi-glyph-text">Аа</span></div>
-                <div class="adengi-glyph-item w-light"><span class="adengi-glyph-text">Аа</span></div>
-                <div class="adengi-glyph-item w-regular"><span class="adengi-glyph-text">Аа</span></div>
-                <div class="adengi-glyph-item w-medium"><span class="adengi-glyph-text">Аа</span></div>
-            </div>
-
-            <div class="adengi-weights-column-4">
-                <div class="adengi-weight-item w-thin">Thin</div>
-                <div class="adengi-weight-item w-extralight">Extra Light</div>
-                <div class="adengi-weight-item w-light">Light</div>
-                <div class="adengi-weight-item w-regular">Regular</div>
-                <div class="adengi-weight-item w-medium">Medium</div>
-                <div class="adengi-weight-item w-semibold">SemiBold</div>
-                <div class="adengi-weight-item w-bold">Bold</div>
-                <div class="adengi-weight-item w-extrabold">ExtraBold</div>
-                <div class="adengi-weight-item w-black">Black</div>
-            </div>
-
-            <nav class="adengi-nav-4">
-                <a href="index.html" class="adengi-nav-item-4">About</a>
-                <a href="a-dengi.html" class="adengi-nav-item-4 active">A-Dengi</a>
-                <a href="t-bank.html" class="adengi-nav-item-4">Т-Банк x Zaymer</a>
-                <a href="zaymer-ru.html" class="adengi-nav-item-4">Zaymer Russia</a>
-                <a href="zaymer-kz.html" class="adengi-nav-item-4">Zaymer Kazakhstan</a>
-                <a href="unamolia.html" class="adengi-nav-item-4">UnaMolia (Uzbekistan)</a>
-                <a href="other.html" class="adengi-nav-item-4">Other</a>
-            </nav>
-
+        <div class="case-3dpack__visual">
+          <img src="image/adengi-3dpack-brandbook.png" alt="Брендбук и палитра A-Dengi" class="case-3dpack__img" />
         </div>
+      </div>
+    </section>
 
-    </div>
-</section>
-
-    <!-- БЛОК 5: ПРИМЕРЫ КОММУНИКАЦИИ (1920x934) -->
-    <section id="adengi-5" class="adengi-section-gray">
-    <div class="adengi-wrapper-fluid-5">
-        
-        <div class="adengi-row-5">
-            
-            <div class="adengi-media-box m-box-1">
-                <img src="images/a-dengi-media-1.png" alt="Media 1" class="adengi-media-img">
+    <!-- 8. Сетка 3D-рендеров -->
+    <section class="case-renders">
+      <div class="container">
+        <div class="renders-masonry">
+          <div class="renders-col">
+            <div class="render-tile render-tile--tall render-tile--dark">
+              <img src="image/adengi-render-1.png" alt="3D рендер приложения" />
             </div>
-
-            <div class="adengi-media-box m-box-2">
-                <img src="images/a-dengi-media-2.png" alt="Media 2" class="adengi-media-img">
+            <div class="render-tile render-tile--tall render-tile--light">
+              <img src="image/adengi-render-2.png" alt="3D рендер вопроса" />
             </div>
+          </div>
 
-            <div class="adengi-media-box m-box-3">
-                <img src="images/a-dengi-media-3.png" alt="Media 3" class="adengi-media-img">
+          <div class="renders-col">
+            <div class="render-tile render-tile--short render-tile--light">
+              <img src="image/adengi-render-3.png" alt="3D рендер карты" />
             </div>
-
-            <div class="adengi-media-box m-box-4">
-                <img src="images/a-dengi-media-4.png" alt="Media 4" class="adengi-media-img">
+            <div class="render-tile render-tile--tall render-tile--dark">
+              <img src="image/adengi-render-4.png" alt="3D рендер монеты" />
             </div>
-
-            <div class="adengi-media-box m-box-5">
-                <img src="images/a-dengi-media-5.png" alt="Media 5" class="adengi-media-img">
+            <div class="render-tile render-tile--short render-tile--dark">
+              <img src="image/adengi-render-5.png" alt="3D рендер 80%" />
             </div>
-
-            <p class="adengi-media-caption caption-mail" data-ru="Пример mail рассылки" data-en="Email Sample">Пример mail рассылки</p>
-
-            <p class="adengi-media-caption caption-onboard" data-ru="Onboarding приложения" data-en="App Onboarding">Onboarding приложения</p>
-
+          </div>
         </div>
+      </div>
+    </section>
 
-    </div>
-</section>
+    <!-- 9. Результат -->
+    <section class="case-result">
+      <div class="container">
+        <h2 class="case-heading">Результат</h2>
 
-    <!-- БЛОК 6: СКРИНШОТЫ GOOGLE PLAY (1920x1080) -->
-    <section id="adengi-6" class="adengi-section-gray-840">
-    <div class="adengi-wrapper-fluid">
-        
-        <div class="adengi-row-6">
-            
-            <div class="adengi-store-box store-box-1">
-                <img src="images/a-dengi-store-1.png" alt="Google Play Screen 1" class="adengi-store-img">
-            </div>
+        <div class="case-result__grid">
+          <div class="case-result__screens">
+            <img src="image/adengi-result-1.jpg" alt="Интерфейс A-Dengi 1" />
+            <img src="image/adengi-result-2.jpg" alt="Интерфейс A-Dengi 2" />
+          </div>
 
-            <div class="adengi-store-box store-box-2">
-                <img src="images/a-dengi-store-2.png" alt="Google Play Screen 2" class="adengi-store-img">
-            </div>
-
-            <div class="adengi-store-box store-box-3">
-                <img src="images/a-dengi-store-3.png" alt="Google Play Screen 3" class="adengi-store-img">
-            </div>
-
-            <div class="adengi-store-box store-box-4">
-                <img src="images/a-dengi-store-4.png" alt="Google Play Screen 4" class="adengi-store-img">
-            </div>
-
-            <div class="adengi-store-box store-box-5">
-                <img src="images/a-dengi-store-5.png" alt="Google Play Screen 5" class="adengi-store-img">
-            </div>
-
-            <p class="adengi-store-caption" data-ru="Screens для Google Play" data-en="Google Play Screenshots">Screens для Google Play</p>
-
+          <div class="case-result__text">
+            <p>A-Dengi успешно выполнил свои бизнес-задачи.</p>
+            <p>
+              Разработал сквозную визуальную систему бренда. Внедрение кастомного 3D-пака и шаблонов в Figma ускорило сборку перформанс-баннеров на 40%.
+            </p>
+            <p>Макеты подготовлены под pixel-perfect handoff для фронтенд-разработки.</p>
+          </div>
         </div>
+      </div>
+    </section>
 
-    </div>
-</section>
-
-    <!-- БЛОК 7: 3D-PACK (1920x840) -->
-    <section id="adengi-7" class="adengi-section-white-600">
-    <div class="adengi-wrapper-fluid-7">
-        
-        <div class="adengi-row-7">
-            
-            <div class="adengi-info-block-7">
-                <h2 class="adengi-title-7">3D-pack</h2>
-                
-                <p class="adengi-lead-7" data-ru="Иллюстрации разработаны <br>с использованием основного брендбука, учитывая формы, цвета, шрифты <br>для узнаваемости бренда." data-en="The illustrations were developed based <br>on the core brand book, aligning <br>with shapes, colors, and typography <br>to maximize brand recognition.">Иллюстрации разработаны с использованием основного брендбука, учитывая формы, цвета, шрифты для узнаваемости бренда.</p>
+    <!-- 10. Нижняя навигация (без A-Dengi) -->
+    <section class="project-nav-section case-nav-section" aria-label="Навигация по проектам">
+      <div class="project-nav-track" id="projectNavTrack">
+        <a href="tbank-zaymer.html" class="project-nav-card case-nav-card">
+          <div class="project-nav-card__thumb" style="background: #FFFCEA;">
+            <img src="image/nav-2.png" alt="Т-Банк x Zaymer" />
+          </div>
+          <div class="project-nav-card__body">
+            <div>
+              <h3 class="project-nav-card__title">Т-Банк x Zaymer</h3>
+              <p class="project-nav-card__desc">Как я создал Key visual для коллаборации Zaymer и Т-Банк</p>
             </div>
-
-            <div class="adengi-ill-block-7">
-                <img src="images/a-dengi-3dpack.png" alt="A-Dengi 3D Pack" class="adengi-img-7">
-            </div>
-
-        </div>
-
-    </div>
-</section>
-
-    <!-- БЛОК 8: МЕГА-СТЕНА 3D-ГРАФИКИ (1920x2130) -->
-    <section id="adengi-8" class="adengi-section-mega">
-    <div class="adengi-wrapper-fluid-8">
-        
-        <div class="adengi-row-8">
-            
-            <div class="adengi-mega-box mega-box-1">
-                <img src="images/a-dengi-mega-1.png" alt="3D Mega Pack 1" class="adengi-mega-img">
-            </div>
-
-            <div class="adengi-mega-box mega-box-2">
-                <img src="images/a-dengi-mega-2.png" alt="3D Mega Pack 2" class="adengi-mega-img">
-            </div>
-
-            <div class="adengi-mega-box mega-box-3">
-                <img src="images/a-dengi-mega-3.png" alt="3D Mega Pack 3" class="adengi-mega-img">
-            </div>
-
-            <div class="adengi-mega-box mega-box-4">
-                <img src="images/a-dengi-mega-4.png" alt="3D Mega Pack 4" class="adengi-mega-img">
-            </div>
-
-            <div class="adengi-mega-box mega-box-5">
-                <img src="images/a-dengi-mega-5.png" alt="3D Mega Pack 5" class="adengi-mega-img">
-            </div>
-
-        </div>
-
-    </div>
-</section>
-
-    <!-- БЛОК 9: РЕЗУЛЬТАТ (1920x1110) -->
-    <section id="adengi-9" class="adengi-section-gray-870">
-    <div class="adengi-wrapper-fluid-9">
-        
-        <div class="adengi-row-9">
-            
-            <h2 class="adengi-title-9" data-ru="Результат" data-en="Results">Результат</h2>
-
-            <div class="adengi-result-ill-block">
-                <img src="images/a-dengi-result.png" alt="A-Dengi Результат" class="adengi-result-img">
-            </div>
-
-            <div class="adengi-result-text-block">
-                <p class="adengi-result-lead" data-ru="A-Dengi успешно выполнил <br>свои бизнес-задачи. <br><br>Разработал сквозную визуальную систему бренда. Внедрение кастомного 3D-пака <br>и шаблонов в Figma ускорило сборку перформанс-баннеров на 40%. <br><br>Макеты подготовлены под pixel-perfect handoff для фронтенд-разработки." data-en="A-Dengi successfully achieved its core business goals. <br><br>I developed an end-to-end brand visual system. Implementing the custom 3D pack <br>and reusable Figma templates accelerated performance banner production by 40%. <br><br>All layouts were delivered via a pixel-perfect handoff, fully optimized for frontend development.">Screens для Google Play</p>
-            </div>
-
-        </div>
-
-    </div>
-</section>
-
-<!-- ЭКРАН: ГОРИЗОНТАЛЬНАЯ НАВИГАЦИЯ КЕЙСОВ -->
-<section id="nav-a-dengi" class="cases-slider-section">
-    <div class="slider-track">
-
-        <a href="a-dengi.html" class="slider-card-link">
-            <div class="slider-card-ill-container">
-                <img src="images/scroll_1.png" alt="A-Dengi" class="slider-card-ill">
-            </div>
-            <div class="slider-card-content">
-                <div class="slider-card-title">A-Dengi</div>
-                <div class="slider-card-subtitle" data-ru="Как мы разработали МФО <br>от Альфа Банка" data-en="How We Built a Micro-Lending Platform <br>for Alfa-Bank">Как мы разработали МФО <br>от Альфа Банка</div>
-            </div>
-            <div class="slider-card-action">Next project</div>
+            <span class="project-nav-card__next">Next project</span>
+          </div>
         </a>
 
-        <a href="t-bank.html" class="slider-card-link">
-            <div class="slider-card-ill-container">
-                <img src="images/scroll_2.png" alt="Т-Банк x Zaymer" class="slider-card-ill">
+        <a href="zaymer-ru.html" class="project-nav-card case-nav-card">
+          <div class="project-nav-card__thumb" style="background: #EBF5E5;">
+            <img src="image/nav-3.png" alt="Zaymer RU" />
+          </div>
+          <div class="project-nav-card__body">
+            <div>
+              <h3 class="project-nav-card__title">Zaymer RU</h3>
+              <p class="project-nav-card__desc">Как мы сделали крупный ребрендинг для лидера по выдачам МФО - Zaymer</p>
             </div>
-            <div class="slider-card-content">
-                <div class="slider-card-title" data-ru="Т-Банк x Zaymer" data-en="Т-Bank x Zaymer">Т-Банк x Zaymer</div>
-                <div class="slider-card-subtitle" data-ru="Как я создал Key visual для коллаборации Zaymer и Т-Банк" data-en="How I Designed the Key Visual for the Zaymer <br>× T-Bank Collaboration">Как я создал Key visual для коллаборации Zaymer и Т-Банк</div>
-            </div>
-            <div class="slider-card-action">Next project</div>
+            <span class="project-nav-card__next">Next project</span>
+          </div>
         </a>
 
-        <a href="zaymer-ru.html" class="slider-card-link">
-            <div class="slider-card-ill-container">
-                <img src="images/scroll_3.png" alt="Zaymer RU" class="slider-card-ill">
+        <a href="zaymer-kz.html" class="project-nav-card case-nav-card">
+          <div class="project-nav-card__thumb" style="background: #E8F5EC;">
+            <img src="image/nav-4.png" alt="Zaymer KZ" />
+          </div>
+          <div class="project-nav-card__body">
+            <div>
+              <h3 class="project-nav-card__title">Zaymer KZ</h3>
+              <p class="project-nav-card__desc">Как я локализировал с помощью брендинга весь SMM для МФО в Казахстане</p>
             </div>
-            <div class="slider-card-content">
-                <div class="slider-card-title">Zaymer RU</div>
-                <div class="slider-card-subtitle" data-ru="Как мы сделали крупный ребрендинг для лидера <br>по выдачам МФО - Zaymer" data-en="How We Pulled Off a Massive Rebrand for Zaymer, <br>the Market Leader <br>in Micro-Lending">Как мы сделали крупный ребрендинг для лидера по выдачам МФО - Zaymer</div>
-            </div>
-            <div class="slider-card-action">Next project</div>
+            <span class="project-nav-card__next">Next project</span>
+          </div>
         </a>
 
-        <a href="zaymer-kz.html" class="slider-card-link">
-            <div class="slider-card-ill-container">
-                <img src="images/scroll_4.png" alt="Zaymer KZ" class="slider-card-ill">
+        <a href="unamolia.html" class="project-nav-card case-nav-card">
+          <div class="project-nav-card__thumb" style="background: #E6EFFF;">
+            <img src="image/nav-5.png" alt="UnaMolia" />
+          </div>
+          <div class="project-nav-card__body">
+            <div>
+              <h3 class="project-nav-card__title">UnaMolia (Uzbekistan)</h3>
+              <p class="project-nav-card__desc">Как мы создали уникальный продукт для целой страны</p>
             </div>
-            <div class="slider-card-content">
-                <div class="slider-card-title">Zaymer KZ</div>
-                <div class="slider-card-subtitle" data-ru="Как я локализировал <br>с помощью брендинга <br>весь SMM для МФО <br>в Казахстане" data-en="How I Used Branding <br>to Localize the Complete SMM for a Kazakhstani FinTech">Как я локализировал с помощью брендинга весь SMM для МФО в Казахстане</div>
-            </div>
-            <div class="slider-card-action">Next project</div>
+            <span class="project-nav-card__next">Next project</span>
+          </div>
         </a>
 
-        <a href="unamolia.html" class="slider-card-link">
-            <div class="slider-card-ill-container">
-                <img src="images/scroll_5.png" alt="UnaMolia" class="slider-card-ill">
+        <a href="other.html" class="project-nav-card case-nav-card">
+          <div class="project-nav-card__thumb" style="background: #FFFBE5;">
+            <img src="image/nav-6.png" alt="Other" />
+          </div>
+          <div class="project-nav-card__body">
+            <div>
+              <h3 class="project-nav-card__title">Other</h3>
+              <p class="project-nav-card__desc">Другие проекты которые я разрабатывал</p>
             </div>
-            <div class="slider-card-content">
-                <div class="slider-card-title">UnaMolia<br>(Uzbekistan)</div>
-                <div class="slider-card-subtitle" data-ru="Как мы создали уникальный продукт для целой страны" data-en="How We Built <br>a Groundbreaking Product <br>on a National Scale">Как мы создали уникальный продукт для целой страны</div>
-            </div>
-            <div class="slider-card-action">Next project</div>
+            <span class="project-nav-card__next">Next project</span>
+          </div>
         </a>
+      </div>
+    </section>
+  </main>
 
-        <a href="other.html" class="slider-card-link">
-            <div class="slider-card-ill-container">
-                <img src="images/scroll_6.png" alt="Other" class="slider-card-ill">
-            </div>
-            <div class="slider-card-content">
-                <div class="slider-card-title">Other</div>
-                <div class="slider-card-subtitle" data-ru="Другие проекты которые <br>я разрабатывал" data-en="More Projects I’ve Worked On">Другие проекты которые я разрабатывал</div>
-            </div>
-            <div class="slider-card-action">Next project</div>
-        </a>
-
+  <footer class="site-footer case-footer">
+    <div class="container">
+      <div class="footer-line"></div>
     </div>
-</section>
+  </footer>
 
-    <!-- БЛОК 10: ЗАКРЫВАЮЩАЯ ЛИНИЯ (1920x240) -->
-<section id="adengi-10" class="adengi-section-footer">
-    <div class="adengi-wrapper-fluid-10">
-        <div class="adengi-footer-line"></div>
-    </div>
-</section>
-
-    <script src="script.js"></script>
-
-    <script src="script.js"></script>
-
-    <script>
-    document.addEventListener('DOMContentLoaded', () => {
-        const header = document.querySelector('.site-header-fixed');
-        const triggerSection = document.getElementById('adengi-3'); 
-
-        if (!header || !triggerSection) return;
-
-        const options = {
-            root: null,
-            rootMargin: '0px 0px -100% 0px', 
-            threshold: 0
-        };
-
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting || entry.boundingClientRect.top < 0) {
-                    header.classList.add('show-header');
-                } else {
-                    header.classList.remove('show-header');
-                }
-            });
-        }, options);
-
-        observer.observe(triggerSection);
-    });
-    </script>
-
-    <script>
-    document.addEventListener("DOMContentLoaded", function() {
-        // 1. Читаем параметры из адресной строки (?lang=...)
-        const urlParams = new URLSearchParams(window.location.search);
-        const langParam = urlParams.get('lang');
-        
-        let currentLang = 'ru'; 
-        if (langParam === 'en' || langParam === 'eng') {
-            currentLang = 'en';
-        }
-
-        // 2. Переключаем активный класс на кнопках RU/ENG в шапке
-        const ruBtn = document.querySelector('.header-lang-link[href="?lang=ru"]');
-        const enBtn = document.querySelector('.header-lang-link[href="?lang=en"]');
-        
-        if (ruBtn && enBtn) {
-            if (currentLang === 'en') {
-                ruBtn.classList.remove('active');
-                enBtn.classList.add('active');
-            } else {
-                enBtn.classList.remove('active');
-                ruBtn.classList.add('active');
-            }
-        }
-
-        // 3. БЕЗОПАСНЫЙ ПЕРЕВОД: Меняем только текст, чтобы не ломать структуру кнопок
-        document.querySelectorAll('[data-ru]').forEach(el => {
-            const translatedText = el.getAttribute(`data-${currentLang}`);
-            if (translatedText) {
-                if (el.tagName === 'BUTTON' || el.classList.contains('contact-btn')) {
-                    el.textContent = translatedText;
-                } else {
-                    el.innerHTML = translatedText;
-                }
-            }
-        });
-
-        // 4. ЖЕЛЕЗНЫЙ ПРОБРОС ССЫЛОК (Чтобы язык не слетал при переходе на About)
-        document.querySelectorAll('a').forEach(link => {
-            const href = link.getAttribute('href');
-            if (!href || href.startsWith('http') || link.classList.contains('header-lang-link')) return;
-
-            try {
-                const fakeBase = window.location.origin + window.location.pathname;
-                const urlObj = new URL(href, fakeBase);
-
-                if (currentLang === 'en') {
-                    urlObj.searchParams.set('lang', 'en');
-                } else {
-                    urlObj.searchParams.set('lang', 'ru');
-                }
-
-                let newHref = urlObj.pathname.split('/').pop() + urlObj.search + urlObj.hash;
-                
-                if (href.startsWith('#')) {
-                    newHref = href.split('?')[0] + urlObj.search; 
-                    if (href.includes('#')) {
-                        const cleanHash = href.match(/#[A-Za-z0-9_-]+/)[0];
-                        newHref = cleanHash + urlObj.search;
-                    }
-                }
-
-                if (href.startsWith('../')) {
-                    newHref = '../' + newHref;
-                }
-
-                link.setAttribute('href', newHref);
-            } catch (e) {
-                console.error('Ошибка обработки ссылки:', e);
-            }
-        });
-    });
-</script>
-    
-</body>
+  <script src="script.js"></script>
 </body>
 </html>

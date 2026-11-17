@@ -1,670 +1,565 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Kurlaev Andrew — Other (In Progress)</title>
-    
-    <link rel="stylesheet" href="styles.css">
-    
-    <style>
-        /* Системный сброс для плавного рендеринга жёлтого фона */
-        html, body {
-            margin: 0;
-            padding: 0;
-            width: 100%;
-            background-color: #FFD600;
-            overflow-x: hidden;
-            -webkit-font-smoothing: antialiased;
-            -moz-osx-font-smoothing: grayscale;
-        }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Other Projects — кейс | Kurlaev Andrew</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Tektur:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="case.css" />
+  <link rel="stylesheet" href="other.css" />
 </head>
-<body>
+<body class="case-page ot-page">
 
-    <header class="site-header-fixed">
-    
-    <!-- Нижняя линия во всю ширину экрана (1920px) теперь лежит здесь -->
-    <div class="header-bottom-line"></div>
+  <!-- Липкая шапка: появляется после скролла первого экрана -->
+  <header class="site-header site-header--reveal" id="header">
+    <div class="header-inner">
+      <button class="burger-btn" id="burgerBtn" aria-label="Открыть меню" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
 
-    <div class="header-wrapper-fluid">
-        <div class="header-row">
-            
-            <!-- Левая навигация -->
-            <nav class="header-nav-main">
-                <a href="index.html#about" class="header-nav-link">About</a>
-                <a href="index.html#cases" class="header-nav-link">Cases</a>
-                <a href="index.html#skills" class="header-nav-link">Experience</a> 
-            </nav>
-            
-            <!-- Центр -->
-            <div class="header-title-center" data-ru="Курлаев Андрей" data-en="Kurlaev Andrew">Курлаев Андрей</div>
-            
-            <!-- Правые языки -->
-            <div class="header-nav-lang">
-                <a href="?lang=ru" class="header-lang-link">RU</a>
-                <a href="?lang=en" class="header-lang-link active">ENG</a>
+      <nav class="header-nav" aria-label="Основная навигация">
+        <a href="index.html#about" class="nav-link">About</a>
+        <a href="index.html#cases" class="nav-link is-active">Cases</a>
+        <a href="index.html#experience" class="nav-link">Experience</a>
+      </nav>
+
+      <a href="index.html" class="header-brand">Kurlaev Andrew</a>
+
+      <div class="lang-switch" role="group" aria-label="Выбор языка">
+        <button class="lang-btn is-active" data-lang="ru">RU</button>
+        <button class="lang-btn" data-lang="eng">ENG</button>
+      </div>
+    </div>
+    <div class="header-divider"></div>
+  </header>
+
+  <!-- Мобильное меню -->
+  <div class="mobile-menu" id="mobileMenu" aria-hidden="true">
+    <nav class="mobile-menu-nav">
+      <a href="index.html#about" class="mobile-nav-link">About</a>
+      <a href="index.html#cases" class="mobile-nav-link">Cases</a>
+      <a href="index.html#experience" class="mobile-nav-link">Experience</a>
+    </nav>
+    <div class="mobile-menu-contacts">
+      <a href="tel:+79833209153">+7-983-320-91-53</a>
+      <a href="https://t.me/superandrew1" target="_blank" rel="noopener">tg: @superandrew1</a>
+      <a href="mailto:an-di.91@mail.ru">an-di.91@mail.ru</a>
+    </div>
+  </div>
+
+  <main>
+    <!-- 1. HERO -->
+    <section class="ot-hero" id="caseHero">
+      <div class="container ot-hero__inner">
+        <div class="ot-hero__tags" aria-hidden="true">
+          <span>Branding</span>
+          <span>/</span>
+          <span>Logotypes</span>
+          <span>/</span>
+          <span>Illustrations</span>
+        </div>
+
+        <h1 class="ot-hero__title">Other Project</h1>
+
+        <div class="ot-hero__bottom">
+          <span class="ot-hero__note">Creative Presentation</span>
+          <div class="ot-hero__contacts">
+            <a href="tel:+79833209153">+7-983-320-91-53</a>
+            <a href="https://t.me/superandrew1" target="_blank" rel="noopener">tg: @superandrew1</a>
+            <a href="mailto:an-di.91@mail.ru">an-di.91@mail.ru</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 2. ROBOCASH — INTRO -->
+    <section class="ot-robocash-intro">
+      <div class="container ot-robocash-intro__container">
+        <div class="ot-robocash-intro__text">
+          <h2 class="case-heading">
+            <span class="ot-mobile-hide">Иллюстрации для инвестиционного проекта </span>RoboCash
+          </h2>
+          <div class="ot-robocash-intro__visual-mobile">
+            <img src="image/ot-rc-hero.png" alt="3D-логотип RoboCash на пьедестале" />
+          </div>
+          <div class="ot-robocash-intro__paragraphs">
+            <p class="case-lead">
+              Иллюстрации разработаны для ребрендинга инвестиционной платформы RoboCash.
+            </p>
+            <p class="case-lead">
+              Стиль иллюстрации разработан исходя из нового брендбука и уникальному подходу к разработке визуального языка
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="ot-robocash-intro__visual-desktop" aria-hidden="true">
+        <img src="image/ot-rc-hero.png" alt="" />
+      </div>
+    </section>
+
+    <!-- 3. ROBOCASH — 3D GALLERY -->
+    <section class="ot-robocash-grid">
+      <div class="container ot-rc-container">
+        <!-- Верхний широкий тёмный баннер -->
+        <div class="ot-rc-hero-card">
+          <img src="image/ot-rc-1.png" alt="3D-иллюстрация смартфона RoboCash" />
+        </div>
+
+        <!-- Пара тёмных квадратных карточек -->
+        <div class="ot-rc-pair">
+          <div class="ot-rc-card ot-rc-card--dark ot-rc-card--square">
+            <img src="image/ot-rc-2.png" alt="3D-щит и монеты евро" />
+          </div>
+          <div class="ot-rc-card ot-rc-card--dark ot-rc-card--square">
+            <img src="image/ot-rc-3.png" alt="3D-куб со свечением" />
+          </div>
+        </div>
+
+        <!-- Шахматная сетка на десктопе / на мобилке: тёмная -> карусель из 5 белых -> нижняя белая -->
+        <div class="ot-rc-stagger">
+          <div class="ot-rc-card ot-rc-card--dark ot-rc-card--rect ot-rc-card--4">
+            <img src="image/ot-rc-4.png" alt="Стопки монет и зелёный треугольник" />
+          </div>
+
+          <div class="ot-rc-card ot-rc-card--dark ot-rc-card--square ot-rc-card--5 ot-mobile-hide">
+            <img src="image/ot-rc-5.png" alt="Зелёный куб и восемь монет" />
+          </div>
+
+          <div class="ot-rc-carousel">
+            <div class="ot-rc-card ot-rc-card--light ot-rc-card--rect ot-rc-card--stagger-left">
+              <img src="image/ot-rc-6.png" alt="Монеты евро и зелёный график" />
             </div>
-            
-        </div>
-    </div>
-</header>
-
-<section class="other-screen">
-    <!-- Текст 2: Категории (горизонтально сверху слева) -->
-    <div class="other-categories">
-        <span data-ru="Branding" data-en="Branding">Branding</span>
-        <span class="other-divider">/</span>
-        <span data-ru="Logotypes" data-en="Logotypes">Logotypes</span>
-        <span class="other-divider">/</span>
-        <span data-ru="Illustrations" data-en="Illustrations">Illustrations</span>
-    </div>
-
-    <!-- Текст 1: Главный заголовок по центру -->
-    <h1 class="other-main-title" data-ru="Other Project" data-en="Other Project">
-        Other Project
-    </h1>
-
-    <!-- Текст 3: Левый нижний угол -->
-    <div class="other-presentation" data-ru="Creative Presentation" data-en="Creative Presentation">
-        Creative Presentation
-    </div>
-
-    <!-- Текст 4: Правый нижний угол (контакты вертикально) -->
-    <div class="other-contacts">
-        <a href="tel:+79833209153" class="other-contact-item" data-ru="+7-983-320-91-53" data-en="+7-983-320-91-53">+7-983-320-91-53</a>
-        <a href="https://t.me/superandrew1" target="_blank" rel="noopener noreferrer" class="other-contact-item" data-ru="tg: @superandrew1" data-en="tg: @superandrew1">tg: @superandrew1</a>
-        <a href="mailto:an-di.91@mail.ru" class="other-contact-item" data-ru="an-di.91@mail.ru" data-en="an-di.91@mail.ru">an-di.91@mail.ru</a>
-    </div>
-</section>
-
-<!-- ЭКРАН КЕЙСА: ROBOCASH -->
-<section class="robocash-screen">
-    <div class="robocash-content">
-        <!-- Текстовая колонка (слева 0, ширина 816px) -->
-        <div class="robocash-text-col">
-            <h2 class="robocash-title" 
-                data-ru="Иллюстрации для инвестиционного проекта RoboCash" 
-                data-en="Illustrations for the RoboCash investment project">
-                Иллюстрации для инвестиционного проекта RoboCash
-            </h2>
-
-            <div class="robocash-desc" 
-                 data-ru="Иллюстрации разработаны для ребрендинга инвестиционной платформы RoboCash. <br><br>Стиль иллюстрации разработан исходя из нового бренбука и уникальному подходу к разработке визуального языка" 
-                 data-en="The illustrations were developed for the RoboCash investment platform rebranding. <br><br>The illustration style was crafted based on the new brand book and a unique approach to developing the visual language.">
-                <p>Иллюстрации разработаны для ребрендинга инвестиционной платформы RoboCash.</p>
-                <p>Стиль иллюстрации разработан исходя из нового бренбука и уникальному подходу к разработке визуального языка</p>
+            <div class="ot-rc-card ot-rc-card--light ot-rc-card--rect">
+              <img src="image/ot-rc-7.png" alt="Объёмный знак на пьедестале" />
             </div>
-        </div>
-
-        <!-- Иллюстрация (слева 720px, вылет справа и снизу на 120px) -->
-        <div class="robocash-illustration-wrap">
-            <img src="images/robocash-preview.png" alt="RoboCash Illustration" class="robocash-image">
-        </div>
-    </div>
-</section>
-
-<!-- ЭКРАН 3: ГАЛЕРЕЯ ИЛЛЮСТРАЦИЙ ROBOCASH -->
-<section class="robocash-gallery-screen">
-    <div class="robocash-gallery-content">
-        <!-- 1. 1680x840 -->
-        <div class="gallery-item item-1">
-            <img src="images/robocash-01.png" alt="RoboCash Illustration 01">
-        </div>
-
-        <!-- 2. 810x810 (слева) -->
-        <div class="gallery-item item-2">
-            <img src="images/robocash-02.png" alt="RoboCash Illustration 02">
-        </div>
-
-        <!-- 3. 810x810 (справа) -->
-        <div class="gallery-item item-3">
-            <img src="images/robocash-03.png" alt="RoboCash Illustration 03">
-        </div>
-
-        <!-- 4. 810x660 (слева) -->
-        <div class="gallery-item item-4">
-            <img src="images/robocash-04.png" alt="RoboCash Illustration 04">
-        </div>
-
-        <!-- 5. 810x810 (справа) -->
-        <div class="gallery-item item-5">
-            <img src="images/robocash-05.png" alt="RoboCash Illustration 05">
-        </div>
-
-        <!-- 6. 810x660 (слева) -->
-        <div class="gallery-item item-6">
-            <img src="images/robocash-06.png" alt="RoboCash Illustration 06">
-        </div>
-
-        <!-- 7. 810x660 (справа) -->
-        <div class="gallery-item item-7">
-            <img src="images/robocash-07.png" alt="RoboCash Illustration 07">
-        </div>
-
-        <!-- 8. 810x660 (слева) -->
-        <div class="gallery-item item-8">
-            <img src="images/robocash-08.png" alt="RoboCash Illustration 08">
-        </div>
-
-        <!-- 9. 810x660 (справа) -->
-        <div class="gallery-item item-9">
-            <img src="images/robocash-09.png" alt="RoboCash Illustration 09">
-        </div>
-
-        <!-- 10. 810x810 (слева) -->
-        <div class="gallery-item item-10">
-            <img src="images/robocash-10.png" alt="RoboCash Illustration 10">
-        </div>
-
-        <!-- 11. 810x660 (справа) -->
-        <div class="gallery-item item-11">
-            <img src="images/robocash-11.png" alt="RoboCash Illustration 11">
-        </div>
-    </div>
-</section>
-
-<!-- Полоса-разделитель на фоне #F9F9F9 -->
-<div class="divider-wrapper">
-    <div class="block-divider-line"></div>
-</div>
-
-<!-- ЭКРАН КЕЙСА: CREDITBAR KZ -->
-<section class="creditbar-screen">
-    <div class="creditbar-content">
-        <!-- 1. Фоновая иллюстрация с вылетами -->
-        <div class="creditbar-bg-wrap">
-            <img src="images/creditbar-bg.png" alt="CreditBar Background" class="creditbar-bg-img">
-        </div>
-
-        <!-- 2. Основная иллюстрация (слева 0) -->
-        <div class="creditbar-illustration-wrap">
-            <img src="images/creditbar-main.png" alt="CreditBar 3D Illustration" class="creditbar-main-img">
-        </div>
-
-        <!-- 3. Текстовый блок (слева 780px) -->
-        <div class="creditbar-text-block">
-            <h2 class="creditbar-title" 
-                data-ru="Иллюстрации <br>для МФО «CreditBar»" 
-                data-en="Illustrations <br>for CreditBar MFO">
-                Иллюстрации для МФО «CreditBar»
-            </h2>
-
-            <div class="creditbar-desc" 
-                 data-ru="Серия 3D-иллюстраций, созданная с нуля <br>для МФО в Казахстане. <br> <br>Стиль развивался параллельно с продуктом, <br>задавая трендовый визуальный тон интерфейсам <br>и маркетингу бренда." 
-                 data-en="A series of 3D illustrations created from scratch <br>for a microfinance organization in Kazakhstan. <br><br>The style evolved alongside the product, setting an on-trend visual tone for both the interfaces and the brand’s marketing.">
-                <p>Серия 3D-иллюстраций, созданная с нуля для МФО в Казахстане.</p>
-                <p>Стиль развивался параллельно с продуктом, задавая трендовый визуальный тон интерфейсам и маркетингу бренда.</p>
+            <div class="ot-rc-card ot-rc-card--light ot-rc-card--rect ot-rc-card--stagger-left">
+              <img src="image/ot-rc-8.png" alt="Знак RoboCash на пьедестале" />
             </div>
-        </div>
-    </div>
-</section>
-
-<!-- ГАЛЕРЕЯ CREDITBAR KZ (7 ИЛЛЮСТРАЦИЙ) -->
-<section class="creditbar-gallery-screen">
-    <div class="creditbar-gallery-content">
-        <!-- 1. 540x540 (слева) -->
-        <div class="cb-item cb-item-1">
-            <img src="images/creditbar-01.png" alt="CreditBar 01">
-        </div>
-
-        <!-- 2. 540x540 (по центру) -->
-        <div class="cb-item cb-item-2">
-            <img src="images/creditbar-02.png" alt="CreditBar 02">
-        </div>
-
-        <!-- 3. 540x540 (справа) -->
-        <div class="cb-item cb-item-3">
-            <img src="images/creditbar-03.png" alt="CreditBar 03">
-        </div>
-
-        <!-- 4. 810x810 (слева) -->
-        <div class="cb-item cb-item-4">
-            <img src="images/creditbar-04.png" alt="CreditBar 04">
-        </div>
-
-        <!-- 5. 810x630 (справа) -->
-        <div class="cb-item cb-item-5">
-            <img src="images/creditbar-05.png" alt="CreditBar 05">
-        </div>
-
-        <!-- 6. 810x630 (слева) -->
-        <div class="cb-item cb-item-6">
-            <img src="images/creditbar-06.png" alt="CreditBar 06">
-        </div>
-
-        <!-- 7. 810x810 (справа) -->
-        <div class="cb-item cb-item-7">
-            <img src="images/creditbar-07.png" alt="CreditBar 07">
-        </div>
-    </div>
-</section>
-
-<!-- ЭКРАН CREDITBAR SMM (С ВСТРОЕННОЙ ЛИНИЕЙ) -->
-<section class="creditbar-smm-screen">
-    <div class="creditbar-smm-content">
-        <!-- Иллюстрация с вылетами и тенью -->
-        <div class="creditbar-smm-wrap">
-            <img src="images/creditbar-smm.png" alt="CreditBar SMM Illustration" class="creditbar-smm-img">
-        </div>
-
-        <!-- Подпись слева снизу -->
-        <div class="creditbar-smm-caption"
-             data-ru="Пример SMM-поста"
-             data-en="Social media post example">
-            Пример SMM-поста
-        </div>
-    </div>
-
-    <!-- Встроенная разделительная линия (поверх тени, отступы по 120px) -->
-    <div class="creditbar-inner-divider"></div>
-</section>
-
-<!-- ЭКРАН КЕЙСА: SATCREDIT -->
-<section class="satcredit-screen">
-    <div class="satcredit-content">
-        <!-- Текстовый блок (слева 0) -->
-        <div class="satcredit-text-block">
-            <h2 class="satcredit-title" 
-                data-ru="Айдентика <br>для МФО SatCredit" 
-                data-en="Brand identity <br>for SatCredit">
-                Айдентика для МФО<br>SatCredit
-            </h2>
-
-            <div class="satcredit-desc" 
-                 data-ru="Разработка базовой айдентики и дизайн-элементов бренда в недельный спринт. <br><br>Визуальная система построена на стыке традиционных казахских символов и понятной финансовой графики, обеспечивая легкое считывание бренда и доверие пользователей всех возрастных категорий." 
-                 data-en="Development of the core brand identity and design elements during a one-week sprint. <br><br>The visual system blends traditional Kazakh symbols with accessible financial graphics, ensuring instant brand recognition and trust across all age groups.">
-                <p>Разработка базовой айдентики и дизайн-элементов бренда в недельный спринт.</p>
-                <p>Визуальная система построена на стыке традиционных казахских символов и понятной финансовой графики, обеспечивая легкое считывание бренда и доверие пользователей всех возрастных категорий.</p>
+            <div class="ot-rc-card ot-rc-card--light ot-rc-card--rect">
+              <img src="image/ot-rc-9.png" alt="Монеты евро и оранжевый график" />
             </div>
-        </div>
-
-        <!-- Иллюстрация справа (690x528, слева 990px) -->
-        <div class="satcredit-illustration-wrap">
-            <img src="images/satcredit-main.png" alt="SatCredit Identity Illustration" class="satcredit-main-img">
-        </div>
-    </div>
-</section>
-
-<!-- ЭКРАН ГАЛЕРЕИ: SATCREDIT -->
-<section class="satcredit-gallery-screen">
-    <div class="satcredit-gallery-content">
-        <!-- 1. 3D большая (1680x1323) -->
-        <div class="satcredit-item satcredit-item-1">
-            <img src="images/satcredit-01.png" alt="SatCredit 3D Overview">
-        </div>
-
-        <!-- 2. 3D слева (810x810) -->
-        <div class="satcredit-item satcredit-item-2">
-            <img src="images/satcredit-02.png" alt="SatCredit 3D Detail 1">
-        </div>
-
-        <!-- 3. 3D справа (810x810) -->
-        <div class="satcredit-item satcredit-item-3">
-            <img src="images/satcredit-03.png" alt="SatCredit 3D Detail 2">
-        </div>
-
-        <!-- 4. Паттерн (1680x640) -->
-        <div class="satcredit-item satcredit-item-4">
-            <img src="images/satcredit-pattern.png" alt="SatCredit Pattern">
-        </div>
-
-        <!-- 5. Метафоры (1520x800, слева 80px) -->
-        <div class="satcredit-item satcredit-item-5">
-            <img src="images/satcredit-metaphors.png" alt="SatCredit Metaphors">
-        </div>
-    </div>
-</section>
-
-<!-- ЗАКРЫВАЮЩИЙ БЛОК SATCREDIT (С ВСТРОЕННОЙ ЛИНИЕЙ) -->
-<section class="satcredit-closing-screen">
-    <div class="satcredit-closing-content">
-        <!-- 3D иллюстрация 1920x1073 с вылетами и тенью -->
-        <div class="satcredit-closing-wrap">
-            <img src="images/satcredit-closing.png" alt="SatCredit Closing 3D" class="satcredit-closing-img">
-        </div>
-    </div>
-
-    <!-- Разделительная линия 1px внутри блока (120px сверху, 120px снизу) -->
-    <div class="satcredit-inner-divider"></div>
-</section>
-
-<!-- ЭКРАН КЕЙСА: АКСАЙ -->
-<section class="aksay-screen">
-    <div class="aksay-content">
-        <!-- 1. Иллюстрация / Фото слева (690x720) -->
-        <div class="aksay-illustration-wrap">
-            <img src="images/aksay-main.png" alt="Aksay Branding Illustration" class="aksay-main-img">
-        </div>
-
-        <!-- 2. Текстовый блок справа (слева 780px) -->
-        <div class="aksay-text-block">
-            <h2 class="aksay-title" 
-                data-ru="Брендинг <br>для строительной компании Аксай" 
-                data-en="Brand identity <br>for Aksai Construction">
-                Брендинг для строительной компании Аксай
-            </h2>
-
-            <div class="aksay-desc" 
-                 data-ru="Редизайн логотипа с переходом в комплексный брендбук для компании «Аксай». <br><br>Стиль объединяет инженерную строгость, контрастные цвета и монументальную форму знака для физических и цифровых носителей." 
-                 data-en="Logo redesign evolved into a full brand book for Aksai. <br><br>The visual style merges engineering rigor, bold contrast, and a solid mark optimized for print and digital assets.">
-                <p>Редизайн логотипа с переходом в комплексный брендбук для компании «Аксай».</p>
-                <p>Стиль объединяет инженерную строгость, контрастные цвета и монументальную форму знака для физических и цифровых носителей.</p>
+            <div class="ot-rc-card ot-rc-card--light ot-rc-card--square ot-rc-card--stagger-left ot-rc-card--gear">
+              <img src="image/ot-rc-10.png" alt="Шестерёнка со свечением" />
             </div>
+          </div>
+
+          <div class="ot-rc-card ot-rc-card--light ot-rc-card--rect ot-rc-card--11">
+            <img src="image/ot-rc-11.png" alt="Золотые слитки, знак и зелёный график" />
+          </div>
         </div>
+      </div>
+    </section>
+
+    <!-- Разделитель -->
+    <div class="ot-divider ot-divider--rc">
+      <div class="container"><div class="ot-divider__line"></div></div>
     </div>
-</section>
 
-<!-- ЭКРАН СРАВНЕНИЯ ЛОГОТИПОВ: АКСАЙ -->
-<section class="aksay-compare-screen">
-    <div class="aksay-compare-content">
-        <!-- 1. Иллюстрация До (720x630, слева 90px) -->
-        <div class="aksay-logo-wrap aksay-logo-before">
-            <img src="images/aksay-logo-before.png" alt="Aksay Logo Before" class="aksay-logo-img">
+    <!-- 4. CREDITBAR — INTRO -->
+    <section class="ot-creditbar-intro">
+      <div class="ot-creditbar-intro__bg" aria-hidden="true">
+        <img src="image/ot-cb-bg.png" alt="" />
+      </div>
+      <div class="container ot-creditbar-intro__grid">
+        <div class="ot-creditbar-intro__text">
+          <h2 class="case-heading case-heading--white">
+            <span class="ot-mobile-hide">Иллюстрации для </span>МФО «CreditBar»
+          </h2>
+          <div class="ot-creditbar-intro__visual">
+            <img src="image/ot-cb-hero.png" alt="3D-щит CreditBar с монетой тенге" />
+          </div>
+          <p class="case-lead ot-creditbar-intro__lead">
+            Серия 3D-иллюстраций, созданная с нуля для МФО в Казахстане. Стиль развивался параллельно с продуктом, задавая трендовый визуальный тон интерфейсам и маркетингу бренда.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 5. CREDITBAR — 3D GALLERY -->
+    <section class="ot-creditbar-grid">
+      <div class="container ot-cb-container">
+        <!-- Верхние 3 круглые иллюстрации (карусель на мобилке) -->
+        <div class="ot-cb-circles">
+          <div class="ot-cb-circle-card">
+            <img src="image/ot-cb-1.png" alt="Смартфон с рукой и монетой" />
+          </div>
+          <div class="ot-cb-circle-card">
+            <img src="image/ot-cb-2.png" alt="Жёлтая ракета" />
+          </div>
+          <div class="ot-cb-circle-card">
+            <img src="image/ot-cb-3.png" alt="Жёлтое сердце с плюсом и монетой" />
+          </div>
         </div>
 
-        <!-- 2. Иллюстрация После (720x630, слева 870px) -->
-        <div class="aksay-logo-wrap aksay-logo-after">
-            <img src="images/aksay-logo-after.png" alt="Aksay Logo After" class="aksay-logo-img">
+        <!-- 4 синие плитки (шахматная сетка 810x810 / 810x630) -->
+        <div class="ot-cb-stagger">
+          <div class="ot-cb-tile ot-cb-tile--sq ot-cb-tile--1">
+            <img src="image/ot-cb-4.png" alt="Хлопушка с конфетти и монетами" />
+          </div>
+          <div class="ot-cb-tile ot-cb-tile--rect ot-cb-tile--2">
+            <img src="image/ot-cb-5.png" alt="Рукопожатие с лупой" />
+          </div>
+          <div class="ot-cb-tile ot-cb-tile--rect ot-cb-tile--3">
+            <img src="image/ot-cb-6.png" alt="80 процентов и стрелка роста" />
+          </div>
+          <div class="ot-cb-tile ot-cb-tile--sq ot-cb-tile--4">
+            <img src="image/ot-cb-7.png" alt="Документ с ручкой и геометкой" />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 6. CREDITBAR — SMM CASCADE + DIVIDER -->
+    <section class="ot-creditbar-smm">
+      <div class="container">
+        <div class="ot-cb-smm__box">
+          <img src="image/ot-cb-smm.png" alt="Примеры SMM-постов CreditBar" />
+        </div>
+        <span class="case-caption ot-cb-smm__caption">Пример SMM-поста</span>
+        <div class="ot-divider__line ot-cb-smm__line"></div>
+      </div>
+    </section>
+
+    <!-- 7. SATCREDIT — INTRO -->
+    <section class="ot-satcredit-intro">
+      <div class="container ot-satcredit-intro__grid">
+        <div class="ot-satcredit-intro__text">
+          <h2 class="case-heading case-heading--white">Айдентика для МФО SatCredit</h2>
+          <div class="ot-satcredit-intro__paragraphs">
+            <p class="case-lead ot-satcredit-intro__lead">
+              Разработка базовой айдентики и дизайн-элементов бренда в недельный спринт.
+            </p>
+            <p class="case-lead ot-satcredit-intro__lead">
+              Визуальная система построена на стыке традиционных казахских символов и понятной финансовой графики, обеспечивая легкое считывание бренда и доверие пользователей всех возрастных категорий.
+            </p>
+          </div>
         </div>
 
-        <!-- 3. Подпись: Старый логотип (слева 120px, сверху 30px) -->
-        <div class="aksay-logo-tag aksay-tag-before"
-             data-ru="Старый логотип"
-             data-en="Before">
-            Старый логотип
-        </div>
-
-        <!-- 4. Подпись: Новый логотип (слева 900px, сверху 30px) -->
-        <div class="aksay-logo-tag aksay-tag-after"
-             data-ru="Новый логотип"
-             data-en="After">
-            Новый логотип
-        </div>
-    </div>
-</section>
-
-<!-- ЭКРАН ГАЛЕРЕИ БРЕНДИНГА: АКСАЙ (5 ИЛЛЮСТРАЦИЙ) -->
-<section class="aksay-gallery-screen">
-    <div class="aksay-gallery-content">
-        <!-- 1. Визитка (810x720) -->
-        <div class="aksay-item aksay-item-1">
-            <img src="images/aksay-card.png" alt="Aksay Business Card">
-        </div>
-
-        <!-- 2. Брендинг авто (810x720) -->
-        <div class="aksay-item aksay-item-2">
-            <img src="images/aksay-auto-1.png" alt="Aksay Car Branding 1">
-        </div>
-
-        <!-- 3. Брендинг авто панорама (1680x390) -->
-        <div class="aksay-item aksay-item-3">
-            <img src="images/aksay-auto-wide.png" alt="Aksay Wide Car Branding">
-        </div>
-
-        <!-- 4. Каска (810x390) -->
-        <div class="aksay-item aksay-item-4">
-            <img src="images/aksay-helmet.png" alt="Aksay Helmet Branding">
-        </div>
-
-        <!-- 5. Жилет (810x390) -->
-        <div class="aksay-item aksay-item-5">
-            <img src="images/aksay-vest.png" alt="Aksay Vest Branding">
-        </div>
-    </div>
-</section>
-
-<!-- ЭКРАН АКСАЙ: ШРИФТ TEKTUR -->
-<section class="aksay-font-screen">
-    <div class="aksay-font-content">
-        <!-- 1. Текстовый блок (720x720) -->
-        <div class="aksay-font-desc-block">
-            <h2 class="aksay-font-title" 
-                data-ru="Tektur" 
-                data-en="Tektur">
-                Tektur
-            </h2>
-
-            <div class="aksay-font-desc" 
-                 data-ru="Технологичный вариативный гротеск <br>с жесткой геометрией, отражающий эстетику будущего, надежность и архитектурную точность. <br><br>Используется во всех видах логотимпа <br>в измененном виде, либо для кричащих заголовков в онлайн и оффлайн коммуникациях." 
-                 data-en="Tech-forward variable sans-serif with rigid geometry, built for reliability, architectural precision, and a modern aesthetic. <br><br>Applied in modified form across the logo system and scaled for bold headlines across digital and print touchpoints.">
-                <p>Технологичный вариативный гротеск с жесткой геометрией, отражающий эстетику будущего, надежность и архитектурную точность.</p>
-                <p>Используется во всех видах логотимпа в измененном виде, либо для кричащих заголовков в онлайн и оффлайн коммуникациях.</p>
+        <div class="ot-sc-collage">
+          <div class="ot-sc-col">
+            <div class="ot-sc-tile ot-sc-tile--sq ot-sc-tile--white">
+              <img src="image/ot-sc-tile-1.svg" alt="Сетка построения логотипа SatCredit" />
             </div>
+            <div class="ot-sc-tile ot-sc-tile--tall ot-sc-tile--gray">
+              <img src="image/ot-sc-tile-2.png" alt="3D-стопка купюр SatCredit" />
+            </div>
+          </div>
+
+          <div class="ot-sc-col">
+            <div class="ot-sc-tile ot-sc-tile--tall ot-sc-tile--blue">
+              <img src="image/ot-sc-tile-3.svg" alt="Синий паттерн SatCredit" />
+            </div>
+            <div class="ot-sc-tile ot-sc-tile--sq ot-sc-tile--white">
+              <img src="image/ot-sc-tile-4.svg" alt="Четырёхлучевая звезда" />
+            </div>
+          </div>
+
+          <div class="ot-sc-col">
+            <div class="ot-sc-tile ot-sc-tile--med ot-sc-tile--palette" aria-label="Палитра бренда SatCredit">
+              <span class="ot-pal-1" style="background: #D05C19;"></span>
+              <span class="ot-pal-2" style="background: #EB905B;"></span>
+              <span class="ot-pal-3" style="background: #3AFFC7;"></span>
+              <span class="ot-pal-4" style="background: #99FFE2;"></span>
+              <span class="ot-pal-5" style="background: #055AFF;"></span>
+              <span class="ot-pal-6" style="background: #51B6FF;"></span>
+            </div>
+            <div class="ot-sc-tile ot-sc-tile--med ot-sc-tile--white">
+              <img src="image/ot-sc-tile-6.svg" alt="Орнаментальный элемент SatCredit" />
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 8. SATCREDIT — SHOWCASE (CARDS, ICONS, PATTERNS, MOODBOARD) -->
+    <section class="ot-satcredit-showcase">
+      <div class="container ot-sc-showcase__inner">
+        <!-- Карты с монетами -->
+        <div class="ot-sc-hero-cards">
+          <img src="image/ot-sc-cards.png" alt="Банковские карты и монеты SatCredit" />
         </div>
 
-        <!-- 2. Блок 1: Большая глифа "Аа" (450x450) -->
-        <div class="aksay-type-card aksay-type-card-1">
-            <span class="type-glyph-big">Аа</span>
+        <!-- 2 белых квадрата -->
+        <div class="ot-sc-pair">
+          <div class="ot-sc-pair__card">
+            <img src="image/ot-sc-bills.png" alt="3D-стопка купюр и монеты" />
+          </div>
+          <div class="ot-sc-pair__card">
+            <img src="image/ot-sc-clock.png" alt="3D-будильник SatCredit" />
+          </div>
         </div>
 
-        <!-- 3. Блок 2: Набор знаков (450x330) -->
-        <div class="aksay-type-card aksay-type-card-2">
-            <span class="type-charset">Aa Kk Mm<br>58 #!</span>
+        <!-- 3-цветный паттерн (горизонтальный на десктопе, вертикальный на мобилке) -->
+        <div class="ot-sc-pattern">
+          <img src="image/ot-sc-pattern-desktop.png" alt="Фирменные паттерны SatCredit" class="img--desktop" />
+          <img src="image/ot-sc-pattern-mobile.png" alt="Фирменные паттерны SatCredit" class="img--mobile" />
         </div>
 
-        <!-- 4. Блок 3: Колонка начертаний (330x840) -->
-        <div class="aksay-type-card aksay-type-card-3">
-            <span class="weight-regular">Regular</span>
-            <span class="weight-medium">Medium</span>
-            <span class="weight-semibold">Semi Bold</span>
-            <span class="weight-bold">Bold</span>
-            <span class="weight-extrabold">Extra Bold</span>
-            <span class="weight-black">Black</span>
-        </div>
-    </div>
-</section>
+        <!-- Мудборд (3 колонки 400fr 400fr 640fr) -->
+        <div class="ot-sc-moodboard">
+          <div class="ot-sc-mood-col">
+            <div class="ot-sc-mood-item ot-sc-mood-item--1">
+              <img src="image/ot-sc-mood-1.png" alt="Монета тенге на тёмном фоне" />
+            </div>
+            <div class="ot-sc-mood-item ot-sc-mood-item--2">
+              <img src="image/ot-sc-mood-2.png" alt="S + тенге = SatCredit" />
+            </div>
+            <div class="ot-sc-mood-item ot-sc-mood-item--3">
+              <img src="image/ot-sc-mood-3.png" alt="Юрта в степи" />
+            </div>
+          </div>
 
-<!-- ЗАКРЫВАЮЩИЙ БЛОК АКСАЙ (ШРИФТ В ЛОГОТИПЕ) -->
-<section class="aksay-closing-screen">
-    <div class="aksay-closing-content">
-        <!-- 1. Иллюстрация 1 (слева 0) -->
-        <div class="aksay-close-img-wrap aksay-close-img-1">
-            <img src="images/aksay-font-compare-1.png" alt="Font original">
+          <div class="ot-sc-mood-col">
+            <div class="ot-sc-mood-item ot-sc-mood-item--4">
+              <img src="image/ot-sc-mood-4.png" alt="Скачущий конь" />
+            </div>
+            <div class="ot-sc-mood-item ot-sc-mood-item--5">
+              <img src="image/ot-sc-mood-5.png" alt="Казахский орнамент" />
+            </div>
+          </div>
+
+          <div class="ot-sc-mood-col">
+            <div class="ot-sc-mood-item ot-sc-mood-item--6">
+              <img src="image/ot-sc-mood-6.png" alt="Пользователь со смартфоном" />
+            </div>
+            <div class="ot-sc-mood-item ot-sc-mood-item--7">
+              <img src="image/ot-sc-mood-7.png" alt="Архитектура Астаны" />
+            </div>
+            <div class="ot-sc-mood-item ot-sc-mood-item--8">
+              <img src="image/ot-sc-mood-8.png" alt="Градиентная волна SatCredit" />
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 9. SATCREDIT — BANNERS + DIVIDER -->
+    <section class="ot-satcredit-banners">
+      <div class="container">
+        <div class="ot-sc-banners__desktop">
+          <img src="image/ot-sc-banners-desktop.png" alt="Рекламные баннеры SatCredit" />
         </div>
 
-        <!-- 2. Иллюстрация 2 (слева 870px) -->
-        <div class="aksay-close-img-wrap aksay-close-img-2">
-            <img src="images/aksay-font-compare-2.png" alt="Font modified">
+        <div class="ot-sc-banners__mobile">
+          <div class="ot-sc-banners__m1-wrap">
+            <img src="image/ot-sc-banners-mobile-1.png" alt="Горизонтальные баннеры SatCredit" class="ot-sc-banners__m1" />
+          </div>
+          <div class="ot-sc-banners__m2-wrap">
+            <img src="image/ot-sc-banners-mobile-2.png" alt="Вертикальный баннер SatCredit" class="ot-sc-banners__m2" />
+          </div>
         </div>
 
-        <!-- 3. SVG стрелка между ними (60x15, слева 750px, сверху 232px) -->
-        <div class="aksay-close-arrow">
-            <svg viewBox="0 0 60 15" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M0 7.5H58M58 7.5L51 1M58 7.5L51 14" stroke="#0C8CE9" stroke-width="2"/>
+        <div class="ot-divider__line ot-sc-banners__line"></div>
+      </div>
+    </section>
+
+    <!-- 10. АКСАЙ — INTRO -->
+    <section class="ot-aksay-intro">
+      <div class="container ot-aksay-intro__grid">
+        <div class="ot-aksay-intro__visual">
+          <img src="image/ot-ak-hero.jpg" alt="Инженер в жилетке с логотипом Аксай" />
+        </div>
+
+        <div class="ot-aksay-intro__text">
+          <h2 class="case-heading">
+            Брендинг <span class="ot-mobile-hide">для </span>строительной компании Аксай
+          </h2>
+          <div class="ot-aksay-intro__paragraphs">
+            <p class="case-lead">
+              Редизайн логотипа с переходом в комплексный брендбук для компании «Аксай».
+            </p>
+            <p class="case-lead">
+              Стиль объединяет инженерную строгость, контрастные цвета и монументальную форму знака для физических и цифровых носителей.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 11. АКСАЙ — БЫЛО / СТАЛО ЛОГОТИПЫ -->
+    <section class="ot-aksay-logos">
+      <div class="container ot-aksay-logos__grid">
+        <div class="ot-aksay-logos__item">
+          <div class="ot-aksay-logos__card">
+            <img src="image/ot-ak-logo-old.png" alt="Старый логотип Аксай" />
+          </div>
+          <span class="case-caption ot-aksay-logos__caption">Было</span>
+        </div>
+
+        <div class="ot-aksay-logos__item">
+          <div class="ot-aksay-logos__card">
+            <img src="image/ot-ak-logo-new.svg" alt="Новый логотип Аксай" />
+          </div>
+          <span class="case-caption ot-aksay-logos__caption">Стало</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- 12. АКСАЙ — НОСИТЕЛИ И МЕРЧ -->
+    <section class="ot-aksay-merch">
+      <div class="container ot-aksay-merch__grid">
+        <div class="ot-ak-merch-card ot-ak-merch-card--sq">
+          <img src="image/ot-ak-merch-1.jpg" alt="Визитки строительной компании Аксай" />
+        </div>
+        <div class="ot-ak-merch-card ot-ak-merch-card--sq">
+          <img src="image/ot-ak-merch-2.jpg" alt="Брендированный фургон Аксай" />
+        </div>
+        <div class="ot-ak-merch-card ot-ak-merch-card--full">
+          <img src="image/ot-ak-merch-3.jpg" alt="Строительный кран Zoomlion с логотипом Аксай" />
+        </div>
+        <div class="ot-ak-merch-card ot-ak-merch-card--wide">
+          <img src="image/ot-ak-merch-4.jpg" alt="Строительная каска Аксай" />
+        </div>
+        <div class="ot-ak-merch-card ot-ak-merch-card--wide">
+          <img src="image/ot-ak-merch-5.jpg" alt="Сигнальный жилет Аксай" />
+        </div>
+      </div>
+    </section>
+
+    <!-- 13. ТИПОГРАФИКА — TEKTUR -->
+    <section class="ot-tektur">
+      <div class="container ot-tektur__grid">
+        <div class="ot-tektur__left">
+          <h2 class="ot-tektur__heading">Tektur</h2>
+          <div class="ot-tektur__desc">
+            <p>
+              Технологичный вариативный гротеск с жесткой геометрией, отражающий эстетику будущего, надежность и архитектурную точность.
+            </p>
+            <p>
+              Используется во всех видах логотипа в измененном виде, либо для кричащих заголовков в онлайн и оффлайн коммуникациях.
+            </p>
+          </div>
+        </div>
+
+        <div class="ot-tektur__right">
+          <div class="ot-tektur__col-main">
+            <div class="ot-tektur__aa">Аа</div>
+            <div class="ot-tektur__glyphs">
+              <span>Aa Kk Mm</span>
+              <span>58 #!</span>
+            </div>
+          </div>
+
+          <div class="ot-tektur__weights">
+            <span style="font-weight: 400;">Regular</span>
+            <span style="font-weight: 500;">Medium</span>
+            <span style="font-weight: 600;">Semi Bold</span>
+            <span style="font-weight: 700;">Bold</span>
+            <span style="font-weight: 800;">Extra Bold</span>
+            <span style="font-weight: 900;">Black</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 14. АКСАЙ — СРАВНЕНИЕ ШРИФТА -->
+    <section class="ot-aksay-compare">
+      <div class="container ot-compare__inner">
+        <div class="ot-compare__grid">
+          <div class="ot-compare__item">
+            <div class="ot-compare__box">
+              <img src="image/ot-ak-font-raw.svg" alt="АКСАЙ — шрифт без изменений" />
+            </div>
+            <p class="ot-compare__label">Шрифт<br /> без изменений</p>
+          </div>
+
+          <div class="ot-compare__arrow" aria-hidden="true">
+            <svg viewBox="0 0 60 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M0 8H58M58 8L51 1M58 8L51 15" stroke="#0C8CE9" stroke-width="2" />
             </svg>
-        </div>
+          </div>
 
-        <!-- 4. Текст 1 (слева 157px, сверху 510px) -->
-        <div class="aksay-close-text aksay-close-text-1"
-             data-ru="Шрифт&#10;без изменений"
-             data-en="Original typeface">
-            Шрифт<br>без изменений
+          <div class="ot-compare__item">
+            <div class="ot-compare__box">
+              <img src="image/ot-ak-font-custom.svg" alt="АКСАЙ — шрифт с изменениями для логотипа" />
+            </div>
+            <p class="ot-compare__label">Шрифт с изменениями<br /> для логотипа</p>
+          </div>
         </div>
+      </div>
+    </section>
 
-        <!-- 5. Текст 2 (слева 1027px, сверху 510px) -->
-        <div class="aksay-close-text aksay-close-text-2"
-             data-ru="Шрифт с изменениями<br>для логотипа"
-             data-en="Modified typeface <br>for the logo">
-            Шрифт с изменениями<br>для логотипа
-        </div>
+    <!-- 15. НИЖНЯЯ ГОРИЗОНТАЛЬНАЯ НАВИГАЦИЯ (5 проектов, без Other, начинается с A-Dengi) -->
+    <section class="project-nav-section ot-nav-section" aria-label="Другие проекты">
+      <div class="project-nav-track" id="projectNavTrack">
+        <a href="a-dengi.html" class="project-nav-card ot-nav-card">
+          <div class="project-nav-card__thumb" style="background: #F3F4F5;">
+            <img src="image/nav-1.png" alt="A-Dengi" />
+          </div>
+          <div class="project-nav-card__body">
+            <div>
+              <h3 class="project-nav-card__title">A-Dengi</h3>
+              <p class="project-nav-card__desc">Как мы разработали МФО от Альфа Банка</p>
+            </div>
+            <span class="project-nav-card__next">Next project</span>
+          </div>
+        </a>
+
+        <a href="tbank-zaymer.html" class="project-nav-card ot-nav-card">
+          <div class="project-nav-card__thumb" style="background: #FFFCEA;">
+            <img src="image/nav-2.png" alt="Т-Банк x Zaymer" />
+          </div>
+          <div class="project-nav-card__body">
+            <div>
+              <h3 class="project-nav-card__title">Т-Банк x Zaymer</h3>
+              <p class="project-nav-card__desc">Как я создал Key visual для коллаборации Zaymer и Т-Банк</p>
+            </div>
+            <span class="project-nav-card__next">Next project</span>
+          </div>
+        </a>
+
+        <a href="zaymer-ru.html" class="project-nav-card ot-nav-card">
+          <div class="project-nav-card__thumb" style="background: #EBF5E5;">
+            <img src="image/nav-3.png" alt="Zaymer RU" />
+          </div>
+          <div class="project-nav-card__body">
+            <div>
+              <h3 class="project-nav-card__title">Zaymer RU</h3>
+              <p class="project-nav-card__desc">Как мы сделали крупный ребрендинг для лидера по выдачам МФО - Zaymer</p>
+            </div>
+            <span class="project-nav-card__next">Next project</span>
+          </div>
+        </a>
+
+        <a href="zaymer-kz.html" class="project-nav-card ot-nav-card">
+          <div class="project-nav-card__thumb" style="background: #E8F5EC;">
+            <img src="image/nav-4.png" alt="Zaymer KZ" />
+          </div>
+          <div class="project-nav-card__body">
+            <div>
+              <h3 class="project-nav-card__title">Zaymer KZ</h3>
+              <p class="project-nav-card__desc">Как я локализировал с помощью брендинга весь SMM для МФО в Казахстане</p>
+            </div>
+            <span class="project-nav-card__next">Next project</span>
+          </div>
+        </a>
+
+        <a href="unamolia.html" class="project-nav-card ot-nav-card">
+          <div class="project-nav-card__thumb" style="background: #E6EFFF;">
+            <img src="image/nav-5.png" alt="UnaMolia (Uzbekistan)" />
+          </div>
+          <div class="project-nav-card__body">
+            <div>
+              <h3 class="project-nav-card__title">UnaMolia (Uzbekistan)</h3>
+              <p class="project-nav-card__desc">Как мы создали уникальный продукт для целой страны</p>
+            </div>
+            <span class="project-nav-card__next">Next project</span>
+          </div>
+        </a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer ot-footer">
+    <div class="container">
+      <div class="footer-line"></div>
     </div>
+  </footer>
 
-    <!-- Разделительная линия 1680x1 (120px снизу) -->
-    <div class="aksay-closing-divider"></div>
-</section>
-
-    <!-- ЭКРАН: ГОРИЗОНТАЛЬНАЯ НАВИГАЦИЯ КЕЙСОВ -->
-<section id="nav-other-1" class="cases-slider-section">
-    <div class="slider-track">
-
-        <a href="a-dengi.html" class="slider-card-link">
-            <div class="slider-card-ill-container">
-                <img src="images/scroll_1.png" alt="A-Dengi" class="slider-card-ill">
-            </div>
-            <div class="slider-card-content">
-                <div class="slider-card-title">A-Dengi</div>
-                <div class="slider-card-subtitle" data-ru="Как мы разработали МФО <br>от Альфа Банка" data-en="How We Built a Micro-Lending Platform <br>for Alfa-Bank">Как мы разработали МФО <br>от Альфа Банка</div>
-            </div>
-            <div class="slider-card-action">Next project</div>
-        </a>
-
-        <a href="t-bank.html" class="slider-card-link">
-            <div class="slider-card-ill-container">
-                <img src="images/scroll_2.png" alt="Т-Банк x Zaymer" class="slider-card-ill">
-            </div>
-            <div class="slider-card-content">
-                <div class="slider-card-title" data-ru="Т-Банк x Zaymer" data-en="Т-Bank x Zaymer">Т-Банк x Zaymer</div>
-                <div class="slider-card-subtitle" data-ru="Как я создал Key visual для коллаборации Zaymer и Т-Банк" data-en="How I Designed the Key Visual for the Zaymer <br>× T-Bank Collaboration">Как я создал Key visual для коллаборации Zaymer и Т-Банк</div>
-            </div>
-            <div class="slider-card-action">Next project</div>
-        </a>
-
-        <a href="zaymer-ru.html" class="slider-card-link">
-            <div class="slider-card-ill-container">
-                <img src="images/scroll_3.png" alt="Zaymer RU" class="slider-card-ill">
-            </div>
-            <div class="slider-card-content">
-                <div class="slider-card-title">Zaymer RU</div>
-                <div class="slider-card-subtitle" data-ru="Как мы сделали крупный ребрендинг для лидера <br>по выдачам МФО - Zaymer" data-en="How We Pulled Off a Massive Rebrand for Zaymer, <br>the Market Leader <br>in Micro-Lending">Как мы сделали крупный ребрендинг для лидера по выдачам МФО - Zaymer</div>
-            </div>
-            <div class="slider-card-action">Next project</div>
-        </a>
-
-        <a href="zaymer-kz.html" class="slider-card-link">
-            <div class="slider-card-ill-container">
-                <img src="images/scroll_4.png" alt="Zaymer KZ" class="slider-card-ill">
-            </div>
-            <div class="slider-card-content">
-                <div class="slider-card-title">Zaymer KZ</div>
-                <div class="slider-card-subtitle" data-ru="Как я локализировал <br>с помощью брендинга <br>весь SMM для МФО <br>в Казахстане" data-en="How I Used Branding <br>to Localize the Complete SMM for a Kazakhstani FinTech">Как я локализировал с помощью брендинга весь SMM для МФО в Казахстане</div>
-            </div>
-            <div class="slider-card-action">Next project</div>
-        </a>
-
-        <a href="unamolia.html" class="slider-card-link">
-            <div class="slider-card-ill-container">
-                <img src="images/scroll_5.png" alt="UnaMolia" class="slider-card-ill">
-            </div>
-            <div class="slider-card-content">
-                <div class="slider-card-title">UnaMolia<br>(Uzbekistan)</div>
-                <div class="slider-card-subtitle" data-ru="Как мы создали уникальный продукт для целой страны" data-en="How We Built <br>a Groundbreaking Product <br>on a National Scale">Как мы создали уникальный продукт для целой страны</div>
-            </div>
-            <div class="slider-card-action">Next project</div>
-        </a>
-
-        <a href="other.html" class="slider-card-link">
-            <div class="slider-card-ill-container">
-                <img src="images/scroll_6.png" alt="Other" class="slider-card-ill">
-            </div>
-            <div class="slider-card-content">
-                <div class="slider-card-title">Other</div>
-                <div class="slider-card-subtitle" data-ru="Другие проекты которые <br>я разрабатывал" data-en="More Projects I’ve Worked On">Другие проекты которые я разрабатывал</div>
-            </div>
-            <div class="slider-card-action">Next project</div>
-        </a>
-
-    </div>
-</section>
-
-<script>
-    document.addEventListener("DOMContentLoaded", function() {
-        // 1. Находим саму секцию слайдера
-        const slider = document.querySelector('.cases-slider-section');
-        
-        // 2. Находим карточку Займер RU (она третья по счету: :nth-child(3))
-        // Именно до неё нам нужно доскроллить, так как Т-Банк (вторая) скрыт
-        const nextCard = document.querySelector('#nav-other-1 .slider-card-link:nth-child(5)');
-        
-        if (slider && nextCard) {
-            // Находим точное расстояние от левого края слайдера до левого края нужной карточки
-            const offsetLeft = nextCard.offsetLeft;
-            
-            // Прокручиваем слайдер ровно до этой точки
-            slider.scrollLeft = offsetLeft;
-            
-            // Если вдруг скролл включен не на секции, а на треке, дублируем на трек:
-            const track = document.querySelector('.slider-track');
-            if (track) {
-                track.scrollLeft = offsetLeft;
-            }
-        }
-    });
-</script>
-
-<script>
-    document.addEventListener("DOMContentLoaded", function() {
-        // 1. Читаем параметры из адресной строки (?lang=...)
-        const urlParams = new URLSearchParams(window.location.search);
-        const langParam = urlParams.get('lang');
-        
-        let currentLang = 'ru'; 
-        if (langParam === 'en' || langParam === 'eng') {
-            currentLang = 'en';
-        }
-
-        // 2. Переключаем активный класс на кнопках RU/ENG в шапке
-        const ruBtn = document.querySelector('.header-lang-link[href="?lang=ru"]');
-        const enBtn = document.querySelector('.header-lang-link[href="?lang=en"]');
-        
-        if (ruBtn && enBtn) {
-            if (currentLang === 'en') {
-                ruBtn.classList.remove('active');
-                enBtn.classList.add('active');
-            } else {
-                enBtn.classList.remove('active');
-                ruBtn.classList.add('active');
-            }
-        }
-
-        // 3. БЕЗОПАСНЫЙ ПЕРЕВОД: Меняем только текст, чтобы не ломать структуру кнопок
-        document.querySelectorAll('[data-ru]').forEach(el => {
-            const translatedText = el.getAttribute(`data-${currentLang}`);
-            if (translatedText) {
-                if (el.tagName === 'BUTTON' || el.classList.contains('contact-btn')) {
-                    el.textContent = translatedText;
-                } else {
-                    el.innerHTML = translatedText;
-                }
-            }
-        });
-
-        // 4. ЖЕЛЕЗНЫЙ ПРОБРОС ССЫЛОК (Чтобы язык не слетал при переходе на About)
-        document.querySelectorAll('a').forEach(link => {
-            const href = link.getAttribute('href');
-            if (!href || href.startsWith('http') || link.classList.contains('header-lang-link')) return;
-
-            try {
-                const fakeBase = window.location.origin + window.location.pathname;
-                const urlObj = new URL(href, fakeBase);
-
-                if (currentLang === 'en') {
-                    urlObj.searchParams.set('lang', 'en');
-                } else {
-                    urlObj.searchParams.set('lang', 'ru');
-                }
-
-                let newHref = urlObj.pathname.split('/').pop() + urlObj.search + urlObj.hash;
-                
-                if (href.startsWith('#')) {
-                    newHref = href.split('?')[0] + urlObj.search; 
-                    if (href.includes('#')) {
-                        const cleanHash = href.match(/#[A-Za-z0-9_-]+/)[0];
-                        newHref = cleanHash + urlObj.search;
-                    }
-                }
-
-                if (href.startsWith('../')) {
-                    newHref = '../' + newHref;
-                }
-
-                link.setAttribute('href', newHref);
-            } catch (e) {
-                console.error('Ошибка обработки ссылки:', e);
-            }
-        });
-    });
-</script>
-
+  <script src="script.js"></script>
 </body>
 </html>

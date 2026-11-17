@@ -1,0 +1,724 @@
+/* ===========================
+   SHARED CASE STYLES
+=========================== */
+:root {
+  --case-dark: #192130;
+  --case-light: #F2F5FA;
+}
+
+/* Шапка появляется только после скролла первого экрана */
+.site-header--reveal {
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(-100%);
+  transition: opacity 0.4s var(--ease-smooth), transform 0.5s var(--ease-spring), background 0.35s var(--ease-smooth);
+}
+
+.site-header--reveal.is-visible {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateY(0);
+}
+
+/* Белый текст шапки на тёмных секциях */
+.site-header--dark {
+  background: rgba(25, 33, 48, 0.35);
+}
+
+.site-header--dark .header-brand,
+.site-header--dark .nav-link.is-active,
+.site-header--dark .lang-btn.is-active {
+  color: #FFFFFF;
+}
+
+.site-header--dark .nav-link,
+.site-header--dark .lang-btn {
+  color: rgba(255, 255, 255, 0.65);
+}
+
+.site-header--dark .nav-link:hover,
+.site-header--dark .lang-btn:hover {
+  color: #FFFFFF;
+}
+
+.site-header--dark .burger-btn span {
+  background: #FFFFFF;
+}
+
+.site-header--dark .header-divider {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.case-heading {
+  font-size: clamp(42px, 4.17vw, 80px);
+  font-weight: 400;
+  line-height: 1.2;
+  color: var(--text-dark);
+}
+
+.case-heading--white {
+  color: #FFFFFF;
+}
+
+.case-lead {
+  font-size: clamp(20px, 1.67vw, 32px);
+  font-weight: 400;
+  line-height: 1.25;
+  letter-spacing: 0.05em;
+  color: var(--text-muted);
+}
+
+.case-lead--light {
+  color: rgba(255, 255, 255, 0.75);
+}
+
+.case-caption {
+  display: block;
+  margin-top: 16px;
+  font-size: 12px;
+  font-weight: 300;
+  line-height: 14px;
+  color: var(--text-muted);
+}
+
+/* ===========================
+   1. CASE HERO (SVG LOGO SCREEN)
+=========================== */
+.case-hero {
+  background: var(--case-dark);
+  min-height: 100vh;
+  max-height: 1080px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 48px 24px;
+}
+
+.case-hero__logo-desktop {
+  width: clamp(320px, 50vw, 960px);
+  height: auto;
+}
+
+.case-hero__logo-mobile {
+  display: none;
+  width: clamp(180px, 60vw, 240px);
+  height: auto;
+}
+
+/* ===========================
+   2. GOAL SECTION
+=========================== */
+.case-goal {
+  background: var(--case-dark);
+  padding: clamp(48px, 6.25vw, 120px) 0;
+  overflow: hidden;
+}
+
+.case-goal__container {
+  display: grid;
+  grid-template-columns: minmax(0, 840px) minmax(0, 1fr);
+  align-items: center;
+  gap: clamp(36px, 5vw, 96px);
+}
+
+.case-goal__text {
+  display: flex;
+  flex-direction: column;
+  gap: clamp(36px, 5vw, 96px);
+  min-width: 0;
+}
+
+.case-goal__visual {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 0;
+}
+
+.case-goal__glow {
+  position: absolute;
+  width: 314px;
+  height: 314px;
+  background: #7694FF;
+  filter: blur(225px);
+  pointer-events: none;
+}
+
+.case-goal__img {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  max-width: 660px;
+  height: auto;
+}
+
+/* ===========================
+   3. TASK SECTION
+=========================== */
+.case-task {
+  background: #FFFFFF;
+  padding: clamp(48px, 6.25vw, 120px) 0;
+}
+
+.case-task .case-heading {
+  margin-bottom: clamp(36px, 5vw, 96px);
+}
+
+.case-task__grid {
+  display: grid;
+  grid-template-columns: minmax(0, 690px) minmax(0, 1fr);
+  gap: clamp(36px, 4.7vw, 90px);
+  align-items: start;
+}
+
+.case-task__media-wrap,
+.case-task__text {
+  min-width: 0;
+}
+
+.case-task__smm-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: clamp(15px, 1.56vw, 30px);
+}
+
+.smm-tile {
+  aspect-ratio: 330 / 230;
+  background: #EDEDED;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.smm-tile img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.case-task__text {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  font-size: clamp(20px, 1.67vw, 32px);
+  font-weight: 400;
+  line-height: 1.25;
+  letter-spacing: 0.05em;
+  color: var(--text-muted);
+}
+
+/* ===========================
+   4. TYPOGRAPHY (INTER)
+=========================== */
+.case-typography {
+  background: var(--case-dark);
+  color: #FFFFFF;
+  padding: clamp(48px, 6.25vw, 120px) 0;
+  overflow: hidden;
+}
+
+.case-typography__container {
+  display: grid;
+  grid-template-columns: minmax(0, 990px) minmax(0, 1fr);
+  gap: clamp(40px, 5vw, 96px);
+  align-items: stretch;
+}
+
+.case-typography__left,
+.case-typography__right {
+  min-width: 0;
+}
+
+.case-typography__left {
+  display: flex;
+  flex-direction: column;
+}
+
+.typo-divider {
+  width: 100%;
+  height: 1px;
+  background: #FFFFFF;
+  margin: clamp(28px, 3vw, 56px) 0;
+}
+
+.typo-divider--mobile {
+  display: none;
+}
+
+.typo-info-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: clamp(24px, 3vw, 60px);
+  position: relative;
+}
+
+.typo-info-grid::before {
+  content: '';
+  position: absolute;
+  left: 50%;
+  top: 0;
+  bottom: 0;
+  width: 1px;
+  background: rgba(255, 255, 255, 0.8);
+}
+
+.typo-desc {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  font-size: clamp(16px, 1.05vw, 20px);
+  line-height: 1.25;
+  letter-spacing: 0.05em;
+  padding-right: 16px;
+}
+
+.typo-glyphs {
+  font-family: 'Inter', sans-serif;
+  display: flex;
+  flex-direction: column;
+  gap: clamp(16px, 1.8vw, 32px);
+  font-size: clamp(20px, 1.67vw, 32px);
+  line-height: 1.25;
+  letter-spacing: 0.05em;
+  overflow-wrap: anywhere;
+  padding-left: 16px;
+}
+
+.case-inline-nav {
+  margin-top: auto;
+  padding-top: clamp(40px, 5vw, 80px);
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px clamp(16px, 2.2vw, 44px);
+}
+
+.case-inline-nav a {
+  font-size: 16px;
+  font-weight: 300;
+  color: rgba(255, 255, 255, 0.65);
+  white-space: nowrap;
+  transition: color 0.35s var(--ease-smooth);
+}
+
+.case-inline-nav a:hover,
+.case-inline-nav a.is-active {
+  color: #FFFFFF;
+}
+
+.case-inline-nav a.is-active {
+  font-weight: 700;
+}
+
+.case-typography__right {
+  display: grid;
+  grid-template-columns: minmax(0, 258px) auto;
+  gap: clamp(20px, 2.8vw, 54px);
+  align-items: stretch;
+}
+
+.typo-aa-col {
+  font-family: 'Inter', sans-serif;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: clamp(24px, 3.125vw, 60px);
+}
+
+.typo-aa {
+  font-size: clamp(112px, 10.4vw, 200px);
+  height: 0.60em;
+  line-height: 0.75;
+  overflow: hidden;
+  border-bottom: 1px solid #FFFFFF;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  user-select: none;
+}
+
+.typo-weights-col {
+  font-family: 'Inter', sans-serif;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  font-size: clamp(20px, 2.08vw, 40px);
+  line-height: 1.2;
+  opacity: 0.9;
+  white-space: nowrap;
+}
+
+/* ===========================
+   5. COMMS (MAIL & ONBOARDING)
+=========================== */
+.case-comms {
+  background: var(--case-light);
+  padding-top: clamp(48px, 6.25vw, 120px);
+  padding-bottom: clamp(36px, 4vw, 72px);
+  overflow: hidden;
+}
+
+.case-comms__grid {
+  display: grid;
+  grid-template-columns: minmax(0, 600px) minmax(0, 1fr);
+  gap: clamp(36px, 6.25vw, 120px);
+  align-items: start;
+}
+
+.case-comms__mail,
+.case-comms__onboard {
+  min-width: 0;
+  width: 100%;
+}
+
+.mail-stack {
+  display: flex;
+  flex-direction: column;
+  gap: clamp(20px, 1.56vw, 30px);
+}
+
+.mail-img {
+  width: 100%;
+  height: auto;
+}
+
+.onboard-row {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: clamp(16px, 1.56vw, 30px);
+}
+
+.onboard-img {
+  width: 100%;
+  height: auto;
+  border-radius: 13px;
+}
+
+/* ===========================
+   6. GOOGLE PLAY SCREENS
+=========================== */
+.case-store {
+  background: var(--case-light);
+  padding: clamp(36px, 4vw, 72px) 0 clamp(48px, 6.25vw, 120px);
+  overflow: hidden;
+}
+
+.store-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: clamp(16px, 1.56vw, 30px);
+}
+
+.store-grid img {
+  width: 100%;
+  height: auto;
+  border-radius: 13px;
+}
+
+/* ===========================
+   7. 3D-PACK (ЕДИНАЯ ИЛЛЮСТРАЦИЯ)
+=========================== */
+.case-3dpack {
+  background: #FFFFFF;
+  padding: clamp(48px, 6.25vw, 120px) 0;
+}
+
+.case-3dpack__container {
+  display: grid;
+  grid-template-columns: minmax(0, 690px) minmax(0, 1fr);
+  gap: clamp(36px, 6vw, 120px);
+  align-items: start;
+}
+
+.case-3dpack__text {
+  display: flex;
+  flex-direction: column;
+  gap: clamp(36px, 5vw, 96px);
+  min-width: 0;
+}
+
+.case-3dpack__visual {
+  width: 100%;
+  min-width: 0;
+}
+
+.case-3dpack__img {
+  width: 100%;
+  height: auto;
+}
+
+/* ===========================
+   8. 3D RENDERS GRID
+=========================== */
+.case-renders {
+  background: #FFFFFF;
+  padding-bottom: clamp(48px, 6.25vw, 120px);
+}
+
+.renders-masonry {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: clamp(12px, 1.56vw, 30px);
+}
+
+.renders-col {
+  display: flex;
+  flex-direction: column;
+  gap: clamp(12px, 1.56vw, 30px);
+  min-width: 0;
+}
+
+.render-tile {
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.render-tile--tall {
+  aspect-ratio: 825 / 930;
+}
+
+.render-tile--short {
+  aspect-ratio: 825 / 450;
+}
+
+.render-tile--dark {
+  background: var(--case-dark);
+}
+
+.render-tile--light {
+  background: var(--case-light);
+}
+
+.render-tile img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+/* ===========================
+   9. RESULT SECTION
+=========================== */
+.case-result {
+  background: var(--case-light);
+  padding: clamp(48px, 6.25vw, 120px) 0;
+}
+
+.case-result .case-heading {
+  margin-bottom: clamp(36px, 5vw, 96px);
+}
+
+.case-result__grid {
+  display: grid;
+  grid-template-columns: minmax(0, 690px) minmax(0, 1fr);
+  gap: clamp(36px, 6vw, 120px);
+  align-items: start;
+}
+
+.case-result__screens {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: clamp(16px, 1.56vw, 30px);
+  min-width: 0;
+}
+
+.case-result__screens img {
+  width: 100%;
+  height: auto;
+  background: #FFFFFF;
+}
+
+.case-result__text {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  font-size: clamp(20px, 1.67vw, 32px);
+  font-weight: 400;
+  line-height: 1.25;
+  letter-spacing: 0.05em;
+  color: var(--text-muted);
+  min-width: 0;
+}
+
+/* ===========================
+   10. CASE NAV & FOOTER OVERRIDE
+=========================== */
+.case-nav-section,
+.case-footer {
+  background: var(--case-light);
+}
+
+.case-nav-card {
+  background: #FFFFFF;
+}
+
+/* ===========================
+   RESPONSIVE (TABLET & MOBILE)
+=========================== */
+@media (max-width: 1024px) {
+  .case-goal__container,
+  .case-task__grid,
+  .case-typography__container,
+  .case-comms__grid,
+  .case-3dpack__container,
+  .case-result__grid {
+    grid-template-columns: 1fr;
+  }
+
+  .case-inline-nav {
+    display: none;
+  }
+}
+
+@media (max-width: 768px) {
+  .case-page main {
+    display: flex;
+    flex-direction: column;
+  }
+
+  /* Меняем местами 5-й и 6-й блоки на мобилке (Google Play перед Mail + Onboarding) */
+  .case-hero       { order: 1; }
+  .case-goal       { order: 2; }
+  .case-task       { order: 3; }
+  .case-typography { order: 4; }
+  .case-store      { order: 5; padding: 36px 0 18px; }
+  .case-comms      { order: 6; padding-top: 18px; padding-bottom: 36px; }
+  .case-3dpack     { order: 7; }
+  .case-renders    { order: 8; }
+  .case-result     { order: 9; }
+  .case-nav-section { order: 10; }
+
+  .case-hero__logo-desktop {
+    display: none;
+  }
+
+  .case-hero__logo-mobile {
+    display: block;
+  }
+
+  /* 2-й экран: заголовок -> 3D лого меньше -> текст */
+  .case-goal__text {
+    display: contents;
+  }
+
+  .case-goal__text .case-heading {
+    order: 0;
+  }
+
+  .case-goal__visual {
+    order: 1;
+    margin: 12px 0;
+  }
+
+  .case-goal__img {
+    max-width: 240px;
+  }
+
+  .case-goal__glow {
+    width: 140px;
+    height: 140px;
+    filter: blur(80px);
+  }
+
+  .case-goal__text .case-lead {
+    order: 2;
+  }
+
+  /* Типографика мобилка — аккуратные Аа и воздух справа */
+  .typo-info-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .typo-info-grid::before {
+    display: none;
+  }
+
+  .typo-divider--mobile {
+    display: block;
+  }
+
+  .typo-desc,
+  .typo-glyphs {
+    padding: 0;
+  }
+
+  .case-typography__right {
+    grid-template-columns: minmax(0, 177px) 1fr;
+    gap: clamp(20px, 6vw, 36px);
+  }
+
+  .typo-aa-col {
+    gap: 40px;
+  }
+
+  .typo-aa {
+    font-size: clamp(104px, 33vw, 137px);
+    height: 0.60em;
+    line-height: 0.75;
+  }
+
+  .typo-weights-col {
+    font-size: clamp(20px, 6vw, 27px);
+  }
+
+  /* Карусели на мобилке: 234px ширина, 16px отступ, следующая карточка видна сразу */
+  .onboard-row,
+  .store-grid {
+    display: flex;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scroll-padding-left: var(--gutter);
+    gap: 16px;
+    margin: 0 calc(var(--gutter) * -1);
+    padding: 0 var(--gutter) 4px;
+    -webkit-overflow-scrolling: touch;
+    cursor: grab;
+    scrollbar-width: none;
+  }
+
+  .onboard-row::-webkit-scrollbar,
+  .store-grid::-webkit-scrollbar {
+    display: none;
+  }
+
+  .onboard-row.is-dragging,
+  .store-grid.is-dragging {
+    cursor: grabbing;
+    scroll-snap-type: none;
+  }
+
+  .onboard-img,
+  .store-grid img {
+    flex: 0 0 234px;
+    width: 234px;
+    scroll-snap-align: start;
+  }
+
+  /* 3D-pack порядок на мобилке */
+  .case-3dpack__text {
+    display: contents;
+  }
+
+  .case-3dpack__text .case-heading {
+    order: 0;
+  }
+
+  .case-3dpack__visual {
+    order: 1;
+  }
+
+  .case-3dpack__text .case-lead {
+    order: 2;
+  }
+
+  /* 3D-галерея в 1 колонку, чередование светлой и тёмной */
+  .renders-masonry {
+    grid-template-columns: 1fr;
+  }
+
+  .renders-col:first-child {
+    flex-direction: column-reverse;
+  }
+}

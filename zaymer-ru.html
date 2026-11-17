@@ -1,542 +1,375 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Zaymer Russia — Case Study</title>
-    <link rel="stylesheet" href="styles.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Zaymer RU — Kurlaev Andrew</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="case.css" />
+  <link rel="stylesheet" href="zaymer-ru.css" />
 </head>
-<body>
+<body class="case-page zr-page">
 
-    <header class="site-header-fixed header-hidden-initially">
-    
-    <!-- Нижняя линия во всю ширину экрана (1920px) теперь лежит здесь -->
-    <div class="header-bottom-line"></div>
+  <!-- Липкая шапка -->
+  <header class="site-header site-header--reveal" id="header">
+    <div class="header-inner">
+      <button class="burger-btn" id="burgerBtn" aria-label="Открыть меню" aria-expanded="false">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
 
-    <div class="header-wrapper-fluid">
-        <div class="header-row">
-            
-            <!-- Левая навигация -->
-            <nav class="header-nav-main">
-                <a href="index.html#about" class="header-nav-link">About</a>
-                <a href="index.html#cases" class="header-nav-link">Cases</a>
-                <a href="index.html#skills" class="header-nav-link">Experience</a> 
-            </nav>
-            
-            <!-- Центр -->
-            <div class="header-title-center" data-ru="Курлаев Андрей" data-en="Kurlaev Andrew">Курлаев Андрей</div>
-            
-            <!-- Правые языки -->
-            <div class="header-nav-lang">
-                <a href="?lang=ru" class="header-lang-link">RU</a>
-                <a href="?lang=en" class="header-lang-link active">ENG</a>
-            </div>
-            
-        </div>
+      <nav class="header-nav" aria-label="Основная навигация">
+        <a href="index.html#about" class="nav-link">About</a>
+        <a href="index.html#cases" class="nav-link is-active">Cases</a>
+        <a href="index.html#experience" class="nav-link">Experience</a>
+      </nav>
+
+      <a href="index.html" class="header-brand">Kurlaev Andrew</a>
+
+      <div class="lang-switch" role="group" aria-label="Выбор языка">
+        <button class="lang-btn is-active" data-lang="ru">RU</button>
+        <button class="lang-btn" data-lang="eng">ENG</button>
+      </div>
     </div>
-</header>
+    <div class="header-divider"></div>
+  </header>
 
-    <section id="zaymer-ru-1" class="zaymer-section-intro">
-        <div class="zaymer-wrapper-fluid-1">
-            
-            <div class="zaymer-row-1">
-                
-                <div class="zaymer-intro-logo-block">
-                    <img src="images/zaymer-ru-logo-clean.svg" alt="Zaymer Russia Logo" class="zaymer-intro-logo">
-                </div>
+  <!-- Мобильное меню -->
+  <div class="mobile-menu" id="mobileMenu" aria-hidden="true">
+    <nav class="mobile-menu-nav">
+      <a href="index.html#about" class="mobile-nav-link">About</a>
+      <a href="index.html#cases" class="mobile-nav-link">Cases</a>
+      <a href="index.html#experience" class="mobile-nav-link">Experience</a>
+    </nav>
+    <div class="mobile-menu-contacts">
+      <a href="tel:+79833209153">+7-983-320-91-53</a>
+      <a href="https://t.me/superandrew1" target="_blank" rel="noopener">tg: @superandrew1</a>
+      <a href="mailto:an-di.91@mail.ru">an-di.91@mail.ru</a>
+    </div>
+  </div>
 
-            </div>
-
-        </div>
+  <main>
+    <!-- 1. Первый экран с логотипом -->
+    <section class="zr-hero" id="caseHero">
+      <img src="image/zaymer-logo.svg" alt="Займер" class="zr-hero__logo-desktop" />
+      <img src="image/zaymer-logo-mobile.svg" alt="Займер" class="zr-hero__logo-mobile" />
     </section>
 
-    <section id="zaymer-ru-2" class="zaymer-section-about">
-    <div class="zaymer-wrapper-fluid-2">
-        <div class="zaymer-row-2">
-            
-            <div class="zaymer-about-svg-rect">
-                <img src="images/zaymer-ru-rect.svg" alt="Pattern Vector" class="zaymer-svg-img">
-            </div>
-
-            <div class="zaymer-about-ill-block">
-                <img src="images/zaymer-ru-about.png" alt="Zaymer Russia О продукте" class="zaymer-about-img">
-            </div>
-
-            <div class="zaymer-about-text-block">
-                <h2 class="zaymer-about-title" data-ru="О продукте" data-en="About the Product">О продукте</h2>
-                <p class="zaymer-about-p1" data-ru="Лидер рынка РФ по выдаче микрозаймов, 11 лет на рынке, с полноценной веб-экосистемой <br>и мобильным приложением. Более 5 миллионов клиентов, 25+ миллионов выданных займов, выручка компании за все время превысила 185 миллиардов рублей." data-en="The undisputed leader in the Russian microfinance market with an 11-year track record, featuring <br>a comprehensive web ecosystem and a mobile app. The company serves over 5 million clients, <br>has issued more than 25 million loans, <br>and has generated lifetime revenues <br>exceeding RUB 185 billion.">Лидер рынка РФ по выдаче микрозаймов, 11 лет на рынке, с полноценной веб-экосистемой и мобильным приложением. Более 5 миллионов клиентов, 25+ миллионов выданных займов, выручка компании за все время превысила 185 миллиардов рублей.</p>
-                <p class="zaymer-about-p2" data-ru="17 миллионов регистраций за историю продукта, из которых 1,3 миллиона — в 2023 году (абсолютный рекорд на рынке микрофинансирования РФ)." data-en="With 17 million total registrations throughout <br>the product’s history, 1.3 million were achieved <br>in 2023 alone—setting an absolute all-time record in the region's microfinance sector.">17 миллионов регистраций за историю продукта, из которых 1,3 миллиона — в 2023 году (абсолютный рекорд на рынке микрофинансирования РФ).</p>
-            </div>
-
+    <!-- 2. О продукте (без нижней навигации, телефон с тенью к правому краю) -->
+    <section class="zr-about">
+      <div class="container">
+        <div class="zr-about__left">
+          <h1 class="case-heading case-heading--white">О продукте</h1>
+          <div class="zr-about__text">
+            <p>
+              Лидер рынка РФ по выдаче микрозаймов, 11 лет на рынке, с полноценной веб-экосистемой и мобильным приложением. Более 5 миллионов клиентов, 25+ миллионов выданных займов, выручка компании за все время превысила 185 миллиардов рублей.
+            </p>
+            <p>
+              17 миллионов регистраций за историю продукта, из которых 1,3 миллиона — в 2023 году (абсолютный рекорд на рынке микрофинансирования РФ).
+            </p>
+          </div>
         </div>
-    </div>
-</section>
+      </div>
 
-<section id="zaymer-ru-3" class="zaymer-section-gradient-570">
-    <div class="zaymer-wrapper-fluid-3">
-        <div class="zaymer-row-3">
-            
-            <div class="zaymer-showcase-ill-block">
-                <img src="images/zaymer-ru-showcase.png" alt="Zaymer Russia Showcase" class="zaymer-showcase-img">
-            </div>
+      <div class="zr-about__phone">
+        <img src="image/zr-about-phone.png" alt="Приложение Займер" />
+      </div>
+    </section>
 
+    <!-- 3. Большой 3D логотип (выходит за область на 60px) -->
+    <section class="zr-banner-3d">
+      <div class="container zr-banner-3d__wrap">
+        <img src="image/zr-3d-logo-banner.png" alt="3D логотип Займер" />
+      </div>
+    </section>
+
+    <!-- 4. Задачи -->
+    <section class="zr-tasks">
+      <div class="container">
+        <h2 class="case-heading">Задачи</h2>
+
+        <div class="zr-tasks__grid">
+          <div class="zr-tasks__tiles">
+            <div class="zr-task-tile" style="background: #2A3032;"><img src="image/zr-task-1.png" alt="" /></div>
+            <div class="zr-task-tile" style="background: #EEF7FD;"><img src="image/zr-task-2.png" alt="" /></div>
+            <div class="zr-task-tile" style="background: #FFF7E0;"><img src="image/zr-task-3.png" alt="" /></div>
+            <div class="zr-task-tile" style="background: #339900;"><img src="image/zr-task-4.png" alt="" /></div>
+          </div>
+
+          <ul class="zr-bullet-list">
+            <li>Актуализация и развитие визуального стиля бренда совместно с дизайн-командой.</li>
+            <li>Разработка нового визуального языка в редизайне и фиксация правил в брендбуке.</li>
+            <li>Создание автономной библиотеки 3D-ассетов взамен стокового контента.</li>
+            <li>Разработка шаблонов, ускоривших выпуск маркетинговых материалов.</li>
+            <li>Создание Key Visuals и проведение совместных А/Б тестов для проверки гипотез.</li>
+          </ul>
         </div>
-    </div>
-</section>
+      </div>
+    </section>
 
-<section id="zaymer-ru-4" class="zaymer-section-white-784">
-    <div class="zaymer-wrapper-fluid-4">
-        
-        <div class="zaymer-row-4">
-            
-            <h2 class="zaymer-tasks-title" data-ru="Задачи" data-en="The Challenge">Задачи</h2>
-
-            <div class="zaymer-tasks-ill-block">
-                <img src="images/zaymer-ru-tasks.png" alt="Zaymer Russia Задачи" class="zaymer-tasks-img">
-            </div>
-
-            <div class="zaymer-tasks-text-block">
-                <p class="zaymer-tasks-bullet" data-ru="Актуализация и развитие визуального стиля бренда совместно с дизайн-командой." data-en="Evolving brand identity in collaboration <br>with the design team.">Актуализация и развитие визуального стиля бренда совместно с дизайн-командой.</p>
-                
-                <p class="zaymer-tasks-bullet" data-ru="Разработка нового визуального языка <br>в редизайне и фиксация правил в брендбуке." data-en="Designing a new visual language and updating the brand book.">Разработка нового визуального языка в редизайне и фиксация правил в брендбуке.</p>
-                
-                <p class="zaymer-tasks-bullet" data-ru="Создание автономной библиотеки 3D-ассетов взамен стокового контента." data-en="Building a custom 3D asset library <br>to fully replace stock content.">Создание автономной библиотеки 3D-ассетов взамен стокового контента.</p>
-                
-                <p class="zaymer-tasks-bullet" data-ru="Разработка шаблонов, ускоривших выпуск маркетинговых материалов." data-en="Developing templates to accelerate marketing asset production.">Разработка шаблонов, ускоривших выпуск маркетинговых материалов.</p>
-                
-                <p class="zaymer-tasks-bullet" data-ru="Создание Key Visuals и проведение совместных А/Б тестов для проверки гипотез." data-en="Creating Key Visuals and A/B testing to validate design hypotheses.">Создание Key Visuals и проведение совместных А/Б тестов для проверки гипотез.</p>
-            </div>
-
+    <!-- 5. Key Visual (на мобилке карусель 334x160) -->
+    <section class="zr-kv">
+      <div class="container">
+        <div class="zr-kv-grid" id="zrKvGrid">
+          <img src="image/zr-kv-1.png" alt="Ваши шансы получить заём высоки" class="zr-kv-card" />
+          <img src="image/zr-kv-2.png" alt="Сегодня удача на вашей стороне" class="zr-kv-card" />
+          <img src="image/zr-kv-3.png" alt="Наш Займер уже нашел промокод" class="zr-kv-card" />
+          <img src="image/zr-kv-4.png" alt="Подскажем следующий шаг" class="zr-kv-card" />
         </div>
+        <span class="case-caption">Пример Key Visual</span>
+      </div>
+    </section>
 
-    </div>
-</section>
+    <!-- 6. App Store & 3D Showcase -->
+    <section class="zr-appstore">
+      <div class="container">
+        <div class="zr-appstore__top">
+          <div class="zr-appstore__phone">
+            <img src="image/zr-appstore-phone.png" alt="App Store Займер" />
+          </div>
 
-<section id="zaymer-ru-5" class="zaymer-section-gallery-884">
-    <div class="zaymer-wrapper-fluid-5">
-        
-        <div class="zaymer-row-5">
-            
-            <div class="zaymer-kv-block kv-1">
-                <img src="images/zaymer-ru-kv-1.png" alt="Key Visual 1" class="zaymer-kv-img">
+          <div class="zr-appstore__screens-wrap">
+            <div class="zr-appstore__screens-card">
+              <img src="image/zr-appstore-screens.png" alt="Screens для App Store" />
             </div>
-
-            <div class="zaymer-kv-block kv-2">
-                <img src="images/zaymer-ru-kv-2.png" alt="Key Visual 2" class="zaymer-kv-img">
-            </div>
-
-            <div class="zaymer-kv-block kv-3">
-                <img src="images/zaymer-ru-kv-3.png" alt="Key Visual 3" class="zaymer-kv-img">
-            </div>
-
-            <div class="zaymer-kv-block kv-4">
-                <img src="images/zaymer-ru-kv-4.png" alt="Key Visual 4" class="zaymer-kv-img">
-            </div>
-
-            <div class="zaymer-kv-caption" data-ru="Пример Key Visual" data-en="Key Visual Sample">Пример Key Visual</div>
-
+            <span class="case-caption">Screens для App Store</span>
+          </div>
         </div>
 
-    </div>
-</section>
-
-<section id="zaymer-ru-6" class="zaymer-section-store-1980">
-    <div class="zaymer-wrapper-fluid-6">
-        
-        <div class="zaymer-row-6">
-            
-            <div class="zaymer-app-block app-1">
-                <img src="images/zaymer-ru-app-1.png" alt="App Store Screen 1" class="zaymer-app-img">
-            </div>
-
-            <div class="zaymer-app-block app-2">
-                <img src="images/zaymer-ru-app-2.png" alt="App Store Screen 2" class="zaymer-app-img">
-            </div>
-
-            <div class="zaymer-app-caption" data-ru="Screens для App Store" data-en="App Store Screenshots">Screens для App Store</div>
-
-
-            <div class="zaymer-app-block app-3">
-                <img src="images/zaymer-ru-app-3.png" alt="App Store Screen 3" class="zaymer-app-img">
-            </div>
-
-            <div class="zaymer-app-block app-4">
-                <img src="images/zaymer-ru-app-4.png" alt="App Store Screen 4" class="zaymer-app-img">
-            </div>
-
-
-            <div class="zaymer-app-block app-5">
-                <img src="images/zaymer-ru-app-5.png" alt="App Store Screen 5" class="zaymer-app-img">
-            </div>
-
-            <div class="zaymer-app-block app-6">
-                <img src="images/zaymer-ru-app-6.png" alt="App Store Screen 6" class="zaymer-app-img">
-            </div>
-
-            <div class="zaymer-app-block app-7">
-                <img src="images/zaymer-ru-app-7.png" alt="App Store Screen 7" class="zaymer-app-img">
-            </div>
-
+        <div class="zr-appstore__mid">
+          <div class="zr-show-card zr-show-card--coins">
+            <img src="image/zr-show-coins.png" alt="Монеты 3D" />
+          </div>
+          <div class="zr-show-card zr-show-card--phone">
+            <div class="zr-show-card__bg" aria-hidden="true"></div>
+            <img src="image/zr-show-phone.png" alt="Телефон с приложением" />
+          </div>
         </div>
 
-    </div>
-</section>
+        <!-- 3 карточки (на мобилке карусель 294x196) -->
+        <div class="zr-bottom-row" id="zrBottomRow">
+          <div class="zr-mini-card"><img src="image/zr-show-gift.png" alt="Подарок 3D" /></div>
+          <div class="zr-mini-card"><img src="image/zr-show-badge.png" alt="Бейдж робот" /></div>
+          <div class="zr-mini-card"><img src="image/zr-show-trophy.png" alt="Кубок 3D" /></div>
+        </div>
+      </div>
+    </section>
 
-<section id="zaymer-ru-7" class="zaymer-section-white-600">
-    <div class="zaymer-wrapper-fluid-7">
-        
-        <div class="zaymer-row-7">
-            
-            <div class="zaymer-assets-text-block">
-                <h2 class="zaymer-assets-title" data-ru="Задачи" data-en="The Challenge">Задачи</h2>
-                <p class="zaymer-assets-p1" data-ru="Разработка системы кастомных 3D-ассетов для автономного использования во всех видах коммуникаций." data-en="Developing a custom 3D asset <br>system for standalone use across <br>all communication channels.">Разработка системы кастомных 3D-ассетов для автономного использования во всех видах коммуникаций.</p>
-                <p class="zaymer-assets-p2" data-ru="Создание пака позволило унифицировать визуальный язык бренда, отстроиться <br>от конкурентов и сократить время <br>на производство маркетинговых материалов." data-en="This system unified the brand’s visual language, set it apart from competitors, and significantly cut down marketing production time.">Создание пака позволило унифицировать визуальный язык бренда, отстроиться от конкурентов и сократить время на производство маркетинговых материалов.</p>
-            </div>
-
-            <div class="zaymer-assets-ill-block">
-                <img src="images/zaymer-ru-3d.png" alt="Zaymer Russia 3D Assets" class="zaymer-assets-img">
-            </div>
-
+    <!-- 7. 3D-pack Intro -->
+    <section class="zr-3dpack-intro">
+      <div class="container zr-3dpack-intro__grid">
+        <div class="zr-3dpack-intro__text">
+          <h2 class="case-heading">3D-pack</h2>
+          <div class="zr-3dpack-intro__desc">
+            <p>
+              Разработка системы кастомных 3D-ассетов для автономного использования во всех видах коммуникаций.
+            </p>
+            <p>
+              Создание пака позволило унифицировать визуальный язык бренда, отстроиться от конкурентов и сократить время на производство маркетинговых материалов.
+            </p>
+          </div>
         </div>
 
-    </div>
-</section>
+        <div class="zr-3dpack-intro__visual">
+          <img src="image/zr-3dpack-brandbook.png" alt="Брендбук Займер" />
+        </div>
+      </div>
+    </section>
 
-<section id="zaymer-ru-8" class="zaymer-section-pack-3790">
-    <div class="zaymer-wrapper-fluid-8">
-        
-        <div class="zaymer-row-8">
-            
-            <div class="zaymer-pack-block pack-1">
-                <img src="images/zaymer-ru-pack-1.png" alt="3D Pack 1" class="zaymer-pack-img">
+    <!-- 8. 3D-pack Галерея + 14 иконок -->
+    <section class="zr-3dpack-gallery">
+      <div class="container">
+        <div class="zr-bento-top">
+          <div class="zr-bento-left">
+            <div class="zr-card-blue zr-card-headphones">
+              <div class="zr-card-headphones__bg" aria-hidden="true"></div>
+              <img src="image/zr-3d-headphones.png" alt="Наушники 3D" />
             </div>
-            <div class="zaymer-pack-block pack-2">
-                <img src="images/zaymer-ru-pack-2.png" alt="3D Pack 2" class="zaymer-pack-img">
+            <div class="zr-bento-docs">
+              <div class="zr-card-blue zr-card-doc"><img src="image/zr-3d-docs1.png" alt="Документы 1" /></div>
+              <div class="zr-card-blue zr-card-doc"><img src="image/zr-3d-docs2.png" alt="Документы 2" /></div>
             </div>
-            <div class="zaymer-pack-block pack-3">
-                <img src="images/zaymer-ru-pack-3.png" alt="3D Pack 3" class="zaymer-pack-img">
-            </div>
-            <div class="zaymer-pack-block pack-4">
-                <img src="images/zaymer-ru-pack-4.png" alt="3D Pack 4" class="zaymer-pack-img">
-            </div>
+          </div>
 
-            <div class="zaymer-pack-block pack-5">
-                <img src="images/zaymer-ru-pack-5.png" alt="3D Pack 5" class="zaymer-pack-img">
-            </div>
-            <div class="zaymer-pack-block pack-6">
-                <img src="images/zaymer-ru-pack-6.png" alt="3D Pack 6" class="zaymer-pack-img">
-            </div>
-            <div class="zaymer-pack-block pack-7">
-                <img src="images/zaymer-ru-pack-7.png" alt="3D Pack 7" class="zaymer-pack-img">
-            </div>
-
-            <div class="zaymer-pack-block pack-8">
-                <img src="images/zaymer-ru-pack-8.png" alt="3D Pack 8" class="zaymer-pack-img">
-            </div>
-
-            <div class="zaymer-pack-block pack-9">
-                <img src="images/zaymer-ru-pack-9.png" alt="3D Pack 9" class="zaymer-pack-img">
-            </div>
-            <div class="zaymer-pack-block pack-10">
-                <img src="images/zaymer-ru-pack-10.png" alt="3D Pack 10" class="zaymer-pack-img">
-            </div>
-
-            <div class="zaymer-pack-block pack-11">
-                <img src="images/zaymer-ru-pack-11.png" alt="3D Pack 11" class="zaymer-pack-img">
-            </div>
-            <div class="zaymer-pack-block pack-12">
-                <img src="images/zaymer-ru-pack-12.png" alt="3D Pack 12" class="zaymer-pack-img">
-            </div>
-            <div class="zaymer-pack-block pack-13">
-                <img src="images/zaymer-ru-pack-13.png" alt="3D Pack 13" class="zaymer-pack-img">
-            </div>
-
+          <div class="zr-card-blue zr-card-cubes">
+            <img src="image/zr-3d-cubes.png" alt="Кубы Займер 3D" />
+          </div>
         </div>
 
-    </div>
-</section>
-
-<section id="zaymer-ru-9" class="zaymer-section-white-750">
-    <div class="zaymer-wrapper-fluid-9">
-        
-        <div class="zaymer-row-9">
-            
-            <div class="zaymer-site-ill-block">
-                <img src="images/zaymer-ru-site-mockup.png" alt="Пример иллюстрации на сайте Zaymer" class="zaymer-site-img">
-            </div>
-
-            <div class="zaymer-site-caption" data-ru="Пример иллюстрации на сайте" data-en="Website Illustration Example">Пример иллюстрации на сайте</div>
-
+        <div class="zr-triple-row zr-triple-row--1">
+          <div class="zr-card-blue zr-triple-card zr-triple--lock"><img src="image/zr-3d-lock.png" alt="Замок 3D" /></div>
+          <div class="zr-card-blue zr-triple-card zr-triple--passport"><img src="image/zr-3d-passport.png" alt="Паспорт 3D" /></div>
+          <div class="zr-card-blue zr-triple-card zr-triple--calendar"><img src="image/zr-3d-calendar.png" alt="Календарь 3D" /></div>
         </div>
 
-    </div>
-</section>
-
-<section id="zaymer-ru-10" class="zaymer-section-white-996">
-    <div class="zaymer-wrapper-fluid-10">
-        
-        <div class="zaymer-row-10">
-            
-            <div class="zaymer-app-ill-block app-ill-1">
-                <img src="images/zaymer-ru-app-ill-1.png" alt="App Illustration 1" class="zaymer-app-ill-img">
-            </div>
-
-            <div class="zaymer-app-ill-caption" data-ru="Пример иллюстраций в приложении" data-en="In-App Illustration Example">Пример иллюстраций в приложении</div>
-
-
-            <div class="zaymer-app-ill-block app-ill-2">
-                <img src="images/zaymer-ru-app-ill-2.png" alt="App Illustration 2" class="zaymer-app-ill-img">
-            </div>
-
-            <div class="zaymer-app-ill-block app-ill-3">
-                <img src="images/zaymer-ru-app-ill-3.png" alt="App Illustration 3" class="zaymer-app-ill-img">
-            </div>
-
-            <div class="zaymer-app-ill-block app-ill-4">
-                <img src="images/zaymer-ru-app-ill-4.png" alt="App Illustration 4" class="zaymer-app-ill-img">
-            </div>
-
+        <!-- 14 3D-иконок с учётом тени (247:280.5) -->
+        <div class="zr-icons-box">
+          <div class="zr-icons-grid" id="zrIconsGrid">
+            <img src="image/zr-icon-1.png" alt="" />
+            <img src="image/zr-icon-2.png" alt="" />
+            <img src="image/zr-icon-3.png" alt="" />
+            <img src="image/zr-icon-4.png" alt="" />
+            <img src="image/zr-icon-5.png" alt="" />
+            <img src="image/zr-icon-6.png" alt="" />
+            <img src="image/zr-icon-7.png" alt="" />
+            <img src="image/zr-icon-8.png" alt="" />
+            <img src="image/zr-icon-9.png" alt="" />
+            <img src="image/zr-icon-10.png" alt="" />
+            <img src="image/zr-icon-11.png" alt="" />
+            <img src="image/zr-icon-12.png" alt="" />
+            <img src="image/zr-icon-13.png" alt="" />
+            <img src="image/zr-icon-14.png" alt="" />
+          </div>
         </div>
 
-    </div>
-</section>
-
-<section id="zaymer-ru-11" class="zaymer-section-result-955">
-    <div class="zaymer-wrapper-fluid-11">
-        
-        <div class="zaymer-row-11">
-            
-            <div class="zaymer-result-grad-wrap">
-                <img src="images/zaymer-ru-result-grad.png" alt="Background Gradient" class="zaymer-result-grad-img">
-            </div>
-
-            <h2 class="zaymer-result-title" data-ru="Результаты" data-en="Results">Результаты</h2>
-
-            <div class="zaymer-result-ill-block">
-                <img src="images/zaymer-ru-result.png" alt="Zaymer Russia Результаты" class="zaymer-result-img">
-            </div>
-
-            <div class="zaymer-result-text-block">
-                <p class="zaymer-result-bullet" data-ru="В результате редизайна создана узнаваемая визуальная система." data-en="The redesign established a highly recognizable visual system.">В результате редизайна создана узнаваемая визуальная система.</h2></p>
-                <p class="zaymer-result-bullet" data-ru="Коммуникационная дизайн-система, шаблонов и кастомной 3D-библиотеки значительно сократила время <br>производства контента." data-en="The communication design system, reusable templates, and custom 3D library significantly cut content production time.">Коммуникационная дизайн-система, шаблонов и кастомной 3D-библиотеки значительно сократила время производства контента.</p>
-                <p class="zaymer-result-bullet" data-ru="Полный отказ от стокового контента <br>в пользу дизайн-кода, регулярные <br>А/Б тесты с маркетологами обеспечили высокую конверсию в Campaign Visuals." data-en="Completely replacing stock content with <br>a unified design code, combined with regular marketing A/B tests, drove high conversion rates for Campaign Visuals.">Полный отказ от стокового контента в пользу дизайн-кода, регулярные А/Б тесты с маркетологами обеспечили высокую конверсию в Campaign Visuals.</p>
-            </div>
-
+        <div class="zr-pair-row">
+          <div class="zr-card-blue zr-pair-card"><img src="image/zr-3d-no-phone.png" alt="Без звонков" /></div>
+          <div class="zr-card-blue zr-pair-card"><img src="image/zr-3d-no-screen.png" alt="Без спама" /></div>
         </div>
 
-    </div>
-</section>
+        <div class="zr-triple-row zr-triple-row--2">
+          <div class="zr-card-blue zr-triple-card zr-triple--cards1"><img src="image/zr-3d-cards1.png" alt="Карты 1" /></div>
+          <div class="zr-card-blue zr-triple-card zr-triple--cards2"><img src="image/zr-3d-cards2.png" alt="Карты 2" /></div>
+          <div class="zr-card-blue zr-triple-card zr-triple--ban"><img src="image/zr-3d-ban.png" alt="Запрет" /></div>
+        </div>
+      </div>
+    </section>
 
-<!-- ЭКРАН: ГОРИЗОНТАЛЬНАЯ НАВИГАЦИЯ КЕЙСОВ -->
-<section id="nav-zaymer-ru" class="cases-slider-section">
-    <div class="slider-track">
+    <!-- 9. Примеры на сайте и в приложении -->
+    <section class="zr-examples">
+      <div class="container">
+        <div class="zr-web-example">
+          <div class="zr-web-frame">
+            <img src="image/zr-web-example.jpg" alt="Пример иллюстрации на сайте" />
+          </div>
+          <span class="case-caption">Пример иллюстрации на сайте</span>
+        </div>
 
-        <a href="a-dengi.html" class="slider-card-link">
-            <div class="slider-card-ill-container">
-                <img src="images/scroll_1.png" alt="A-Dengi" class="slider-card-ill">
+        <div class="zr-app-example">
+          <div class="zr-app-screens-wrap">
+            <div class="zr-app-screens">
+              <div class="zr-app-frame"><img src="image/zr-app-1.png" alt="Экран приложения 1" /></div>
+              <div class="zr-app-frame"><img src="image/zr-app-2.png" alt="Экран приложения 2" /></div>
             </div>
-            <div class="slider-card-content">
-                <div class="slider-card-title">A-Dengi</div>
-                <div class="slider-card-subtitle" data-ru="Как мы разработали МФО <br>от Альфа Банка" data-en="How We Built a Micro-Lending Platform <br>for Alfa-Bank">Как мы разработали МФО <br>от Альфа Банка</div>
+            <span class="case-caption">Пример иллюстраций в приложении</span>
+          </div>
+
+          <div class="zr-app-renders">
+            <div class="zr-card-blue zr-render-wide">
+              <div class="zr-render-wide__bg" aria-hidden="true"></div>
+              <img src="image/zr-render-phone.png" alt="3D телефон с галочкой" />
             </div>
-            <div class="slider-card-action">Next project</div>
+            <div class="zr-render-pair">
+              <div class="zr-card-blue zr-render-small"><img src="image/zr-render-bank.png" alt="Банк 3D" /></div>
+              <div class="zr-card-blue zr-render-small"><img src="image/zr-render-vk.png" alt="Соцсети 3D" /></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 10. Результаты (градиент #AEDCFF на фоне робота) -->
+    <section class="zr-results">
+      <div class="container">
+        <h2 class="case-heading">Результаты</h2>
+
+        <div class="zr-results__grid">
+          <div class="zr-results__visual">
+            <div class="zr-results__glow" aria-hidden="true"></div>
+            <img src="image/zr-result-robot.png" alt="Робот Займер с монетами" />
+          </div>
+
+          <ul class="zr-bullet-list">
+            <li>В результате редизайна создана узнаваемая визуальная система.</li>
+            <li>Коммуникационная дизайн-система, шаблонов и кастомной 3D-библиотеки значительно сократила время производства контента.</li>
+            <li>Реализовал глобальный рестайлинг коммуникаций бренда.</li>
+            <li>Создал библиотеку из 30+ кастомных 3D-ассетов (Cinema 4D / Octane) и обновил фотостиль, автоматизировав регулярную генерацию контента для маркетинга.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- 11. Нижняя навигация -->
+    <section class="project-nav-section zr-nav-section" aria-label="Навигация по проектам">
+      <div class="project-nav-track" id="projectNavTrack">
+        <a href="a-dengi.html" class="project-nav-card zr-nav-card">
+          <div class="project-nav-card__thumb" style="background: #F3F4F5;">
+            <img src="image/nav-1.png" alt="A-Dengi" />
+          </div>
+          <div class="project-nav-card__body">
+            <div>
+              <h3 class="project-nav-card__title">A-Dengi</h3>
+              <p class="project-nav-card__desc">Как мы разработали МФО от Альфа Банка</p>
+            </div>
+            <span class="project-nav-card__next">Next project</span>
+          </div>
         </a>
 
-        <a href="t-bank.html" class="slider-card-link">
-            <div class="slider-card-ill-container">
-                <img src="images/scroll_2.png" alt="Т-Банк x Zaymer" class="slider-card-ill">
+        <a href="tbank-zaymer.html" class="project-nav-card zr-nav-card">
+          <div class="project-nav-card__thumb" style="background: #FFFCEA;">
+            <img src="image/nav-2.png" alt="Т-Банк x Zaymer" />
+          </div>
+          <div class="project-nav-card__body">
+            <div>
+              <h3 class="project-nav-card__title">Т-Банк x Zaymer</h3>
+              <p class="project-nav-card__desc">Как я создал Key visual для коллаборации Zaymer и Т-Банк</p>
             </div>
-            <div class="slider-card-content">
-                <div class="slider-card-title" data-ru="Т-Банк x Zaymer" data-en="Т-Bank x Zaymer">Т-Банк x Zaymer</div>
-                <div class="slider-card-subtitle" data-ru="Как я создал Key visual для коллаборации Zaymer и Т-Банк" data-en="How I Designed the Key Visual for the Zaymer <br>× T-Bank Collaboration">Как я создал Key visual для коллаборации Zaymer и Т-Банк</div>
-            </div>
-            <div class="slider-card-action">Next project</div>
+            <span class="project-nav-card__next">Next project</span>
+          </div>
         </a>
 
-        <a href="zaymer-ru.html" class="slider-card-link">
-            <div class="slider-card-ill-container">
-                <img src="images/scroll_3.png" alt="Zaymer RU" class="slider-card-ill">
+        <a href="zaymer-kz.html" class="project-nav-card zr-nav-card" data-nav-start>
+          <div class="project-nav-card__thumb" style="background: #E8F5EC;">
+            <img src="image/nav-4.png" alt="Zaymer KZ" />
+          </div>
+          <div class="project-nav-card__body">
+            <div>
+              <h3 class="project-nav-card__title">Zaymer KZ</h3>
+              <p class="project-nav-card__desc">Как я локализировал с помощью брендинга весь SMM для МФО в Казахстане</p>
             </div>
-            <div class="slider-card-content">
-                <div class="slider-card-title">Zaymer RU</div>
-                <div class="slider-card-subtitle" data-ru="Как мы сделали крупный ребрендинг для лидера <br>по выдачам МФО - Zaymer" data-en="How We Pulled Off a Massive Rebrand for Zaymer, <br>the Market Leader <br>in Micro-Lending">Как мы сделали крупный ребрендинг для лидера по выдачам МФО - Zaymer</div>
-            </div>
-            <div class="slider-card-action">Next project</div>
+            <span class="project-nav-card__next">Next project</span>
+          </div>
         </a>
 
-        <a href="zaymer-kz.html" class="slider-card-link">
-            <div class="slider-card-ill-container">
-                <img src="images/scroll_4.png" alt="Zaymer KZ" class="slider-card-ill">
+        <a href="unamolia.html" class="project-nav-card zr-nav-card">
+          <div class="project-nav-card__thumb" style="background: #E6EFFF;">
+            <img src="image/nav-5.png" alt="UnaMolia" />
+          </div>
+          <div class="project-nav-card__body">
+            <div>
+              <h3 class="project-nav-card__title">UnaMolia (Uzbekistan)</h3>
+              <p class="project-nav-card__desc">Как мы создали уникальный продукт для целой страны</p>
             </div>
-            <div class="slider-card-content">
-                <div class="slider-card-title">Zaymer KZ</div>
-                <div class="slider-card-subtitle" data-ru="Как я локализировал <br>с помощью брендинга <br>весь SMM для МФО <br>в Казахстане" data-en="How I Used Branding <br>to Localize the Complete SMM for a Kazakhstani FinTech">Как я локализировал с помощью брендинга весь SMM для МФО в Казахстане</div>
-            </div>
-            <div class="slider-card-action">Next project</div>
+            <span class="project-nav-card__next">Next project</span>
+          </div>
         </a>
 
-        <a href="unamolia.html" class="slider-card-link">
-            <div class="slider-card-ill-container">
-                <img src="images/scroll_5.png" alt="UnaMolia" class="slider-card-ill">
+        <a href="other.html" class="project-nav-card zr-nav-card">
+          <div class="project-nav-card__thumb" style="background: #FFFBE5;">
+            <img src="image/nav-6.png" alt="Other" />
+          </div>
+          <div class="project-nav-card__body">
+            <div>
+              <h3 class="project-nav-card__title">Other</h3>
+              <p class="project-nav-card__desc">Другие проекты которые я разрабатывал</p>
             </div>
-            <div class="slider-card-content">
-                <div class="slider-card-title">UnaMolia<br>(Uzbekistan)</div>
-                <div class="slider-card-subtitle" data-ru="Как мы создали уникальный продукт для целой страны" data-en="How We Built <br>a Groundbreaking Product <br>on a National Scale">Как мы создали уникальный продукт для целой страны</div>
-            </div>
-            <div class="slider-card-action">Next project</div>
+            <span class="project-nav-card__next">Next project</span>
+          </div>
         </a>
+      </div>
+    </section>
+  </main>
 
-        <a href="other.html" class="slider-card-link">
-            <div class="slider-card-ill-container">
-                <img src="images/scroll_6.png" alt="Other" class="slider-card-ill">
-            </div>
-            <div class="slider-card-content">
-                <div class="slider-card-title">Other</div>
-                <div class="slider-card-subtitle" data-ru="Другие проекты которые <br>я разрабатывал" data-en="More Projects I’ve Worked On">Другие проекты которые я разрабатывал</div>
-            </div>
-            <div class="slider-card-action">Next project</div>
-        </a>
-
+  <footer class="site-footer zr-footer">
+    <div class="container">
+      <div class="footer-line"></div>
     </div>
-</section>
+  </footer>
 
-<section id="zaymer-ru-12" class="zaymer-section-line-1">
-    <div class="zaymer-wrapper-fluid-12">
-        
-        <div class="zaymer-row-12">
-            <div class="zaymer-divider-line"></div>
-        </div>
-
-    </div>
-</section>
-
-<script>
-document.addEventListener('DOMContentLoaded', () => {
-    const header = document.querySelector('.site-header-fixed');
-    
-    // ВАЖНО: Сюда вписываешь ID ТРЕТЬЕГО ЭКРАНА именно этой страницы!
-    const triggerSection = document.getElementById(id="zaymer-ru-4"); 
-
-    if (!header || !triggerSection) return;
-
-    const options = {
-        root: null,
-        rootMargin: '0px 0px -100% 0px', 
-        threshold: 0
-    };
-
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting || entry.boundingClientRect.top < 0) {
-                header.classList.add('show-header');
-            } else {
-                header.classList.remove('show-header');
-            }
-        });
-    }, options);
-
-    observer.observe(triggerSection);
-});
-</script>
-
-<script>
-    document.addEventListener("DOMContentLoaded", function() {
-        // 1. Находим саму секцию слайдера
-        const slider = document.querySelector('.cases-slider-section');
-        
-        // 2. Находим карточку Займер RU (она третья по счету: :nth-child(3))
-        // Именно до неё нам нужно доскроллить, так как Т-Банк (вторая) скрыт
-        const nextCard = document.querySelector('#nav-zaymer-ru .slider-card-link:nth-child(5)');
-        
-        if (slider && nextCard) {
-            // Находим точное расстояние от левого края слайдера до левого края нужной карточки
-            const offsetLeft = nextCard.offsetLeft;
-            
-            // Прокручиваем слайдер ровно до этой точки
-            slider.scrollLeft = offsetLeft;
-            
-            // Если вдруг скролл включен не на секции, а на треке, дублируем на трек:
-            const track = document.querySelector('.slider-track');
-            if (track) {
-                track.scrollLeft = offsetLeft;
-            }
-        }
-    });
-</script>
-
-<script>
-    document.addEventListener("DOMContentLoaded", function() {
-        // 1. Читаем параметры из адресной строки (?lang=...)
-        const urlParams = new URLSearchParams(window.location.search);
-        const langParam = urlParams.get('lang');
-        
-        let currentLang = 'ru'; 
-        if (langParam === 'en' || langParam === 'eng') {
-            currentLang = 'en';
-        }
-
-        // 2. Переключаем активный класс на кнопках RU/ENG в шапке
-        const ruBtn = document.querySelector('.header-lang-link[href="?lang=ru"]');
-        const enBtn = document.querySelector('.header-lang-link[href="?lang=en"]');
-        
-        if (ruBtn && enBtn) {
-            if (currentLang === 'en') {
-                ruBtn.classList.remove('active');
-                enBtn.classList.add('active');
-            } else {
-                enBtn.classList.remove('active');
-                ruBtn.classList.add('active');
-            }
-        }
-
-        // 3. БЕЗОПАСНЫЙ ПЕРЕВОД: Меняем только текст, чтобы не ломать структуру кнопок
-        document.querySelectorAll('[data-ru]').forEach(el => {
-            const translatedText = el.getAttribute(`data-${currentLang}`);
-            if (translatedText) {
-                if (el.tagName === 'BUTTON' || el.classList.contains('contact-btn')) {
-                    el.textContent = translatedText;
-                } else {
-                    el.innerHTML = translatedText;
-                }
-            }
-        });
-
-        // 4. ЖЕЛЕЗНЫЙ ПРОБРОС ССЫЛОК (Чтобы язык не слетал при переходе на About)
-        document.querySelectorAll('a').forEach(link => {
-            const href = link.getAttribute('href');
-            if (!href || href.startsWith('http') || link.classList.contains('header-lang-link')) return;
-
-            try {
-                const fakeBase = window.location.origin + window.location.pathname;
-                const urlObj = new URL(href, fakeBase);
-
-                if (currentLang === 'en') {
-                    urlObj.searchParams.set('lang', 'en');
-                } else {
-                    urlObj.searchParams.set('lang', 'ru');
-                }
-
-                let newHref = urlObj.pathname.split('/').pop() + urlObj.search + urlObj.hash;
-                
-                if (href.startsWith('#')) {
-                    newHref = href.split('?')[0] + urlObj.search; 
-                    if (href.includes('#')) {
-                        const cleanHash = href.match(/#[A-Za-z0-9_-]+/)[0];
-                        newHref = cleanHash + urlObj.search;
-                    }
-                }
-
-                if (href.startsWith('../')) {
-                    newHref = '../' + newHref;
-                }
-
-                link.setAttribute('href', newHref);
-            } catch (e) {
-                console.error('Ошибка обработки ссылки:', e);
-            }
-        });
-    });
-</script>
-
-    </body>
+  <script src="script.js"></script>
+</body>
 </html>

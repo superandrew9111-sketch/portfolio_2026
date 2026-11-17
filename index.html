@@ -1,598 +1,381 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Kurlaev Andrew — Senior Communication Designer</title>
-    
-    <link rel="stylesheet" href="styles.css">
-    
-    <style>
-        /* Базовые системные сбросы, чтобы страница не прыгала до прогрузки основного CSS */
-        html, body {
-            margin: 0;
-            padding: 0;
-            width: 100%;
-            background-color: #FFD600;
-            overflow-x: hidden;
-            -webkit-font-smoothing: antialiased;
-            -moz-osx-font-smoothing: grayscale;
-        }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Kurlaev Andrew — Senior Communication Designer</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
 
-    <div id="preloader">
-    <div id="preloader-text" data-ru="Курлаев Андрей" data-en="Kurlaev Andrew">Курлаев Андрей</div>
-    
-    <div class="preloader-line-container">
-        <div class="progress-bar-line">
-            <div id="progress-bar-fill"></div>
-        </div>
+  <!-- Липкая шапка с блуром 25% -->
+  <header class="site-header" id="header">
+    <div class="header-inner">
+      <button class="burger-btn" id="burgerBtn" aria-label="Открыть меню" aria-expanded="false">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+
+      <nav class="header-nav" aria-label="Основная навигация">
+        <a href="#about" class="nav-link is-active">About</a>
+        <a href="#cases" class="nav-link">Cases</a>
+        <a href="#experience" class="nav-link">Experience</a>
+      </nav>
+
+      <a href="#about" class="header-brand">Kurlaev Andrew</a>
+
+      <div class="lang-switch" role="group" aria-label="Выбор языка">
+        <button class="lang-btn is-active" data-lang="ru">RU</button>
+        <button class="lang-btn" data-lang="eng">ENG</button>
+      </div>
     </div>
-</div>
+    <div class="header-divider"></div>
+  </header>
 
-    <header class="site-header-fixed">
-    
-    <!-- Нижняя линия во всю ширину экрана (1920px) теперь лежит здесь -->
-    <div class="header-bottom-line"></div>
-
-    <div class="header-wrapper-fluid">
-        <div class="header-row">
-            
-            <!-- Левая навигация -->
-            <nav class="header-nav-main">
-                <a href="#about" class="header-nav-link active">About</a>
-                <a href="#cases" class="header-nav-link">Cases</a> 
-                <a href="#skills" class="header-nav-link">Experience</a> 
-            </nav>
-            
-            <!-- Центр -->
-            <div class="header-title-center" data-ru="Курлаев Андрей" data-en="Kurlaev Andrew">Курлаев Андрей</div>
-            
-            <!-- Правые языки -->
-            <div class="header-nav-lang">
-                <a href="?lang=ru" class="header-lang-link">RU</a>
-                <a href="?lang=en" class="header-lang-link active">ENG</a>
-            </div>
-            
-        </div>
+  <!-- Выдвижное мобильное меню -->
+  <div class="mobile-menu" id="mobileMenu" aria-hidden="true">
+    <nav class="mobile-menu-nav">
+      <a href="#about" class="mobile-nav-link">About</a>
+      <a href="#cases" class="mobile-nav-link">Cases</a>
+      <a href="#experience" class="mobile-nav-link">Experience</a>
+    </nav>
+    <div class="mobile-menu-contacts">
+      <a href="tel:+79833209153">+7-983-320-91-53</a>
+      <a href="https://t.me/superandrew1" target="_blank" rel="noopener">tg: @superandrew1</a>
+      <a href="mailto:an-di.91@mail.ru">an-di.91@mail.ru</a>
     </div>
-</header>
+  </div>
 
-    <section class="section-hero-about" id="about">
-    <div class="hero-wrapper-fluid">
-        <div class="hero-row">
-            
-            <!-- Левая колонка: фото -->
-            <div class="hero-photo-block">
-                <img src="images/hero.png" alt="Andrew Kurlaev" class="hero-img">
-            </div>
-            
-            <!-- Центральная колонка: манифест -->
-            <div class="hero-text-block">
-    <div class="hero-subtitle-top" 
-         data-ru="Senior Communication Designer | 6+ years in Fintech" 
-         data-en="Senior Communication Designer | 6+ years in Fintech">
-         Senior Communication Designer | 6+ years in Fintech
-    </div>
-    
-    <div class="hero-description-p">
-        <p data-ru="Разрабатываю и масштабирую визуальные системы, <br>3D-коммуникации и AI-пайплайны для ИТ-продуктов. <br>Помогаю брендам ускорять Time-to-Market и растить <br>конверсии через сильные визуальные метафоры." 
-           data-en="I design and scale visual systems, <br>3D brand communications, and AI-driven workflows <br>for tech products. I help brands accelerate time-to-market <br>and boost conversion rates through high-impact visual metaphors.">
-           Разрабатываю и масштабирую визуальные системы, <br>3D-коммуникации и AI-пайплайны для ИТ-продуктов. <br>Помогаю брендам ускорять Time-to-Market и растить <br>конверсии через сильные визуальные метафоры.
-        </p>
-        <p data-ru="Опыт работы с рынками: Испания, <br>Казахстан, Филиппины, Узбекистан, Россия." 
-           data-en="Market experience: Spain, <br>Kazakhstan, Philippines, Uzbekistan, Russia.">
-           Опыт работы с рынками: Испания, <br>Казахстан, Филиппины, Узбекистан, Россия.
-        </p>
-        <p data-ru="Коллаборации: Т-Банк, Альфа-Банк." 
-           data-en="Collaborations: T-Bank, Alfa-Bank.">
-           Коллаборации: Т-Банк, Альфа-Банк.
-        </p>
-    </div>
-
-    <div class="hero-contacts-actions">
-    <!-- Кнопка Telegram -->
-    <button class="contact-btn" data-copy="https://t.me/superandrew1" data-ru="Telegram" data-en="Telegram">Telegram</button>
-
-    <!-- Кнопка Email -->
-    <button class="contact-btn" data-copy="an-di.91@mail.ru" data-ru="E-mail" data-en="E-mail">E-mail</button>
-
-    <!-- Кнопка Телефона -->
-    <button class="contact-btn" data-copy="+79833209153" data-ru="Phone number" data-en="Phone number">Phone number</button>
-    </div>
-    
-</div>
-            
-            <!-- Правая колонка: контакты -->
-            <div class="hero-contacts-block">
-                <a href="tel:+79833209153" class="hero-contact-item">+7-983-320-91-53</a>
-                <a href="https://t.me/superandrew1" target="_blank" class="hero-contact-item">tg: @superandrew1</a>
-                <a href="mailto:an-di.91@mail.ru" class="hero-contact-item">an-di.91@mail.ru</a>
-            </div>
-            
-        </div>
-    </div>
-</section>
-
-<section id="cases" class="section-cases-nav">
-    <div class="cases-wrapper-fluid">
-        <div class="cases-grid-row">
-            
-            <a href="a-dengi.html" class="case-card card-1">
-                <div class="case-text-block text-block-89">
-                    <h3 class="case-title">A-Dengi</h3>
-                    <p class="case-subtitle" data-ru="Как мы разработали МФО от Альфа Банка" 
-                    data-en="How We Built a Micro-Lending Platform for Alfa-Bank">
-                </div>
-                <div class="case-ill-container ill-1">
-                    <img src="images/nav-1.png" alt="A-Dengi" class="case-img">
-                </div>
-            </a>
-
-            <a href="t-bank.html" class="case-card card-2">
-                <div class="case-text-block text-block-89">
-                    <h3 class="case-title" data-ru="Т-Банк x Zaymer" data-en="Т-Bank x Zaymer">Т-Банк x Zaymer</h3>
-                    <p class="case-subtitle" data-ru="Как я создал Key visual для коллаборации Zaymer и Т-Банк" 
-                    data-en="How I Designed the Key Visual for the Zaymer × T-Bank Collaboration">
-                </div>
-                <div class="case-ill-container ill-2">
-                    <img src="images/nav-2.png" alt="Т-Банк x Zaymer" class="case-img">
-                </div>
-            </a>
-
-            <a href="zaymer-ru.html" class="case-card card-3">
-                <div class="case-text-block text-block-114">
-                    <h3 class="case-title">Zaymer RU</h3>
-                    <p class="case-subtitle" data-ru="Как мы сделали крупный ребрендинг для лидера по выдачам МФО - Zaymer" 
-                    data-en="How We Pulled Off a Massive Rebrand for Zaymer, the Market Leader in Micro-Lending">
-                </div>
-                <div class="case-ill-container ill-3">
-                    <img src="images/nav-3.png" alt="Zaymer RU" class="case-img">
-                </div>
-            </a>
-
-            <a href="zaymer-kz.html" class="case-card card-4">
-                <div class="case-text-block text-block-114">
-                    <h3 class="case-title">Zaymer KZ</h3>
-                    <p class="case-subtitle" data-ru="Как я локализировал с помощью брендинга весь SMM <br>для МФО в Казахстане" 
-                    data-en="How I Used Branding to Localize the Complete SMM <br>for a Kazakhstani FinTech">
-                </div>
-                <div class="case-ill-container ill-4">
-                    <img src="images/nav-4.png" alt="Zaymer KZ" class="case-img">
-                </div>
-            </a>
-
-            <a href="unamolia.html" class="case-card card-5">
-                <div class="case-text-block text-block-89">
-                    <h3 class="case-title">UnaMolia (Uzbekistan)</h3>
-                    <p class="case-subtitle" data-ru="Как мы создали уникальный продукт для целой страны" 
-                    data-en="How We Built a Groundbreaking Product on a National Scale">
-                </div>
-                <div class="case-ill-container ill-5">
-                    <img src="images/nav-5.png" alt="UnaMolia" class="case-img">
-                </div>
-            </a>
-
-            <a href="other.html" class="case-card card-6">
-                <div class="case-text-block text-block-89">
-                    <h3 class="case-title">Other</h3>
-                    <p class="case-subtitle" data-ru="Другие проекты которые я разрабатывал" 
-                    data-en="More Projects I’ve Worked On">
-                </div>
-                <div class="case-ill-container ill-6">
-                    <img src="images/nav-6.png" alt="Other Projects" class="case-img">
-                </div>
-            </a>
-
-        </div>
-    </div>
-<section id="skills" class="section-skills-about">
-    <div class="skills-wrapper-fluid">
-        <div class="skills-grid-row">
-            
-            <h2 class="skills-main-title" data-ru="Что я умею?" data-en="What I Do & My Experience">Что я умею?</h2>
-            
-            <div class="skills-cards-container">
-                
-                <div class="skill-card">
-                    <div class="skill-card-header">
-                        <div class="skill-icon-svg">
-                            <img src="images/icon-branding.svg" alt="Branding" class="skill-icon-img">
-                        </div>
-                        <h3 class="skill-card-title">Brending</h3>
-                    </div>
-                    <ul class="skill-card-list">
-                        <li data-ru="Создание айдентики" data-en="Identity creation">Создание айдентики</li>
-                        <li data-ru="Масштабирование систем" data-en="Scaling systems">Масштабирование систем</li>
-                        <li data-ru="Разработка брендбуков" data-en="Brandbook development">Разработка брендбуков</li>
-                        <li data-ru="Разработка логотипов" data-en="Logo design">Разработка логотипов</li>
-                    </ul>
-                </div>
-
-                <div class="skill-card">
-                    <div class="skill-card-header">
-                        <div class="skill-icon-svg">
-                            <img src="images/icon-3d.svg" alt="3D & Visual" class="skill-icon-img">
-                        </div>
-                        <h3 class="skill-card-title" data-ru="3D & Визуал" data-en="3D & Visuals">3D & Визуал</h3>
-                    </div>
-                    <ul class="skill-card-list">
-                        <li>Hard skill Senior</li>
-                        <li data-ru="Кастомная 3D-графика" data-en="Custom 3D Graphics">Кастомная 3D-графика</li>
-                        <li data-ru="Уникальные 3D-паки" data-en="Custom 3D Packs">Уникальные 3D-паки</li>
-                        <li data-ru="3D-анимация" data-en="3D-animations">3D-анимация</li>
-                    </ul>
-                </div>
-
-                <div class="skill-card">
-                    <div class="skill-card-header">
-                        <div class="skill-icon-svg">
-                            <img src="images/icon-marketing.svg" alt="Marketing" class="skill-icon-img">
-                        </div>
-                        <h3 class="skill-card-title" data-ru="Маркетинг" data-en="Marketing">Маркетинг</h3>
-                    </div>
-                    <ul class="skill-card-list">
-                        <li data-ru="Перформанс-дизайн" data-en="Performance Design">Перформанс-дизайн</li>
-                        <li>Key Visuals</li>
-                        <li data-ru="Гайдлайны" data-en="Guidelines">Гайдлайны</li>
-                        <li data-ru="SMM-структура" data-en="SMM Architecture">SMM-структура</li>
-                    </ul>
-                </div>
-
-                <div class="skill-card">
-                    <div class="skill-card-header">
-                        <div class="skill-icon-svg">
-                            <img src="images/icon-product.svg" alt="Product" class="skill-icon-img">
-                        </div>
-                        <h3 class="skill-card-title" data-ru="Продукт" data-en="Product">Продукт</h3>
-                    </div>
-                    <ul class="skill-card-list">
-                        <li data-ru="Развитие продукта" data-en="Product Growth">Развитие продукта</li>
-                        <li data-ru="Продуктовые коллаборации" data-en="Product Collaborations">Продуктовые коллаборации</li>
-                        <li>Research</li>
-                        <li data-ru="Анализ конкурентов" data-en="Competitor Analysis">Анализ конкурентов</li>
-                    </ul>
-                </div>
-
-            </div>
-
-            <div class="skillset-main-box">
-                <h3 class="skillset-title">Skillset:</h3>
-                
-                <div class="skillset-tags-grid">
-                    <span class="tag tag-pink">Adobe Creative Suite</span>
-                    <span class="tag tag-pink">Adobe Premiere Pro</span>
-                    <span class="tag tag-pink">After Effects</span>
-                    <span class="tag tag-pink">Cinema 4d</span>
-                    <span class="tag tag-pink">Octane Render</span>
-                    <span class="tag tag-pink">Figma</span>
-                    <span class="tag tag-pink">AI-generation</span>
-
-                    <span class="tag tag-yellow" data-ru="Монтаж видео" data-en="Video Production">Монтаж видео</span>
-                    <span class="tag tag-yellow" data-ru="Видеосъемка" data-en="Videography">Видеосъемка</span>
-                    <span class="tag tag-yellow" data-ru="Фотография" data-en="Photography">Фотография</span>
-                    <span class="tag tag-yellow" data-ru="UI-дизайн" data-en="UI Design">UI-дизайн</span>
-                    <span class="tag tag-yellow" data-ru="Разработка логотипов" data-en="Logo Design">Разработка логотипов</span>
-                    <span class="tag tag-yellow">Branding</span>
-                    <span class="tag tag-yellow">Design sistem</span>
-                    <span class="tag tag-yellow" data-ru="Презентации" data-en="Presentation Design">Презентации</span>
-
-                    <span class="tag tag-yellow" data-ru="Колористика" data-en="Color Theory">Колористика</span>
-                    <span class="tag tag-yellow">Layout</span>
-                    <span class="tag tag-yellow">3D-illustration</span>
-                    <span class="tag tag-yellow">3D-animation</span>
-                    <span class="tag tag-yellow" data-ru="Типографика" data-en="Typography">Типографика</span>
-                    <span class="tag tag-yellow">Pre-press</span>
-
-                    <span class="tag tag-blue">Soft skill Senior</span>
-                    <span class="tag tag-blue">Agile (Scrum)</span>
-                    <span class="tag tag-blue">Kanban</span>
-                    <span class="tag tag-blue">UX Research</span>
-                    <span class="tag tag-blue" data-ru="Анализ конкурентов" data-en="Competitor Analysis">Анализ конкурентов</span>
-                    <span class="tag tag-blue">Key Visuals</span>
-                    <span class="tag tag-blue">Onboarding</span>
-                </div>
-            </div>
-
-        </div>
-    </div>
-</section>
-
-<!-- ЭКРАН: ГОРИЗОНТАЛЬНАЯ НАВИГАЦИЯ КЕЙСОВ -->
-<section id="nav-index" class="cases-slider-section">
-    <div class="slider-track">
-
-        <a href="a-dengi.html" class="slider-card-link">
-            <div class="slider-card-ill-container">
-                <img src="images/scroll_1.png" alt="A-Dengi" class="slider-card-ill">
-            </div>
-            <div class="slider-card-content">
-                <div class="slider-card-title">A-Dengi</div>
-                <div class="slider-card-subtitle" data-ru="Как мы разработали МФО <br>от Альфа Банка" data-en="How We Built a Micro-Lending Platform <br>for Alfa-Bank">Как мы разработали МФО <br>от Альфа Банка</div>
-            </div>
-            <div class="slider-card-action">Next project</div>
-        </a>
-
-        <a href="t-bank.html" class="slider-card-link">
-            <div class="slider-card-ill-container">
-                <img src="images/scroll_2.png" alt="Т-Банк x Zaymer" class="slider-card-ill">
-            </div>
-            <div class="slider-card-content">
-                <div class="slider-card-title" data-ru="Т-Банк x Zaymer" data-en="Т-Bank x Zaymer">Т-Банк x Zaymer</div>
-                <div class="slider-card-subtitle" data-ru="Как я создал Key visual для коллаборации Zaymer и Т-Банк" data-en="How I Designed the Key Visual for the Zaymer <br>× T-Bank Collaboration">Как я создал Key visual для коллаборации Zaymer и Т-Банк</div>
-            </div>
-            <div class="slider-card-action">Next project</div>
-        </a>
-
-        <a href="zaymer-ru.html" class="slider-card-link">
-            <div class="slider-card-ill-container">
-                <img src="images/scroll_3.png" alt="Zaymer RU" class="slider-card-ill">
-            </div>
-            <div class="slider-card-content">
-                <div class="slider-card-title">Zaymer RU</div>
-                <div class="slider-card-subtitle" data-ru="Как мы сделали крупный ребрендинг для лидера <br>по выдачам МФО - Zaymer" data-en="How We Pulled Off a Massive Rebrand for Zaymer, <br>the Market Leader <br>in Micro-Lending">Как мы сделали крупный ребрендинг для лидера по выдачам МФО - Zaymer</div>
-            </div>
-            <div class="slider-card-action">Next project</div>
-        </a>
-
-        <a href="zaymer-kz.html" class="slider-card-link">
-            <div class="slider-card-ill-container">
-                <img src="images/scroll_4.png" alt="Zaymer KZ" class="slider-card-ill">
-            </div>
-            <div class="slider-card-content">
-                <div class="slider-card-title">Zaymer KZ</div>
-                <div class="slider-card-subtitle" data-ru="Как я локализировал <br>с помощью брендинга <br>весь SMM для МФО <br>в Казахстане" data-en="How I Used Branding <br>to Localize the Complete SMM for a Kazakhstani FinTech">Как я локализировал с помощью брендинга весь SMM для МФО в Казахстане</div>
-            </div>
-            <div class="slider-card-action">Next project</div>
-        </a>
-
-        <a href="unamolia.html" class="slider-card-link">
-            <div class="slider-card-ill-container">
-                <img src="images/scroll_5.png" alt="UnaMolia" class="slider-card-ill">
-            </div>
-            <div class="slider-card-content">
-                <div class="slider-card-title">UnaMolia<br>(Uzbekistan)</div>
-                <div class="slider-card-subtitle" data-ru="Как мы создали уникальный продукт для целой страны" data-en="How We Built <br>a Groundbreaking Product <br>on a National Scale">Как мы создали уникальный продукт для целой страны</div>
-            </div>
-            <div class="slider-card-action">Next project</div>
-        </a>
-
-        <a href="other.html" class="slider-card-link">
-            <div class="slider-card-ill-container">
-                <img src="images/scroll_6.png" alt="Other" class="slider-card-ill">
-            </div>
-            <div class="slider-card-content">
-                <div class="slider-card-title">Other</div>
-                <div class="slider-card-subtitle" data-ru="Другие проекты которые <br>я разрабатывал" data-en="More Projects I’ve Worked On">Другие проекты которые я разрабатывал</div>
-            </div>
-            <div class="slider-card-action">Next project</div>
-        </a>
-
-    </div>
-</section>
-
-    <section id="about-3" class="about-section-footer-line">
-        <div class="about-wrapper-fluid-line">
-            
-            <div class="about-row-line">
-                
-                <div class="about-divider-line"></div>
-
-            </div>
-
+  <main>
+    <!-- Секция 1: About (Hero) -->
+    <section class="hero" id="about">
+      <div class="container hero-container">
+        <div class="hero-photo-wrap">
+          <img src="image/avatar.png" alt="Kurlaev Andrew" class="hero-photo" />
         </div>
 
-<script>
-document.addEventListener('DOMContentLoaded', () => {
-    const sections = document.querySelectorAll('section[id]');
-    const navLinks = document.querySelectorAll('.header-nav-link');
+        <div class="hero-content">
+          <h1 class="hero-title">
+            Senior Communication Designer | 6+ years in Fintech
+          </h1>
 
-    // Настройки: отслеживаем, когда секция пересекает линию в 20% от верха экрана
-    const options = {
-        root: null,
-        rootMargin: '-20% 0px -80% 0px', 
-        threshold: 0
-    };
+          <div class="hero-description">
+            <p>
+              Разрабатываю и масштабирую визуальные системы, 3D-коммуникации и AI-пайплайны для ИТ-продуктов. Помогаю брендам ускорять Time-to-Market и растить конверсии через сильные визуальные метафоры.
+            </p>
+            <p>
+              Опыт работы с рынками: Испания, Казахстан, Филиппины, Узбекистан, Россия.
+            </p>
+            <p>
+              Коллаборации: Т-Банк, Альфа-Банк.
+            </p>
+          </div>
 
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            // Если секция зашла в рабочую зону
-            if (entry.isIntersecting) {
-                const id = entry.target.getAttribute('id');
-                
-                navLinks.forEach(link => {
-                    const href = link.getAttribute('href');
-                    if (href === `#${id}` || href === `index.html#${id}`) {
-                        link.classList.add('active');
-                    } else {
-                        link.classList.remove('active');
-                    }
-                });
-            }
-        });
-    }, options);
+          <div class="hero-actions">
+            <a href="tel:+79833209153" class="pill-btn">
+              <span class="btn-text-desktop">Phone number</span>
+              <span class="btn-text-mobile">Phone</span>
+            </a>
+            <a href="https://t.me/superandrew1" target="_blank" rel="noopener" class="pill-btn">
+              Telegram
+            </a>
+            <a href="mailto:an-di.91@mail.ru" class="pill-btn">
+              Mail
+            </a>
+          </div>
+        </div>
 
-    // Дополнительный фикс для возврата к первому экрану при скролле в самый верх
-    window.addEventListener('scroll', () => {
-        if (window.pageYOffset < 100 || document.documentElement.scrollTop < 100) {
-            navLinks.forEach(link => {
-                const href = link.getAttribute('href');
-                if (href === '#about' || href === 'index.html#about') {
-                    link.classList.add('active');
-                } else {
-                    link.classList.remove('active');
-                }
-            });
-        }
-    });
+        <div class="hero-contacts">
+          <a href="tel:+79833209153">+7-983-320-91-53</a>
+          <a href="https://t.me/superandrew1" target="_blank" rel="noopener">tg: @superandrew1</a>
+          <a href="mailto:an-di.91@mail.ru">an-di.91@mail.ru</a>
+        </div>
+      </div>
+    </section>
 
-    sections.forEach(section => observer.observe(section));
-});
-</script>
+    <!-- Секция 2: Cases -->
+    <section class="cases-section" id="cases">
+      <div class="container">
+        <div class="cases-grid">
+          <!-- 1. A-Dengi -->
+          <a href="a-dengi.html" class="case-card case-card--adengi">
+            <div class="case-card__text">
+              <h2 class="case-card__title">A-Dengi</h2>
+              <p class="case-card__subtitle">Как мы разработали МФО от Альфа Банка</p>
+            </div>
+            <div class="case-card__media">
+              <img src="image/case-1-adengi.png" alt="A-Dengi" class="case-img" />
+            </div>
+          </a>
 
-<script>
-    document.addEventListener("DOMContentLoaded", function() {
-        // 1. Читаем параметры из адресной строки (?lang=...)
-        const urlParams = new URLSearchParams(window.location.search);
-        const langParam = urlParams.get('lang');
-        
-        // 2. Определяем текущий язык. Если в урле en или eng — включаем английский
-        let currentLang = 'ru'; 
-        if (langParam === 'en' || langParam === 'eng') {
-            currentLang = 'en';
-        }
+          <!-- 2. Т-Банк x Zaymer -->
+          <a href="tbank-zaymer.html" class="case-card case-card--tbank">
+            <div class="case-card__text">
+              <h2 class="case-card__title">Т-Банк x Zaymer</h2>
+              <p class="case-card__subtitle">Как я создал Key visual для коллаборации Zaymer и Т-Банк</p>
+            </div>
+            <div class="case-card__media">
+              <img src="image/case-2-tbank.png" alt="Т-Банк x Zaymer" class="case-img" />
+            </div>
+          </a>
 
-        // 3. Переключаем активный класс на кнопках RU/ENG в навигации
-        const ruBtn = document.querySelector('.header-lang-link[href="?lang=ru"]');
-        const enBtn = document.querySelector('.header-lang-link[href="?lang=en"]');
-        
-        if (ruBtn && enBtn) {
-            if (currentLang === 'en') {
-                ruBtn.classList.remove('active');
-                enBtn.classList.add('active');
-            } else {
-                enBtn.classList.remove('active');
-                ruBtn.classList.add('active');
-            }
-        }
+          <!-- 3. Zaymer RU -->
+          <a href="zaymer-ru.html" class="case-card case-card--zaymer-ru">
+            <div class="case-card__text">
+              <h2 class="case-card__title">Zaymer RU</h2>
+              <p class="case-card__subtitle">Как мы сделали крупный ребрендинг для лидера по выдачам МФО - Zaymer</p>
+            </div>
+            <div class="case-card__media">
+              <img src="image/case-3-zaymer-ru.png" alt="Zaymer RU" class="case-img" />
+            </div>
+          </a>
 
-        // 4. Пробегаемся по всему HTML и подставляем нужный текст из data-атрибутов
-        document.querySelectorAll('[data-ru]').forEach(el => {
-            const translatedText = el.getAttribute(`data-${currentLang}`);
-            if (translatedText) {
-                el.innerHTML = translatedText;
-            }
-        });
+          <!-- 4. Zaymer KZ -->
+          <a href="zaymer-kz.html" class="case-card case-card--zaymer-kz">
+            <div class="case-card__text">
+              <h2 class="case-card__title">Zaymer KZ</h2>
+              <p class="case-card__subtitle">Как я локализировал с помощью брендинга весь SMM для МФО в Казахстане</p>
+            </div>
+            <div class="case-card__media case-card__media--kz">
+              <img src="image/case-4-zaymer-kz.png" alt="Zaymer KZ" class="case-img case-img--kz-main" />
+              <img src="image/case-4-coin-1.png" alt="" class="case-img case-img--kz-coin1" aria-hidden="true" />
+              <img src="image/case-4-coin-2.png" alt="" class="case-img case-img--kz-coin2" aria-hidden="true" />
+            </div>
+          </a>
 
-        // 5. ФИНАЛЬНЫЙ ФИКС: Сохраняем язык при переходе по ссылкам
-        document.querySelectorAll('a').forEach(link => {
-            const href = link.getAttribute('href');
-            
-            // Пропускаем пустые ссылки, внешние сайты и якоря (#)
-            if (!href || href.startsWith('http') || href.startsWith('#')) return;
-            
-            // Пропускаем сами кнопки переключения языков
-            if (link.classList.contains('header-lang-link')) return;
+          <!-- 5. UnaMolia -->
+          <a href="unamolia.html" class="case-card case-card--unamolia">
+            <div class="case-card__text">
+              <h2 class="case-card__title">UnaMolia (Uzbekistan)</h2>
+              <p class="case-card__subtitle">Как мы создали уникальный продукт для целой страны</p>
+            </div>
+            <div class="case-card__media">
+              <img src="image/case-5-unamolia.png" alt="UnaMolia Uzbekistan" class="case-img" />
+            </div>
+          </a>
 
-            // Отрезаем старые параметры, если они были
-            const baseUrl = href.split('?')[0];
+          <!-- 6. Other -->
+          <a href="other.html" class="case-card case-card--other">
+            <div class="case-card__text">
+              <h2 class="case-card__title">Other</h2>
+              <p class="case-card__subtitle">Другие проекты которые я разрабатывал</p>
+            </div>
+            <div class="case-card__media">
+              <img src="image/case-6-other.png" alt="Другие проекты" class="case-img" />
+            </div>
+          </a>
+        </div>
+      </div>
+    </section>
 
-            // Модифицируем ссылку под текущий язык
-            if (currentLang === 'en') {
-                link.setAttribute('href', `${baseUrl}?lang=en`);
-            } else {
-                link.setAttribute('href', `${baseUrl}?lang=ru`);
-            }
-        });
-    });
-</script>
+    <!-- Секция 3: Что я умею? (Experience & Skillset) -->
+    <section class="skills-section" id="experience">
+      <div class="container">
+        <h2 class="section-heading">Что я умею?</h2>
 
-<script>
-    document.addEventListener("DOMContentLoaded", function() {
-        // Логика автоматического копирования в буфер обмена
-        document.querySelectorAll('.contact-btn').forEach(button => {
-            button.addEventListener('click', () => {
-                // Берем значение из атрибута data-copy каждой кнопки
-                const textToCopy = button.getAttribute('data-copy');
-                
-                // Записываем текст в буфер обмена пользователя
-                navigator.clipboard.writeText(textToCopy).then(() => {
-                    // Добавляем класс, который показывает всплывашку "Copied!"
-                    button.classList.add('copied');
-                    
-                    // Через 1.5 секунды убираем класс, чтобы плашка красиво скрылась
-                    setTimeout(() => {
-                        button.classList.remove('copied');
-                    }, 1500);
-                }).catch(err => {
-                    console.error('Ошибка при копировании: ', err);
-                });
-            });
-        });
-    });
-</script>
+        <div class="competencies-grid">
+          <article class="competency-card">
+            <div class="competency-header">
+              <span class="competency-icon" aria-hidden="true">
+                <img src="image/branding_icon.svg" alt="" />
+              </span>
+              <h3 class="competency-title">Branding</h3>
+            </div>
+            <ul class="competency-list">
+              <li>Создание айдентики</li>
+              <li>Масштабирование систем</li>
+              <li>Разработка брендбуков</li>
+              <li>Разработка логотипов</li>
+            </ul>
+          </article>
 
-<script>
-    (function() {
-        const preloader = document.getElementById('preloader');
-        const textEl = document.getElementById('preloader-text');
-        const lineContainer = document.querySelector('.preloader-line-container');
-        const headerName = document.querySelector('.header-title-center');
-        
-        let count = 0;
+          <article class="competency-card">
+            <div class="competency-header">
+              <span class="competency-icon" aria-hidden="true">
+                <img src="image/3d_icon.svg" alt="" />
+              </span>
+              <h3 class="competency-title">3D &amp; Визуал</h3>
+            </div>
+            <ul class="competency-list">
+              <li>Hard skill Senior</li>
+              <li>Кастомная 3D-графика</li>
+              <li>Уникальные 3D-паки</li>
+              <li>3D-анимация</li>
+            </ul>
+          </article>
 
-        // Имитация загрузки до 90%
-        const counterInterval = setInterval(() => {
-            if (count < 90) {
-                count += Math.floor(Math.random() * 4) + 1;
-                if (count > 90) count = 90;
-                updateLoadingProgress(count);
-            }
-        }, 40);
+          <article class="competency-card">
+            <div class="competency-header">
+              <span class="competency-icon" aria-hidden="true">
+                <img src="image/marketing_icon.svg" alt="" />
+              </span>
+              <h3 class="competency-title">Маркетинг</h3>
+            </div>
+            <ul class="competency-list">
+              <li>Перформанс-дизайн</li>
+              <li>Key Visuals</li>
+              <li>Гайдлайны</li>
+              <li>SMM структура</li>
+            </ul>
+          </article>
 
-        function updateLoadingProgress(value) {
-            if (textEl) textEl.style.setProperty('--progress', value + '%');
-            if (preloader) preloader.style.setProperty('--raw-progress', value);
-        }
+          <article class="competency-card">
+            <div class="competency-header">
+              <span class="competency-icon" aria-hidden="true">
+                <img src="image/product_icon.svg" alt="" />
+              </span>
+              <h3 class="competency-title">Продукт</h3>
+            </div>
+            <ul class="competency-list">
+              <li>Развитие продукта</li>
+              <li>Продуктовые коллаборации</li>
+              <li>Research</li>
+              <li>Анализ конкурентов</li>
+            </ul>
+          </article>
+        </div>
 
-        // Финал при полной загрузке контента страницы
-        window.addEventListener('load', function() {
-            clearInterval(counterInterval);
-            
-            let finishCount = count;
-            const finishInterval = setInterval(() => {
-                if (finishCount < 100) {
-                    finishCount += 2;
-                    updateLoadingProgress(finishCount);
-                } else {
-                    clearInterval(finishInterval);
-                    
-                    // Пауза 400мс на отметке 100% для фиксации результата дизайнером
-                    setTimeout(() => {
-                        // 1. Плавно гасим линию лоадера
-                        if (lineContainer) lineContainer.classList.add('fade-out');
-                        
-                        setTimeout(() => {
-                            // 2. Считываем точные динамические координаты твоего хедера
-                            if (headerName && textEl) {
-                                const targetRect = headerName.getBoundingClientRect();
-                                
-                                // Переводим летящий текст в сплошной цвет #111111 (или #555555 если был ховер)
-                                const isHovered = window.getComputedStyle(textEl).webkitTextFillColor !== 'transparent';
-                                textEl.style.background = 'none';
-                                textEl.style.webkitTextFillColor = isHovered ? '#555555' : '#111111';
-                                
-                                // Отправляем текст лоадера точно в координаты хедера
-                                textEl.style.top = targetRect.top + 'px';
-                                textEl.style.left = targetRect.left + 'px';
-                            }
-                            
-                            // 3. Синхронно отправляем сам желтый экран загрузки вверх
-                            if (preloader) preloader.classList.add('slide-up');
-                            
-                            // 4. Текст остановился у хедера (через 800мс транзишна) -> Плавно растворяем его
-                            setTimeout(() => {
-                                if (textEl) {
-                                    textEl.style.opacity = '0';
-                                }
-                                
-                                // Полностью очищаем DOM от элементов лоадера
-                                setTimeout(() => {
-                                    if (textEl) textEl.style.display = 'none';
-                                    if (preloader) preloader.style.display = 'none';
-                                }, 400);
-                                
-                            }, 800); // Время полета
-                            
-                        }, 200);
-                    }, 400);
-                }
-            }, 15);
-        });
-    })();
-</script>
+        <!-- Skillset -->
+        <div class="skillset-card">
+          <h3 class="skillset-title">Skillset:</h3>
 
+          <div class="skillset-groups">
+            <div class="skillset-row">
+              <span class="skill-tag skill-tag--pink">Adobe Creative Suite</span>
+              <span class="skill-tag skill-tag--pink">Adobe Premiere Pro</span>
+              <span class="skill-tag skill-tag--pink">After Effects</span>
+              <span class="skill-tag skill-tag--pink">Cinema 4d</span>
+              <span class="skill-tag skill-tag--pink">Octane Render</span>
+              <span class="skill-tag skill-tag--pink">Figma</span>
+              <span class="skill-tag skill-tag--pink">AI-generation</span>
+            </div>
+
+            <div class="skillset-row">
+              <span class="skill-tag skill-tag--yellow">Монтаж видео</span>
+              <span class="skill-tag skill-tag--yellow">Видеосъемка</span>
+              <span class="skill-tag skill-tag--yellow">Фотография</span>
+              <span class="skill-tag skill-tag--yellow">UI-дизайн</span>
+              <span class="skill-tag skill-tag--yellow">Разработка логотипов</span>
+              <span class="skill-tag skill-tag--yellow">Branding</span>
+              <span class="skill-tag skill-tag--yellow">Design system</span>
+              <span class="skill-tag skill-tag--yellow">Презентации</span>
+              <span class="skill-tag skill-tag--yellow">Колористика</span>
+              <span class="skill-tag skill-tag--yellow">Layout</span>
+              <span class="skill-tag skill-tag--yellow">3D-illustration</span>
+              <span class="skill-tag skill-tag--yellow">3D-animation</span>
+              <span class="skill-tag skill-tag--yellow">Типографика</span>
+              <span class="skill-tag skill-tag--yellow">Композиция</span>
+              <span class="skill-tag skill-tag--yellow">Pre-press</span>
+            </div>
+
+            <div class="skillset-row">
+              <span class="skill-tag skill-tag--blue">Soft skill Senior</span>
+              <span class="skill-tag skill-tag--blue">Agile (Scrum)</span>
+              <span class="skill-tag skill-tag--blue">Kanban</span>
+              <span class="skill-tag skill-tag--blue">UX Research</span>
+              <span class="skill-tag skill-tag--blue">Анализ конкурентов</span>
+              <span class="skill-tag skill-tag--blue">Key Visuals</span>
+              <span class="skill-tag skill-tag--blue">Onboarding</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Секция 4: Горизонтальная навигация по проектам -->
+    <section class="project-nav-section" aria-label="Навигация по проектам">
+      <div class="project-nav-track" id="projectNavTrack">
+        <a href="a-dengi.html" class="project-nav-card" id="nav-adengi">
+          <div class="project-nav-card__thumb" style="background: #F3F4F5;">
+            <img src="image/nav-1.png" alt="A-Dengi" />
+          </div>
+          <div class="project-nav-card__body">
+            <div>
+              <h3 class="project-nav-card__title">A-Dengi</h3>
+              <p class="project-nav-card__desc">Как мы разработали МФО от Альфа Банка</p>
+            </div>
+            <span class="project-nav-card__next">Next project</span>
+          </div>
+        </a>
+
+        <a href="tbank-zaymer.html" class="project-nav-card" id="nav-tbank">
+          <div class="project-nav-card__thumb" style="background: #FFFCEA;">
+            <img src="image/nav-2.png" alt="Т-Банк x Zaymer" />
+          </div>
+          <div class="project-nav-card__body">
+            <div>
+              <h3 class="project-nav-card__title">Т-Банк x Zaymer</h3>
+              <p class="project-nav-card__desc">Как я создал Key visual для коллаборации Zaymer и Т-Банк</p>
+            </div>
+            <span class="project-nav-card__next">Next project</span>
+          </div>
+        </a>
+
+        <a href="zaymer-ru.html" class="project-nav-card" id="nav-zaymer-ru">
+          <div class="project-nav-card__thumb" style="background: #EBF5E5;">
+            <img src="image/nav-3.png" alt="Zaymer RU" />
+          </div>
+          <div class="project-nav-card__body">
+            <div>
+              <h3 class="project-nav-card__title">Zaymer RU</h3>
+              <p class="project-nav-card__desc">Как мы сделали крупный ребрендинг для лидера по выдачам МФО - Zaymer</p>
+            </div>
+            <span class="project-nav-card__next">Next project</span>
+          </div>
+        </a>
+
+        <a href="zaymer-kz.html" class="project-nav-card" id="nav-zaymer-kz">
+          <div class="project-nav-card__thumb" style="background: #E8F5EC;">
+            <img src="image/nav-4.png" alt="Zaymer KZ" />
+          </div>
+          <div class="project-nav-card__body">
+            <div>
+              <h3 class="project-nav-card__title">Zaymer KZ</h3>
+              <p class="project-nav-card__desc">Как я локализировал с помощью брендинга весь SMM для МФО в Казахстане</p>
+            </div>
+            <span class="project-nav-card__next">Next project</span>
+          </div>
+        </a>
+
+        <a href="unamolia.html" class="project-nav-card" id="nav-unamolia">
+          <div class="project-nav-card__thumb" style="background: #E6EFFF;">
+            <img src="image/nav-5.png" alt="UnaMolia" />
+          </div>
+          <div class="project-nav-card__body">
+            <div>
+              <h3 class="project-nav-card__title">UnaMolia (Uzbekistan)</h3>
+              <p class="project-nav-card__desc">Как мы создали уникальный продукт для целой страны</p>
+            </div>
+            <span class="project-nav-card__next">Next project</span>
+          </div>
+        </a>
+
+        <a href="other.html" class="project-nav-card" id="nav-other">
+          <div class="project-nav-card__thumb" style="background: #FFFBE5;">
+            <img src="image/nav-6.png" alt="Other" />
+          </div>
+          <div class="project-nav-card__body">
+            <div>
+              <h3 class="project-nav-card__title">Other</h3>
+              <p class="project-nav-card__desc">Другие проекты которые я разрабатывал</p>
+            </div>
+            <span class="project-nav-card__next">Next project</span>
+          </div>
+        </a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-line"></div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
 </body>
 </html>

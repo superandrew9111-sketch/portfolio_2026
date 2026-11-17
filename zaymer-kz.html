@@ -1,405 +1,267 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Zaymer Kazakhstan — Portfolio</title>
-    <link rel="stylesheet" href="styles.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Zaymer KZ — Kurlaev Andrew</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="case.css" />
+  <link rel="stylesheet" href="zaymer-kz.css" />
 </head>
-<body>
+<body class="case-page kz-page">
 
-    <header class="site-header-fixed header-hidden-initially">
-    
-    <!-- Нижняя линия во всю ширину экрана (1920px) теперь лежит здесь -->
-    <div class="header-bottom-line"></div>
+  <!-- Липкая шапка -->
+  <header class="site-header site-header--reveal" id="header">
+    <div class="header-inner">
+      <button class="burger-btn" id="burgerBtn" aria-label="Открыть меню" aria-expanded="false">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
 
-    <div class="header-wrapper-fluid">
-        <div class="header-row">
-            
-            <!-- Левая навигация -->
-            <nav class="header-nav-main">
-                <a href="index.html#about" class="header-nav-link">About</a>
-                <a href="index.html#cases" class="header-nav-link">Cases</a>
-                <a href="index.html#skills" class="header-nav-link">Experience</a> 
-            </nav>
-            
-            <!-- Центр -->
-            <div class="header-title-center" data-ru="Курлаев Андрей" data-en="Kurlaev Andrew">Курлаев Андрей</div>
-            
-            <!-- Правые языки -->
-            <div class="header-nav-lang">
-                <a href="?lang=ru" class="header-lang-link">RU</a>
-                <a href="?lang=en" class="header-lang-link active">ENG</a>
-            </div>
-            
-        </div>
+      <nav class="header-nav" aria-label="Основная навигация">
+        <a href="index.html#about" class="nav-link">About</a>
+        <a href="index.html#cases" class="nav-link is-active">Cases</a>
+        <a href="index.html#experience" class="nav-link">Experience</a>
+      </nav>
+
+      <a href="index.html" class="header-brand">Kurlaev Andrew</a>
+
+      <div class="lang-switch" role="group" aria-label="Выбор языка">
+        <button class="lang-btn is-active" data-lang="ru">RU</button>
+        <button class="lang-btn" data-lang="eng">ENG</button>
+      </div>
     </div>
-</header>
+    <div class="header-divider"></div>
+  </header>
 
-<section id="zaymer-kz-1" class="zaymer-kz-section-intro">
-    <div class="zaymer-kz-wrapper-fluid-1">
-        
-        <div class="zaymer-kz-row-1">
-            
-            <div class="zaymer-kz-svg-decor-big">
-                <img src="images/zaymer-kz-pattern-big.svg" alt="Kazakhstan Big Pattern" class="zaymer-kz-svg-img">
-            </div>
-
-            <div class="zaymer-kz-logo-wrap">
-                <img src="images/zaymer-ru-logo-clean.svg" alt="Zaymer Logo" class="zaymer-kz-main-logo">
-            </div>
-
-            <div class="zaymer-kz-mini-decor decor-left">
-                <img src="images/zaymer-kz-element-mini.svg" alt="Pattern Element" class="zaymer-kz-svg-img">
-            </div>
-
-            <h1 class="zaymer-kz-country-title">Kazakhstan</h1>
-
-            <div class="zaymer-kz-mini-decor decor-right">
-                <img src="images/zaymer-kz-element-mini.svg" alt="Pattern Element" class="zaymer-kz-svg-img">
-            </div>
-
-        </div>
-
+  <!-- Мобильное меню -->
+  <div class="mobile-menu" id="mobileMenu" aria-hidden="true">
+    <nav class="mobile-menu-nav">
+      <a href="index.html#about" class="mobile-nav-link">About</a>
+      <a href="index.html#cases" class="mobile-nav-link">Cases</a>
+      <a href="index.html#experience" class="mobile-nav-link">Experience</a>
+    </nav>
+    <div class="mobile-menu-contacts">
+      <a href="tel:+79833209153">+7-983-320-91-53</a>
+      <a href="https://t.me/superandrew1" target="_blank" rel="noopener">tg: @superandrew1</a>
+      <a href="mailto:an-di.91@mail.ru">an-di.91@mail.ru</a>
     </div>
-</section>
+  </div>
 
-<section id="zaymer-kz-2" class="zaymer-kz-section-goal">
-    <div class="zaymer-kz-wrapper-fluid-2">
-        
-        <div class="zaymer-kz-row-2">
-            
-            <div class="zaymer-kz-goal-text-block">
-                <h2 class="zaymer-kz-goal-title" data-ru="Цель" data-en="Objective">Цель</h2>
-                <p class="zaymer-kz-goal-p" data-ru="Ребрендинг и локализация сервиса на рынке Казахстана. Было необходимо перестроить коммуникацию с акцентом на казахский язык <br>и адаптировать визуал под культурный контекст региона для лояльности аудитории к бренду." data-en="Rebranding and localizing the service <br>for the Kazakhstan market. The goal was to shift communication to the Kazakh language and adapt visuals to the regional cultural context to build strong brand loyalty.">Ребрендинг и локализация сервиса на рынке Казахстана. Было необходимо перестроить коммуникацию с акцентом на казахский язык и адаптировать визуал под культурный контекст региона для лояльности аудитории к бренду.</p>
-            </div>
-
-            <div class="zaymer-kz-goal-ill-block">
-                <img src="images/zaymer-kz-goal.png" alt="Zaymer Kazakhstan Goal Illustration" class="zaymer-kz-goal-img">
-            </div>
-
+  <main>
+    <!-- 1. Первый экран с логотипом + Kazakhstan -->
+    <section class="kz-hero" id="caseHero">
+      <img src="image/kz-hero-ornament.svg" alt="" class="kz-hero__ornament" aria-hidden="true" />
+      <div class="kz-hero__center">
+        <img src="image/zaymer-logo.svg" alt="Займер" class="kz-hero__logo-desktop" />
+        <img src="image/zaymer-logo-mobile.svg" alt="Займер" class="kz-hero__logo-mobile" />
+        <div class="kz-hero__sub">
+          <span class="kz-star" aria-hidden="true">✦</span>
+          <span>Kazakhstan</span>
+          <span class="kz-star" aria-hidden="true">✦</span>
         </div>
+      </div>
+    </section>
 
-    </div>
-</section>
-
-<section id="zaymer-kz-3" class="zaymer-kz-section-tasks">
-    <div class="zaymer-kz-wrapper-fluid-3">
-        
-        <div class="zaymer-kz-row-3">
-            
-            <h2 class="zaymer-kz-tasks-title" data-ru="Задачи" data-en="The Challenge">Задачи</h2>
-
-            <div class="zaymer-kz-tasks-ill-block">
-                <img src="images/zaymer-kz-tasks.png" alt="Zaymer Kazakhstan Tasks Illustration" class="zaymer-kz-tasks-img">
-            </div>
-
-            <div class="zaymer-kz-tasks-text-block">
-                <div class="zaymer-kz-task-item" data-ru="Масштабный research конкурентов в соцсетях для выявления проблем визуального языка." data-en="Extensive competitor research in social media <br>to identify visual language pain points.">Масштабный research конкурентов в соцсетях для выявления проблем визуального языка.</div>
-                <div class="zaymer-kz-task-item" data-ru="Полное обновление SMM-контента, устранение шума и разработка строгих гайдлайнов <br>для верстки." data-en="Complete SMM content overhaul, removing visual clutter and establishing strict layout guidelines.">Полное обновление SMM-контента, устранение шума и разработка строгих гайдлайнов для верстки.</div>
-                <div class="zaymer-kz-task-item" data-ru="Интеграция национальной айдентики Казахстана в современный цифровой дизайн и создание локального 3D-пака." data-en="Integrating Kazakhstan’s national identity into modern digital design with a localized 3D pack.">Интеграция национальной айдентики Казахстана в современный цифровой дизайн и создание локального 3D-пака.</div>
-            </div>
-
+    <!-- 2. Цель -->
+    <section class="kz-goal">
+      <div class="container">
+        <div class="kz-goal__left">
+          <h1 class="case-heading case-heading--white">Цель</h1>
+          <div class="kz-goal__visual-mobile">
+            <img src="image/kz-goal-dock.png" alt="Иконки Займер Казахстан" />
+          </div>
+          <p class="kz-goal__text">
+            Ребрендинг и локализация сервиса на рынке Казахстана. Было необходимо перестроить коммуникацию с акцентом на казахский язык и адаптировать визуал под культурный контекст региона для лояльности аудитории к бренду.
+          </p>
         </div>
+      </div>
 
-    </div>
-</section>
+      <div class="kz-goal__visual">
+        <img src="image/kz-goal-dock.png" alt="Иконки Займер Казахстан" />
+      </div>
+    </section>
 
-<section id="zaymer-kz-4" class="zaymer-kz-section-smm">
-    <div class="zaymer-kz-wrapper-fluid-4">
-        
-        <div class="zaymer-kz-row-4">
-            
-            <div class="zaymer-kz-smm-box smm-1">
-                <img src="images/zaymer-kz-smm-1.png" alt="SMM Post 1" class="zaymer-kz-smm-img">
-            </div>
-            <div class="zaymer-kz-smm-box smm-2">
-                <img src="images/zaymer-kz-smm-2.png" alt="SMM Post 2" class="zaymer-kz-smm-img">
-            </div>
-            <div class="zaymer-kz-smm-box smm-3">
-                <img src="images/zaymer-kz-smm-3.png" alt="SMM Post 3" class="zaymer-kz-smm-img">
-            </div>
-            <div class="zaymer-kz-smm-box smm-4">
-                <img src="images/zaymer-kz-smm-4.png" alt="SMM Post 4" class="zaymer-kz-smm-img">
-            </div>
-            <div class="zaymer-kz-smm-box smm-5">
-                <img src="images/zaymer-kz-smm-5.png" alt="SMM Post 5" class="zaymer-kz-smm-img">
-            </div>
+    <!-- 3. Задачи -->
+    <section class="kz-tasks">
+      <div class="container">
+        <h2 class="case-heading">Задачи</h2>
 
-            <div class="zaymer-kz-smm-box smm-6">
-                <img src="images/zaymer-kz-smm-6.png" alt="SMM Post 6" class="zaymer-kz-smm-img">
-            </div>
-            <div class="zaymer-kz-smm-box smm-7">
-                <img src="images/zaymer-kz-smm-7.png" alt="SMM Post 7" class="zaymer-kz-smm-img">
-            </div>
-            <div class="zaymer-kz-smm-box smm-8">
-                <img src="images/zaymer-kz-smm-8.png" alt="SMM Post 8" class="zaymer-kz-smm-img">
-            </div>
-            <div class="zaymer-kz-smm-box smm-9">
-                <img src="images/zaymer-kz-smm-9.png" alt="SMM Post 9" class="zaymer-kz-smm-img">
-            </div>
-            <div class="zaymer-kz-smm-box smm-10">
-                <img src="images/zaymer-kz-smm-10.png" alt="SMM Post 10" class="zaymer-kz-smm-img">
-            </div>
+        <div class="kz-tasks__grid">
+          <div class="kz-tasks__tiles">
+            <div class="kz-ornament-tile" style="background: #485252;"><img src="image/kz-ornament-1.svg" alt="Орнамент 1" /></div>
+            <div class="kz-ornament-tile" style="background: #00B1CC;"><img src="image/kz-ornament-2.svg" alt="Орнамент 2" /></div>
+            <div class="kz-ornament-tile" style="background: #199D3E;"><img src="image/kz-ornament-3.svg" alt="Орнамент 3" /></div>
+            <div class="kz-ornament-tile" style="background: #FF8900;"><img src="image/kz-ornament-4.svg" alt="Орнамент 4" /></div>
+          </div>
 
-            <p class="zaymer-kz-smm-caption" data-ru="Пример SMM-поста" data-en="Social Media Post Example">Пример SMM-поста</p>
-
+          <ul class="kz-bullet-list">
+            <li>Масштабный research конкурентов в соцсетях для выявления проблем визуального языка.</li>
+            <li>Полное обновление SMM-контента, устранение шума и разработка строгих гайдлайнов для верстки.</li>
+            <li>Интеграция национальной айдентики Казахстана в современный цифровой дизайн и создание локального 3D-пака.</li>
+          </ul>
         </div>
+      </div>
+    </section>
 
-    </div>
-</section>
-
-<section id="zaymer-kz-4" class="zaymer-kz-section-smm-new">
-    <div class="zaymer-kz-wrapper-fluid-4-new">
-        
-        <div class="zaymer-kz-row-4-new">
-            
-            <div class="zaymer-kz-grid-box box-big">
-                <img src="images/zaymer-kz-showcase-1.png" alt="Zaymer KZ Showcase 1" class="zaymer-kz-grid-img">
+    <!-- 4. SMM-посты -->
+    <section class="kz-smm">
+      <div class="container">
+        <div class="kz-smm-row1">
+          <div class="kz-smm-carousel kz-smm-carousel--1">
+            <div class="kz-smm-card"><img src="image/kz-smm-1.png" alt="Когда оплатить заем?" /></div>
+            <div class="kz-smm-card"><img src="image/kz-smm-2.png" alt="Онлайн төлеу" /></div>
+            <div class="kz-smm-stack">
+              <div class="kz-smm-small"><img src="image/kz-smm-1b.png" alt="Банк арқылы төлеу" /></div>
+              <div class="kz-smm-small"><img src="image/kz-smm-1c.png" alt="Терминал арқылы төлеу" /></div>
             </div>
+          </div>
 
-            <div class="zaymer-kz-grid-box box-half-left">
-                <img src="images/zaymer-kz-showcase-2.png" alt="Zaymer KZ Showcase 2" class="zaymer-kz-grid-img">
-            </div>
+          <div class="kz-smm-wide kz-smm-wide--wallet">
+            <img src="image/kz-smm-wallet.png" alt="Кошелёк с картами" />
+          </div>
+        </div>
+        <span class="case-caption kz-caption-mobile">Пример SMM-поста</span>
 
-            <div class="zaymer-kz-grid-box box-half-right">
-                <img src="images/zaymer-kz-showcase-3.png" alt="Zaymer KZ Showcase 3" class="zaymer-kz-grid-img">
-            </div>
+        <div class="kz-smm-row2">
+          <div class="kz-smm-carousel kz-smm-carousel--2">
+            <div class="kz-smm-card"><img src="image/kz-smm-3.png" alt="Пора установить приложение!" /></div>
+            <div class="kz-smm-card"><img src="image/kz-smm-4.png" alt="С нами удобно 24/7" /></div>
+          </div>
 
+          <div class="kz-smm-wide kz-smm-wide--phone">
+            <img src="image/kz-smm-phone.png" alt="Приложение Займер" />
+          </div>
+
+          <div class="kz-smm-coins">
+            <div class="kz-smm-coin-card kz-smm-coin-card--1"><img src="image/kz-coin-1.png" alt="Монета тенге" /></div>
+            <div class="kz-smm-coin-card kz-smm-coin-card--2"><img src="image/kz-coin-2.png" alt="Монета тенге 2" /></div>
+          </div>
+        </div>
+        <span class="case-caption">Пример SMM-поста</span>
+      </div>
+    </section>
+
+    <!-- 5. 3D-сцены -->
+    <section class="kz-3d">
+      <div class="container">
+        <div class="kz-globe-card">
+          <div class="kz-globe-card__bg" aria-hidden="true"></div>
+          <img src="image/kz-3d-globe.png" alt="3D глобус Займер" class="kz-globe-img--desktop" />
+          <img src="image/kz-3d-globe-mobile.png" alt="3D глобус Займер" class="kz-globe-img--mobile" />
         </div>
 
-    </div>
-</section>
-
-<section id="zaymer-kz-5" class="zaymer-kz-section-results">
-    <div class="zaymer-kz-wrapper-fluid-5">
-        
-        <div class="zaymer-kz-row-5">
-            
-            <h2 class="zaymer-kz-results-title" data-ru="Результаты" data-en="Results">Результаты</h2>
-
-            <div class="zaymer-kz-results-ill-block">
-                <img src="images/zaymer-kz-results.png" alt="Zaymer Kazakhstan Results Illustration" class="zaymer-kz-results-img">
-            </div>
-
-            <div class="zaymer-kz-results-text-block">
-                <div class="zaymer-kz-result-item" data-ru="SMM-стратегии на основе данных ресерча и очищение визуала обеспечили прирост лидов из соцсетей более чем на 20%." data-en="Data-driven SMM strategy and cleaner visuals delivered a 20%+ increase in social media leads.">SMM-стратегии на основе данных ресерча и очищение визуала обеспечили прирост лидов из соцсетей более чем на 20%.</div>
-                <div class="zaymer-kz-result-item" data-ru="Внедрение национальной айдентики и фокус на казахском языке напрямую увеличили общую конверсию продукта." data-en="Integrating national identity and focusing <br>on the Kazakh language directly boosted <br>overall product conversion.">Внедрение национальной айдентики и фокус на казахском языке напрямую увеличили общую конверсию продукта.</div>
-                <div class="zaymer-kz-result-item" data-ru="Кастомная 3D-визуализация, обновленный брендбук и шаблоны успешно развернуты на всех видах коммуникации." data-en="Custom 3D visuals, the updated brand book, <br>and templates were successfully deployed <br>across all communication channels.">Кастомная 3D-визуализация, обновленный брендбук и шаблоны успешно развернуты на всех видах коммуникации.</div>
-            </div>
+        <div class="kz-3d-pair">
+          <div class="kz-3d-tile kz-3d-tile--green">
+            <img src="image/kz-3d-green-wallets.png" alt="Зелёные кошельки 3D" />
+          </div>
+          <div class="kz-3d-tile kz-3d-tile--orange">
+            <img src="image/kz-3d-orange-wallet.png" alt="Оранжевый кошелёк с монетами" />
+          </div>
         </div>
+      </div>
+    </section>
 
-    </div>
-</section>
+    <!-- 6. Результаты -->
+    <section class="kz-results">
+      <div class="container">
+        <h2 class="case-heading case-heading--white">Результаты</h2>
 
-<!-- ЭКРАН: ГОРИЗОНТАЛЬНАЯ НАВИГАЦИЯ КЕЙСОВ -->
-<section id="nav-zaymer-kz" class="cases-slider-section">
-    <div class="slider-track">
+        <div class="kz-results__grid">
+          <div class="kz-results__visual">
+            <img src="image/kz-result-cards.png" alt="Карты Займер Казахстан" />
+          </div>
 
-        <a href="a-dengi.html" class="slider-card-link">
-            <div class="slider-card-ill-container">
-                <img src="images/scroll_1.png" alt="A-Dengi" class="slider-card-ill">
+          <ul class="kz-bullet-list kz-bullet-list--white">
+            <li>SMM-стратегии на основе данных ресерча и очищение визуала обеспечили прирост лидов из соцсетей более чем на 20%.</li>
+            <li>Внедрение национальной айдентики и фокус на казахском языке напрямую увеличили общую конверсию продукта.</li>
+            <li>Кастомная 3D-визуализация, обновленный брендбук и шаблоны успешно развернуты на всех видах коммуникации</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- 7. Нижняя навигация -->
+    <section class="project-nav-section kz-nav-section" aria-label="Навигация по проектам">
+      <div class="project-nav-track" id="projectNavTrack">
+        <a href="a-dengi.html" class="project-nav-card kz-nav-card">
+          <div class="project-nav-card__thumb" style="background: #F3F4F5;">
+            <img src="image/nav-1.png" alt="A-Dengi" />
+          </div>
+          <div class="project-nav-card__body">
+            <div>
+              <h3 class="project-nav-card__title">A-Dengi</h3>
+              <p class="project-nav-card__desc">Как мы разработали МФО от Альфа Банка</p>
             </div>
-            <div class="slider-card-content">
-                <div class="slider-card-title">A-Dengi</div>
-                <div class="slider-card-subtitle" data-ru="Как мы разработали МФО <br>от Альфа Банка" data-en="How We Built a Micro-Lending Platform <br>for Alfa-Bank">Как мы разработали МФО <br>от Альфа Банка</div>
-            </div>
-            <div class="slider-card-action">Next project</div>
+            <span class="project-nav-card__next">Next project</span>
+          </div>
         </a>
 
-        <a href="t-bank.html" class="slider-card-link">
-            <div class="slider-card-ill-container">
-                <img src="images/scroll_2.png" alt="Т-Банк x Zaymer" class="slider-card-ill">
+        <a href="tbank-zaymer.html" class="project-nav-card kz-nav-card">
+          <div class="project-nav-card__thumb" style="background: #FFFCEA;">
+            <img src="image/nav-2.png" alt="Т-Банк x Zaymer" />
+          </div>
+          <div class="project-nav-card__body">
+            <div>
+              <h3 class="project-nav-card__title">Т-Банк x Zaymer</h3>
+              <p class="project-nav-card__desc">Как я создал Key visual для коллаборации Zaymer и Т-Банк</p>
             </div>
-            <div class="slider-card-content">
-                <div class="slider-card-title" data-ru="Т-Банк x Zaymer" data-en="Т-Bank x Zaymer">Т-Банк x Zaymer</div>
-                <div class="slider-card-subtitle" data-ru="Как я создал Key visual для коллаборации Zaymer и Т-Банк" data-en="How I Designed the Key Visual for the Zaymer <br>× T-Bank Collaboration">Как я создал Key visual для коллаборации Zaymer и Т-Банк</div>
-            </div>
-            <div class="slider-card-action">Next project</div>
+            <span class="project-nav-card__next">Next project</span>
+          </div>
         </a>
 
-        <a href="zaymer-ru.html" class="slider-card-link">
-            <div class="slider-card-ill-container">
-                <img src="images/scroll_3.png" alt="Zaymer RU" class="slider-card-ill">
+        <a href="zaymer-ru.html" class="project-nav-card kz-nav-card">
+          <div class="project-nav-card__thumb" style="background: #EBF5E5;">
+            <img src="image/nav-3.png" alt="Zaymer RU" />
+          </div>
+          <div class="project-nav-card__body">
+            <div>
+              <h3 class="project-nav-card__title">Zaymer RU</h3>
+              <p class="project-nav-card__desc">Как мы сделали крупный ребрендинг для лидера по выдачам МФО - Zaymer</p>
             </div>
-            <div class="slider-card-content">
-                <div class="slider-card-title">Zaymer RU</div>
-                <div class="slider-card-subtitle" data-ru="Как мы сделали крупный ребрендинг для лидера <br>по выдачам МФО - Zaymer" data-en="How We Pulled Off a Massive Rebrand for Zaymer, <br>the Market Leader <br>in Micro-Lending">Как мы сделали крупный ребрендинг для лидера по выдачам МФО - Zaymer</div>
-            </div>
-            <div class="slider-card-action">Next project</div>
+            <span class="project-nav-card__next">Next project</span>
+          </div>
         </a>
 
-        <a href="zaymer-kz.html" class="slider-card-link">
-            <div class="slider-card-ill-container">
-                <img src="images/scroll_4.png" alt="Zaymer KZ" class="slider-card-ill">
+        <a href="unamolia.html" class="project-nav-card kz-nav-card" data-nav-start>
+          <div class="project-nav-card__thumb" style="background: #E6EFFF;">
+            <img src="image/nav-5.png" alt="UnaMolia" />
+          </div>
+          <div class="project-nav-card__body">
+            <div>
+              <h3 class="project-nav-card__title">UnaMolia (Uzbekistan)</h3>
+              <p class="project-nav-card__desc">Как мы создали уникальный продукт для целой страны</p>
             </div>
-            <div class="slider-card-content">
-                <div class="slider-card-title">Zaymer KZ</div>
-                <div class="slider-card-subtitle" data-ru="Как я локализировал <br>с помощью брендинга <br>весь SMM для МФО <br>в Казахстане" data-en="How I Used Branding <br>to Localize the Complete SMM for a Kazakhstani FinTech">Как я локализировал с помощью брендинга весь SMM для МФО в Казахстане</div>
-            </div>
-            <div class="slider-card-action">Next project</div>
+            <span class="project-nav-card__next">Next project</span>
+          </div>
         </a>
 
-        <a href="unamolia.html" class="slider-card-link">
-            <div class="slider-card-ill-container">
-                <img src="images/scroll_5.png" alt="UnaMolia" class="slider-card-ill">
+        <a href="other.html" class="project-nav-card kz-nav-card">
+          <div class="project-nav-card__thumb" style="background: #FFFBE5;">
+            <img src="image/nav-6.png" alt="Other" />
+          </div>
+          <div class="project-nav-card__body">
+            <div>
+              <h3 class="project-nav-card__title">Other</h3>
+              <p class="project-nav-card__desc">Другие проекты которые я разрабатывал</p>
             </div>
-            <div class="slider-card-content">
-                <div class="slider-card-title">UnaMolia<br>(Uzbekistan)</div>
-                <div class="slider-card-subtitle" data-ru="Как мы создали уникальный продукт для целой страны" data-en="How We Built <br>a Groundbreaking Product <br>on a National Scale">Как мы создали уникальный продукт для целой страны</div>
-            </div>
-            <div class="slider-card-action">Next project</div>
+            <span class="project-nav-card__next">Next project</span>
+          </div>
         </a>
+      </div>
+    </section>
+  </main>
 
-        <a href="other.html" class="slider-card-link">
-            <div class="slider-card-ill-container">
-                <img src="images/scroll_6.png" alt="Other" class="slider-card-ill">
-            </div>
-            <div class="slider-card-content">
-                <div class="slider-card-title">Other</div>
-                <div class="slider-card-subtitle" data-ru="Другие проекты которые <br>я разрабатывал" data-en="More Projects I’ve Worked On">Другие проекты которые я разрабатывал</div>
-            </div>
-            <div class="slider-card-action">Next project</div>
-        </a>
-
+  <footer class="site-footer kz-footer">
+    <div class="container">
+      <div class="footer-line kz-footer-line"></div>
     </div>
-</section>
+  </footer>
 
-<section id="zaymer-kz-6" class="zaymer-kz-section-line-white">
-    <div class="zaymer-kz-wrapper-fluid-6-white">
-        <div class="zaymer-kz-row-6-white">
-            <div class="zaymer-kz-line-element"></div>
-        </div>
-    </div>
-</section>
-
-<script>
-document.addEventListener('DOMContentLoaded', () => {
-    const header = document.querySelector('.site-header-fixed');
-    
-    // ВАЖНО: Сюда вписываешь ID ТРЕТЬЕГО ЭКРАНА именно этой страницы!
-    const triggerSection = document.getElementById(id="zaymer-kz-3"); 
-
-    if (!header || !triggerSection) return;
-
-    const options = {
-        root: null,
-        rootMargin: '0px 0px -100% 0px', 
-        threshold: 0
-    };
-
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting || entry.boundingClientRect.top < 0) {
-                header.classList.add('show-header');
-            } else {
-                header.classList.remove('show-header');
-            }
-        });
-    }, options);
-
-    observer.observe(triggerSection);
-});
-</script>
-
-<script>
-    document.addEventListener("DOMContentLoaded", function() {
-        // 1. Находим саму секцию слайдера
-        const slider = document.querySelector('.cases-slider-section');
-        
-        // 2. Находим карточку Займер RU (она третья по счету: :nth-child(3))
-        // Именно до неё нам нужно доскроллить, так как Т-Банк (вторая) скрыт
-        const nextCard = document.querySelector('#nav-zaymer-kz .slider-card-link:nth-child(5)');
-        
-        if (slider && nextCard) {
-            // Находим точное расстояние от левого края слайдера до левого края нужной карточки
-            const offsetLeft = nextCard.offsetLeft;
-            
-            // Прокручиваем слайдер ровно до этой точки
-            slider.scrollLeft = offsetLeft;
-            
-            // Если вдруг скролл включен не на секции, а на треке, дублируем на трек:
-            const track = document.querySelector('.slider-track');
-            if (track) {
-                track.scrollLeft = offsetLeft;
-            }
-        }
-    });
-</script>
-
-<script>
-    document.addEventListener("DOMContentLoaded", function() {
-        // 1. Читаем параметры из адресной строки (?lang=...)
-        const urlParams = new URLSearchParams(window.location.search);
-        const langParam = urlParams.get('lang');
-        
-        let currentLang = 'ru'; 
-        if (langParam === 'en' || langParam === 'eng') {
-            currentLang = 'en';
-        }
-
-        // 2. Переключаем активный класс на кнопках RU/ENG в шапке
-        const ruBtn = document.querySelector('.header-lang-link[href="?lang=ru"]');
-        const enBtn = document.querySelector('.header-lang-link[href="?lang=en"]');
-        
-        if (ruBtn && enBtn) {
-            if (currentLang === 'en') {
-                ruBtn.classList.remove('active');
-                enBtn.classList.add('active');
-            } else {
-                enBtn.classList.remove('active');
-                ruBtn.classList.add('active');
-            }
-        }
-
-        // 3. БЕЗОПАСНЫЙ ПЕРЕВОД: Меняем только текст, чтобы не ломать структуру кнопок
-        document.querySelectorAll('[data-ru]').forEach(el => {
-            const translatedText = el.getAttribute(`data-${currentLang}`);
-            if (translatedText) {
-                if (el.tagName === 'BUTTON' || el.classList.contains('contact-btn')) {
-                    el.textContent = translatedText;
-                } else {
-                    el.innerHTML = translatedText;
-                }
-            }
-        });
-
-        // 4. ЖЕЛЕЗНЫЙ ПРОБРОС ССЫЛОК (Чтобы язык не слетал при переходе на About)
-        document.querySelectorAll('a').forEach(link => {
-            const href = link.getAttribute('href');
-            if (!href || href.startsWith('http') || link.classList.contains('header-lang-link')) return;
-
-            try {
-                const fakeBase = window.location.origin + window.location.pathname;
-                const urlObj = new URL(href, fakeBase);
-
-                if (currentLang === 'en') {
-                    urlObj.searchParams.set('lang', 'en');
-                } else {
-                    urlObj.searchParams.set('lang', 'ru');
-                }
-
-                let newHref = urlObj.pathname.split('/').pop() + urlObj.search + urlObj.hash;
-                
-                if (href.startsWith('#')) {
-                    newHref = href.split('?')[0] + urlObj.search; 
-                    if (href.includes('#')) {
-                        const cleanHash = href.match(/#[A-Za-z0-9_-]+/)[0];
-                        newHref = cleanHash + urlObj.search;
-                    }
-                }
-
-                if (href.startsWith('../')) {
-                    newHref = '../' + newHref;
-                }
-
-                link.setAttribute('href', newHref);
-            } catch (e) {
-                console.error('Ошибка обработки ссылки:', e);
-            }
-        });
-    });
-</script>
-
+  <script src="script.js"></script>
 </body>
 </html>
