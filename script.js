@@ -1,13 +1,18 @@
 document.addEventListener('DOMContentLoaded', () => {
   // 1. Мобильное бургер-меню
+  const header = document.getElementById('header');
   const burgerBtn = document.getElementById('burgerBtn');
   const mobileMenu = document.getElementById('mobileMenu');
   const mobileLinks = document.querySelectorAll('.mobile-nav-link');
 
   const toggleMenu = (forceClose = false) => {
+    if (!burgerBtn || !mobileMenu) return;
     const isOpen = forceClose ? false : !burgerBtn.classList.contains('is-open');
     burgerBtn.classList.toggle('is-open', isOpen);
     mobileMenu.classList.toggle('is-open', isOpen);
+    if (header) {
+      header.classList.toggle('is-menu-open', isOpen);
+    }
     burgerBtn.setAttribute('aria-expanded', String(isOpen));
     mobileMenu.setAttribute('aria-hidden', String(!isOpen));
     document.body.style.overflow = isOpen ? 'hidden' : '';
@@ -17,6 +22,16 @@ document.addEventListener('DOMContentLoaded', () => {
     burgerBtn.addEventListener('click', () => toggleMenu());
     mobileLinks.forEach((link) => {
       link.addEventListener('click', () => toggleMenu(true));
+    });
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && mobileMenu.classList.contains('is-open')) {
+        toggleMenu(true);
+      }
+    });
+    window.addEventListener('resize', () => {
+      if (window.innerWidth > 1024 && mobileMenu.classList.contains('is-open')) {
+        toggleMenu(true);
+      }
     });
   }
 
@@ -252,7 +267,6 @@ document.addEventListener('DOMContentLoaded', () => {
     'для логотипа': 'for the logo'
   };
 
-  // Сохраняем исходные русские значения текстовых узлов, title и aria-label
   const originalTitle = document.title;
   const textEntries = [];
   const ariaEntries = [];
@@ -330,7 +344,6 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  // Применяем сохранённый язык (или из ?lang=eng) при загрузке страницы
   let savedLang = 'ru';
   try {
     const urlLang = new URLSearchParams(window.location.search).get('lang');
@@ -347,7 +360,7 @@ document.addEventListener('DOMContentLoaded', () => {
   }
   applyLanguage(savedLang);
 
-  // 3. Активный пункт в шапке при клике и при скролле (для главной страницы)
+  // 3. Активный пункт в шапке и мобильном меню
   const navLinks = document.querySelectorAll('.header-nav .nav-link');
   const homeSections = document.querySelectorAll('#about, #cases, #experience');
 
@@ -356,9 +369,19 @@ document.addEventListener('DOMContentLoaded', () => {
       navLinks.forEach((link) => {
         link.classList.toggle('is-active', link.getAttribute('href') === `#${id}`);
       });
+      mobileLinks.forEach((link) => {
+        link.classList.toggle('is-active', link.getAttribute('href') === `#${id}`);
+      });
     };
 
     navLinks.forEach((link) => {
+      link.addEventListener('click', () => {
+        const targetId = link.getAttribute('href').replace('#', '');
+        setActiveNav(targetId);
+      });
+    });
+
+    mobileLinks.forEach((link) => {
       link.addEventListener('click', () => {
         const targetId = link.getAttribute('href').replace('#', '');
         setActiveNav(targetId);
@@ -387,6 +410,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
     window.addEventListener('scroll', updateActiveNavOnScroll, { passive: true });
     updateActiveNavOnScroll();
+  } else {
+    // На страницах кейсов подсвечиваем Cases в мобильном меню
+    mobileLinks.forEach((link) => {
+      const href = link.getAttribute('href') || '';
+      link.classList.toggle('is-active', href.endsWith('#cases'));
+    });
   }
 
   // 4. Горизонтальный drag-to-scroll для всех каруселей
@@ -467,7 +496,6 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   // 6. Автоматическая смена цвета шапки на тёмном/насыщенном фоне
-  const header = document.getElementById('header');
   const darkSections = document.querySelectorAll(
     '.case-hero, .case-goal, .case-typography, .zr-hero, .zr-about, .kz-hero, .kz-goal, .kz-results, .um-hero, .um-goal, .ot-creditbar-intro, .ot-satcredit-intro'
   );
