@@ -1,4 +1,158 @@
 document.addEventListener('DOMContentLoaded', () => {
+  // 0. Экран загрузки (Page Loader)
+  const initPageLoader = () => {
+    let loader = document.getElementById('pageLoader');
+    if (!loader) {
+      loader = document.createElement('div');
+      loader.className = 'page-loader';
+      loader.id = 'pageLoader';
+      loader.setAttribute('aria-hidden', 'true');
+      loader.innerHTML = `
+        <div class="page-loader__bg"></div>
+        <div class="page-loader__stack">
+          <div class="page-loader__brand">
+            <span class="page-loader__brand-base">Kurlaev Andrew</span>
+            <span class="page-loader__brand-fill" aria-hidden="true">Kurlaev Andrew</span>
+          </div>
+          <div class="page-loader__bar">
+            <div class="page-loader__bar-fill"></div>
+          </div>
+        </div>
+      `;
+      document.body.prepend(loader);
+    }
+
+    document.documentElement.classList.add('is-page-loading');
+
+    const brand = loader.querySelector('.page-loader__brand');
+    const brandFill = loader.querySelector('.page-loader__brand-fill');
+    const barFill = loader.querySelector('.page-loader__bar-fill');
+    const headerEl = document.getElementById('header');
+    const headerBrand = document.querySelector('.header-brand');
+
+    const imgs = Array.from(document.images).filter((img) => img.loading !== 'lazy');
+    let loadedImgs = 0;
+    const totalImgs = imgs.length;
+
+    let fontsReady = !document.fonts;
+    if (document.fonts && document.fonts.ready) {
+      document.fonts.ready.then(() => {
+        fontsReady = true;
+      });
+    }
+
+    let windowLoaded = document.readyState === 'complete';
+    window.addEventListener('load', () => {
+      windowLoaded = true;
+    });
+
+    const markImgDone = () => {
+      loadedImgs += 1;
+    };
+
+    imgs.forEach((img) => {
+      if (img.complete) {
+        markImgDone();
+      } else {
+        img.addEventListener('load', markImgDone, { once: true });
+        img.addEventListener('error', markImgDone, { once: true });
+      }
+    });
+
+    const startTime = performance.now();
+    const minDuration = 550;
+    const maxWait = 8000;
+    let visualProgress = 0;
+    let isExiting = false;
+
+    const setProgressVisual = (p) => {
+      const clamped = Math.max(0, Math.min(1, p));
+      const pct = (clamped * 100).toFixed(2);
+      const rightInset = ((1 - clamped) * 100).toFixed(2);
+      if (barFill) {
+        barFill.style.width = `${pct}%`;
+      }
+      if (brandFill) {
+        const insetVal = `inset(0 ${rightInset}% 0 0)`;
+        brandFill.style.clipPath = insetVal;
+        brandFill.style.webkitClipPath = insetVal;
+      }
+    };
+
+    const startExit = () => {
+      if (isExiting) return;
+      isExiting = true;
+      setProgressVisual(1);
+
+      const brandRect = brand.getBoundingClientRect();
+      const brandCenterX = brandRect.left + brandRect.width / 2;
+      const brandCenterY = brandRect.top + brandRect.height / 2;
+
+      let targetCenterX = window.innerWidth / 2;
+      let targetCenterY = window.innerWidth <= 768 ? 39 : 45;
+
+      if (headerBrand && headerEl) {
+        const targetRect = headerBrand.getBoundingClientRect();
+        const isHiddenReveal =
+          headerEl.classList.contains('site-header--reveal') &&
+          !headerEl.classList.contains('is-visible');
+        const offsetY = isHiddenReveal ? headerEl.offsetHeight : 0;
+
+        if (targetRect.width > 0 && targetRect.height > 0) {
+          targetCenterX = targetRect.left + targetRect.width / 2;
+          targetCenterY = targetRect.top + offsetY + targetRect.height / 2;
+        }
+      }
+
+      loader.style.setProperty('--loader-dx', `${targetCenterX - brandCenterX}px`);
+      loader.style.setProperty('--loader-dy', `${targetCenterY - brandCenterY}px`);
+
+      setTimeout(() => {
+        loader.classList.add('is-exiting');
+
+        setTimeout(() => {
+          document.documentElement.classList.remove('is-page-loading');
+          loader.classList.add('is-done');
+
+          setTimeout(() => {
+            loader.remove();
+          }, 240);
+        }, 780);
+      }, 90);
+    };
+
+    const tick = (now) => {
+      if (isExiting) return;
+
+      const elapsed = now - startTime;
+      const imgRatio = totalImgs > 0 ? loadedImgs / totalImgs : 1;
+      const allReady = (imgRatio >= 1 && fontsReady && windowLoaded) || elapsed >= maxWait;
+
+      // Пока часть ресурсов ещё грузится, плавно идём до 95%; как всё готово — до 100%
+      const rawTarget = allReady ? 1 : Math.min(0.95, imgRatio * 0.9 + (windowLoaded ? 0.05 : 0));
+      const timeCap = Math.min(1, elapsed / minDuration);
+      const targetProgress = Math.min(rawTarget, timeCap);
+
+      visualProgress += (targetProgress - visualProgress) * 0.18;
+      if (targetProgress - visualProgress < 0.004) {
+        visualProgress = targetProgress;
+      }
+
+      setProgressVisual(visualProgress);
+
+      if (allReady && elapsed >= minDuration && visualProgress >= 0.995) {
+        startExit();
+        return;
+      }
+
+      requestAnimationFrame(tick);
+    };
+
+    requestAnimationFrame(tick);
+  };
+
+  initPageLoader();
+
   // 1. Мобильное бургер-меню
   const header = document.getElementById('header');
   const burgerBtn = document.getElementById('burgerBtn');
@@ -237,8 +391,6 @@ document.addEventListener('DOMContentLoaded', () => {
       'Custom illustrations crafted for the RoboCash investment platform rebrand.',
     'Стиль иллюстрации разработан исходя из нового брендбука и уникальному подходу к разработке визуального языка':
       'The illustration style grew straight out of the new brandbook and a fresh take on their visual language.',
-    'Стиль иллюстрации разработан исходя из нового бренбука и уникальному подходу к разработке визуального языка':
-      'The illustration style grew straight out of the new brandbook and a fresh take on their visual language.',
     'Иллюстрации для': '3D Visuals for',
     'МФО «CreditBar»': 'CreditBar MFI',
     'Серия 3D-иллюстраций, созданная с нуля для МФО в Казахстане. Стиль развивался параллельно с продуктом, задавая трендовый визуальный тон интерфейсам и маркетингу бренда.':
@@ -275,6 +427,9 @@ document.addEventListener('DOMContentLoaded', () => {
     acceptNode(node) {
       const parent = node.parentElement;
       if (!parent || parent.tagName === 'SCRIPT' || parent.tagName === 'STYLE') {
+        return NodeFilter.FILTER_REJECT;
+      }
+      if (parent.closest('.page-loader')) {
         return NodeFilter.FILTER_REJECT;
       }
       const normalized = node.nodeValue.replace(/\s+/g, ' ').trim();

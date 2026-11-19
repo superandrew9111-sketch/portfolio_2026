@@ -7,7 +7,7 @@
 }
 
 /* ===========================
-   1. HERO
+1. HERO
 =========================== */
 .ot-hero {
   background: #FFD600;
@@ -90,7 +90,7 @@
 }
 
 /* ===========================
-   2. ROBOCASH INTRO
+2. ROBOCASH INTRO
 =========================== */
 .ot-robocash-intro {
   position: relative;
@@ -124,10 +124,10 @@
 
 .ot-robocash-intro__visual-desktop {
   position: absolute;
-  right: 0;
+  right: max(-323px, -16.8229vw);
   bottom: 0;
-  width: 56.77%;
-  max-width: 1090px;
+  width: 73.59375vw;
+  max-width: 1413px;
   z-index: 1;
   pointer-events: none;
 }
@@ -138,7 +138,7 @@
 }
 
 /* ===========================
-   3. ROBOCASH GALLERY
+3. ROBOCASH GALLERY
 =========================== */
 .ot-robocash-grid {
   background: #F9F9F9;
@@ -219,7 +219,7 @@
 }
 
 /* ===========================
-   4. CREDITBAR INTRO
+4. CREDITBAR INTRO
 =========================== */
 .ot-creditbar-intro {
   position: relative;
@@ -286,7 +286,7 @@
 }
 
 /* ===========================
-   5. CREDITBAR GALLERY
+5. CREDITBAR GALLERY
 =========================== */
 .ot-creditbar-grid {
   background: #E7F1FF;
@@ -354,7 +354,7 @@
 }
 
 /* ===========================
-   6. CREDITBAR SMM + DIVIDER
+6. CREDITBAR SMM + DIVIDER
    Невидимый контейнер 1680×1260, иллюстрация 2389×2061 (left: -647, top: -56)
 =========================== */
 .ot-creditbar-smm {
@@ -394,7 +394,7 @@
 }
 
 /* ===========================
-   7. SATCREDIT INTRO
+7. SATCREDIT INTRO
 =========================== */
 .ot-satcredit-intro {
   background: #D05C19;
@@ -487,7 +487,7 @@
 .ot-pal-6 { border-radius: 0 0 clamp(4px, 0.42vw, 8px) 0; }
 
 /* ===========================
-   8. SATCREDIT SHOWCASE
+8. SATCREDIT SHOWCASE
 =========================== */
 .ot-satcredit-showcase {
   background: #F5F6F8;
@@ -584,7 +584,7 @@
 .ot-sc-mood-item--8 { aspect-ratio: 640 / 160; }
 
 /* ===========================
-   9. SATCREDIT BANNERS + DIVIDER
+9. SATCREDIT BANNERS + DIVIDER
    Невидимый контейнер 1680×810, иллюстрация 1932×1274 (left: -126, top: -23)
 =========================== */
 .ot-satcredit-banners {
@@ -622,7 +622,7 @@
 }
 
 /* ===========================
-   10. AKSAY INTRO
+10. AKSAY INTRO
 =========================== */
 .ot-aksay-intro {
   background: #FFAA00;
@@ -665,7 +665,7 @@
 }
 
 /* ===========================
-   11. AKSAY LOGOS (БЫЛО / СТАЛО)
+11. AKSAY LOGOS (БЫЛО / СТАЛО)
 =========================== */
 .ot-aksay-logos {
   background: #FFFFFF;
@@ -706,7 +706,7 @@
 }
 
 /* ===========================
-   12. AKSAY MERCH
+12. AKSAY MERCH
 =========================== */
 .ot-aksay-merch {
   background: #F2F5FF;
@@ -744,7 +744,7 @@
 }
 
 /* ===========================
-   13. TYPOGRAPHY (TEKTUR)
+13. TYPOGRAPHY (TEKTUR)
 =========================== */
 .ot-tektur {
   background: #FFFFFF;
@@ -842,7 +842,7 @@
 }
 
 /* ===========================
-   14. FONT COMPARISON
+14. FONT COMPARISON
 =========================== */
 .ot-aksay-compare {
   background: #FFFFFF;
@@ -906,7 +906,7 @@
 }
 
 /* ===========================
-   15. NAV & FOOTER OVERRIDES
+15. NAV & FOOTER OVERRIDES
 =========================== */
 .ot-nav-section,
 .ot-footer {
@@ -948,9 +948,9 @@
 
   .ot-robocash-intro__visual-mobile img {
     position: absolute;
-    left: -18%;
+    left: -12.35%;
     bottom: 0;
-    width: 118%;
+    width: 124.7%;
     max-width: none;
     height: auto;
   }
